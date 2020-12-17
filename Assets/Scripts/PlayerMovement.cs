@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     public float jumpSpeed;
     public float runSpeed;
+    public bool isActive;
 
     private void Awake()
     {
