@@ -8,19 +8,18 @@ public class SwitchPlayer : MonoBehaviour
 {
     [SerializeField] private Controls _playerControls;
     [SerializeField] private PlayerMovement playerMovement;
-    public bool isActive;
 
     private void Awake()
     {
         _playerControls = new Controls();
 
-        if (isActive)
+        if (playerMovement.isActive)
         {
             playerMovement.enabled = true;
         }
-        else if (!isActive)
+        else if (!playerMovement.isActive)
         {
-            playerMovement.enabled = false;
+            playerMovement.enabled = false; 
         }
     }
 
@@ -36,9 +35,10 @@ public class SwitchPlayer : MonoBehaviour
         _playerControls.Player.Switch.performed -= Switch;
     }
 
-    private void Switch(InputAction.CallbackContext context)
+    public void Switch(InputAction.CallbackContext context)
     {
         playerMovement.enabled = !playerMovement.enabled;
+        playerMovement.isActive = !playerMovement.isActive;
     }
 
 }

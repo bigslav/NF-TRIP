@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump() 
     {
-        if (isGrounded)
+        if (isGrounded == true)
         {
             playerRigidbody.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
             isGrounded = false;
@@ -64,10 +64,9 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody.MovePosition(transform.position + moveDirection * runSpeed * Time.fixedDeltaTime);
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Floor") {
-            isGrounded = true;
-        }
+        isGrounded = true;
     }
 }
