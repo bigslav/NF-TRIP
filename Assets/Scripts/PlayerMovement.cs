@@ -6,10 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Controls _playerControls;
-    [SerializeField] private Rigidbody playerRigidbody;
-    private Vector3 moveDirection;
-    private bool isGrounded;
+    [SerializeField] 
+    private Controls _playerControls;
+    [SerializeField] 
+    public Rigidbody playerRigidbody;
+    public Vector3 moveDirection;
+    public bool isGrounded;
     public float jumpSpeed;
     public float runSpeed;
     public bool isActive;
