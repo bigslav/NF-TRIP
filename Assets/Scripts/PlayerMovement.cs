@@ -36,9 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDisable()
     {
-        _playerControls.Disable();
         _playerControls.Player.Jump.performed -= HandleJumpInput;
         _playerControls.Player.Move.performed -= HandleMoveInput;
+        _playerControls.Disable();
     }
 
     private void HandleJumpInput(InputAction.CallbackContext context)
