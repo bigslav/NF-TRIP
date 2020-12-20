@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Rider : MonoBehaviour
 {
-    public bool isMounting;
     public PlayerMovement riderMovement;
-    public PlayerMovement mount;
+    public PlayerMovement mountMovement;
     public Rigidbody riderRigidbody;
     public float riderSeatHeight;
 
     void Start()
     {
         riderSeatHeight = 1.55f;
-        isMounting = false;
+        riderMovement.isRiding = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (isMounting && !riderMovement.isActive)
+        if (riderMovement.isRiding && !riderMovement.isActive)
         {
             riderRigidbody.isKinematic = true;
-            transform.position = new Vector3(mount.transform.position.x, mount.transform.position.y + riderSeatHeight, mount.transform.position.z);
+            transform.position = new Vector3(mountMovement.transform.position.x, mountMovement.transform.position.y + riderSeatHeight, mountMovement.transform.position.z);
         }
-        else {
+        else 
+        {
             riderRigidbody.isKinematic = false;
         }
     }
@@ -32,11 +32,12 @@ public class Rider : MonoBehaviour
     {
         if (collision.gameObject.name == "Player_1")
         {
-            isMounting = true;
+            riderMovement.isRiding = true;
         }
         else
         {
-            isMounting = false;
+            riderMovement.isRiding = false;
         }
     }
+
 }
