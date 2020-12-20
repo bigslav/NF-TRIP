@@ -2,43 +2,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SwitchPlayer : MonoBehaviour
 {
-    [SerializeField] private Controls _playerControls;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerMovement firstPlayerMovement;
+    [SerializeField] private PlayerMovement secondPlayerMovement;
 
     private void Awake()
     {
-        _playerControls = new Controls();
+        SetEnabledValue(firstPlayerMovement);
+        SetEnabledValue(secondPlayerMovement);
+    }
 
+    private void Update()
+    {
+        SetEnabledValue(firstPlayerMovement);
+        SetEnabledValue(secondPlayerMovement);
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)) 
+        {
+            Switch();
+        }
+    }
+
+    private void Switch()
+    {
+        firstPlayerMovement.isActive = !firstPlayerMovement.isActive;
+        secondPlayerMovement.isActive = !secondPlayerMovement.isActive;
+    }
+
+    private void SetEnabledValue(PlayerMovement playerMovement) 
+    {
         if (playerMovement.isActive)
         {
             playerMovement.enabled = true;
         }
-        else if (!playerMovement.isActive)
+        else
         {
-            playerMovement.enabled = false; 
+            playerMovement.enabled = false;
         }
     }
-
-    private void OnEnable()
-    {
-        _playerControls.Enable();
-        _playerControls.Player.Switch.performed += Switch;
-    }
-
-    private void OnDisable()
-    {
-        _playerControls.Disable();
-        _playerControls.Player.Switch.performed -= Switch;
-    }
-
-    public void Switch(InputAction.CallbackContext context)
-    {
-        playerMovement.enabled = !playerMovement.enabled;
-        playerMovement.isActive = !playerMovement.isActive;
-    }
-
 }

@@ -3,72 +3,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
+
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] 
-    private Controls _playerControls;
-    [SerializeField] 
+    public bool isActive;
     public Rigidbody playerRigidbody;
-    public Vector3 moveDirection;
-    public bool isGrounded;
+    private BoxCollider playerCollider;
     public float jumpSpeed;
     public float runSpeed;
-    public bool isActive;
+    public float moveDirection;
+    public bool isPulling;
 
     private void Awake()
     {
-        _playerControls = new Controls();
-        isGrounded = true;
+        isPulling = false;
+        playerCollider = GetComponent<BoxCollider>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        Move();
-    }
+        moveDirection = Input.GetAxis("Horizontal");
+        Move(moveDirection);
 
-    private void OnEnable()
-    {
-        _playerControls.Enable();
-        _playerControls.Player.Jump.performed += HandleJumpInput;
-        _playerControls.Player.Move.performed += HandleMoveInput;
-    }
-
-    private void OnDisable()
-    {
-        _playerControls.Player.Jump.performed -= HandleJumpInput;
-        _playerControls.Player.Move.performed -= HandleMoveInput;
-        _playerControls.Disable();
-    }
-
-    private void HandleJumpInput(InputAction.CallbackContext context)
-    {
-        Jump();
-    }
-
-    private void HandleMoveInput(InputAction.CallbackContext context)
-    {
-        float moveDirectionOnX = _playerControls.Player.Move.ReadValue<float>();
-        moveDirection = new Vector3(moveDirectionOnX, 0, 0);
+        if (Input.GetKeyDown(KeyCode.W)) {
+            Jump();
+        }
     }
 
     private void Jump() 
     {
-        if (isGrounded == true)
+        if (Physics.Raycast(transform.position, Vector3.down, playerCollider.bounds.extents.y + 0.1f))
         {
             playerRigidbody.AddForce(transform.up * jumpSpeed, ForceMode.Impulse);
-            isGrounded = false;
         }
     }
 
-    private void Move()
+    private void Move(float dir)
     {
-        playerRigidbody.MovePosition(transform.position + moveDirection * runSpeed * Time.fixedDeltaTime);
+        if(isPulling == false) 
+        {
+            if (dir < 0)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            else if (dir > 0)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+        }
+        
+        playerRigidbody.velocity = new Vector3(runSpeed * dir, playerRigidbody.velocity.y, playerRigidbody.velocity.z);
     }
 
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        isGrounded = true;
-    }
 }
