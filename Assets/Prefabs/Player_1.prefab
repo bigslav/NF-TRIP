@@ -93,6 +93,8 @@ GameObject:
   - component: {fileID: 5752556994075297953}
   - component: {fileID: 5752556994075297980}
   - component: {fileID: 262644556}
+  - component: {fileID: 262644562}
+  - component: {fileID: 262644563}
   m_Layer: 8
   m_Name: Player_1
   m_TagString: Untagged
@@ -183,7 +185,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5752556994075297958}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -205,5 +207,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 1
   playerRigidbody: {fileID: 5752556994075297980}
-  jumpSpeed: 5
-  runSpeed: 5
+  jumpSpeed: 275
+  runSpeed: 7
+  moveDirection: 0
+  isPulling: 0
+  isRiding: 0
+  isGrounded: 0
+--- !u!65 &262644562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752556994075297958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0.5, y: 0, z: 0}
+--- !u!114 &262644563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752556994075297958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300a97ff273b7ba42aa67956bd0a6911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullerMovement: {fileID: 262644556}
+  pullSpeed: 0
+  pullDirection: 0

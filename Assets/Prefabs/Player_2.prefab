@@ -186,12 +186,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.01
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 120
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!114 &7004786486912678736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +206,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   playerRigidbody: {fileID: 7004786486912678737}
-  jumpSpeed: 5
-  runSpeed: 5
+  jumpSpeed: 8
+  runSpeed: 7
+  moveDirection: 0
+  isPulling: 0
+  isRiding: 0
+  isGrounded: 0
 --- !u!114 &991548292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa1892d187061246a2cf871c7160f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMounting: 0
   riderMovement: {fileID: 7004786486912678736}
-  mount: {fileID: 0}
+  mountMovement: {fileID: 0}
   riderRigidbody: {fileID: 7004786486912678737}
   riderSeatHeight: 1.55
