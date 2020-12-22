@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7563894857317217099}
   - component: {fileID: 2737590955685065297}
   - component: {fileID: 8029402029116411287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,10 +91,9 @@ GameObject:
   - component: {fileID: 5752556994075297955}
   - component: {fileID: 5752556994075297952}
   - component: {fileID: 5752556994075297953}
-  - component: {fileID: 5752556994075297981}
   - component: {fileID: 5752556994075297980}
-  - component: {fileID: 262644562}
-  m_Layer: 0
+  - component: {fileID: 262644556}
+  m_Layer: 8
   m_Name: Player_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +175,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5752556994075297981
+--- !u!54 &5752556994075297980
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752556994075297958}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
+--- !u!114 &262644556
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,38 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b705092d761044f8cf07d1898e1054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   playerRigidbody: {fileID: 5752556994075297980}
-  playerCollider: {fileID: 5752556994075297953}
-  jumpSpeed: 10
+  jumpSpeed: 5
   runSpeed: 5
-  isActive: 1
---- !u!54 &5752556994075297980
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5752556994075297958}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.01
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 120
-  m_CollisionDetection: 0
---- !u!114 &262644562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5752556994075297958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2d44e92ac55cf4890ef8652270422b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 5752556994075297981}
-  isActive: 1

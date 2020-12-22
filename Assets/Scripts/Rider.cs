@@ -4,53 +4,40 @@ using UnityEngine;
 
 public class Rider : MonoBehaviour
 {
-    public bool isMounting;
-    [SerializeField] 
-    private PlayerMovement riderMovement;
-    [SerializeField]
-    private PlayerMovement mount;
-    [SerializeField]
-    private Rigidbody riderRigidbody;
-    [SerializeField]
-    private BoxCollider riderCollider;
-    [SerializeField]
-    private BoxCollider mountCollider;
-    private float offset;
+    public PlayerMovement riderMovement;
+    public PlayerMovement mountMovement;
+    public Rigidbody riderRigidbody;
+    public float riderSeatHeight;
 
     void Start()
     {
-        offset = 1.55f;
-        isMounting = false;
+        riderSeatHeight = 1.55f;
+        riderMovement.isRiding = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (riderMovement.isGrounded == false) 
-        {
-            isMounting = false;
-        }
-
-        if (isMounting && !riderMovement.isActive)
+        if (riderMovement.isRiding && !riderMovement.isActive)
         {
             riderRigidbody.isKinematic = true;
-            transform.position = new Vector3(mount.transform.position.x, mount.transform.position.y + offset, mount.transform.position.z);
+            transform.position = new Vector3(mountMovement.transform.position.x, mountMovement.transform.position.y + riderSeatHeight, mountMovement.transform.position.z);
         }
-        else {
+        else 
+        {
             riderRigidbody.isKinematic = false;
         }
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "Player_1")
         {
-            isMounting = true;
+            riderMovement.isRiding = true;
         }
-        else 
+        else
         {
-            isMounting = false;
+            riderMovement.isRiding = false;
         }
     }
+
 }
