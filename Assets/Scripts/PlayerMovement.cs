@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Interactions;
-
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        moveDirection = Input.GetAxis("Horizontal");
+        moveDirection = Input.GetAxisRaw("Horizontal");
         Move(moveDirection);
 
         if (CheckIfGrounded() && Input.GetKeyDown(KeyCode.W)) {
