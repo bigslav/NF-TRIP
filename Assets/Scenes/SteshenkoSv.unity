@@ -323,52 +323,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244632057}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &262644555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5752556994075297958, guid: 90713ffaca80cc74f8e6907ecfc89505,
-    type: 3}
-  m_PrefabInstance: {fileID: 5752556994136091629}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &262644556 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 262644556, guid: 90713ffaca80cc74f8e6907ecfc89505,
     type: 3}
   m_PrefabInstance: {fileID: 5752556994136091629}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262644555}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b705092d761044f8cf07d1898e1054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &262644562
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262644555}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0.5, y: 0, z: 0}
---- !u!114 &262644563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262644555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 300a97ff273b7ba42aa67956bd0a6911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pullerMovement: {fileID: 262644556}
-  pullSpeed: 0
-  pullDirection: 0
 --- !u!1 &326766696
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,12 +955,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099304915}
-  m_LocalRotation: {x: 0.12438076, y: 0, z: 0, w: 0.9922346}
+  m_LocalRotation: {x: 0.12438076, y: -0, z: -0, w: 0.9922346}
   m_LocalPosition: {x: 0, y: 13.34, z: -16.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 14.29, y: 0, z: 0}
 --- !u!1 &1141110934
 GameObject:
@@ -1311,7 +1277,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926805269}
   serializedVersion: 2
-  m_Mass: 10000
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -1391,7 +1357,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5752556994136091629
 PrefabInstance:
@@ -1400,14 +1366,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 262644556, guid: 90713ffaca80cc74f8e6907ecfc89505, type: 3}
-      propertyPath: runSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 262644556, guid: 90713ffaca80cc74f8e6907ecfc89505, type: 3}
-      propertyPath: jumpSpeed
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5752556994075297954, guid: 90713ffaca80cc74f8e6907ecfc89505,
         type: 3}
       propertyPath: m_RootOrder
@@ -1478,23 +1436,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 991548292, guid: fa4e1c59d36de0d43b544ffb65f001ef, type: 3}
-      propertyPath: mount
-      value: 
-      objectReference: {fileID: 262644556}
-    - target: {fileID: 991548292, guid: fa4e1c59d36de0d43b544ffb65f001ef, type: 3}
       propertyPath: mountMovement
       value: 
       objectReference: {fileID: 262644556}
-    - target: {fileID: 7004786486912678736, guid: fa4e1c59d36de0d43b544ffb65f001ef,
-        type: 3}
-      propertyPath: runSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7004786486912678736, guid: fa4e1c59d36de0d43b544ffb65f001ef,
-        type: 3}
-      propertyPath: jumpSpeed
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7004786486912678746, guid: fa4e1c59d36de0d43b544ffb65f001ef,
         type: 3}
       propertyPath: m_Name
