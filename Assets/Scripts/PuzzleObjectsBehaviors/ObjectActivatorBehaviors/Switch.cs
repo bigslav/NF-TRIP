@@ -12,7 +12,7 @@ public class Switch : ObjectActivator
         wasTouched = false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (wasTouched == false)
         {
@@ -28,11 +28,10 @@ public class Switch : ObjectActivator
                 }
             }
         }
-
         wasTouched = true;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
         wasTouched = false;
     }

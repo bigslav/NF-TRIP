@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 756631887084027921}
   - component: {fileID: 756631887084027920}
   - component: {fileID: 756631887084027923}
+  - component: {fileID: 8292635717896350715}
   - component: {fileID: 756631887084027922}
-  - component: {fileID: 756631887084029933}
+  - component: {fileID: 1296715550306959312}
   m_Layer: 0
-  m_Name: Platform
+  m_Name: PlatformDisappearAfterJump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8292635717896350715
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756631887084029932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.95, y: 0.25, z: 1}
+  m_Center: {x: 0, y: 0.625, z: 0}
 --- !u!65 &756631887084027922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -94,7 +108,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &756631887084029933
+--- !u!114 &1296715550306959312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,11 +117,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 756631887084029932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f0e59d398a712d4eaf6c3b66ec83bd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 59b4de34cc3f69c4c89b4551d11b02ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFalling: 0
-  persistTime: 1
-  disappearTime: 1
-  platformRenderer: {fileID: 756631887084027923}
-  platformCollider: {fileID: 756631887084027922}
