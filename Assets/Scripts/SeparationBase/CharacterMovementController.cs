@@ -14,6 +14,7 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera _golemCamera;
     [SerializeField] private CinemachineVirtualCamera _mushroomCamera;
 
+    [SerializeField] private MovementHandler _mushroomMovementHandler;
     [SerializeField] private InputHandler _golemInputHandler;
     [SerializeField] private InputHandler _mushroomInputHandler;
     [SerializeField] private MovementInputProcessor _golemMovementInputProcessor;
@@ -22,8 +23,6 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private GameObject _mushroomGameObject;
     [SerializeField] private CollisionProcessor _mushroomCollisionProcessor;
     [SerializeField] private Rigidbody _mushroomRigidbody;
-
-    [SerializeField] private float riderSeatHeight;
 
     private bool _isJumpOffProcessed;
 
@@ -171,28 +170,29 @@ public class CharacterMovementController : MonoBehaviour
         }
     }
 
-    private void FixMushroomOnTop(bool value)
-    {
-        if (value)
-        {
-            _mushroomRigidbody.isKinematic = true;
-            _mushroomGameObject.transform.position = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + riderSeatHeight, _golemGameObject.transform.position.z);
-        }
-        else
-        {
-            _mushroomRigidbody.isKinematic = false;
-        }
-    }
-
     private void ProcessRiding()
     {
         if (_mushroomCollisionProcessor.isOnTopOfGolem && !mushroomIsActive)
         {
-            FixMushroomOnTop(true);
+            _mushroomGameObject.transform.parent = _golemGameObject.transform;
+            Destroy(_mushroomRigidbody);
+
+            Vector3 currentPosition = _mushroomGameObject.transform.position;
+            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 2.5f, _golemGameObject.transform.position.z);
+            Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, 0.2f);
+
+            _mushroomGameObject.transform.position = newPosition;
         }
         else
         {
-            FixMushroomOnTop(false);
+            if (_mushroomRigidbody == null)
+            {
+                _mushroomRigidbody = _mushroomGameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
+                _mushroomRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
+            }
+
+            _mushroomGameObject.transform.parent = null;
         }
     }
 }

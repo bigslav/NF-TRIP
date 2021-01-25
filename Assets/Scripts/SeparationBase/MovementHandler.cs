@@ -11,6 +11,7 @@ public class MovementHandler : MonoBehaviour
     private void FixedUpdate() => Move();
     
     public void AddModifier(IMovementModifier modifier) => _modifiers.Add(modifier);
+
     public void RemoveModifier(IMovementModifier modifier) => _modifiers.Remove(modifier);
 
     private void Move() 
@@ -22,7 +23,15 @@ public class MovementHandler : MonoBehaviour
             movement += modifier.Value;
         }
 
-        _rigidBody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+        if (_rigidBody != null)
+        {
+            _rigidBody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+        }
+    }
+
+    public void SetRigidbody(Rigidbody rb)
+    {
+        _rigidBody = rb;
     }
 
 }

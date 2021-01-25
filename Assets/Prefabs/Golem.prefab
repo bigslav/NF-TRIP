@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3546962432846961408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5086798556147692099}
+  - component: {fileID: 2577285622546310678}
+  - component: {fileID: 3444778433154128918}
+  m_Layer: 9
+  m_Name: Puller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5086798556147692099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3546962432846961408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.65, y: -0.119, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6919059683331726944}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2577285622546310678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3546962432846961408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300a97ff273b7ba42aa67956bd0a6911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullerInputHandler: {fileID: 5594992948068825823}
+  pullerMovementInputProcessor: {fileID: 1337498304610737206}
+  boxMovementInputProcessor: {fileID: 0}
+--- !u!65 &3444778433154128918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3546962432846961408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6919059683331726948
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +71,7 @@ GameObject:
   - component: {fileID: 6919059683331726944}
   - component: {fileID: 6919059683331726954}
   - component: {fileID: 6919059683331726949}
+  - component: {fileID: 5887068831864318155}
   - component: {fileID: 5594992948068825823}
   - component: {fileID: 5091929217247442872}
   - component: {fileID: 2718994575633533973}
@@ -35,6 +96,7 @@ Transform:
   m_Children:
   - {fileID: 8288820461294616900}
   - {fileID: 6275448609190968320}
+  - {fileID: 5086798556147692099}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65,8 +127,23 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1.25, z: 1}
+  m_Size: {x: 0.75, y: 1.07, z: 1}
   m_Center: {x: 0.1, y: 0.125, z: 0}
+--- !u!114 &5887068831864318155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919059683331726948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300a97ff273b7ba42aa67956bd0a6911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pullerInputHandler: {fileID: 0}
+  pullerMovementInputProcessor: {fileID: 0}
+  boxMovementInputProcessor: {fileID: 0}
 --- !u!114 &5594992948068825823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +160,8 @@ MonoBehaviour:
   _collisionProcessor: {fileID: 8288820461294616903}
   _forceReciever: {fileID: 5091929217247442872}
   _jumpForce: 15
+  isFacingRight: 0
+  isPulling: 0
 --- !u!114 &5091929217247442872
 MonoBehaviour:
   m_ObjectHideFlags: 0

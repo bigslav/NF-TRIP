@@ -11,36 +11,40 @@ public class InputHandler : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float _jumpForce = 5;
 
-    [HideInInspector]
     public bool isFacingRight;
+    public bool isPulling;
 
     private void Start()
     {
         isFacingRight = true;
+        isPulling = false;
     }
 
     void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-/*
-        if (horizontalInput != 0 && _animator != null)
-        {
-            _animator.SetBool("IsWalking", true);
-        }
-        else 
-        {
-            _animator.SetBool("IsWalking", false);
-        }*/
+        /*
+                if (horizontalInput != 0 && _animator != null)
+                {
+                    _animator.SetBool("IsWalking", true);
+                }
+                else 
+                {
+                    _animator.SetBool("IsWalking", false);
+                }*/
 
-        if (horizontalInput == 1)
+        if (!isPulling)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            isFacingRight = true;
-        }
-        else if(horizontalInput == -1)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            isFacingRight = false;
+            if (horizontalInput == 1)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                isFacingRight = true;
+            }
+            else if (horizontalInput == -1)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+                isFacingRight = false;
+            }
         }
 
         _movementInputProcessor.SetMovementInput(new Vector2(horizontalInput, 0f));
