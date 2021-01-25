@@ -16,7 +16,7 @@ public class SwitchPlayer : MonoBehaviour
         SetEnabledValue(bigPlayerMovement);
         SetEnabledValue(littlePlayerMovement);
 
-        if (Input.GetKeyDown(KeyCode.LeftControl)) 
+        if (Input.GetKeyDown(KeyCode.F)) 
         {
             Switch();
         }

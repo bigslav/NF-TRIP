@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (CheckIfGrounded())
         {
-            if (Input.GetKeyDown(KeyCode.Space)) 
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) 
             {
                 TryJump();
             }
