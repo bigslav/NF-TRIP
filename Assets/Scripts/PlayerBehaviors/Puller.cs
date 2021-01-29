@@ -5,7 +5,7 @@ public class Puller : MonoBehaviour
     [Header("References")]
     [SerializeField] private InputHandler pullerInputHandler;
     [SerializeField] private MovementInputProcessor pullerMovementInputProcessor;
-    [SerializeField] private BoxMovementProcessor boxMovementInputProcessor;
+    [SerializeField] private BoxMovementProcessor boxMovementInputProcessor = null;
 
     private float _pullSpeed;
     private Vector2 _pullDirection;
@@ -29,12 +29,12 @@ public class Puller : MonoBehaviour
             _pullDirection = new Vector2(1, 0);
         }
 
-        if (_objectToPull != null && Input.GetKey(KeyCode.E))
+        if (boxMovementInputProcessor != null && Input.GetKey(KeyCode.E))
         {
             pullerInputHandler.isPulling = true;
             boxMovementInputProcessor.SetValue(pullerMovementInputProcessor.Value);
         }
-        else 
+        else if (boxMovementInputProcessor != null)
         {
             pullerInputHandler.isPulling = false;
             boxMovementInputProcessor.SetValue(Vector3.zero);

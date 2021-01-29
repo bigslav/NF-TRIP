@@ -25,13 +25,16 @@ public class PlatformFalling : Platform
 
     public override void OnTriggerEnter(Collider other)
     {
-        playerCollider = other;
-        other.transform.parent = transform;
-        PlatformFallEventArgs args = new PlatformFallEventArgs();
-        args.persistTime = persistTime;
-        args.disappearTime = disappearTime;
-        args.platformGameObject = gameObject;
-        PlatformFall(this, args);
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+        {
+            playerCollider = other;
+            other.transform.parent = transform;
+            PlatformFallEventArgs args = new PlatformFallEventArgs();
+            args.persistTime = persistTime;
+            args.disappearTime = disappearTime;
+            args.platformGameObject = gameObject;
+            PlatformFall(this, args);
+        }
     }
 
     public class PlatformFallEventArgs : EventArgs

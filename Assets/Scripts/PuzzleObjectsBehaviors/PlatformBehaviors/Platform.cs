@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-
     public static Collider playerCollider;
+    public LayerMask whoCanInteract;
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 8 || other.gameObject.layer == 9)
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
         {
             playerCollider = other;
             other.transform.parent = transform;
@@ -18,7 +18,7 @@ public class Platform : MonoBehaviour
 
     public virtual void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 8 || other.gameObject.layer == 9)
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
         {
             other.transform.parent = null;
         }

@@ -2,20 +2,23 @@
 
 public class Button : ObjectActivator
 {
-    [SerializeField]
-    private GameObject targetObject;
-
-    public bool deactivatorBehavior;
+    [Header("Settings")]
+    [SerializeField] private GameObject targetObject;
+    [SerializeField] private bool deactivatorBehavior;
+    [SerializeField] private LayerMask whoCanInteract;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!deactivatorBehavior)
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
         {
-            Activate(targetObject);
-        }
-        else
-        {
-            Deactivate(targetObject);
+            if (!deactivatorBehavior)
+            {
+                Activate(targetObject);
+            }
+            else
+            {
+                Deactivate(targetObject);
+            }
         }
     }
 }

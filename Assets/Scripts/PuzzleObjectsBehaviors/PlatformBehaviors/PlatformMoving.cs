@@ -27,7 +27,7 @@ public class PlatformMoving : Platform
         tolerance = speed * Time.deltaTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position != _currentTarget)
         {

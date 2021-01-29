@@ -2,32 +2,38 @@
 
 public class PushPlate : ObjectActivator
 {
-    [SerializeField]
-    private GameObject targetObject;
-
-    public bool deactivatorBehavior;
+    [Header("Settings")]
+    [SerializeField] private GameObject targetObject;
+    [SerializeField] private bool deactivatorBehavior;
+    [SerializeField] private LayerMask whoCanInteract;
 
     private void OnTriggerStay(Collider other)
     {
-        if (!deactivatorBehavior)
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
         {
-            Activate(targetObject);
-        }
-        else
-        {
-            Deactivate(targetObject);
+            if (!deactivatorBehavior)
+            {
+                Activate(targetObject);
+            }
+            else
+            {
+                Deactivate(targetObject);
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!deactivatorBehavior)
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
         {
-            Deactivate(targetObject);
-        }
-        else
-        {
-            Activate(targetObject);
+            if (!deactivatorBehavior)
+            {
+                Deactivate(targetObject);
+            }
+            else
+            {
+                Activate(targetObject);
+            }
         }
     }
 }

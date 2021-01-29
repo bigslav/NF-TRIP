@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PlatformLever : MonoBehaviour
 {
-    public PlatformMoving movingPlatform;
+    [Header("Settings")]
+    [SerializeField] private PlatformMoving movingPlatform;
+    [SerializeField] private LayerMask whoCanInteract;
 
     private void OnTriggerStay(Collider other)
     {
-        if ((other.gameObject.layer == 8 || other.gameObject.layer == 9) && Input.GetKeyDown(KeyCode.E))
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)) && Input.GetKeyDown(KeyCode.E))
         {
             movingPlatform.NextPlatform();
         }
