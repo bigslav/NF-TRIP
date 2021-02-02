@@ -71,11 +71,11 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
         {
             if (Value.x != 0)
             {
-                _animation.CrossFade("Run");
+                _animation.CrossFade("PrototypeMushroomRun");
             }
             else
             {
-                _animation.CrossFade("Idle");
+                _animation.CrossFade("PrototypeMushroomIdle");
             }
         }
     }
