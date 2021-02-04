@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlatformDisappearAfterJump : Platform
 {
     override public void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
-        gameObject.SetActive(false);
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+        {
+            other.transform.parent = null;
+            gameObject.SetActive(false);
+        }
     }
 }

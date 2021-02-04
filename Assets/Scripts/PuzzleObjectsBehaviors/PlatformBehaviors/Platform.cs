@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    [HideInInspector]
     public static Collider playerCollider;
+    public LayerMask whoCanInteract;
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        playerCollider = other;
-        other.transform.parent = transform;
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+        {
+            playerCollider = other;
+            other.transform.parent = transform;
+        }
     }
 
     public virtual void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+        {
+            other.transform.parent = null;
+        }
     }
 }

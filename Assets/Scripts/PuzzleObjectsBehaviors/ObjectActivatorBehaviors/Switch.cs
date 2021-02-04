@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Switch : ObjectActivator
 {
-    public GameObject[] targetObjects;
+    [Header("Settings")]
+    [SerializeField] private GameObject[] targetObjects;
+    [SerializeField] private LayerMask whoCanInteract;
+
     private bool wasTouched;
 
     private void Awake()
@@ -12,27 +15,34 @@ public class Switch : ObjectActivator
         wasTouched = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (wasTouched == false)
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
         {
-            foreach (GameObject target in targetObjects)
+            if (wasTouched == false)
             {
-                if (target.active == true)
+                foreach (GameObject target in targetObjects)
                 {
-                    Deactivate(target);
-                }
-                else if (target.active == false)
-                {
-                    Activate(target);
+                    if (target.active == true)
+                    {
+                        Deactivate(target);
+                    }
+                    else if (target.active == false)
+                    {
+                        Activate(target);
+                    }
                 }
             }
         }
+
         wasTouched = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        wasTouched = false;
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+        {
+            wasTouched = false;
+        }
     }
 }

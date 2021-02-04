@@ -2,10 +2,13 @@
 
 public class Puller : MonoBehaviour
 {
-    public PlayerMovement pullerMovement;
+    [Header("References")]
+    [SerializeField] private InputHandler pullerInputHandler;
+    [SerializeField] private MovementInputProcessor pullerMovementInputProcessor;
+    [SerializeField] private BoxMovementProcessor boxMovementInputProcessor = null;
 
     private float _pullSpeed;
-    private float _pullDirection;
+    private Vector2 _pullDirection;
     private GameObject _objectToPull;
     private Rigidbody _objectToPullRigidbody;
 
@@ -14,19 +17,27 @@ public class Puller : MonoBehaviour
         _objectToPull = null;
         _objectToPullRigidbody = null;
     }
+
     private void Update()
     {
-        _pullDirection = pullerMovement.MoveDirection;
-        _pullSpeed = pullerMovement.runSpeed;
-
-        if (_objectToPull != null && Input.GetKey(KeyCode.F))
+        if (pullerInputHandler.isFacingRight)
         {
-            pullerMovement.IsPulling = true;
-            _objectToPullRigidbody.velocity = new Vector3(_pullSpeed * _pullDirection, _objectToPullRigidbody.velocity.y, _objectToPullRigidbody.velocity.z);
+            _pullDirection = new Vector2(-1, 0);
         }
-        else 
+        else if (!pullerInputHandler.isFacingRight)
         {
-            pullerMovement.IsPulling = false;
+            _pullDirection = new Vector2(1, 0);
+        }
+
+        if (boxMovementInputProcessor != null && Input.GetKey(KeyCode.E))
+        {
+            pullerInputHandler.isPulling = true;
+            boxMovementInputProcessor.SetValue(pullerMovementInputProcessor.Value);
+        }
+        else if (boxMovementInputProcessor != null)
+        {
+            pullerInputHandler.isPulling = false;
+            boxMovementInputProcessor.SetValue(Vector3.zero);
         }
     }
 

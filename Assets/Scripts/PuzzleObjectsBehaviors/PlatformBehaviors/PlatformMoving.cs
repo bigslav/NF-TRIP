@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlatformMoving : Platform
 {
+    [SerializeField] private Rigidbody _rb = null;
+
     public Vector3[] points;
 
     public float speed;
@@ -25,7 +27,7 @@ public class PlatformMoving : Platform
         tolerance = speed * Time.deltaTime;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position != _currentTarget)
         {
@@ -40,7 +42,8 @@ public class PlatformMoving : Platform
     private void MovePlatform() 
     {
         Vector3 heading = _currentTarget - transform.position;
-        transform.position += (heading / heading.magnitude) * speed * Time.deltaTime;
+/*        transform.position += (heading / heading.magnitude) * speed * Time.deltaTime;*/
+        _rb.MovePosition(transform.position + (heading / heading.magnitude) * speed * Time.deltaTime);
         if (heading.magnitude < tolerance)
         {
             transform.position = _currentTarget;
