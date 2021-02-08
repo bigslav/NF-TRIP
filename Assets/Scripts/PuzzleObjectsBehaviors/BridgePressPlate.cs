@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bridgePressPlate : MonoBehaviour
+public class BridgePressPlate : MonoBehaviour
 {
     [SerializeField] private BridgeRotation bridge;
     [SerializeField] private LayerMask whoCanInteract;
