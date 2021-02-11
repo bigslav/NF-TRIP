@@ -2017,6 +2017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bridge: {fileID: 146589808}
   whoCanInteract:
+    serializedVersion: 2
     m_Bits: 256
 --- !u!65 &1032131397
 BoxCollider:
@@ -4024,7 +4025,7 @@ PrefabInstance:
     - target: {fileID: 5558029011347877139, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.735964
+      value: -18.735966
       objectReference: {fileID: 0}
     - target: {fileID: 5558029011347877139, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
@@ -4039,7 +4040,7 @@ PrefabInstance:
     - target: {fileID: 5558029012346992228, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.146679
+      value: -21.741247
       objectReference: {fileID: 0}
     - target: {fileID: 5558029012346992228, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
@@ -4078,6 +4079,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558029012346992231, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558029012346992231, guid: bacde8aa302abf746951ed799a26d6bf,
+        type: 3}
       propertyPath: field of view
       value: 45
       objectReference: {fileID: 0}
@@ -4094,7 +4100,7 @@ PrefabInstance:
     - target: {fileID: 5558029012734352194, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.146679
+      value: -21.741247
       objectReference: {fileID: 0}
     - target: {fileID: 5558029012734352194, guid: bacde8aa302abf746951ed799a26d6bf,
         type: 3}
