@@ -7,8 +7,8 @@ public class ShadowCaster : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GetComponent<Renderer>().castShadows = true;
-		GetComponent<Renderer>().receiveShadows = true;
+		GetComponent<SpriteRenderer>().castShadows = true;
+		GetComponent<SpriteRenderer>().receiveShadows = true;
 	}
 	
 	// Update is called once per frame

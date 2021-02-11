@@ -12,7 +12,8 @@ public class MultipleTargetFollow : MonoBehaviour
     public float minZoom = 40f;
     public float maxZoom = 10f;
     public float zoomLimiter = 50f;
-
+    public bool lockY = false;
+    
     private Vector3 velocity;
 
     private void LateUpdate()
@@ -28,8 +29,18 @@ public class MultipleTargetFollow : MonoBehaviour
         Vector3 centerPoint = GetCenterPoint();
 
         Vector3 newPosition = centerPoint + offset;
+        Vector3 lockedPosition;
 
-        transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
+        if (lockY)
+        {
+            lockedPosition = new Vector3(newPosition.x, offset.y, newPosition.z);
+        }
+        else 
+        {
+            lockedPosition = newPosition;
+        }
+
+        transform.position = Vector3.SmoothDamp(transform.position, lockedPosition, ref velocity, smoothTime);
     }
 
     private void Zoom()
