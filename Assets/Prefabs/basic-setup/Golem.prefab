@@ -140,7 +140,8 @@ Transform:
   - {fileID: 8288820461294616900}
   - {fileID: 5086798556147692099}
   - {fileID: 8358306291148686729}
-  - {fileID: 4402449599420500543}
+  - {fileID: 5474095455665721982}
+  - {fileID: 7364593552109676428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -235,7 +236,51 @@ MonoBehaviour:
   _movementHandler: {fileID: 2718994575633533973}
   _animator: {fileID: 0}
   _animation: {fileID: 0}
-  _movementSpeed: 7
+  _movementSpeed: 5
+--- !u!1 &8234864375575006011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5474095455665721982}
+  - component: {fileID: 8873061022969896103}
+  m_Layer: 12
+  m_Name: Interactor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5474095455665721982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234864375575006011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6919059683331726944}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8873061022969896103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234864375575006011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 3.43, z: 1.37}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8288820461294616902
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +292,7 @@ GameObject:
   - component: {fileID: 8288820461294616900}
   - component: {fileID: 8288820461294616901}
   - component: {fileID: 8288820461294616903}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CollisionProcessor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +341,7 @@ MonoBehaviour:
   _rigidBody: {fileID: 6919059683331726954}
   isGrounded: 0
   isOnTopOfGolem: 0
---- !u!1001 &4220468685715303892
+--- !u!1001 &7043334793791815783
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -306,7 +351,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a2aadb7b999b11d4693885729401a2ac,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2aadb7b999b11d4693885729401a2ac,
         type: 3}
@@ -331,7 +376,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a2aadb7b999b11d4693885729401a2ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.15
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a2aadb7b999b11d4693885729401a2ac,
         type: 3}
@@ -378,11 +423,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: golem-model-v0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: a2aadb7b999b11d4693885729401a2ac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2aadb7b999b11d4693885729401a2ac, type: 3}
---- !u!4 &4402449599420500543 stripped
+--- !u!4 &7364593552109676428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a2aadb7b999b11d4693885729401a2ac,
     type: 3}
-  m_PrefabInstance: {fileID: 4220468685715303892}
+  m_PrefabInstance: {fileID: 7043334793791815783}
   m_PrefabAsset: {fileID: 0}
