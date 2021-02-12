@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	[Header("Movement Settings")]
+	[Header("Player Settings")]
 	[SerializeField] private float speed;
 	[SerializeField] private float jumpForce;
 	[SerializeField] private float gravity;
+	[SerializeField] private float rotationSpeed;
 
 	[Header("States")]
 	//private bool isGrounded;
@@ -15,7 +16,8 @@ public class PlayerController : MonoBehaviour
 	[Header("Inner variables")]
 	private Vector3 playerVelocity;
 	private float xVelocity;
-	//private float yVelocity;
+	private float targetRotation = 180;
+	private float actualGravity;
 
 	[Header("Cashed variables")]
 	private CharacterController controller;
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
 		ApplyGravity();
 
 		RefreshRotation(xVelocity);
+
+		//JoinPlatform();
 	}
 
 	public void MoveHorizontal(float inputValue)
@@ -52,19 +56,30 @@ public class PlayerController : MonoBehaviour
 
 	private void ApplyGravity()
 	{
+		actualGravity = gravity / 100;
 		if (controller.isGrounded)
 		{
 			playerVelocity.y = -0.1f;
 		} else
 		{
-			playerVelocity.y -= gravity * Time.deltaTime;
+			playerVelocity.y -= actualGravity * actualGravity;// Time.fixedDeltaTime;
 		}
 	}
 
-	private void RefreshRotation(float xVelocity)
+	private void RefreshRotation(float xVelocity) // TODO: make it faster clos to the end and slower to start
 	{
-		float rotation = 180 - 90 * xVelocity;
-		transform.rotation = Quaternion.Euler(0, rotation, 0);
+		if (xVelocity > 0)
+		{
+			targetRotation = Mathf.Lerp(targetRotation, 90, rotationSpeed * Time.deltaTime);
+		} else if (xVelocity < 0)
+		{
+			targetRotation = Mathf.Lerp(targetRotation, 270, rotationSpeed * Time.deltaTime);
+		} else
+		{
+			targetRotation = Mathf.Lerp(targetRotation, 180, rotationSpeed * Time.deltaTime);
+		}
+
+		transform.rotation = Quaternion.Euler(0, targetRotation, 0);
 	}
 
 	private void SetAnimation()
@@ -72,18 +87,15 @@ public class PlayerController : MonoBehaviour
 		//animator.SetBool("isMoving", velocityX.x != 0);
 	}
 
-	void Logging()
+	private void JoinPlatform()
 	{
-		if (Input.GetKeyDown(KeyCode.Z))
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, Vector3.down, out hit, 2.1f))
 		{
-			//Debug.Log("vel.y: " + yVelocity);
-			Debug.Log("isGrounded: " + controller.isGrounded);
+			if (hit.collider.gameObject.CompareTag("Respawn"))
+			{
+				transform.parent = hit.collider.gameObject.transform;
+			}
 		}
-	}
-
-	void Log()
-	{
-		//Debug.Log("vel.y: " + yVelocity);
-		//Debug.Log("isGrounded: " + isGrounded);
 	}
 }

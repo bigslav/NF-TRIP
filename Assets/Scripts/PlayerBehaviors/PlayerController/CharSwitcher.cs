@@ -7,16 +7,16 @@ public class CharSwitcher : MonoBehaviour
 	private Character activeChar = Character.Golem;
 	[SerializeField] private GameObject golem;
 	[SerializeField] private GameObject mushroom;
-	private PlayerController golemController;
-	private PlayerController mushroomController;
+	private InputPlayerHandler golemController;
+	private InputPlayerHandler mushroomController;
     // Start is called before the first frame update
     void Start()
     {
-		golemController = golem.GetComponent<PlayerController>();
-		mushroomController = mushroom.GetComponent<PlayerController>();
+		golemController = golem.GetComponent<InputPlayerHandler>();
+		mushroomController = mushroom.GetComponent<InputPlayerHandler>();
 
-		//golemController.isControllerActive = true;
-		//mushroomController.isControllerActive = false;
+		golemController.isActive = true;
+		mushroomController.isActive = false;
     }
 
     // Update is called once per frame
@@ -24,21 +24,25 @@ public class CharSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
 		{
+			golemController.isActive = !golemController.isActive;
+			mushroomController.isActive = !mushroomController.isActive;
+			/*
 			switch (activeChar)
 			{
 				case Character.Golem:
 					activeChar = Character.Mushroom;
-					//golemController.isControllerActive = false;
-					//mushroomController.isControllerActive = true;
+					golemController.enabled = false;
+					mushroomController.enabled = true;
 					return;
 				case Character.Mushroom:
 					activeChar = Character.Golem;
-					//golemController.isControllerActive = true;
-					//mushroomController.isControllerActive = false;
+					golemController.enabled = true;
+					mushroomController.enabled = false;
 					return;
 				default:
 					return;
 			}
+			*/
 		}
     }
 
