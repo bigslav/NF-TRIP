@@ -10,6 +10,7 @@ public class BridgeRotation : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(transform.eulerAngles.z);
         if (active)
         {
             BringDown();
