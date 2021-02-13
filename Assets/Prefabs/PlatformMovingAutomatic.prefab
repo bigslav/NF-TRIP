@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 756631887084027923}
   - component: {fileID: 8292635717896350715}
   - component: {fileID: 756631887084027922}
-  - component: {fileID: -5959537517352090196}
   - component: {fileID: 1997415668}
+  - component: {fileID: 1265975899}
   m_Layer: 10
   m_Name: PlatformMovingAutomatic
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40a25c393018b41709d0ed75e3c668c9, type: 2}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,7 +90,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756631887084029932}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f82387f5c3b002644923efd0fed2bb2b, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
@@ -109,28 +109,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5959537517352090196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756631887084029932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 263fbde4419ae7244a435442b865a5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whoCanInteract:
-    serializedVersion: 2
-    m_Bits: 768
-  _rb: {fileID: 1997415668}
-  points:
-  - {x: 0, y: 2, z: 15}
-  - {x: 0, y: 3, z: 15}
-  speed: 2
-  delayTime: 1
-  automatic: 1
 --- !u!54 &1997415668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,10 +118,30 @@ Rigidbody:
   m_GameObject: {fileID: 756631887084029932}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1265975899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756631887084029932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef47ef445408f74c968c6645e90b99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb: {fileID: 1997415668}
+  rotationSpeed: 10
+  movementSpeed: 10
+  delayTime: 0
+  automatic: 1
+  points:
+  - {x: -29.35, y: 10.16, z: 10}
+  - {x: -29.35, y: 0, z: 10}

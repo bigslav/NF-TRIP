@@ -12,12 +12,12 @@ public class Interactable : MonoBehaviour
     public bool automatic;
 
     public Vector3[] points;
+    public int blockedPoint;
 
     private float _delayStart;
     private Vector3 _currentTarget;
     private int pointNumber;
     private float tolerance;
-
 
     private bool active = false;
 
@@ -89,16 +89,31 @@ public class Interactable : MonoBehaviour
     {
         if (automatic)
         {
-                NextPlatform();
+            NextPlatform();
         }
     }
+
     public void NextPlatform()
     {
         pointNumber++;
+
+        if (pointNumber == blockedPoint)
+        {
+            pointNumber -= 2;
+        }
+        
         if (pointNumber >= points.Length)
         {
-            pointNumber = 0;
+            if (blockedPoint == -1)
+            {
+                pointNumber = 0;
+            }
+            else 
+            {
+                pointNumber = points.Length - 2;
+            }
         }
+
         _currentTarget = points[pointNumber];
     }
 
@@ -116,4 +131,5 @@ public class Interactable : MonoBehaviour
     {
         active = !active;
     }
+
 }

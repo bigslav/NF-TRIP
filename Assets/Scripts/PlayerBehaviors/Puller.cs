@@ -5,57 +5,39 @@ public class Puller : MonoBehaviour
     [Header("References")]
     [SerializeField] private InputHandler pullerInputHandler;
     [SerializeField] private MovementInputProcessor pullerMovementInputProcessor;
-    [SerializeField] private BoxMovementProcessor boxMovementInputProcessor = null;
 
-    private float _pullSpeed;
-    private Vector2 _pullDirection;
-    private GameObject _objectToPull;
-    private Rigidbody _objectToPullRigidbody;
-
-    private void Awake()
-    {
-        _objectToPull = null;
-        _objectToPullRigidbody = null;
-    }
+    private GameObject _objectToPull = null;
+    private BoxMovementProcessor _objectToPullBoxMovementProcessor = null;
 
     private void Update()
     {
-        if (pullerInputHandler.isFacingRight)
-        {
-            _pullDirection = new Vector2(-1, 0);
-        }
-        else if (!pullerInputHandler.isFacingRight)
-        {
-            _pullDirection = new Vector2(1, 0);
-        }
-
-        if (boxMovementInputProcessor != null && Input.GetKey(KeyCode.E))
+        if (_objectToPull != null && Input.GetKey(KeyCode.E))
         {
             pullerInputHandler.isPulling = true;
-            boxMovementInputProcessor.SetValue(pullerMovementInputProcessor.Value);
+            _objectToPullBoxMovementProcessor.SetValue(pullerMovementInputProcessor.Value);
         }
-        else if (boxMovementInputProcessor != null)
+        else if (_objectToPull != null)
         {
             pullerInputHandler.isPulling = false;
-            boxMovementInputProcessor.SetValue(Vector3.zero);
+            _objectToPullBoxMovementProcessor.SetValue(Vector3.zero);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "HeavyBox")
+        if (other.gameObject.TryGetComponent(out BoxMovementProcessor box))
         {
             _objectToPull = other.gameObject;
-            _objectToPullRigidbody = other.gameObject.GetComponent<Rigidbody>();
+            _objectToPullBoxMovementProcessor = box;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "HeavyBox")
+        if (other.gameObject.TryGetComponent(out BoxMovementProcessor box))
         {
             _objectToPull = null;
-            _objectToPullRigidbody = null;
+            _objectToPullBoxMovementProcessor = null;
         }
     }
 }

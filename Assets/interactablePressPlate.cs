@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class interactablePressPlate : MonoBehaviour
+public class InteractablePressPlate : MonoBehaviour
 {
     [SerializeField] private Interactable targetGameObject;
     [SerializeField] private LayerMask whoCanInteract;
