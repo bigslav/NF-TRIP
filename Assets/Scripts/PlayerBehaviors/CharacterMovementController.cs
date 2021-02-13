@@ -21,6 +21,8 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private GameObject _mushroomGameObject;
     [SerializeField] private CollisionProcessor _mushroomCollisionProcessor;
     [SerializeField] private Rigidbody _mushroomRigidbody;
+    private RigidbodyInterpolation _savedInterpolation;
+    private CollisionDetectionMode _savedCollisionDetectionMode;
 
     private bool _isJumpOffProcessed;
 
@@ -28,6 +30,9 @@ public class CharacterMovementController : MonoBehaviour
 
     private void Start()
     {
+        _savedInterpolation = _mushroomRigidbody.interpolation;
+        _savedCollisionDetectionMode = _mushroomRigidbody.collisionDetectionMode;
+
         SetActive("golem");
         SetInactive("mushroom");
         _isJumpOffProcessed = false;
@@ -194,6 +199,8 @@ public class CharacterMovementController : MonoBehaviour
             {
                 _mushroomRigidbody = _mushroomGameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
                 _mushroomRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                _mushroomRigidbody.interpolation = _savedInterpolation;
+                _mushroomRigidbody.collisionDetectionMode = _savedCollisionDetectionMode;
                 _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
             }
 

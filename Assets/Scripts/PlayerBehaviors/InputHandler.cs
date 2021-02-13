@@ -51,6 +51,8 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem))
         {
+
+            transform.parent = null;
             _forceReciever.AddForce(_jumpForce * Vector3.up);
         }
 
