@@ -24,6 +24,8 @@ public class CharacterMovementController : MonoBehaviour
 
     private bool _isJumpOffProcessed;
 
+    private Transform supposedParent;
+
     private void Start()
     {
         SetActive("golem");
@@ -35,6 +37,9 @@ public class CharacterMovementController : MonoBehaviour
 
     private void Update()
     {
+        if (_mushroomGameObject.transform.parent != _golemGameObject.transform)
+            supposedParent = _mushroomGameObject.transform.parent;
+
         HandleInput();
 
         ProcessJumpOnTop();
@@ -81,6 +86,8 @@ public class CharacterMovementController : MonoBehaviour
         }
         else if (characterName == "mushroom")
         {
+            Debug.Log(supposedParent);
+            _mushroomGameObject.transform.parent = supposedParent;
             _mushroomInputHandler.enabled = true;
             mushroomIsActive = true;
         }
@@ -190,7 +197,7 @@ public class CharacterMovementController : MonoBehaviour
                 _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
             }
 
-            _mushroomGameObject.transform.parent = null;
+        
         }
     }
 }

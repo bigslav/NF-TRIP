@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 756631887084027921}
   - component: {fileID: 756631887084027920}
   - component: {fileID: 756631887084027923}
-  - component: {fileID: 8292635717896350715}
   - component: {fileID: 756631887084027922}
-  - component: {fileID: -5959537517352090196}
   - component: {fileID: 1997415668}
   m_Layer: 10
   m_Name: PlatformMovingAutomatic
@@ -62,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2bfc995ce00ba8e4b9d2b5a182ac5267, type: 2}
+  - {fileID: 2100000, guid: 40a25c393018b41709d0ed75e3c668c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,19 +81,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8292635717896350715
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756631887084029932}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.25, z: 1}
-  m_Center: {x: 0, y: 0.625, z: 0}
 --- !u!65 &756631887084027922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,28 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5959537517352090196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756631887084029932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 263fbde4419ae7244a435442b865a5d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whoCanInteract:
-    serializedVersion: 2
-    m_Bits: 768
-  _rb: {fileID: 1997415668}
-  points:
-  - {x: 0, y: 2, z: 15}
-  - {x: 0, y: 3, z: 15}
-  speed: 2
-  delayTime: 1
-  automatic: 1
 --- !u!54 &1997415668
 Rigidbody:
   m_ObjectHideFlags: 0
