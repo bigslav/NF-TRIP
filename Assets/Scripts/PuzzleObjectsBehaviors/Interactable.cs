@@ -21,8 +21,11 @@ public class Interactable : MonoBehaviour
 
     private bool active = false;
 
+    public bool activeAtStart = false;
+
     void Start()
     {
+        active = activeAtStart; 
         pointNumber = 0;
         if (points.Length > 0)
         {
