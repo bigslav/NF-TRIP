@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     public float rotationSpeed = 10f;
     public float movementSpeed = 10f;
     public float delayTime;
+    public float waitUntilTime; 
     public bool automatic;
 
     public Vector3[] points;
@@ -21,8 +22,11 @@ public class Interactable : MonoBehaviour
 
     private bool active = false;
 
+    public bool activeAtStart = false;
+
     void Start()
     {
+        active = activeAtStart; 
         pointNumber = 0;
         if (points.Length > 0)
         {
@@ -31,11 +35,11 @@ public class Interactable : MonoBehaviour
         tolerance = movementSpeed * Time.deltaTime;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //Debug.Log(transform.eulerAngles.z);
-        Debug.Log(transform.position);
-        Debug.Log(_currentTarget);
+        //Debug.Log(transform.position);
+        //Debug.Log(_currentTarget);
         if (active)
         {
             if (transform.position != _currentTarget)
@@ -45,6 +49,29 @@ public class Interactable : MonoBehaviour
             else
             {
                 UpdateTarget();
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+        {
+            if(collision.gameObject.transform.parent.parent == null);
+            {
+                collision.gameObject.transform.parent.parent = transform;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        Debug.Log("Exit");
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+        {
+            if (collision.gameObject.transform.parent.parent == transform) ;
+            {
+                collision.gameObject.transform.parent.parent = null;
             }
         }
     }
@@ -71,10 +98,11 @@ public class Interactable : MonoBehaviour
     private void MovePlatform()
     {
         Vector3 heading = _currentTarget - transform.position;
-        /*        transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;*/
+        //transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;
         _rb.MovePosition(transform.position + (heading / heading.magnitude) * movementSpeed * Time.deltaTime);
         if (heading.magnitude < tolerance)
         {
+            waitUntilTime = Time.time + delayTime;
             transform.position = _currentTarget;
             _delayStart = Time.time;
         }
@@ -95,26 +123,29 @@ public class Interactable : MonoBehaviour
 
     public void NextPlatform()
     {
-        pointNumber++;
-
-        if (pointNumber == blockedPoint)
+        if (Time.time > waitUntilTime)
         {
-            pointNumber -= 2;
-        }
-        
-        if (pointNumber >= points.Length)
-        {
-            if (blockedPoint == -1)
+            pointNumber++;
+            
+            if (pointNumber == blockedPoint)
             {
-                pointNumber = 0;
+                pointNumber -= 2;
             }
-            else 
-            {
-                pointNumber = points.Length - 2;
-            }
-        }
 
-        _currentTarget = points[pointNumber];
+            if (pointNumber >= points.Length)
+            {
+                if (blockedPoint == -1)
+                {
+                    pointNumber = 0;
+                }
+                else 
+                {
+                    pointNumber = points.Length - 2;
+                }
+            }
+
+            _currentTarget = points[pointNumber];
+        }
     }
 
     public void Acivate()

@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CharacterMovementController : MonoBehaviour
 {
     public bool golemIsActive;
     public bool mushroomIsActive;
+
+    [SerializeField] private CinemachineVirtualCamera _golemCamera;
+    [SerializeField] private CinemachineVirtualCamera _mushroomCamera;
 
     [SerializeField] private MovementHandler _mushroomMovementHandler;
     [SerializeField] private InputHandler _golemInputHandler;
@@ -17,18 +21,30 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private GameObject _mushroomGameObject;
     [SerializeField] private CollisionProcessor _mushroomCollisionProcessor;
     [SerializeField] private Rigidbody _mushroomRigidbody;
+    private RigidbodyInterpolation _savedInterpolation;
+    private CollisionDetectionMode _savedCollisionDetectionMode;
 
     private bool _isJumpOffProcessed;
 
+    private Transform supposedParent;
+
     private void Start()
     {
+        _savedInterpolation = _mushroomRigidbody.interpolation;
+        _savedCollisionDetectionMode = _mushroomRigidbody.collisionDetectionMode;
+
         SetActive("golem");
         SetInactive("mushroom");
         _isJumpOffProcessed = false;
+        _golemCamera.Priority = 10;
+        _mushroomCamera.Priority = 5;
     }
 
     private void Update()
     {
+        if (_mushroomGameObject.transform.parent != _golemGameObject.transform)
+            supposedParent = _mushroomGameObject.transform.parent;
+
         HandleInput();
 
         ProcessJumpOnTop();
@@ -36,6 +52,17 @@ public class CharacterMovementController : MonoBehaviour
         ProcessRiding();
 
         HandleMushroomRotation();
+
+        if (golemIsActive)
+        {
+            _golemCamera.Priority = 10;
+            _mushroomCamera.Priority = 5;
+        }
+        else if (mushroomIsActive)
+        {
+            _golemCamera.Priority = 5;
+            _mushroomCamera.Priority = 10;
+        }
     }
 
     private void HandleMushroomRotation()
@@ -64,6 +91,8 @@ public class CharacterMovementController : MonoBehaviour
         }
         else if (characterName == "mushroom")
         {
+            Debug.Log(supposedParent);
+            _mushroomGameObject.transform.parent = supposedParent;
             _mushroomInputHandler.enabled = true;
             mushroomIsActive = true;
         }
@@ -170,10 +199,12 @@ public class CharacterMovementController : MonoBehaviour
             {
                 _mushroomRigidbody = _mushroomGameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
                 _mushroomRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                _mushroomRigidbody.interpolation = _savedInterpolation;
+                _mushroomRigidbody.collisionDetectionMode = _savedCollisionDetectionMode;
                 _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
             }
 
-            _mushroomGameObject.transform.parent = null;
+        
         }
     }
 }

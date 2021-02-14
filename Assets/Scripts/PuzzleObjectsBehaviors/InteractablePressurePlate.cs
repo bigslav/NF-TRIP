@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractablePressPlate : MonoBehaviour
+public class InteractablePressurePlate : MonoBehaviour
 {
     [SerializeField] private Interactable targetGameObject;
     [SerializeField] private LayerMask whoCanInteract;
-    [SerializeField] private bool stayOnToUse; 
+    [SerializeField] private bool stayOnToUse;
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if (!stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
@@ -28,6 +29,7 @@ public class InteractablePressPlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        Debug.Log(other);
         if (stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {

@@ -17,7 +17,7 @@ public class ForceReciever : MonoBehaviour, IMovementModifier
     private void OnEnable() => _movementHandler.AddModifier(this);
     private void OnDisable() => _movementHandler.RemoveModifier(this);
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!_wasGroundedLastFrame && _collisionProcessor.isGrounded)
         {
