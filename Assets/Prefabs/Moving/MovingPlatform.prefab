@@ -1,25 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1999558762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385993290343723724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cef47ef445408f74c968c6645e90b99c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rb: {fileID: 1854376099529462228}
-  rotationSpeed: 10
-  movementSpeed: 10
-  delayTime: 0
-  automatic: 1
-  points:
-  - {x: -17.47, y: 10.16, z: 0}
-  - {x: -17.47, y: 0, z: 0}
 --- !u!1001 &1854376098706732320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,15 +100,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39412e5caf8221345af8497c664f2ec6, type: 3}
---- !u!1 &1385993290343723724 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: 39412e5caf8221345af8497c664f2ec6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1854376098706732320}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1854376099529462228 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 1997415668, guid: 39412e5caf8221345af8497c664f2ec6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1854376098706732320}
-  m_PrefabAsset: {fileID: 0}
