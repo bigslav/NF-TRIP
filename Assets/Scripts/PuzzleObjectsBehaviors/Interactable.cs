@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
     public bool automatic;
 
     public Vector3[] points;
-    public Vector3[] rotations;
+    public int blockedPoint;
 
     private float _delayStart;
     private Vector3 _currentTarget;
@@ -35,11 +35,6 @@ public class Interactable : MonoBehaviour
         if (points.Length > 0)
         {
             _currentTarget = points[0];
-        }
-
-        if (rotations.Length > 0)
-        {
-            _currentRotationTarget = rotations[0];
         }
 
         tolerance = movementSpeed * Time.deltaTime;
@@ -66,26 +61,27 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.transform);
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if(collision.gameObject.transform.parent.parent == null);
+            if(collision.gameObject.transform.parent == null);
             {
-                collision.gameObject.transform.parent.parent = transform.parent;
+                collision.gameObject.transform.parent = transform.parent;
             }
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Exit");
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.transform.parent.parent == transform.parent) ;
+            if (collision.gameObject.transform.parent == transform.parent) ;
             {
-                collision.gameObject.transform.parent.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.transform.parent.GetComponent<Rigidbody>().velocity.y, 0);
-                collision.gameObject.transform.parent.parent = null;
+                collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+                collision.gameObject.transform.parent = null;
             }
         }
     }
@@ -143,20 +139,33 @@ public class Interactable : MonoBehaviour
             NextPlatform();
         }
     }
-    
+
     public void NextPlatform()
     {
-
-        if (Time.time > waitUntilTime)
+        if (points.Length != 1)
+            if (Time.time > waitUntilTime)
         {
             pointNumber++;
+            
+            if (pointNumber == blockedPoint)
+            {
+                pointNumber -= 2;
+            }
+
             if (pointNumber >= points.Length)
             {
-                pointNumber = 0;
+                if (blockedPoint == -1)
+                {
+                    pointNumber = 0;
+                }
+                else 
+                {
+                    pointNumber = points.Length - 2;
+                }
             }
+
             _currentTarget = points[pointNumber];
         }
-
     }
 
     public void Activate()
@@ -173,4 +182,5 @@ public class Interactable : MonoBehaviour
     {
         active = !active;
     }
+
 }
