@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CharacterMovementController : MonoBehaviour
 {
@@ -18,10 +19,16 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private CollisionProcessor _mushroomCollisionProcessor;
     [SerializeField] private Rigidbody _mushroomRigidbody;
 
+    private RigidbodyInterpolation _savedInterpolation;
+    private CollisionDetectionMode _savedCollisionDetectionMode;
     private bool _isJumpOffProcessed;
+    private Transform _supposedParent;
 
     private void Start()
     {
+        _savedInterpolation = _mushroomRigidbody.interpolation;
+        _savedCollisionDetectionMode = _mushroomRigidbody.collisionDetectionMode;
+
         SetActive("golem");
         SetInactive("mushroom");
         _isJumpOffProcessed = false;
@@ -29,6 +36,9 @@ public class CharacterMovementController : MonoBehaviour
 
     private void Update()
     {
+        if (_mushroomGameObject.transform.parent != _golemGameObject.transform)
+            _supposedParent = _mushroomGameObject.transform.parent;
+
         HandleInput();
 
         ProcessJumpOnTop();
@@ -64,6 +74,8 @@ public class CharacterMovementController : MonoBehaviour
         }
         else if (characterName == "mushroom")
         {
+            Debug.Log(_supposedParent);
+            _mushroomGameObject.transform.parent = _supposedParent;
             _mushroomInputHandler.enabled = true;
             mushroomIsActive = true;
         }
@@ -129,7 +141,7 @@ public class CharacterMovementController : MonoBehaviour
     {
         if (!_isJumpOffProcessed)
         {
-            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 2.85)
+            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 2)
             {
                 SetCharactersCollisions(true);
             }
@@ -159,7 +171,7 @@ public class CharacterMovementController : MonoBehaviour
             Destroy(_mushroomRigidbody);
 
             Vector3 currentPosition = _mushroomGameObject.transform.position;
-            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 3.8f, _golemGameObject.transform.position.z);
+            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 2.5f, _golemGameObject.transform.position.z);
             Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, 0.2f);
 
             _mushroomGameObject.transform.position = newPosition;
@@ -170,10 +182,10 @@ public class CharacterMovementController : MonoBehaviour
             {
                 _mushroomRigidbody = _mushroomGameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
                 _mushroomRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+                _mushroomRigidbody.interpolation = _savedInterpolation;
+                _mushroomRigidbody.collisionDetectionMode = _savedCollisionDetectionMode;
                 _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
             }
-
-            _mushroomGameObject.transform.parent = null;
         }
     }
 }
