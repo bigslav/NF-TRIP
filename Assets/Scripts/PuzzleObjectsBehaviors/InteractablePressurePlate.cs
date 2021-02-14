@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractablePressurePlate : MonoBehaviour
 {
-    [SerializeField] private Interactable targetGameObject;
+    [SerializeField] private Interactable[] targetGameObject;
     [SerializeField] private LayerMask whoCanInteract;
     [SerializeField] private bool stayOnToUse;
 
@@ -14,7 +14,8 @@ public class InteractablePressurePlate : MonoBehaviour
         if (!stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
-                targetGameObject.Switch();
+                for (int i = 0; i < targetGameObject.Length; ++i)
+                    targetGameObject[i].Switch();
             }
     }
 
@@ -23,7 +24,8 @@ public class InteractablePressurePlate : MonoBehaviour
         if (stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
-                targetGameObject.Acivate();
+                for (int i = 0; i < targetGameObject.Length; ++i)
+                    targetGameObject[i].Acivate();
             }
     }
 
@@ -33,7 +35,8 @@ public class InteractablePressurePlate : MonoBehaviour
         if (stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
-                targetGameObject.Deactivate();
+                for (int i = 0; i < targetGameObject.Length; ++i)
+                    targetGameObject[i].Deactivate();
             }
     }
 }

@@ -1275,6 +1275,11 @@ PrefabInstance:
       propertyPath: targetGameObject
       value: 
       objectReference: {fileID: 1129066273}
+    - target: {fileID: 5344333061976749758, guid: 09febe7e32dd1b84ab1ca3180f03178d,
+        type: 3}
+      propertyPath: targetGameObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 1129066273}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09febe7e32dd1b84ab1ca3180f03178d, type: 3}
 --- !u!4 &458333872 stripped
@@ -1714,6 +1719,11 @@ PrefabInstance:
     - target: {fileID: 5344333061976749758, guid: 09febe7e32dd1b84ab1ca3180f03178d,
         type: 3}
       propertyPath: targetGameObject
+      value: 
+      objectReference: {fileID: 1129066273}
+    - target: {fileID: 5344333061976749758, guid: 09febe7e32dd1b84ab1ca3180f03178d,
+        type: 3}
+      propertyPath: targetGameObject.Array.data[0]
       value: 
       objectReference: {fileID: 1129066273}
     m_RemovedComponents: []
@@ -2243,6 +2253,11 @@ PrefabInstance:
       propertyPath: targetGameObject
       value: 
       objectReference: {fileID: 458333873}
+    - target: {fileID: 5344333061976749758, guid: 09febe7e32dd1b84ab1ca3180f03178d,
+        type: 3}
+      propertyPath: targetGameObject.Array.data[0]
+      value: 
+      objectReference: {fileID: 458333873}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09febe7e32dd1b84ab1ca3180f03178d, type: 3}
 --- !u!1 &1219905529
@@ -2730,6 +2745,11 @@ PrefabInstance:
     - target: {fileID: 5344333061976749758, guid: 09febe7e32dd1b84ab1ca3180f03178d,
         type: 3}
       propertyPath: targetGameObject
+      value: 
+      objectReference: {fileID: 1546585623}
+    - target: {fileID: 5344333061976749758, guid: 09febe7e32dd1b84ab1ca3180f03178d,
+        type: 3}
+      propertyPath: targetGameObject.Array.data[0]
       value: 
       objectReference: {fileID: 1546585623}
     m_RemovedComponents: []
@@ -3351,7 +3371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f02ee72b35cd5418eab9cd99eb65df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetGameObject: {fileID: 458333873}
+  targetGameObject:
+  - {fileID: 458333873}
   whoCanInteract:
     serializedVersion: 2
     m_Bits: 4294967295

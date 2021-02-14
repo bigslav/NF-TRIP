@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
+        transform.rotation.Set(transform.rotation.w, 0, transform.rotation.y, 0);
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         /*
                 if (horizontalInput != 0 && _animator != null)
