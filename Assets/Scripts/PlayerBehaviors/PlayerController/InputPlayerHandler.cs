@@ -10,6 +10,8 @@ public class InputPlayerHandler : MonoBehaviour
 	[SerializeField] private KeyCode keySplit;
 	[SerializeField] private KeyCode keyUnite;
 
+	public bool isActive;
+
 	private void Start()
 	{
 		player = GetComponent<PlayerController>();
@@ -17,11 +19,16 @@ public class InputPlayerHandler : MonoBehaviour
 	
 	void Update()
     {
-		player.MoveHorizontal(Input.GetAxis("Horizontal"));
-
-		if (Input.GetKeyDown(keyJump))
+		if (isActive)
 		{
-			Debug.Log("YES");
+			player.MoveHorizontal(Input.GetAxis("Horizontal"));
+		} else
+		{
+			player.MoveHorizontal(0);
+		}
+
+		if (Input.GetKeyDown(keyJump) && isActive)
+		{
 			player.Jump();
 		}
 
