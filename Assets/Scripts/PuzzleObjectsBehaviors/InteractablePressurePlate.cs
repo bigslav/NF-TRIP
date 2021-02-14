@@ -25,7 +25,7 @@ public class InteractablePressurePlate : MonoBehaviour
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
                 for (int i = 0; i < targetGameObject.Length; ++i)
-                    targetGameObject[i].Acivate();
+                    targetGameObject[i].Activate();
             }
     }
 

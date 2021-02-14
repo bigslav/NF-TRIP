@@ -84,8 +84,8 @@ public class Interactable : MonoBehaviour
         {
             if (collision.gameObject.transform.parent.parent == transform.parent) ;
             {
-                collision.gameObject.transform.parent.parent = null;
                 collision.gameObject.transform.parent.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.transform.parent.GetComponent<Rigidbody>().velocity.y, 0);
+                collision.gameObject.transform.parent.parent = null;
             }
         }
     }
@@ -159,7 +159,7 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public void Acivate()
+    public void Activate()
     {
         active = true;
     }
