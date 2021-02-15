@@ -26,8 +26,10 @@ public class MovementHandler : MonoBehaviour
         if (_rigidBody != null)
         {
             //transform.position += movement * Time.fixedDeltaTime;
-            _rigidBody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+            //_rigidBody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+            _rigidBody.velocity = movement;
         }
+        Debug.Log(movement);
     }
 
     public void SetRigidbody(Rigidbody rb)

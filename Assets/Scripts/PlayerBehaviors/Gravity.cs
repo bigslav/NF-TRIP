@@ -22,7 +22,7 @@ public class Gravity : MonoBehaviour, IMovementModifier
 
     private void ProcessGravity() 
     {
-        if (!_collisionProcessor.isGrounded)
+        if (!_collisionProcessor.isGrounded && !_collisionProcessor.isOnTopOfGolem)
         {
             Value = new Vector3(Value.x, -_groundedPullMagnitude, Value.z);
         }
