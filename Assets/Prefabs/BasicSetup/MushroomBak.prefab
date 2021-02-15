@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 8550552406573238370}
   - component: {fileID: 8550552406573238396}
   - component: {fileID: 3017129712621182423}
+  - component: {fileID: 1084490647}
   m_Layer: 8
-  m_Name: Mushroom
+  m_Name: MushroomBak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +50,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 120
@@ -82,7 +83,7 @@ MonoBehaviour:
   _movementInputProcessor: {fileID: 8550552406573238396}
   _collisionProcessor: {fileID: 3017129712621182423}
   _forceReciever: {fileID: 8550552406573238368}
-  _jumpForce: 30
+  _jumpForce: 50
   isFacingRight: 0
   isPulling: 0
 --- !u!114 &8550552406573238368
@@ -153,6 +154,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _collider: {fileID: 8550552406573238374}
+--- !u!114 &1084490647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550552406573238399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da74d01fed86c8d4eb6bd6d42b30b904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementHandler: {fileID: 8550552406573238370}
+  _collisionProcessor: {fileID: 3017129712621182423}
+  _groundedPullMagnitude: 12
 --- !u!1001 &4166313265970367567
 PrefabInstance:
   m_ObjectHideFlags: 0

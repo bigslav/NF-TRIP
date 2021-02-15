@@ -75,8 +75,9 @@ GameObject:
   - component: {fileID: 2718994575633533973}
   - component: {fileID: 1337498304610737206}
   - component: {fileID: 1813269906}
+  - component: {fileID: 1867659986}
   m_Layer: 9
-  m_Name: Golem
+  m_Name: GolemBak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +110,7 @@ Rigidbody:
   m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 120
@@ -121,7 +122,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6919059683331726948}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -213,6 +214,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _collider: {fileID: 3252199703387296522}
+--- !u!114 &1867659986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919059683331726948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da74d01fed86c8d4eb6bd6d42b30b904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementHandler: {fileID: 2718994575633533973}
+  _collisionProcessor: {fileID: 1813269906}
+  _groundedPullMagnitude: 7
 --- !u!1001 &8114560633271625881
 PrefabInstance:
   m_ObjectHideFlags: 0
