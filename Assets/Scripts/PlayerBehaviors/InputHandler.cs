@@ -6,7 +6,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private MovementInputProcessor _movementInputProcessor = null;
     [SerializeField] private CollisionProcessor _collisionProcessor = null;
     [SerializeField] private ForceReciever _forceReciever = null;
-
+    [SerializeField] private Animator _animator = null;
 
     [Header("Settings")]
     [SerializeField] private float _jumpForce = 5;
@@ -52,7 +52,6 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem))
         {
-
             transform.parent = null;
             _forceReciever.AddForce(_jumpForce * Vector3.up);
         }
