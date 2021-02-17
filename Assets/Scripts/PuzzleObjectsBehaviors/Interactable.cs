@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
     public int blockedPoint;
 
     private float _delayStart;
-    private Vector3 _currentTarget;
+    public Vector3 _currentTarget;
     private Vector3 _currentRotationTarget;
     private int pointNumber;
 
@@ -105,7 +105,7 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void MovePlatform()
+    public void MovePlatform()
     {
         Vector3 heading = _currentTarget - transform.position;
         //transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;
