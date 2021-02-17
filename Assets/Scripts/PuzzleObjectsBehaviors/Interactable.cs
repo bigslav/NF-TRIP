@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb = null;
 
+    public Vector3 m_EulerAngleVelocity;
     public float rotationSpeed = 10f;
     public float movementSpeed = 10f;
     public float delayTime;
@@ -13,21 +14,29 @@ public class Interactable : MonoBehaviour
     public bool automatic;
 
     public Vector3[] points;
+    public int blockedPoint;
 
     private float _delayStart;
     private Vector3 _currentTarget;
+    private Vector3 _currentRotationTarget;
     private int pointNumber;
+
     private float tolerance;
+    private float rotationTolerance;
 
     private bool active = false;
+    public bool activeAtStart = false;
+    public bool justRotate = false;
 
     void Start()
     {
+        active = activeAtStart; 
         pointNumber = 0;
         if (points.Length > 0)
         {
             _currentTarget = points[0];
         }
+
         tolerance = movementSpeed * Time.deltaTime;
     }
 
@@ -38,6 +47,8 @@ public class Interactable : MonoBehaviour
         //Debug.Log(_currentTarget);
         if (active)
         {
+            if (justRotate)
+                JustRotate();
             if (transform.position != _currentTarget)
             {
                 MovePlatform();
@@ -46,28 +57,31 @@ public class Interactable : MonoBehaviour
             {
                 UpdateTarget();
             }
+
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.transform);
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if(collision.gameObject.transform.parent.parent == null);
+            if(collision.gameObject.transform.parent == null);
             {
-                collision.gameObject.transform.parent.parent = transform;
+                collision.gameObject.transform.parent = transform.parent;
             }
         }
     }
 
-    private void OnTriggerExit(Collider collision)
+    private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Exit");
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.transform.parent.parent == transform) ;
+            if (collision.gameObject.transform.parent == transform.parent) ;
             {
-                collision.gameObject.transform.parent.parent = null;
+                collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+                collision.gameObject.transform.parent = null;
             }
         }
     }
@@ -102,11 +116,20 @@ public class Interactable : MonoBehaviour
             transform.position = _currentTarget;
             _delayStart = Time.time;
         }
+        /*if (justRotate == false)
+        {
+            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+            _rb.MoveRotation(_rb.rotation * deltaRotation);
+        }*/
     }
-
-    private void RotateToAngle(float angle)
+   
+    private void JustRotate()
     {
-
+        //Quaternion target = Quaternion.Euler(0, 0, rotationSpeed);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * rotationSpeed);
+        Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+        _rb.MoveRotation(_rb.rotation * deltaRotation);
+        //transform.RotateAround(transform.position, Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
     private void UpdateTarget()
@@ -116,22 +139,36 @@ public class Interactable : MonoBehaviour
             NextPlatform();
         }
     }
+
     public void NextPlatform()
     {
-
-        if (Time.time > waitUntilTime)
+        if (points.Length != 1)
+            if (Time.time > waitUntilTime)
         {
             pointNumber++;
+            
+            if (pointNumber == blockedPoint)
+            {
+                pointNumber -= 2;
+            }
+
             if (pointNumber >= points.Length)
             {
-                pointNumber = 0;
+                if (blockedPoint == -1)
+                {
+                    pointNumber = 0;
+                }
+                else 
+                {
+                    pointNumber = points.Length - 2;
+                }
             }
+
             _currentTarget = points[pointNumber];
         }
-
     }
 
-    public void Acivate()
+    public void Activate()
     {
         active = true;
     }
@@ -145,4 +182,5 @@ public class Interactable : MonoBehaviour
     {
         active = !active;
     }
+
 }

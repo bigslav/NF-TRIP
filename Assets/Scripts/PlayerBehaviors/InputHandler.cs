@@ -22,6 +22,7 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
+        transform.rotation.Set(transform.rotation.w, 0, transform.rotation.y, 0);
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         /*
                 if (horizontalInput != 0 && _animator != null)
@@ -51,6 +52,8 @@ public class InputHandler : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem))
         {
+
+            transform.parent = null;
             _forceReciever.AddForce(_jumpForce * Vector3.up);
         }
 
