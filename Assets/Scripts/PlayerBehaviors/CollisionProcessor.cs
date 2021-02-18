@@ -29,8 +29,15 @@ public class CollisionProcessor : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-
-        Vector3 _raycastOrigin = transform.position - (_colliderBounds.size / 2 - new Vector3(0, _skinWidth, 0));
+        Vector3 _raycastOrigin;
+        if (characterType == CharacterType.Golem)
+        {
+            _raycastOrigin = transform.position + new Vector3(0, _skinWidth, 0);
+        }
+        else 
+        {
+            _raycastOrigin = transform.position - (_colliderBounds.size / 2 - new Vector3(0, _skinWidth, 0));
+        }
 
         if ((characterMovementController.golemIsActive && characterType == CharacterType.Golem) ^
             (characterMovementController.mushroomIsActive && characterType == CharacterType.Mushroom))

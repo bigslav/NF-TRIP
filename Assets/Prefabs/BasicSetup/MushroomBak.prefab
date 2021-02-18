@@ -83,7 +83,8 @@ MonoBehaviour:
   _movementInputProcessor: {fileID: 8550552406573238396}
   _collisionProcessor: {fileID: 3017129712621182423}
   _forceReciever: {fileID: 8550552406573238368}
-  _jumpForce: 50
+  _animator: {fileID: 0}
+  _jumpForce: 30
   isFacingRight: 0
   isPulling: 0
 --- !u!114 &8550552406573238368
@@ -130,6 +131,7 @@ MonoBehaviour:
   _movementHandler: {fileID: 8550552406573238370}
   _animator: {fileID: 0}
   _animation: {fileID: 4060825921698991335}
+  _collisionProcessor: {fileID: 0}
   _movementSpeed: 10
 --- !u!114 &3017129712621182423
 MonoBehaviour:
