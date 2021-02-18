@@ -11,7 +11,7 @@ public class CollisionProcessor : MonoBehaviour
     public CharacterType characterType;
 
     public bool isGrounded;
-    public bool isOnTopOfGolem;
+    public bool isOnTopOfGolem = false;
     
     [SerializeField] private CharacterMovementController characterMovementController;
     [SerializeField] private LayerMask _groundLayer;

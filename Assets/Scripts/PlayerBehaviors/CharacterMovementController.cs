@@ -184,6 +184,8 @@ public class CharacterMovementController : MonoBehaviour
                 _mushroomRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
                 _mushroomRigidbody.interpolation = _savedInterpolation;
                 _mushroomRigidbody.collisionDetectionMode = _savedCollisionDetectionMode;
+                _mushroomRigidbody.useGravity = false;
+                _mushroomRigidbody.angularDrag = 0;
                 _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
             }
         }
