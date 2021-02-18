@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3121950722138041964}
   - component: {fileID: 3121950722138041965}
   m_Layer: 0
-  m_Name: CharacterController
+  m_Name: CharacterMovementController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golemIsActive: 0
   mushroomIsActive: 0
-  _golemCamera: {fileID: 0}
-  _mushroomCamera: {fileID: 0}
   _mushroomMovementHandler: {fileID: 0}
   _golemInputHandler: {fileID: 0}
   _mushroomInputHandler: {fileID: 0}
