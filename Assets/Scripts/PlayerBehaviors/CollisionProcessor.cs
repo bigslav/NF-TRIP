@@ -10,9 +10,9 @@ public class CollisionProcessor : MonoBehaviour
 
     public CharacterType characterType;
 
-    public bool isGrounded;
+    public bool isGrounded = false;
     public bool isOnTopOfGolem = false;
-    
+
     [SerializeField] private CharacterMovementController characterMovementController;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _golemLayer;
@@ -20,6 +20,8 @@ public class CollisionProcessor : MonoBehaviour
 
     private Bounds _colliderBounds;
     private float _skinWidth = 0.015f;
+    private RaycastHit _hit;
+    private Vector3 _raycastOrigin;
 
     private void Start()
     {
@@ -28,23 +30,30 @@ public class CollisionProcessor : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit hit;
-        Vector3 _raycastOrigin;
+
         if (characterType == CharacterType.Golem)
         {
-            _raycastOrigin = transform.position + new Vector3(0, _skinWidth, 0);
-        }
-        else 
-        {
-            _raycastOrigin = transform.position - (_colliderBounds.size / 2 - new Vector3(0, _skinWidth, 0));
-        }
+            _raycastOrigin = transform.position;
 
-        if ((characterMovementController.golemIsActive && characterType == CharacterType.Golem) ^
-            (characterMovementController.mushroomIsActive && characterType == CharacterType.Mushroom))
-        {
-            if (Physics.Raycast(_raycastOrigin, transform.TransformDirection(Vector3.down), out hit, 0.03f))
+            if (characterMovementController.golemIsActive)
             {
-                if (hit.collider.gameObject.layer == 10)
+                if (Physics.CheckBox(_raycastOrigin, new Vector3(_colliderBounds.size.x / 2 - 0.015f, _colliderBounds.min.y + 0.015f, _colliderBounds.size.z / 2 - 0.015f), Quaternion.identity, _groundLayer))
+                {
+                    isGrounded = true;
+                }
+                else 
+                {
+                    isGrounded = false;
+                }
+            }
+        }
+        else if (characterType == CharacterType.Mushroom)
+        {
+            _raycastOrigin = transform.position + new Vector3(0, 1.2f, 0);
+
+            if (characterMovementController.mushroomIsActive)
+            {
+                if (Physics.CheckBox(_raycastOrigin, new Vector3(_colliderBounds.size.x / 2 - 0.015f, _colliderBounds.min.y + 0.015f, _colliderBounds.size.z / 2 - 0.015f), Quaternion.identity, _groundLayer))
                 {
                     isGrounded = true;
                 }
@@ -53,7 +62,7 @@ public class CollisionProcessor : MonoBehaviour
                     isGrounded = false;
                 }
 
-                if (characterType == CharacterType.Mushroom && hit.collider.gameObject.layer == 9)
+                if (Physics.CheckBox(_raycastOrigin, new Vector3(_colliderBounds.size.x / 2 - 0.015f, _colliderBounds.min.y + 0.015f, _colliderBounds.size.z / 2 - 0.015f), Quaternion.identity, _golemLayer))
                 {
                     isOnTopOfGolem = true;
                 }
@@ -62,12 +71,7 @@ public class CollisionProcessor : MonoBehaviour
                     isOnTopOfGolem = false;
                 }
             }
-            else
-            {
-                isGrounded = false;
-                isOnTopOfGolem = false;
-            }
-        } 
+        }        
     }
 
     /* private void OnTriggerEnter(Collider collision)

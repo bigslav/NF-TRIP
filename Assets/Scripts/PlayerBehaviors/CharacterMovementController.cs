@@ -8,7 +8,7 @@ public class CharacterMovementController : MonoBehaviour
 {
     public bool golemIsActive;
     public bool mushroomIsActive;
-
+    public float mushPosRelToGolem = 3f;
     [SerializeField] private MovementHandler _mushroomMovementHandler;
     [SerializeField] private InputHandler _golemInputHandler;
     [SerializeField] private InputHandler _mushroomInputHandler;
@@ -171,7 +171,7 @@ public class CharacterMovementController : MonoBehaviour
             Destroy(_mushroomRigidbody);
 
             Vector3 currentPosition = _mushroomGameObject.transform.position;
-            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 2.5f, _golemGameObject.transform.position.z);
+            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + mushPosRelToGolem, _golemGameObject.transform.position.z);
             Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, 0.2f);
 
             _mushroomGameObject.transform.position = newPosition;
