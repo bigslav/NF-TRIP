@@ -2,23 +2,31 @@
 
 public class InputHandler : MonoBehaviour
 {
-    [Header("References")]
     [SerializeField] private Jump _jump;
     [SerializeField] private MovementInputProcessor _movementInputProcessor = null;
     [SerializeField] private CollisionProcessor _collisionProcessor = null;
-    [SerializeField] private ForceReciever _forceReciever = null;
-    [SerializeField] private Animator _animator = null;
     [SerializeField] private GameObject _playerModel = null;
 
+    public float sideRotationSpeed = 3f;
+    public float intoIdleRotationSpeed = 5f;
+
+    [HideInInspector]
     public bool isFacingRight;
+    [HideInInspector]
     public bool isPulling;
+
     public bool isUsingMechanism;
+    [HideInInspector]
     public bool glueToMechanism;
+
     public int preset = -1;
 
     public Interactable mechanismUnderControl;
 
     private float horizontalInput;
+    private float verticalInput;
+    private float liftControlInput;
+    public bool verticalLiftControl = true;
 
     private void Start()
     {
@@ -30,43 +38,60 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        _playerModel.transform.rotation.Set(transform.rotation.w, 0, transform.rotation.y, 0);
         horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem))
+        if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !isUsingMechanism)
         {
             _jump.OnJump();
         }
 
         if (!isPulling)
         {
-            if(horizontalInput == -1)
+            if (horizontalInput == -1)
             {
-                _playerModel.transform.eulerAngles = new Vector3(0, -90, 0);
+                _playerModel.transform.rotation = Quaternion.Lerp(_playerModel.transform.rotation, Quaternion.Euler(0, -90, 0), sideRotationSpeed * Time.deltaTime);
                 isFacingRight = false;
             }
-            else if(horizontalInput == 1)
+            else if (horizontalInput == 1)
             {
-                _playerModel.transform.eulerAngles = new Vector3(0, 90, 0);
+                _playerModel.transform.rotation = Quaternion.Lerp(_playerModel.transform.rotation, Quaternion.Euler(0, 90, 0), sideRotationSpeed * Time.deltaTime);
                 isFacingRight = true;
+            }
+            else
+            {
+                _playerModel.transform.rotation = Quaternion.Lerp(_playerModel.transform.rotation, Quaternion.Euler(0, 180, 0), intoIdleRotationSpeed * Time.deltaTime);
             }
         }
 
-        _movementInputProcessor.SetMovementInput(new Vector2(horizontalInput, 0f));
-
         if (Input.GetKeyDown(KeyCode.E) && isUsingMechanism)
             glueToMechanism = !glueToMechanism;
+
+        if (!glueToMechanism) 
+        {
+            _movementInputProcessor.SetMovementInput(new Vector2(horizontalInput, 0f));
+        }
+
     }
 
     void FixedUpdate()
     {
+        if (verticalLiftControl)
+        {
+            liftControlInput = verticalInput;
+        }
+        else
+        {
+            liftControlInput = horizontalInput;
+        }
+
         if (glueToMechanism)
         {
-            if (horizontalInput == -1)
+            if (liftControlInput == -1)
                 mechanismUnderControl._currentTarget = mechanismUnderControl.points[0];
-            if (horizontalInput == 1)
+            if (liftControlInput == 1)
                 mechanismUnderControl._currentTarget = mechanismUnderControl.points[1];
-            if ((horizontalInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
+            if ((liftControlInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
             {
                 mechanismUnderControl.MovePlatform();
             }

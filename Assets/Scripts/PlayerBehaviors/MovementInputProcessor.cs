@@ -5,7 +5,6 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
     [Header("References")]
     [SerializeField] private MovementHandler _movementHandler = null;
     [SerializeField] private Animator _animator = null;
-    [SerializeField] private Animation _animation = null;
     [SerializeField] private CollisionProcessor _collisionProcessor = null;
 
     [Header("Settings")]

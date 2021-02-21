@@ -15,7 +15,7 @@ public class LiftPathBlocker : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out BoxMovementProcessor box))
+        if (other.gameObject.tag == "Movable")
         {
             _lift.blockedPoint = _blockedPoint;
         }
@@ -23,7 +23,7 @@ public class LiftPathBlocker : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.TryGetComponent(out BoxMovementProcessor box))
+        if (other.gameObject.tag == "Movable")
         {
             _lift.blockedPoint = -1;
         }
