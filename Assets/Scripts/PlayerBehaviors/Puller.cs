@@ -2,42 +2,61 @@
 
 public class Puller : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private InputHandler pullerInputHandler;
-    [SerializeField] private MovementInputProcessor pullerMovementInputProcessor;
+    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private CollisionProcessor _collisionProcessor;
 
-    private GameObject _objectToPull = null;
-    private BoxMovementProcessor _objectToPullBoxMovementProcessor = null;
+    private bool _isTouchingMovable = false;
+    private bool _isPulling = false;
+    private bool _hasJoint = false;
+
+    private GameObject _pulledObject = null;
+    private Rigidbody _pulledObjectRb = null;
+    private float _pulledObjectRbMass;
 
     private void Update()
     {
-        if (_objectToPull != null && Input.GetKey(KeyCode.E))
-        {
-            pullerInputHandler.isPulling = true;
-            _objectToPullBoxMovementProcessor.SetValue(pullerMovementInputProcessor.Value);
-        }
-        else if (_objectToPull != null)
-        {
-            pullerInputHandler.isPulling = false;
-            _objectToPullBoxMovementProcessor.SetValue(Vector3.zero);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out BoxMovementProcessor box))
-        {
-            _objectToPull = other.gameObject;
-            _objectToPullBoxMovementProcessor = box;
+        if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable) {
+            if (!_isPulling && _collisionProcessor.isGrounded)
+            {
+                _inputHandler.isPulling = true;
+                _isPulling = true;
+            }
+            else if (_isPulling)
+            {
+                _inputHandler.isPulling = false;
+                _isPulling = false;
+                _pulledObjectRb.mass = _pulledObjectRbMass;
+                _pulledObjectRb = null;
+                Destroy(gameObject.GetComponent<FixedJoint>());
+                _hasJoint = false;
+            }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionStay(Collision collision)
     {
-        if (other.gameObject.TryGetComponent(out BoxMovementProcessor box))
+        if (collision.gameObject.tag == "Movable")
         {
-            _objectToPull = null;
-            _objectToPullBoxMovementProcessor = null;
+            _isTouchingMovable = true;
+            _pulledObject = collision.gameObject;
+            _pulledObjectRb = _pulledObject.GetComponent<Rigidbody>();
+
+            if (_isPulling && !_hasJoint)
+            {
+                gameObject.AddComponent<FixedJoint>();
+                gameObject.GetComponent<FixedJoint>().connectedBody = _pulledObjectRb;
+                _pulledObjectRbMass = _pulledObjectRb.mass;
+                _pulledObjectRb.mass = 1;
+                _hasJoint = true;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Movable")
+        {
+            _isTouchingMovable = false;
         }
     }
 }

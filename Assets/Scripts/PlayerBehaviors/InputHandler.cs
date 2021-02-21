@@ -8,6 +8,7 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private CollisionProcessor _collisionProcessor = null;
     [SerializeField] private ForceReciever _forceReciever = null;
     [SerializeField] private Animator _animator = null;
+    [SerializeField] private GameObject _playerModel = null;
 
     public bool isFacingRight;
     public bool isPulling;
@@ -20,7 +21,7 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        transform.rotation.Set(transform.rotation.w, 0, transform.rotation.y, 0);
+        _playerModel.transform.rotation.Set(transform.rotation.w, 0, transform.rotation.y, 0);
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         /*
                 if (horizontalInput != 0 && _animator != null)
@@ -36,12 +37,12 @@ public class InputHandler : MonoBehaviour
         {
             if (horizontalInput == 1)
             {
-                transform.eulerAngles = new Vector3(0, 90, 0);
+                _playerModel.transform.eulerAngles = new Vector3(0, 90, 0);
                 isFacingRight = true;
             }
             else if (horizontalInput == -1)
             {
-                transform.eulerAngles = new Vector3(0, -90, 0);
+                _playerModel.transform.eulerAngles = new Vector3(0, -90, 0);
                 isFacingRight = false;
             }
         }
