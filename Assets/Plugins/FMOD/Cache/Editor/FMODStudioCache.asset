@@ -1,5 +1,114 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8905132172036288285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char/mushroom/jump
+  m_EditorClassIdentifier: 
+  Path: event:/char/mushroom/jump
+  guid: a6e95f87c5df9146820fdc0a80e50271
+  Banks:
+  - {fileID: 4807229587889624843}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 2654203426776757668}
+  - {fileID: 4444864661616569489}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 300
+--- !u!114 &-8206115959693476709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TRIP/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  lastModified: 637495184260265697
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1290
+  Exists: 0
+--- !u!114 &-7866705779854582176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 1242288614
+    data2: 1046432425
+  Exists: 1
+--- !u!114 &-7763881542217193582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &-7729685494611689503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char/mushroom/step
+  m_EditorClassIdentifier: 
+  Path: event:/char/mushroom/step
+  guid: 3ba26477f833b14b91bee2fef76a583b
+  Banks:
+  - {fileID: 4807229587889624843}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3692574324008182281}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-6562608803584033159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23,6 +132,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-6233529449252793870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/step/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-6217494377218252295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,16 +183,16 @@ MonoBehaviour:
   m_Name: event:/music/cave/main
   m_EditorClassIdentifier: 
   Path: event:/music/cave/main
-  guid: 2d0d2e9ea38aa341996ef85007be4ced
+  guid: c8dc53c47ac793469927e5aba5984595
   Banks:
-  - {fileID: 420466211759835444}
+  - {fileID: -765044945569070322}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 177600
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 144010
 --- !u!114 &-5467239412422201156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +210,84 @@ MonoBehaviour:
   lastModified: 637478710010288528
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &-4754678857263707346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3066019640
+    data2: 1273346798
+  Exists: 1
+--- !u!114 &-4754633947930951794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &-3169740734457716847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TRIP/Build/Desktop/Master.bank
+  Name: Master
+  lastModified: 637495184260235730
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-2393960038437537919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
   Exists: 0
 --- !u!114 &-2255316889745126683
 MonoBehaviour:
@@ -102,6 +309,26 @@ MonoBehaviour:
   - Name: 
     Value: 794
   Exists: 0
+--- !u!114 &-2199376785265450517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/step/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &-1305456462982859302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +343,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODAssets/Desktop/sfx.bank
   Name: sfx
-  lastModified: 637478721212744391
+  lastModified: 637493937235067382
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-765044945569070322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/Music.bank
+  Name: Music
+  lastModified: 637495193340286799
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -133,18 +378,23 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 3337177982666057120}
-  - {fileID: 6475663529745870721}
-  - {fileID: 420466211759835444}
-  - {fileID: -1305456462982859302}
+  - {fileID: 7488694926696212828}
+  - {fileID: 4407400320020193274}
+  - {fileID: -765044945569070322}
+  - {fileID: 4807229587889624843}
   EditorEvents:
   - {fileID: -6136742026907600038}
-  EditorParameters: []
+  - {fileID: 5658119516475333928}
+  - {fileID: -7729685494611689503}
+  - {fileID: -8905132172036288285}
+  - {fileID: 6139366037380026523}
+  EditorParameters:
+  - {fileID: 8462970586012962009}
   MasterBanks:
-  - {fileID: 6475663529745870721}
+  - {fileID: 4407400320020193274}
   StringsBanks:
-  - {fileID: 3337177982666057120}
-  stringsBankWriteTime: 637478721211815202
+  - {fileID: 7488694926696212828}
+  stringsBankWriteTime: 637495193339937090
   cacheVersion: 5
 --- !u!114 &420466211759835444
 MonoBehaviour:
@@ -160,10 +410,90 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODAssets/Desktop/Music.bank
   Name: Music
-  lastModified: 637478721212714430
+  lastModified: 637493937235606916
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &1851793868410118920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/step/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &1933589797058094875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &2654203426776757668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &2899056080884873666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &3037565857643305009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +514,24 @@ MonoBehaviour:
   - Name: Desktop
     Value: 794
   Exists: 1
+--- !u!114 &3233318021807833769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/music.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TRIP/Build/Desktop/music.bank
+  Name: music
+  lastModified: 637495184261123423
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &3337177982666057120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,12 +546,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODAssets/Desktop/Master.strings.bank
   Name: Master.strings
-  lastModified: 637478721211815202
+  lastModified: 637493937235626897
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 846
   Exists: 1
+--- !u!114 &3692574324008182281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/step/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &3710875200226346418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/step/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
 --- !u!114 &4282095062016037103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +628,126 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &4407400320020193274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/Master.bank
+  Name: Master
+  lastModified: 637495193339917106
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4444864661616569489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &4807229587889624843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/sfx.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/sfx.bank
+  Name: sfx
+  lastModified: 637495193340796374
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5263517318840321011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &5595566276335895782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &5658119516475333928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char/golem/step
+  m_EditorClassIdentifier: 
+  Path: event:/char/golem/step
+  guid: 0150df4c625a9544ad1d78e4f2698ca2
+  Banks:
+  - {fileID: 4807229587889624843}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8764294357706803673}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &5804799733977364259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +770,31 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 177600
+--- !u!114 &6139366037380026523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/char/golem/jump
+  m_EditorClassIdentifier: 
+  Path: event:/char/golem/jump
+  guid: c8bef4c2cdb1344883753703f088d6b1
+  Banks:
+  - {fileID: 4807229587889624843}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4754678857263707346}
+  - {fileID: -7866705779854582176}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &6475663529745870721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,10 +809,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMODAssets/Desktop/Master.bank
   Name: Master
-  lastModified: 637478721211795218
+  lastModified: 637493937235636893
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6778044181426482419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/jump/Jump Or Land
+  m_EditorClassIdentifier: 
+  Name: Jump Or Land
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 0
+--- !u!114 &7488694926696212828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMODAssets/Desktop/Master.strings.bank
+  Name: Master.strings
+  lastModified: 637495193339937090
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1290
+  Exists: 1
+--- !u!114 &7823710960913178962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/sfx.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/TRIP/Build/Desktop/sfx.bank
+  Name: sfx
+  lastModified: 637495184262202497
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &7942484001948949189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,3 +889,43 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &8462970586012962009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/surfaceIndex
+  m_EditorClassIdentifier: 
+  Name: surfaceIndex
+  Min: 0
+  Max: 20
+  Default: 0
+  ID:
+    data1: 4258825386
+    data2: 2565301049
+  Exists: 1
+--- !u!114 &8764294357706803673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/step/Terrain
+  m_EditorClassIdentifier: 
+  Name: Terrain
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 1242288614
+    data2: 1046432425
+  Exists: 1
