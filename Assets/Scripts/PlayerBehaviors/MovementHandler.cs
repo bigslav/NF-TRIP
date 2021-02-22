@@ -14,6 +14,16 @@ public class MovementHandler : MonoBehaviour
 
     public void RemoveModifier(IMovementModifier modifier) => _modifiers.Remove(modifier);
 
+    public float fallMultiplier = 2.5f;
+
+    private void Update()
+    {
+        if (_rigidBody.velocity.y < 0)
+        {
+            _rigidBody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+    }
+
     private void Move() 
     {
         Vector3 movement = Vector3.zero;
