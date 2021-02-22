@@ -25,8 +25,7 @@ public class MovementHandler : MonoBehaviour
 
         if (_rigidBody != null)
         {
-            //transform.position += movement * Time.fixedDeltaTime;
-            _rigidBody.MovePosition(transform.position + movement * Time.fixedDeltaTime);
+            _rigidBody.velocity = new Vector3(movement.x, _rigidBody.velocity.y);
         }
     }
 

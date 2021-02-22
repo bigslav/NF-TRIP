@@ -5,7 +5,7 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
     [Header("References")]
     [SerializeField] private MovementHandler _movementHandler = null;
     [SerializeField] private Animator _animator = null;
-    [SerializeField] private Animation _animation = null;
+    [SerializeField] private CollisionProcessor _collisionProcessor = null;
 
     [Header("Settings")]
     [SerializeField] private float _movementSpeed = 5f;
@@ -59,24 +59,24 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
         {
             if (Value.x != 0)
             {
-                _animator.SetBool("moving", true);
+                _animator.SetBool("IsWalking_b", true);
+                _animator.SetBool("IsIdle_b", false);
             }
             else 
             {
-                _animator.SetBool("moving", false);
+                _animator.SetBool("IsWalking_b", false);
+                _animator.SetBool("IsIdle_b", true);
+            }
+
+            if (_collisionProcessor.isGrounded == false)
+            {
+                _animator.SetBool("IsJumping_b", true);
+            }
+            else 
+            {
+                _animator.SetBool("IsJumping_b", false);
             }
         }
 
-        if (_animation != null)
-        {
-            if (Value.x != 0)
-            {
-                _animation.CrossFade("PrototypeMushroomRun");
-            }
-            else
-            {
-                _animation.CrossFade("PrototypeMushroomIdle");
-            }
-        }
     }
 }

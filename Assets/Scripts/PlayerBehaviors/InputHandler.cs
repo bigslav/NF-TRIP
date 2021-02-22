@@ -2,11 +2,13 @@
 
 public class InputHandler : MonoBehaviour
 {
-    [Header("References")]
+    [SerializeField] private Jump _jump;
     [SerializeField] private MovementInputProcessor _movementInputProcessor = null;
     [SerializeField] private CollisionProcessor _collisionProcessor = null;
-    [SerializeField] private ForceReciever _forceReciever = null;
+    [SerializeField] private GameObject _playerModel = null;
 
+    public float sideRotationSpeed = 3f;
+    public float intoIdleRotationSpeed = 5f;
 
     [Header("Settings")]
     [SerializeField] private float _jumpForce = 5;
@@ -34,50 +36,66 @@ public class InputHandler : MonoBehaviour
     private bool PlayerTouchingGround;
     private bool PreviosulyTouchingGround;
 
+    [HideInInspector]
     public bool isFacingRight;
+    [HideInInspector]
     public bool isPulling;
+
+    public bool isUsingMechanism;
+    [HideInInspector]
+    public bool glueToMechanism;
+
+    public int preset = -1;
+
+    public Interactable mechanismUnderControl;
+
+    private float horizontalInput;
+    private float verticalInput;
+    private float liftControlInput;
+    public bool verticalLiftControl = true;
 
     private void Start()
     {
         isFacingRight = true;
         isPulling = false;
+        isUsingMechanism = false;
+        glueToMechanism = false;
     }
 
     void Update()
     {
-        transform.rotation.Set(transform.rotation.w, 0, transform.rotation.y, 0);
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        /*
-                if (horizontalInput != 0 && _animator != null)
-                {
-                    _animator.SetBool("IsWalking", true);
-                }
-                else 
-                {
-                    _animator.SetBool("IsWalking", false);
-                }*/
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !isUsingMechanism)
+        {
+            _jump.OnJump();
+        }
 
         if (!isPulling)
         {
-            if (horizontalInput == 1)
+            if (horizontalInput == -1)
             {
-                transform.eulerAngles = new Vector3(0, 90, 0);
+                _playerModel.transform.rotation = Quaternion.Lerp(_playerModel.transform.rotation, Quaternion.Euler(0, -90, 0), sideRotationSpeed * Time.deltaTime);
+                isFacingRight = false;
+            }
+            else if (horizontalInput == 1)
+            {
+                _playerModel.transform.rotation = Quaternion.Lerp(_playerModel.transform.rotation, Quaternion.Euler(0, 90, 0), sideRotationSpeed * Time.deltaTime);
                 isFacingRight = true;
             }
-            else if (horizontalInput == -1)
+            else
             {
-                transform.eulerAngles = new Vector3(0, -90, 0);
-                isFacingRight = false;
+                _playerModel.transform.rotation = Quaternion.Lerp(_playerModel.transform.rotation, Quaternion.Euler(0, 180, 0), intoIdleRotationSpeed * Time.deltaTime);
             }
         }
 
-        _movementInputProcessor.SetMovementInput(new Vector2(horizontalInput, 0f));
+        if (Input.GetKeyDown(KeyCode.E) && isUsingMechanism)
+            glueToMechanism = !glueToMechanism;
 
-        if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem))
+        if (!glueToMechanism) 
         {
-
-            transform.parent = null;
-            _forceReciever.AddForce(_jumpForce * Vector3.up);
+            _movementInputProcessor.SetMovementInput(new Vector2(horizontalInput, 0f));
         }
 
         GroundedCheck(); // ???
@@ -109,6 +127,39 @@ public class InputHandler : MonoBehaviour
             DistanceTravelled = 0f;
         }
         PreviosulyTouchingGround = PlayerTouchingGround;
+    }
+
+    void FixedUpdate()
+    {
+        if (verticalLiftControl)
+        {
+            liftControlInput = verticalInput;
+        }
+        else
+        {
+            liftControlInput = horizontalInput;
+        }
+
+        if (glueToMechanism)
+        {
+            if (liftControlInput == -1)
+                mechanismUnderControl._currentTarget = mechanismUnderControl.points[0];
+            if (liftControlInput == 1)
+                mechanismUnderControl._currentTarget = mechanismUnderControl.points[1];
+            if ((liftControlInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
+            {
+                mechanismUnderControl.MovePlatform();
+            }
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.T) && isUsingMechanism)
+            {
+                mechanismUnderControl._currentTarget = mechanismUnderControl.points[preset];
+                if (mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
+                    mechanismUnderControl.MovePlatform();
+            }
+        }
     }
     void MaterialCheck()
     {
@@ -162,6 +213,5 @@ public class InputHandler : MonoBehaviour
             Footstep.start();
             Footstep.release();
             Debug.Log(F_MaterialValue + " : " + PrevPos);
-        }
     }
 }
