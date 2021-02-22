@@ -68,13 +68,13 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
                 _animator.SetBool("IsIdle_b", true);
             }
 
-            if (_collisionProcessor.isGrounded == false)
+            if (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem)
             {
-                _animator.SetBool("IsJumping_b", true);
+                _animator.SetBool("IsJumping_b", false);
             }
             else 
             {
-                _animator.SetBool("IsJumping_b", false);
+                _animator.SetBool("IsJumping_b", true);
             }
         }
 

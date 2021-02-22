@@ -151,7 +151,7 @@ Transform:
   - {fileID: 1807362417}
   - {fileID: 178126880}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &106270006 stripped
 Transform:
@@ -326,7 +326,7 @@ PrefabInstance:
     - target: {fileID: 6919059683331726944, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6919059683331726944, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
         type: 3}
@@ -3553,8 +3553,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455904525}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: a2d594dcb86c8ea4bb050bc795973888, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6cb43f586bb54a0448b72077399dcf76, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3892,6 +3892,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550552406573238396, guid: f44c406c317a94d4085ffd49b9420b9a,
+        type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1455904526}
+    - target: {fileID: 8550552406573238396, guid: f44c406c317a94d4085ffd49b9420b9a,
+        type: 3}
+      propertyPath: _movementSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238399, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}
