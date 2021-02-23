@@ -2,8 +2,8 @@
 
 public class Puller : MonoBehaviour
 {
-    [SerializeField] private InputHandler _inputHandler;
-    [SerializeField] private CollisionProcessor _collisionProcessor;
+    private InputHandler _inputHandler;
+    private CollisionProcessor _collisionProcessor;
 
     private bool _isTouchingMovable = false;
     private bool _isPulling = false;
@@ -12,6 +12,12 @@ public class Puller : MonoBehaviour
     private GameObject _pulledObject = null;
     private Rigidbody _pulledObjectRb = null;
     private float _pulledObjectRbMass;
+
+    private void OnEnable()
+    {
+        _inputHandler = GetComponent<InputHandler>();
+        _collisionProcessor = GetComponent<CollisionProcessor>();
+    }
 
     private void Update()
     {

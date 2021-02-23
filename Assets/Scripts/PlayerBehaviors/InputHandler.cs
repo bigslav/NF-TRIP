@@ -2,26 +2,26 @@
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private Jump _jump;
-    [SerializeField] private MovementInputProcessor _movementInputProcessor = null;
-    [SerializeField] private CollisionProcessor _collisionProcessor = null;
     [SerializeField] private GameObject _playerModel = null;
-
     public float sideRotationSpeed = 3f;
     public float intoIdleRotationSpeed = 5f;
+    public bool verticalLiftControl = true;
+    public int preset = -1;
 
     [HideInInspector]
     public bool isFacingRight;
     [HideInInspector]
     public bool isPulling;
-
+    [HideInInspector]
     public bool isUsingMechanism;
     [HideInInspector]
     public bool glueToMechanism;
-
-    public int preset = -1;
-
+    [HideInInspector]
     public Interactable mechanismUnderControl;
+
+    private Jump _jump = null;
+    private MovementInputProcessor _movementInputProcessor = null;
+    private CollisionProcessor _collisionProcessor = null;
 
     private float _horizontalInput;
     private float _verticalInput;
@@ -29,7 +29,12 @@ public class InputHandler : MonoBehaviour
     private float _lastInputVertical;
     private float _lastInputHorizontal;
 
-    public bool verticalLiftControl = true;
+    private void OnEnable()
+    {
+        _jump = GetComponent<Jump>();
+        _movementInputProcessor = GetComponent<MovementInputProcessor>();
+        _collisionProcessor = GetComponent<CollisionProcessor>();
+    }
 
     private void Start()
     {
@@ -43,11 +48,6 @@ public class InputHandler : MonoBehaviour
     {
         _horizontalInput = Input.GetAxisRaw("Horizontal");
         _verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !glueToMechanism)
-        {
-            _jump.OnJump();
-        }
 
         if (!isPulling)
         {

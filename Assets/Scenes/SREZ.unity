@@ -324,16 +324,6 @@ PrefabInstance:
       propertyPath: characterMovementController
       value: 
       objectReference: {fileID: 1385366067}
-    - target: {fileID: 2718994575633533973, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
-        type: 3}
-      propertyPath: fallMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5594992948068825823, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
-        type: 3}
-      propertyPath: intoIdleRotationSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6919059683331726944, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
         type: 3}
       propertyPath: m_RootOrder
@@ -3807,25 +3797,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1514736543}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1455904526
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455904525}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a2d594dcb86c8ea4bb050bc795973888, type: 3}
-  m_Controller: {fileID: 9100000, guid: 6cb43f586bb54a0448b72077399dcf76, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1455904527 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3017129712621182423, guid: f44c406c317a94d4085ffd49b9420b9a,
@@ -4101,11 +4072,6 @@ PrefabInstance:
       propertyPath: characterMovementController
       value: 
       objectReference: {fileID: 1385366067}
-    - target: {fileID: 8550552406573238370, guid: f44c406c317a94d4085ffd49b9420b9a,
-        type: 3}
-      propertyPath: fallMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238378, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}
       propertyPath: m_RootOrder
@@ -4160,16 +4126,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8550552406573238396, guid: f44c406c317a94d4085ffd49b9420b9a,
-        type: 3}
-      propertyPath: _animator
-      value: 
-      objectReference: {fileID: 1455904526}
-    - target: {fileID: 8550552406573238396, guid: f44c406c317a94d4085ffd49b9420b9a,
-        type: 3}
-      propertyPath: _movementSpeed
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238399, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}

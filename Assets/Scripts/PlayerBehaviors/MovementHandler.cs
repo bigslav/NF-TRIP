@@ -3,26 +3,19 @@ using System.Collections.Generic;
 
 public class MovementHandler : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Rigidbody _rigidBody = null;
-
+    private Rigidbody _rigidBody = null;
     private readonly List<IMovementModifier> _modifiers = new List<IMovementModifier>();
+
+    private void OnEnable()
+    {
+        _rigidBody = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate() => Move();
     
     public void AddModifier(IMovementModifier modifier) => _modifiers.Add(modifier);
 
     public void RemoveModifier(IMovementModifier modifier) => _modifiers.Remove(modifier);
-
-    public float fallMultiplier = 2.5f;
-
-    private void Update()
-    {
-        if (_rigidBody.velocity.y < 0)
-        {
-            _rigidBody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-    }
 
     private void Move() 
     {

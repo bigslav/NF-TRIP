@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8550552406573238396}
   - component: {fileID: 3017129712621182423}
   - component: {fileID: 1455904526}
+  - component: {fileID: 1455904530}
+  - component: {fileID: 1258392393383295976}
   m_Layer: 8
   m_Name: Mushroom
   m_TagString: Mushroom
@@ -79,19 +81,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48f1b7c763304fb9744689b5514e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump: {fileID: 1455904526}
-  _movementInputProcessor: {fileID: 8550552406573238396}
-  _collisionProcessor: {fileID: 3017129712621182423}
   _playerModel: {fileID: 1370656315416444847}
   sideRotationSpeed: 3
   intoIdleRotationSpeed: 5
+  verticalLiftControl: 1
+  preset: -1
   isFacingRight: 0
   isPulling: 0
   isUsingMechanism: 0
   glueToMechanism: 0
-  preset: -1
   mechanismUnderControl: {fileID: 0}
-  verticalLiftControl: 1
 --- !u!114 &8550552406573238370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adff6baa4a5f2446ab4b0e6d8baa65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidBody: {fileID: 8550552406573238375}
 --- !u!114 &8550552406573238396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,10 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcad5d049b26ba43a2140ee0b175a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementHandler: {fileID: 8550552406573238370}
-  _animator: {fileID: 0}
-  _collisionProcessor: {fileID: 3017129712621182423}
-  _movementSpeed: 10
+  movementSpeed: 5
 --- !u!114 &3017129712621182423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,8 +129,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterType: 1
-  isGrounded: 0
-  isOnTopOfGolem: 0
   characterMovementController: {fileID: 0}
   _groundLayer:
     serializedVersion: 2
@@ -143,7 +136,8 @@ MonoBehaviour:
   _golemLayer:
     serializedVersion: 2
     m_Bits: 512
-  _collider: {fileID: 8550552406573238374}
+  isGrounded: 0
+  isOnTopOfGolem: 0
 --- !u!114 &1455904526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,8 +150,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c5ae6d6f1929e479781d63a2fa7b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8550552406573238375}
-  jumpForce: 10
+  jumpVelocity: 50
+  jumpTime: 0.2
+  jumpAllowed: 0
+--- !u!114 &1455904530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550552406573238399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da74d01fed86c8d4eb6bd6d42b30b904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityScale: 1
+  fallMultiplier: 1
+--- !u!95 &1258392393383295976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550552406573238399}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: a2d594dcb86c8ea4bb050bc795973888, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6cb43f586bb54a0448b72077399dcf76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2289206821711758078
 PrefabInstance:
   m_ObjectHideFlags: 0
