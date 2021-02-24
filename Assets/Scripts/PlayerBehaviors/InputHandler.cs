@@ -12,8 +12,8 @@ public class InputHandler : MonoBehaviour
     [SerializeField] private float _jumpForce = 5;
 
     [Header("FMOD Settings")]
-    [SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
-    [SerializeField] [FMODUnity.EventRef] private string JumpingEventPath;
+    //[SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
+    //[SerializeField] [FMODUnity.EventRef] private string JumpingEventPath;
     private string MaterialParameterName = "Terrain";
     private string JumpOrLandParameterName = "Jump Or Land";
 
@@ -72,14 +72,14 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        _horizontalInput = Input.GetAxisRaw("Horizontal");
+        _verticalInput = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !isUsingMechanism)
         {
-            _jump.OnJump();
-            MaterialCheck();
-            PlayJumpOrLand(true);
+            //_jump.OnJump();
+            //MaterialCheck();
+            //PlayJumpOrLand(true);
         }
 
         if (!isPulling)
@@ -114,14 +114,14 @@ public class InputHandler : MonoBehaviour
 
         GroundedCheck(); // ???
 
-        if (horizontalInput != 0) // If the player's on the ground, then play a footstep
+        if (_horizontalInput != 0) // If the player's on the ground, then play a footstep
         {
             DistanceTravelled += (transform.position - PrevPos).magnitude; // A value of the length between past and present points.
             if (DistanceTravelled >= StepDistance)
             {
-                Debug.Log(DistanceTravelled + " : " + horizontalInput);
-                MaterialCheck();
-                PlayFootstep();
+                //Debug.Log(DistanceTravelled + " : " + _horizontalInput);
+                //MaterialCheck();
+                //PlayFootstep();
                 DistanceTravelled = 0f;
             }
             PrevPos = transform.position;
@@ -129,8 +129,8 @@ public class InputHandler : MonoBehaviour
 
         if (PreviosulyTouchingGround == false && PlayerTouchingGround) // If the player touches ground now, but didn't touch the frame back.
         {
-            MaterialCheck();
-            PlayJumpOrLand(false);
+            //MaterialCheck();
+            //PlayJumpOrLand(false);
             DistanceTravelled = 0f;
         }
         PreviosulyTouchingGround = PlayerTouchingGround;
@@ -206,24 +206,24 @@ public class InputHandler : MonoBehaviour
 
     void PlayJumpOrLand(bool F_JumpLandCalc)
     {
-        FMOD.Studio.EventInstance Jl = FMODUnity.RuntimeManager.CreateInstance(JumpingEventPath);         // First we create an FMOD event instance.
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Jl, transform, GetComponent<Rigidbody>());    // Next that event instance is told to play at the location that our player is currently at.
-        Jl.setParameterByName(MaterialParameterName, F_MaterialValue);
-        Jl.setParameterByName(JumpOrLandParameterName, F_JumpLandCalc ? 0f : 1f);
-        Jl.start();
-        Jl.release();                                                                                     // Releasing the instance from memory.
+        //FMOD.Studio.EventInstance Jl = FMODUnity.RuntimeManager.CreateInstance(JumpingEventPath);         // First we create an FMOD event instance.
+        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(Jl, transform, GetComponent<Rigidbody>());    // Next that event instance is told to play at the location that our player is currently at.
+        //Jl.setParameterByName(MaterialParameterName, F_MaterialValue);
+        //Jl.setParameterByName(JumpOrLandParameterName, F_JumpLandCalc ? 0f : 1f);
+        //Jl.start();
+        //Jl.release();                                                                                     // Releasing the instance from memory.
     }
 
     void PlayFootstep()
     {
         if (PlayerTouchingGround)
         {
-            FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(FootstepsEventPath);
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
-            Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
-            Footstep.start();
-            Footstep.release();
-            Debug.Log(F_MaterialValue + " : " + PrevPos);
+            //FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(FootstepsEventPath);
+            //FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
+            //Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
+            //Footstep.start();
+            //Footstep.release();
+            //Debug.Log(F_MaterialValue + " : " + PrevPos);
         }
     }
 }
