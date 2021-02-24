@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c5ae6d6f1929e479781d63a2fa7b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 50
-  jumpTime: 0.2
+  jumpVelocity: 80
+  jumpTime: 0.25
   jumpAllowed: 0
 --- !u!114 &1455904530
 MonoBehaviour:
@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GribRIG+UVFBX
       objectReference: {fileID: 0}
+    - target: {fileID: 2283768480632159324, guid: a2d594dcb86c8ea4bb050bc795973888,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 101cf2a17b4e6f24cbd37173a3233618, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2d594dcb86c8ea4bb050bc795973888, type: 3}
 --- !u!1 &1370656315416444847 stripped
