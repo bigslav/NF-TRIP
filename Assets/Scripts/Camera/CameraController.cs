@@ -6,23 +6,31 @@ public class CameraController : MonoBehaviour
 {
 	[SerializeField] private CameraMode cameraMode;
 	
-	[SerializeField] private float caveFieldOfView;
+	[Header("Static camera settings")]
 	[SerializeField] private float puzzleFieldOfView;
+	[SerializeField] private float firstCaveFieldOfView;
+	[SerializeField] private float secondCaveFieldOfView;
+	[SerializeField] private float firstCaveYAxis;
+	[SerializeField] private float secondCaveYAxis;
+	[SerializeField] private Vector3 forwardOffset;
 
-
-	[SerializeField] private Vector3 cameraOffset;
-	[SerializeField] private Transform firstFollowedCharacter;
-	[SerializeField] private Transform secondFollowedCharacter;
+	[Header("Dynamic camera settings")]
 	[SerializeField] private float minCameraFieldOfView;
 	[SerializeField] private float maxCameraFieldOfView;
-	[SerializeField] private Camera camera;
+	[SerializeField] private float cameraLerpValue;
 
+
+	[Header("Links")]
+	[SerializeField] private Camera camera;
 	[SerializeField] private Transform bottomObject;
 	[SerializeField] private Transform topObject;
 	[SerializeField] private Transform leftObject;
 	[SerializeField] private Transform rightObject;
 
-	[SerializeField] private float cameraLerpValue;
+	[Header("General Settings")]
+	[SerializeField] private Vector3 cameraOffset;
+	[SerializeField] private Transform firstFollowedCharacter;
+	[SerializeField] private Transform secondFollowedCharacter;
 	[SerializeField] private float cameraSmoothness;
 
 	private Vector3 levelCenterPosition;
@@ -49,14 +57,25 @@ public class CameraController : MonoBehaviour
 	{
 		Vector3 positionBetweenChars = 0.5f * (firstFollowedCharacter.position + secondFollowedCharacter.position);
 		Vector3 newCameraPosition = positionBetweenChars + cameraOffset;
-		float customCameraSmoothness = cameraSmoothness * 0.1f;
-		if (positionBetweenChars.x < leftObject.position.x || positionBetweenChars.x > rightObject.position.x)
+		float customCameraSmoothness;
+		if (positionBetweenChars.x < leftObject.position.x)
 		{
-			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, caveFieldOfView, customCameraSmoothness);
+			customCameraSmoothness = cameraSmoothness * 0.1f;
+			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, firstCaveFieldOfView, customCameraSmoothness);
 
-			newCameraPosition.y = firstFollowedCharacter.position.y + 3.2f;
+			newCameraPosition.y = firstCaveYAxis;
+			newCameraPosition.x += forwardOffset.x;
+		} else if (positionBetweenChars.x > rightObject.position.x)
+		{
+			customCameraSmoothness = cameraSmoothness * 0.1f;
+			customCameraSmoothness = cameraSmoothness * 0.1f;
+			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, secondCaveFieldOfView, customCameraSmoothness);
+
+			newCameraPosition.y = secondCaveYAxis;
+			newCameraPosition.x += forwardOffset.x;
 		} else
 		{
+			customCameraSmoothness = cameraSmoothness * 0.01f;
 			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, puzzleFieldOfView, customCameraSmoothness);
 			
 			newCameraPosition.x = levelCenterPosition.x;
