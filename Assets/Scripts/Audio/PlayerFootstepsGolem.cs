@@ -19,6 +19,24 @@ public class PlayerFootstepsGolem : MonoBehaviour
     private RaycastHit hit;
     private int F_MaterialValue;
 
+    Animator anim;
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        AddEvent(1, 0.25f, "step", 0);
+    }
+
+    void AddEvent(int Clip, float time, string functionName, float floatParameter)
+    {
+        anim = GetComponent<Animator>();
+        AnimationEvent animationEvent = new AnimationEvent();
+        animationEvent.functionName = functionName;
+        animationEvent.floatParameter = floatParameter;
+        animationEvent.time = time;
+        AnimationClip clip = anim.runtimeAnimatorController.animationClips[Clip];
+        clip.AddEvent(animationEvent);
+    }
+
     private void Update()
     {
 
