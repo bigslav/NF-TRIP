@@ -89,14 +89,14 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = true;
-            _golemJump.jumpAllowed = true;
+            _golemJump.enabled = true;
             golemIsActive = true;
         }
         else if (characterName == "mushroom")
         {
             _mushroomGameObject.transform.parent = _supposedParent;
             _mushroomInputHandler.enabled = true;
-            _mushroomJump.jumpAllowed = true;
+            _mushroomJump.enabled = true;
             mushroomIsActive = true;
         }
     }
@@ -106,13 +106,13 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = false;
-            _golemJump.jumpAllowed = false;
+            _golemJump.enabled = false;
             golemIsActive = false;
         }
         else if (characterName == "mushroom")
         {
             _mushroomInputHandler.enabled = false;
-            _mushroomJump.jumpAllowed = false;
+            _mushroomJump.enabled = false;
             mushroomIsActive = false;
         }
     }

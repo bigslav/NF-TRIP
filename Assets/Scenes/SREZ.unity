@@ -3066,7 +3066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034647241, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
       propertyPath: jumpVelocity
-      value: 70
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8298679962389981, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
       propertyPath: m_Layer
@@ -6915,7 +6915,7 @@ PrefabInstance:
     - target: {fileID: 6919059683331726944, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -128.43
+      value: -158.56
       objectReference: {fileID: 0}
     - target: {fileID: 6919059683331726944, guid: 47fd39a16737d7a4b9a136e44ba1b7da,
         type: 3}
@@ -25514,6 +25514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1455904526, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
+      propertyPath: jumpVelocity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 203973720029397544, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}
       propertyPath: m_Layer
@@ -25677,12 +25681,12 @@ PrefabInstance:
     - target: {fileID: 8550552406573238378, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -128.67
+      value: -154.87
       objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238378, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.42
+      value: -1.64
       objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238378, guid: f44c406c317a94d4085ffd49b9420b9a,
         type: 3}
@@ -33872,7 +33876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1149631083, guid: 30cd40ddf023ee1499e6509189a6209e, type: 3}
       propertyPath: firstCaveFieldOfView
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1149631083, guid: 30cd40ddf023ee1499e6509189a6209e, type: 3}
       propertyPath: maxCameraFieldOfView

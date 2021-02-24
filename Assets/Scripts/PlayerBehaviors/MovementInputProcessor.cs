@@ -36,6 +36,12 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
 
     private void Move()
     {
+        //TWERK
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TwerkMode = !TwerkMode;
+        }
+
         float targetSpeed = movementSpeed * _previousInputDirection.magnitude;
 
         Vector3 forward = _mainCameraTransform.forward;
