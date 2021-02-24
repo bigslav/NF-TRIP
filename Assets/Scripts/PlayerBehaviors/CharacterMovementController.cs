@@ -171,7 +171,7 @@ public class CharacterMovementController : MonoBehaviour
     {
         if (!_isJumpOffProcessed)
         {
-            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 2)
+            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 4.3f)
             {
                 SetCharactersCollisions(true);
             }

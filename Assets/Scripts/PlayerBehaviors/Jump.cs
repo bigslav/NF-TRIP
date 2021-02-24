@@ -18,7 +18,7 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !_inputHandler.glueToMechanism)
+        if (Input.GetKeyDown(KeyCode.Space) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !_inputHandler.glueToMechanism && !_inputHandler.isPulling)
         {
             _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
         }
