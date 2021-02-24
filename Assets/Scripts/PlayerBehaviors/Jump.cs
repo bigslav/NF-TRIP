@@ -23,4 +23,9 @@ public class Jump : MonoBehaviour
             _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
         }
     }
+
+    public void SetRigidbody(Rigidbody rb)
+    {
+        _rb = rb;
+    }
 }
