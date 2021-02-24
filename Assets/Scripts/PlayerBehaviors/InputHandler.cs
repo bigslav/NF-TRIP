@@ -70,6 +70,8 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !isUsingMechanism)
         {
             _jump.OnJump();
+            MaterialCheck();
+            PlayJumpOrLand(true);
         }
 
         if (!isPulling)
@@ -105,19 +107,12 @@ public class InputHandler : MonoBehaviour
             DistanceTravelled += (transform.position - PrevPos).magnitude; // A value of the length between past and present points.
             if (DistanceTravelled >= StepDistance)
             {
+                Debug.Log(DistanceTravelled + " : " + horizontalInput);
                 MaterialCheck();
                 PlayFootstep();
                 DistanceTravelled = 0f;
             }
             PrevPos = transform.position;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem))
-        {
-            transform.parent = null;
-            _forceReciever.AddForce(_jumpForce * Vector3.up);
-            MaterialCheck();
-            PlayJumpOrLand(true);
         }
 
         if (PreviosulyTouchingGround == false && PlayerTouchingGround) // If the player touches ground now, but didn't touch the frame back.
@@ -213,5 +208,6 @@ public class InputHandler : MonoBehaviour
             Footstep.start();
             Footstep.release();
             Debug.Log(F_MaterialValue + " : " + PrevPos);
+        }
     }
 }
