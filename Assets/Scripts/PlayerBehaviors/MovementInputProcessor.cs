@@ -3,6 +3,7 @@
 public class MovementInputProcessor : MonoBehaviour, IMovementModifier
 {
     public float movementSpeed = 5f;
+    public bool TwerkMode = false;
 
     private MovementHandler _movementHandler = null;
     private Animator _animator = null;
@@ -79,6 +80,15 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
             else 
             {
                 _animator.SetBool("IsJumping_b", true);
+            }
+
+            if (TwerkMode)
+            {
+                _animator.SetBool("IsTwerking_b", true);
+            }
+            else
+            {
+                _animator.SetBool("IsTwerking_b", false);
             }
         }
 
