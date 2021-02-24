@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+	[SerializeField] private CameraMode cameraMode;
+	
+	[SerializeField] private float caveFieldOfView;
+	[SerializeField] private float puzzleFieldOfView;
+
+
 	[SerializeField] private Vector3 cameraOffset;
 	[SerializeField] private Transform firstFollowedCharacter;
 	[SerializeField] private Transform secondFollowedCharacter;
@@ -30,6 +36,44 @@ public class CameraController : MonoBehaviour
 
 	private void LateUpdate()
 	{
+		if (cameraMode == CameraMode.Dynamic)
+		{
+			DynamicCamera();
+		} else if (cameraMode == CameraMode.Static)
+		{
+			StaticCamera();
+		}
+	}
+
+	private void StaticCamera()
+	{
+		Vector3 positionBetweenChars = 0.5f * (firstFollowedCharacter.position + secondFollowedCharacter.position);
+		Vector3 newCameraPosition = positionBetweenChars + cameraOffset;
+		float customCameraSmoothness = cameraSmoothness * 0.1f;
+		if (positionBetweenChars.x < leftObject.position.x || positionBetweenChars.x > rightObject.position.x)
+		{
+			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, caveFieldOfView, customCameraSmoothness);
+
+			newCameraPosition.y = firstFollowedCharacter.position.y + 3.2f;
+		} else
+		{
+			camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, puzzleFieldOfView, customCameraSmoothness);
+			
+			newCameraPosition.x = levelCenterPosition.x;
+			if (newCameraPosition.y < 11)
+			{
+				newCameraPosition.y = 11;
+			}
+			if (newCameraPosition.y > 44)
+			{
+				newCameraPosition.y = 44;
+			}
+		}
+		transform.position = Vector3.Lerp(transform.position, newCameraPosition, customCameraSmoothness);
+	}
+
+	private void DynamicCamera()
+	{
 		Vector3 oldPosition = transform.position;
 
 		Vector3 positionBetweenChars = 0.5f * (firstFollowedCharacter.position + secondFollowedCharacter.position);
@@ -43,5 +87,11 @@ public class CameraController : MonoBehaviour
 		float oldFieldOfView = camera.fieldOfView;
 		float newFieldOfView = Mathf.Clamp(distanceBetween * 1.5f, minCameraFieldOfView, maxCameraFieldOfView);
 		camera.fieldOfView = Mathf.Lerp(oldFieldOfView, newFieldOfView, Time.deltaTime * cameraSmoothness);
+	}
+
+	enum CameraMode
+	{
+		Dynamic,
+		Static
 	}
 }
