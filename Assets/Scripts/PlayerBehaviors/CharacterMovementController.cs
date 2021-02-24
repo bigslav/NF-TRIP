@@ -6,23 +6,42 @@ using Cinemachine;
 
 public class CharacterMovementController : MonoBehaviour
 {
-    public bool golemIsActive;
-    public bool mushroomIsActive;
-
-    [SerializeField] private MovementHandler _mushroomMovementHandler;
-    [SerializeField] private InputHandler _golemInputHandler;
-    [SerializeField] private InputHandler _mushroomInputHandler;
-    [SerializeField] private MovementInputProcessor _golemMovementInputProcessor;
-    [SerializeField] private MovementInputProcessor _mushroomMovementInputProcessor;
     [SerializeField] private GameObject _golemGameObject;
     [SerializeField] private GameObject _mushroomGameObject;
-    [SerializeField] private CollisionProcessor _mushroomCollisionProcessor;
-    [SerializeField] private Rigidbody _mushroomRigidbody;
+    
+    [HideInInspector]
+    public bool golemIsActive;
+    [HideInInspector]
+    public bool mushroomIsActive;
+
+    private MovementHandler _mushroomMovementHandler;
+    private InputHandler _mushroomInputHandler;
+    private MovementInputProcessor _mushroomMovementInputProcessor;
+    private CollisionProcessor _mushroomCollisionProcessor;
+    private Rigidbody _mushroomRigidbody;
+    private Jump _mushroomJump;
+
+    private InputHandler _golemInputHandler;
+    private MovementInputProcessor _golemMovementInputProcessor;
+    private Jump _golemJump;
 
     private RigidbodyInterpolation _savedInterpolation;
     private CollisionDetectionMode _savedCollisionDetectionMode;
     private bool _isJumpOffProcessed;
     private Transform _supposedParent;
+
+    private void OnEnable()
+    {
+        _mushroomMovementHandler = _mushroomGameObject.GetComponent<MovementHandler>();
+        _mushroomInputHandler = _mushroomGameObject.GetComponent<InputHandler>();
+        _mushroomMovementInputProcessor = _mushroomGameObject.GetComponent<MovementInputProcessor>();
+        _mushroomCollisionProcessor = _mushroomGameObject.GetComponent<CollisionProcessor>();
+        _mushroomRigidbody = _mushroomGameObject.GetComponent<Rigidbody>();
+        _mushroomJump = _mushroomGameObject.GetComponent<Jump>();
+        _golemInputHandler = _golemGameObject.GetComponent<InputHandler>();
+        _golemMovementInputProcessor = _golemGameObject.GetComponent<MovementInputProcessor>();
+        _golemJump = _golemGameObject.GetComponent<Jump>();
+    }
 
     private void Start()
     {
@@ -70,13 +89,14 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = true;
+            _golemJump.jumpAllowed = true;
             golemIsActive = true;
         }
         else if (characterName == "mushroom")
         {
-            Debug.Log(_supposedParent);
             _mushroomGameObject.transform.parent = _supposedParent;
             _mushroomInputHandler.enabled = true;
+            _mushroomJump.jumpAllowed = true;
             mushroomIsActive = true;
         }
     }
@@ -86,11 +106,13 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = false;
+            _golemJump.jumpAllowed = false;
             golemIsActive = false;
         }
         else if (characterName == "mushroom")
         {
             _mushroomInputHandler.enabled = false;
+            _mushroomJump.jumpAllowed = false;
             mushroomIsActive = false;
         }
     }
@@ -109,7 +131,7 @@ public class CharacterMovementController : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             SwitchCharacters();
         }

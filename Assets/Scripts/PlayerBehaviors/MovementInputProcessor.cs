@@ -2,14 +2,11 @@
 
 public class MovementInputProcessor : MonoBehaviour, IMovementModifier
 {
-    [Header("References")]
-    [SerializeField] private MovementHandler _movementHandler = null;
-    [SerializeField] private Animator _animator = null;
-    [SerializeField] private CollisionProcessor _collisionProcessor = null;
+    public float movementSpeed = 5f;
 
-    [Header("Settings")]
-    [SerializeField] private float _movementSpeed = 5f;
-
+    private MovementHandler _movementHandler = null;
+    private Animator _animator = null;
+    private CollisionProcessor _collisionProcessor = null;
     private Vector3 _previousVelocity;
     private Vector2 _previousInputDirection;
 
@@ -17,7 +14,14 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
 
     public Vector3 Value { get; private set; }
 
-    private void OnEnable() => _movementHandler.AddModifier(this);
+    private void OnEnable() 
+    {
+        _movementHandler = GetComponent<MovementHandler>();
+        _animator = GetComponent<Animator>();
+        _collisionProcessor = GetComponent<CollisionProcessor>();
+        _movementHandler.AddModifier(this);
+    }
+
     private void OnDisable() => _movementHandler.RemoveModifier(this);
 
     private void Start() => _mainCameraTransform = Camera.main.transform;
@@ -31,7 +35,7 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
 
     private void Move()
     {
-        float targetSpeed = _movementSpeed * _previousInputDirection.magnitude;
+        float targetSpeed = movementSpeed * _previousInputDirection.magnitude;
 
         Vector3 forward = _mainCameraTransform.forward;
         Vector3 right = _mainCameraTransform.right;
@@ -68,13 +72,13 @@ public class MovementInputProcessor : MonoBehaviour, IMovementModifier
                 _animator.SetBool("IsIdle_b", true);
             }
 
-            if (_collisionProcessor.isGrounded == false)
+            if (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem)
             {
-                _animator.SetBool("IsJumping_b", true);
+                _animator.SetBool("IsJumping_b", false);
             }
             else 
             {
-                _animator.SetBool("IsJumping_b", false);
+                _animator.SetBool("IsJumping_b", true);
             }
         }
 

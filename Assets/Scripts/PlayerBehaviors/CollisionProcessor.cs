@@ -2,24 +2,23 @@
 
 public class CollisionProcessor : MonoBehaviour
 {
-    public enum CharacterType
-    {
-        Golem,
-        Mushroom
-    }
-
     public CharacterType characterType;
-
-    public bool isGrounded;
-    public bool isOnTopOfGolem = false;
     
     [SerializeField] private CharacterMovementController characterMovementController;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _golemLayer;
-    [SerializeField] private BoxCollider _collider;
 
+    public bool isGrounded;
+    public bool isOnTopOfGolem = false;
+
+    private BoxCollider _collider;
     private Bounds _colliderBounds;
     private float _skinWidth = 0.015f;
+
+    private void OnEnable()
+    {
+        _collider = GetComponent<BoxCollider>();
+    }
 
     private void Start()
     {
@@ -69,4 +68,10 @@ public class CollisionProcessor : MonoBehaviour
             }
         } 
     }
+    public enum CharacterType
+    {
+        Golem,
+        Mushroom
+    }
+
 }

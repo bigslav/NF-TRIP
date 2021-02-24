@@ -3,10 +3,13 @@ using System.Collections.Generic;
 
 public class MovementHandler : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Rigidbody _rigidBody = null;
-
+    private Rigidbody _rigidBody = null;
     private readonly List<IMovementModifier> _modifiers = new List<IMovementModifier>();
+
+    private void OnEnable()
+    {
+        _rigidBody = GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate() => Move();
     

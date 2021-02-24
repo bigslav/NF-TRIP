@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1337498304610737206}
   - component: {fileID: 1813269906}
   - component: {fileID: 2034647241}
+  - component: {fileID: 5368945027034925337}
   - component: {fileID: 7286680145689225940}
   - component: {fileID: 1338869142}
   m_Layer: 9
@@ -81,19 +82,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca48f1b7c763304fb9744689b5514e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jump: {fileID: 2034647241}
-  _movementInputProcessor: {fileID: 1337498304610737206}
-  _collisionProcessor: {fileID: 1813269906}
   _playerModel: {fileID: 3012538681684845341}
   sideRotationSpeed: 3
-  intoIdleRotationSpeed: 5
+  intoIdleRotationSpeed: 2
+  verticalLiftControl: 1
+  preset: -1
   isFacingRight: 0
   isPulling: 0
   isUsingMechanism: 0
   glueToMechanism: 0
-  preset: -1
   mechanismUnderControl: {fileID: 0}
-  verticalLiftControl: 1
 --- !u!114 &2718994575633533973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adff6baa4a5f2446ab4b0e6d8baa65b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidBody: {fileID: 6919059683331726954}
 --- !u!114 &1337498304610737206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,10 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fcad5d049b26ba43a2140ee0b175a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementHandler: {fileID: 2718994575633533973}
-  _animator: {fileID: 1338869142}
-  _collisionProcessor: {fileID: 1813269906}
-  _movementSpeed: 5
+  movementSpeed: 5
 --- !u!114 &1813269906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +130,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterType: 0
-  isGrounded: 0
-  isOnTopOfGolem: 0
   characterMovementController: {fileID: 0}
   _groundLayer:
     serializedVersion: 2
@@ -145,7 +137,8 @@ MonoBehaviour:
   _golemLayer:
     serializedVersion: 2
     m_Bits: 512
-  _collider: {fileID: 3252199703387296522}
+  isGrounded: 0
+  isOnTopOfGolem: 0
 --- !u!114 &2034647241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +151,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c5ae6d6f1929e479781d63a2fa7b75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 6919059683331726954}
-  jumpForce: 9
+  jumpVelocity: 50
+  jumpTime: 0.2
+  jumpAllowed: 0
+--- !u!114 &5368945027034925337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919059683331726948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da74d01fed86c8d4eb6bd6d42b30b904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityScale: 1
+  fallMultiplier: 1
 --- !u!114 &7286680145689225940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,8 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 300a97ff273b7ba42aa67956bd0a6911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputHandler: {fileID: 5594992948068825823}
-  _collisionProcessor: {fileID: 1813269906}
 --- !u!95 &1338869142
 Animator:
   serializedVersion: 3

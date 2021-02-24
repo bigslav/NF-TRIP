@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4975821622996650438}
   - component: {fileID: 4975821622996650433}
   - component: {fileID: 4975821622996650432}
-  - component: {fileID: 4975821622996650439}
+  - component: {fileID: 1149631083}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -42,8 +42,8 @@ Camera:
   m_GameObject: {fileID: 4975821622996650434}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.084905684, g: 0.07809721, b: 0.07809721, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -58,9 +58,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 30
+  field of view: 54
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 32
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -84,7 +84,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4975821622996650434}
   m_Enabled: 1
---- !u!114 &4975821622996650439
+--- !u!114 &1149631083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,15 +93,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4975821622996650434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac88ef3fc7fe78d4a9e990a66059deb1, type: 3}
+  m_Script: {fileID: 11500000, guid: a760dea61d6dc6a4380bd4e9194075b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 4975821622996650433}
-  targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  offset: {x: 0, y: 2, z: -30}
-  smoothTime: 0.5
-  minZoom: 60
-  maxZoom: 30
-  zoomLimiter: 60
+  cameraOffset: {x: 0, y: 0, z: -30}
+  firstFollowedCharacter: {fileID: 0}
+  secondFollowedCharacter: {fileID: 0}
+  minCameraFieldOfView: 30
+  maxCameraFieldOfView: 60
+  camera: {fileID: 4975821622996650433}
+  bottomObject: {fileID: 0}
+  topObject: {fileID: 0}
+  leftObject: {fileID: 0}
+  rightObject: {fileID: 0}
+  cameraLerpValue: 0.2
+  cameraSmoothness: 0.5
