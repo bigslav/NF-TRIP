@@ -6,8 +6,8 @@ public class PlayerFootstepsGolem : MonoBehaviour
 {
 
     [Header("FMOD Settings")]
-    [SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
-    [SerializeField] [FMODUnity.EventRef] private string JumpAndLandPath;
+    //[SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
+    //[SerializeField] [FMODUnity.EventRef] private string JumpAndLandPath;
     private string MaterialParameterName = "Terrain";
     private string JumpOrLand = "Jump Or Land";
     private bool Grounded;
@@ -30,7 +30,7 @@ public class PlayerFootstepsGolem : MonoBehaviour
         anim = GetComponent<Animator>();
         AddEvent(1, 0.25f, "Step", 0); // WalkG
         AddEvent(1, 0.98f, "Step", 0);
-        AddEvent(2, 0.05f, "Jump", 0);
+        //AddEvent(2, 0.05f, "Jump", 0);
     }
 
     void AddEvent(int Clip, float time, string functionName, float floatParameter)
@@ -49,27 +49,6 @@ public class PlayerFootstepsGolem : MonoBehaviour
     {
         MaterialCheck();
         PlayFootstep();
-    }
-
-    public void Jump()
-    {
-        MaterialCheck();
-        PlayJump();
-    }
-    public void Update()
-    {
-        //Debug.Log(Grounded + " : " + GroundedPlayed);
-        //GroundedCheck();
-        //if (Grounded == true && GroundedPlayed == false)
-        //{
-        //    MaterialCheck();
-        //    PlayLand();
-        //    GroundedPlayed = true;
-        //}
-        //else
-        //{
-        //    GroundedPlayed = false;
-        //}
     }
 
     void MaterialCheck()
@@ -93,40 +72,10 @@ public class PlayerFootstepsGolem : MonoBehaviour
 
     void PlayFootstep()
     {
-        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(FootstepsEventPath);
+        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/char/golem/step");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
         Footstep.start();
         Footstep.release();
     }
-
-    void PlayJump()
-    {
-        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(JumpAndLandPath);
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
-        Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
-        Footstep.start();
-        Footstep.release();
-    }
-    //void PlayLand()
-    //{
-    //    FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(JumpAndLandPath);
-    //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
-    //    Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
-    //    Footstep.setParameterByName(JumpOrLand, 1.0f);
-    //    Footstep.start();
-    //    Footstep.release();
-    //}
-    //void GroundedCheck()
-    //{
-    //    Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance);
-    //    if (hit.collider)
-    //    {
-    //        Grounded = true;
-    //    }
-    //    else
-    //    {
-    //        Grounded = false;
-    //    }
-    //}
 }

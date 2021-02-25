@@ -23,12 +23,14 @@ public class elevatorMovingAudio : MonoBehaviour
 
         pos = transform.position;
 
-        if (pos != oldpos)
+        //Debug.Log(Mathf.Abs(pos.y) - Mathf.Abs(oldpos.y));
+
+        if (Mathf.Abs(Mathf.Abs(pos.y) - Mathf.Abs(oldpos.y)) > 0.009)
         {
             if (PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
                 PlatformLoop.start();
         }
-        else if (pos == oldpos && PbState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        else if (Mathf.Abs(Mathf.Abs(pos.y) - Mathf.Abs(oldpos.y)) < 0.009 && PbState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
             PlatformLoop.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         oldpos = pos;

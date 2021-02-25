@@ -38,12 +38,12 @@ public class BridgeJointRotation : MonoBehaviour
     public IEnumerator Activate()
     {
         _beingLifted = true;
-        bridgeEvent.start();
+        //bridgeEvent.start();
         yield return new WaitForSeconds(upTime);
-        bridgeEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        bridgeEvent.start();
+        //bridgeEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        //bridgeEvent.start();
         _beingLifted = false;
         yield return new WaitForSeconds(5f);
-        bridgeEvent.release();
+        //bridgeEvent.release();
     }
 }

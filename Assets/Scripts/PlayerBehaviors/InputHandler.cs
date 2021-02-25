@@ -14,25 +14,25 @@ public class InputHandler : MonoBehaviour
     [Header("FMOD Settings")]
     //[SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
     //[SerializeField] [FMODUnity.EventRef] private string JumpingEventPath;
-    private string MaterialParameterName = "Terrain";
-    private string JumpOrLandParameterName = "Jump Or Land";
+    //private string MaterialParameterName = "Terrain";
+    //private string JumpOrLandParameterName = "Jump Or Land";
 
-    [Header("Playback Settings")]
-    [SerializeField] private float StepDistance = 2.0f;
-    [SerializeField] private float RayDistance = 1.3f;
-    private string JumpInputName = "Jump";
-    public string[] MaterialTypes;
-    [HideInInspector] public int DefulatMaterialValue;
+    //[Header("Playback Settings")]
+    //[SerializeField] private float StepDistance = 2.0f;
+    //[SerializeField] private float RayDistance = 1.3f;
+    //private string JumpInputName = "Jump";
+    //public string[] MaterialTypes;
+    //[HideInInspector] public int DefulatMaterialValue;
 
-    //These variables are used to control when the player executes a footstep.
-    private Vector3 PrevPos;
-    private float DistanceTravelled;
-    //These variables are used when checking the Material type the player is on top of.
-    private RaycastHit hit;
-    private int F_MaterialValue;
-    //These booleans will hold values that tell us if the player is touching the ground currently and if they were touching it during the last frame.
-    private bool PlayerTouchingGround;
-    private bool PreviosulyTouchingGround;
+    ////These variables are used to control when the player executes a footstep.
+    //private Vector3 PrevPos;
+    //private float DistanceTravelled;
+    ////These variables are used when checking the Material type the player is on top of.
+    //private RaycastHit hit;
+    //private int F_MaterialValue;
+    ////These booleans will hold values that tell us if the player is touching the ground currently and if they were touching it during the last frame.
+    //private bool PlayerTouchingGround;
+    //private bool PreviosulyTouchingGround;
 
     [HideInInspector]
     public bool isFacingRight;
@@ -112,28 +112,28 @@ public class InputHandler : MonoBehaviour
             _movementInputProcessor.SetMovementInput(new Vector2(_horizontalInput, 0f));
         }
 
-        GroundedCheck(); // ???
+        //GroundedCheck(); // ???
 
-        if (_horizontalInput != 0) // If the player's on the ground, then play a footstep
-        {
-            DistanceTravelled += (transform.position - PrevPos).magnitude; // A value of the length between past and present points.
-            if (DistanceTravelled >= StepDistance)
-            {
-                //Debug.Log(DistanceTravelled + " : " + _horizontalInput);
-                //MaterialCheck();
-                //PlayFootstep();
-                DistanceTravelled = 0f;
-            }
-            PrevPos = transform.position;
-        }
+        //if (_horizontalInput != 0) // If the player's on the ground, then play a footstep
+        //{
+        //    DistanceTravelled += (transform.position - PrevPos).magnitude; // A value of the length between past and present points.
+        //    if (DistanceTravelled >= StepDistance)
+        //    {
+        //        //Debug.Log(DistanceTravelled + " : " + _horizontalInput);
+        //        //MaterialCheck();
+        //        //PlayFootstep();
+        //        DistanceTravelled = 0f;
+        //    }
+        //    PrevPos = transform.position;
+        //}
 
-        if (PreviosulyTouchingGround == false && PlayerTouchingGround) // If the player touches ground now, but didn't touch the frame back.
-        {
-            //MaterialCheck();
-            //PlayJumpOrLand(false);
-            DistanceTravelled = 0f;
-        }
-        PreviosulyTouchingGround = PlayerTouchingGround;
+        //if (PreviosulyTouchingGround == false && PlayerTouchingGround) // If the player touches ground now, but didn't touch the frame back.
+        //{
+        //    //MaterialCheck();
+        //    //PlayJumpOrLand(false);
+        //    DistanceTravelled = 0f;
+        //}
+        //PreviosulyTouchingGround = PlayerTouchingGround;
         if (_horizontalInput != 0) 
         {
             _lastInputHorizontal = _horizontalInput;
@@ -172,58 +172,58 @@ public class InputHandler : MonoBehaviour
             }
         }
     }
-    void MaterialCheck()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance))
-        {
-            if (hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>())
-            {
-                F_MaterialValue = hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>().MaterialValue;
-            }
-            else
-            {
-                F_MaterialValue = DefulatMaterialValue;
-            }
-        }
-        else
-        {
-            F_MaterialValue = DefulatMaterialValue;
-        }
-    }
+    //void MaterialCheck()
+    //{
+    //    if (Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance))
+    //    {
+    //        if (hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>())
+    //        {
+    //            F_MaterialValue = hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>().MaterialValue;
+    //        }
+    //        else
+    //        {
+    //            F_MaterialValue = DefulatMaterialValue;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        F_MaterialValue = DefulatMaterialValue;
+    //    }
+    //}
 
-    void GroundedCheck()
-    {
-        Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance);
-        if (hit.collider)
-        {
-            PlayerTouchingGround = true;
-        }
-        else
-        {
-            PlayerTouchingGround = false;
-        }
-    }
+    //void GroundedCheck()
+    //{
+    //    Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance);
+    //    if (hit.collider)
+    //    {
+    //        PlayerTouchingGround = true;
+    //    }
+    //    else
+    //    {
+    //        PlayerTouchingGround = false;
+    //    }
+    //}
 
-    void PlayJumpOrLand(bool F_JumpLandCalc)
-    {
-        //FMOD.Studio.EventInstance Jl = FMODUnity.RuntimeManager.CreateInstance(JumpingEventPath);         // First we create an FMOD event instance.
-        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(Jl, transform, GetComponent<Rigidbody>());    // Next that event instance is told to play at the location that our player is currently at.
-        //Jl.setParameterByName(MaterialParameterName, F_MaterialValue);
-        //Jl.setParameterByName(JumpOrLandParameterName, F_JumpLandCalc ? 0f : 1f);
-        //Jl.start();
-        //Jl.release();                                                                                     // Releasing the instance from memory.
-    }
+    //void PlayJumpOrLand(bool F_JumpLandCalc)
+    //{
+    //    //FMOD.Studio.EventInstance Jl = FMODUnity.RuntimeManager.CreateInstance(JumpingEventPath);         // First we create an FMOD event instance.
+    //    //FMODUnity.RuntimeManager.AttachInstanceToGameObject(Jl, transform, GetComponent<Rigidbody>());    // Next that event instance is told to play at the location that our player is currently at.
+    //    //Jl.setParameterByName(MaterialParameterName, F_MaterialValue);
+    //    //Jl.setParameterByName(JumpOrLandParameterName, F_JumpLandCalc ? 0f : 1f);
+    //    //Jl.start();
+    //    //Jl.release();                                                                                     // Releasing the instance from memory.
+    //}
 
-    void PlayFootstep()
-    {
-        if (PlayerTouchingGround)
-        {
-            //FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(FootstepsEventPath);
-            //FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
-            //Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
-            //Footstep.start();
-            //Footstep.release();
-            //Debug.Log(F_MaterialValue + " : " + PrevPos);
-        }
-    }
+    //void PlayFootstep()
+    //{
+    //    if (PlayerTouchingGround)
+    //    {
+    //        //FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(FootstepsEventPath);
+    //        //FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
+    //        //Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
+    //        //Footstep.start();
+    //        //Footstep.release();
+    //        //Debug.Log(F_MaterialValue + " : " + PrevPos);
+    //    }
+    //}
 }
