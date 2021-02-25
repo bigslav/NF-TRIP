@@ -41,7 +41,7 @@ public class PlayerFootstepsGolem : MonoBehaviour
         animationEvent.floatParameter = floatParameter;
         animationEvent.time = time;
         AnimationClip clip = anim.runtimeAnimatorController.animationClips[Clip];
-        Debug.Log("" + anim.runtimeAnimatorController.animationClips.Length);
+        //Debug.Log("" + anim.runtimeAnimatorController.animationClips.Length);
         clip.AddEvent(animationEvent);
     }
 
