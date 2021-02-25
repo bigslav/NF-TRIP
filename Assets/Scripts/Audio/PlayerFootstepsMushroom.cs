@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFootstepsGolem : MonoBehaviour
+public class PlayerFootstepsMushroom : MonoBehaviour
 {
 
     [Header("FMOD Settings")]
@@ -28,9 +28,9 @@ public class PlayerFootstepsGolem : MonoBehaviour
     {
         GroundedPlayed = false;
         anim = GetComponent<Animator>();
-        AddEvent(1, 0.25f, "Step", 0); // WalkG
-        AddEvent(1, 0.98f, "Step", 0);
-        AddEvent(2, 0.05f, "Jump", 0);
+        AddEvent(2, 0.10f, "Step", 0); // WalkG
+        AddEvent(2, 0.25f, "Step", 0);
+        AddEvent(1, 0.00f, "Jump", 0);
     }
 
     void AddEvent(int Clip, float time, string functionName, float floatParameter)
@@ -93,6 +93,7 @@ public class PlayerFootstepsGolem : MonoBehaviour
 
     void PlayFootstep()
     {
+        Debug.Log("Footstep: " + F_MaterialValue);
         FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(FootstepsEventPath);
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
