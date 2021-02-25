@@ -164,7 +164,7 @@ public class InputHandler : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(KeyCode.T) && isUsingMechanism)
+            if (Input.GetKey(KeyCode.U) && isUsingMechanism)
             {
                 mechanismUnderControl._currentTarget = mechanismUnderControl.points[preset];
                 if (mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)

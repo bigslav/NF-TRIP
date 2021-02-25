@@ -8,7 +8,9 @@ public class CharacterMovementController : MonoBehaviour
 {
     [SerializeField] private GameObject _golemGameObject;
     [SerializeField] private GameObject _mushroomGameObject;
-    
+    [SerializeField] private GameObject _golemModel;
+    [SerializeField] private GameObject _mushroomModel;
+
     [HideInInspector]
     public bool golemIsActive;
     [HideInInspector]
@@ -20,6 +22,7 @@ public class CharacterMovementController : MonoBehaviour
     private CollisionProcessor _mushroomCollisionProcessor;
     private Rigidbody _mushroomRigidbody;
     private Jump _mushroomJump;
+    private CustomGravity _mushroomCustomGravity;
 
     private InputHandler _golemInputHandler;
     private MovementInputProcessor _golemMovementInputProcessor;
@@ -38,9 +41,12 @@ public class CharacterMovementController : MonoBehaviour
         _mushroomCollisionProcessor = _mushroomGameObject.GetComponent<CollisionProcessor>();
         _mushroomRigidbody = _mushroomGameObject.GetComponent<Rigidbody>();
         _mushroomJump = _mushroomGameObject.GetComponent<Jump>();
+        _mushroomCustomGravity = _mushroomGameObject.GetComponent<CustomGravity>();
+
         _golemInputHandler = _golemGameObject.GetComponent<InputHandler>();
         _golemMovementInputProcessor = _golemGameObject.GetComponent<MovementInputProcessor>();
         _golemJump = _golemGameObject.GetComponent<Jump>();
+
     }
 
     private void Start()
@@ -71,16 +77,18 @@ public class CharacterMovementController : MonoBehaviour
     {
         if (golemIsActive && _mushroomCollisionProcessor.isOnTopOfGolem)
         {
-            if (_golemInputHandler.isFacingRight)
-            {
-                _mushroomGameObject.transform.eulerAngles = new Vector3(0, 90, 0);
-                _mushroomInputHandler.isFacingRight = true;
-            }
-            else
-            {
-                _mushroomGameObject.transform.eulerAngles = new Vector3(0, -90, 0);
-                _mushroomInputHandler.isFacingRight = false;
-            }
+            /*            if (_golemInputHandler.isFacingRight)
+                        {
+                            _mushroomGameObject.transform.eulerAngles = new Vector3(0, -135, 0);
+                            _mushroomInputHandler.isFacingRight = true;
+                        }
+                        else
+                        {
+                            _mushroomGameObject.transform.eulerAngles = new Vector3(0, 135, 0);
+                            _mushroomInputHandler.isFacingRight = false;
+                        }*/
+
+            _mushroomModel.transform.eulerAngles = _golemModel.transform.eulerAngles;
         }
     }
 
@@ -89,14 +97,14 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = true;
-            _golemJump.jumpAllowed = true;
+            _golemJump.enabled = true;
             golemIsActive = true;
         }
         else if (characterName == "mushroom")
         {
             _mushroomGameObject.transform.parent = _supposedParent;
             _mushroomInputHandler.enabled = true;
-            _mushroomJump.jumpAllowed = true;
+            _mushroomJump.enabled = true;
             mushroomIsActive = true;
         }
     }
@@ -106,13 +114,13 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = false;
-            _golemJump.jumpAllowed = false;
+            _golemJump.enabled = false;
             golemIsActive = false;
         }
         else if (characterName == "mushroom")
         {
             _mushroomInputHandler.enabled = false;
-            _mushroomJump.jumpAllowed = false;
+            _mushroomJump.enabled = false;
             mushroomIsActive = false;
         }
     }
@@ -163,7 +171,7 @@ public class CharacterMovementController : MonoBehaviour
     {
         if (!_isJumpOffProcessed)
         {
-            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 2)
+            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 4.3f)
             {
                 SetCharactersCollisions(true);
             }
@@ -193,7 +201,7 @@ public class CharacterMovementController : MonoBehaviour
             Destroy(_mushroomRigidbody);
 
             Vector3 currentPosition = _mushroomGameObject.transform.position;
-            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 2.5f, _golemGameObject.transform.position.z);
+            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 4.4f, _golemGameObject.transform.position.z);
             Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, 0.2f);
 
             _mushroomGameObject.transform.position = newPosition;
@@ -209,6 +217,8 @@ public class CharacterMovementController : MonoBehaviour
                 _mushroomRigidbody.useGravity = false;
                 _mushroomRigidbody.angularDrag = 0;
                 _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
+                _mushroomCustomGravity.SetRigidbody(_mushroomRigidbody);
+                _mushroomJump.SetRigidbody(_mushroomRigidbody);
             }
         }
     }

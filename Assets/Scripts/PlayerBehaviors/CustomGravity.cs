@@ -30,4 +30,9 @@ public class CustomGravity : MonoBehaviour
         _rb.AddForce(gravity, ForceMode.Acceleration);
     }
 
+    public void SetRigidbody(Rigidbody rb)
+    {
+        _rb = rb;
+    }
+
 }
