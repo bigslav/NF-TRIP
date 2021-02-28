@@ -3,11 +3,8 @@
 public class Puller : MonoBehaviour
 {
     private Character _character;
-    private CollisionProcessor _collisionProcessor;
-
     private bool _isTouchingMovable = false;
     private bool _hasJoint = false;
-
     private GameObject _pulledObject = null;
     private Rigidbody _pulledObjectRb = null;
     private float _pulledObjectRbMass;
@@ -15,13 +12,12 @@ public class Puller : MonoBehaviour
     private void OnEnable()
     {
         _character = GetComponent<Character>();
-        _collisionProcessor = GetComponent<CollisionProcessor>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable) {
-            if (!_character.isPulling && _collisionProcessor.isGrounded)
+            if (!_character.isPulling && _character.isGrounded)
             {
                 _character.isPulling = true;
             }

@@ -5,9 +5,6 @@ public class CollisionProcessor : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _golemLayer;
 
-    public bool isGrounded;
-    public bool isOnTopOfGolem = false;
-
     private Character _character;
     private BoxCollider _collider;
     private Bounds _colliderBounds;
@@ -45,26 +42,26 @@ public class CollisionProcessor : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == 10)
                 {
-                    isGrounded = true;
+                    _character.isGrounded = true;
                 }
                 else
                 {
-                    isGrounded = false;
+                    _character.isGrounded = false;
                 }
 
                 if (_character.type == Character.CharacterType.Mushroom && hit.collider.gameObject.layer == 9)
                 {
-                    isOnTopOfGolem = true;
+                    _character.isOnTopOfGolem = true;
                 }
                 else
                 {
-                    isOnTopOfGolem = false;
+                    _character.isOnTopOfGolem = false;
                 }
             }
             else
             {
-                isGrounded = false;
-                isOnTopOfGolem = false;
+                _character.isGrounded = false;
+                _character.isOnTopOfGolem = false;
             }
         } 
     }

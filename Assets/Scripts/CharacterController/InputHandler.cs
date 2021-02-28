@@ -11,7 +11,6 @@ public class InputHandler : MonoBehaviour
     private Character _character;
     private Jump _jump;
     private SideMovement _sideMovement;
-    private CollisionProcessor _collisionProcessor;
 
     private float _horizontalInput;
     private float _verticalInput;
@@ -22,7 +21,6 @@ public class InputHandler : MonoBehaviour
         _character = GetComponent<Character>();
         _jump = GetComponent<Jump>();
         _sideMovement = GetComponent<SideMovement>();
-        _collisionProcessor = GetComponent<CollisionProcessor>();
     }
 
     private void Start()
@@ -35,24 +33,37 @@ public class InputHandler : MonoBehaviour
 
     void Update()
     {
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetKeyDown(KeyCode.Space) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !_character.isGlueToMechanism && !_character.isPulling)
-        {
-            _jump.jumpAllowed = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.E) && _character.isUsingMechanism)
-            _character.isGlueToMechanism = !_character.isGlueToMechanism;
-
-        if (!_character.isGlueToMechanism) 
-        {
-            _sideMovement.SetDirection(new Vector3(_horizontalInput, 0f));
-        }
+        ProcessInput();
     }
 
     void FixedUpdate()
+    {
+        ProcessMechanismControl();
+    }
+
+    private void ProcessInput()
+    {
+        if (_character.isActive)
+        {
+            _horizontalInput = Input.GetAxisRaw("Horizontal");
+            _verticalInput = Input.GetAxisRaw("Vertical");
+
+            if (Input.GetKeyDown(KeyCode.Space) && (_character.isGrounded || _character.isOnTopOfGolem) && !_character.isGlueToMechanism && !_character.isPulling)
+            {
+                _jump.jumpAllowed = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E) && _character.isUsingMechanism)
+                _character.isGlueToMechanism = !_character.isGlueToMechanism;
+
+            if (!_character.isGlueToMechanism)
+            {
+                _sideMovement.SetDirection(new Vector3(_horizontalInput, 0f));
+            }
+        }
+    }
+
+    private void ProcessMechanismControl() 
     {
         if (verticalLiftControl)
         {
@@ -72,15 +83,6 @@ public class InputHandler : MonoBehaviour
             if ((_liftControlInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
             {
                 mechanismUnderControl.MovePlatform();
-            }
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.U) && _character.isUsingMechanism)
-            {
-                mechanismUnderControl._currentTarget = mechanismUnderControl.points[preset];
-                if (mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
-                    mechanismUnderControl.MovePlatform();
             }
         }
     }

@@ -11,13 +11,11 @@ public class MovementAnimations : MonoBehaviour
     private bool twerkMode = false;
     private Animator _animator = null;
     private Rigidbody _rb = null;
-    private CollisionProcessor _collisionProcessor = null;
     private float lastHorVelocity;
 
     private void OnEnable() {
         _character = GetComponent<Character>();
         _rb = GetComponent<Rigidbody>();
-        _collisionProcessor = GetComponent<CollisionProcessor>();
         _animator = GetComponent<Animator>();
     }
 
@@ -65,7 +63,7 @@ public class MovementAnimations : MonoBehaviour
                 _animator.SetBool("IsIdle_b", true);
             }
 
-            if (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem)
+            if (_character.isGrounded || _character.isOnTopOfGolem)
             {
                 _animator.SetBool("IsJumping_b", false);
             }
