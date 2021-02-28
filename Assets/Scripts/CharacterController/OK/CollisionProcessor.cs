@@ -2,21 +2,20 @@
 
 public class CollisionProcessor : MonoBehaviour
 {
-    public CharacterType characterType;
-    
-    [SerializeField] private CharacterMovementController characterMovementController;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private LayerMask _golemLayer;
 
     public bool isGrounded;
     public bool isOnTopOfGolem = false;
 
+    private Character _character;
     private BoxCollider _collider;
     private Bounds _colliderBounds;
     private float _skinWidth = 0.015f;
 
     private void OnEnable()
     {
+        _character = GetComponent<Character>();
         _collider = GetComponent<BoxCollider>();
     }
 
@@ -29,7 +28,8 @@ public class CollisionProcessor : MonoBehaviour
     {
         RaycastHit hit;
         Vector3 _raycastOrigin;
-        if (characterType == CharacterType.Golem)
+
+        if (_character.type == Character.CharacterType.Golem)
         {
             _raycastOrigin = transform.position + new Vector3(0, _skinWidth, 0);
         }
@@ -38,8 +38,8 @@ public class CollisionProcessor : MonoBehaviour
             _raycastOrigin = transform.position - (_colliderBounds.size / 2 - new Vector3(0, _skinWidth, 0));
         }
 
-        if ((characterMovementController.golemIsActive && characterType == CharacterType.Golem) ^
-            (characterMovementController.mushroomIsActive && characterType == CharacterType.Mushroom))
+        if (_character.isActive && (_character.type == Character.CharacterType.Golem ^
+            _character.type == Character.CharacterType.Mushroom))
         {
             if (Physics.Raycast(_raycastOrigin, transform.TransformDirection(Vector3.down), out hit, 0.03f))
             {
@@ -52,7 +52,7 @@ public class CollisionProcessor : MonoBehaviour
                     isGrounded = false;
                 }
 
-                if (characterType == CharacterType.Mushroom && hit.collider.gameObject.layer == 9)
+                if (_character.type == Character.CharacterType.Mushroom && hit.collider.gameObject.layer == 9)
                 {
                     isOnTopOfGolem = true;
                 }
@@ -68,10 +68,4 @@ public class CollisionProcessor : MonoBehaviour
             }
         } 
     }
-    public enum CharacterType
-    {
-        Golem,
-        Mushroom
-    }
-
 }

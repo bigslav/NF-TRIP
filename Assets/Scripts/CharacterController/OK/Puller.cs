@@ -2,11 +2,10 @@
 
 public class Puller : MonoBehaviour
 {
-    private InputHandler _inputHandler;
+    private Character _character;
     private CollisionProcessor _collisionProcessor;
 
     private bool _isTouchingMovable = false;
-    private bool _isPulling = false;
     private bool _hasJoint = false;
 
     private GameObject _pulledObject = null;
@@ -15,22 +14,21 @@ public class Puller : MonoBehaviour
 
     private void OnEnable()
     {
-        _inputHandler = GetComponent<InputHandler>();
+        _character = GetComponent<Character>();
         _collisionProcessor = GetComponent<CollisionProcessor>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable) {
-            if (!_isPulling && _collisionProcessor.isGrounded)
+            if (!_character.isPulling && _collisionProcessor.isGrounded)
             {
-                _inputHandler.isPulling = true;
-                _isPulling = true;
+                _character.isPulling = true;
             }
-            else if (_isPulling)
+            else if (_character.isPulling)
             {
-                _inputHandler.isPulling = false;
-                _isPulling = false;
+                _character.isPulling = false;
+                _character.isPulling = false;
                 _pulledObjectRb.mass = _pulledObjectRbMass;
                 _pulledObjectRb = null;
                 Destroy(gameObject.GetComponent<FixedJoint>());
@@ -47,7 +45,7 @@ public class Puller : MonoBehaviour
             _pulledObject = collision.gameObject;
             _pulledObjectRb = _pulledObject.GetComponent<Rigidbody>();
 
-            if (_isPulling && !_hasJoint)
+            if (_character.isPulling && !_hasJoint)
             {
                 gameObject.AddComponent<FixedJoint>();
                 gameObject.GetComponent<FixedJoint>().connectedBody = _pulledObjectRb;

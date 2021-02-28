@@ -11,52 +11,47 @@ public class CharacterMovementController : MonoBehaviour
     [SerializeField] private GameObject _golemModel;
     [SerializeField] private GameObject _mushroomModel;
 
-    [HideInInspector]
-    public bool golemIsActive;
-    [HideInInspector]
-    public bool mushroomIsActive;
-
-    private MovementHandler _mushroomMovementHandler;
+    private Character _mushroomCharacter;
     private InputHandler _mushroomInputHandler;
-    private MovementInputProcessor _mushroomMovementInputProcessor;
+    private SideMovement _mushroomSideWalkMovementModifier;
     private CollisionProcessor _mushroomCollisionProcessor;
     private Rigidbody _mushroomRigidbody;
-    private Jump _mushroomJump;
+    private Jump _mushroomJumpMovementModifier;
     private CustomGravity _mushroomCustomGravity;
 
+    private Character _golemCharacter;
     private InputHandler _golemInputHandler;
-    private MovementInputProcessor _golemMovementInputProcessor;
-    private Jump _golemJump;
+    private SideMovement _golemSideWalkMovementModifier;
+    private Jump _golemJumpMovementModifier;
 
-    private RigidbodyInterpolation _savedInterpolation;
-    private CollisionDetectionMode _savedCollisionDetectionMode;
     private bool _isJumpOffProcessed;
     private Transform _supposedParent;
 
     private void OnEnable()
     {
-        _mushroomMovementHandler = _mushroomGameObject.GetComponent<MovementHandler>();
+        _mushroomCharacter = _mushroomGameObject.GetComponent<Character>();
         _mushroomInputHandler = _mushroomGameObject.GetComponent<InputHandler>();
-        _mushroomMovementInputProcessor = _mushroomGameObject.GetComponent<MovementInputProcessor>();
+        _mushroomSideWalkMovementModifier = _mushroomGameObject.GetComponent<SideMovement>();
         _mushroomCollisionProcessor = _mushroomGameObject.GetComponent<CollisionProcessor>();
         _mushroomRigidbody = _mushroomGameObject.GetComponent<Rigidbody>();
-        _mushroomJump = _mushroomGameObject.GetComponent<Jump>();
-        _mushroomCustomGravity = _mushroomGameObject.GetComponent<CustomGravity>();
+        _mushroomJumpMovementModifier = _mushroomGameObject.GetComponent<Jump>();
 
+        _golemCharacter = _golemGameObject.GetComponent<Character>();
         _golemInputHandler = _golemGameObject.GetComponent<InputHandler>();
-        _golemMovementInputProcessor = _golemGameObject.GetComponent<MovementInputProcessor>();
-        _golemJump = _golemGameObject.GetComponent<Jump>();
+        _golemSideWalkMovementModifier = _golemGameObject.GetComponent<SideMovement>();
+        _golemJumpMovementModifier = _golemGameObject.GetComponent<Jump>();
 
     }
 
     private void Start()
     {
-        _savedInterpolation = _mushroomRigidbody.interpolation;
-        _savedCollisionDetectionMode = _mushroomRigidbody.collisionDetectionMode;
-
         SetActive("golem");
         SetInactive("mushroom");
         _isJumpOffProcessed = false;
+    }
+    private void FixedUpdate()
+    {
+        ProcessRiding();
     }
 
     private void Update()
@@ -68,26 +63,13 @@ public class CharacterMovementController : MonoBehaviour
 
         ProcessJumpOnTop();
 
-        ProcessRiding();
-
         HandleMushroomRotation();
     }
 
     private void HandleMushroomRotation()
     {
-        if (golemIsActive && _mushroomCollisionProcessor.isOnTopOfGolem)
+        if (_golemCharacter.isActive && _mushroomCollisionProcessor.isOnTopOfGolem)
         {
-            /*            if (_golemInputHandler.isFacingRight)
-                        {
-                            _mushroomGameObject.transform.eulerAngles = new Vector3(0, -135, 0);
-                            _mushroomInputHandler.isFacingRight = true;
-                        }
-                        else
-                        {
-                            _mushroomGameObject.transform.eulerAngles = new Vector3(0, 135, 0);
-                            _mushroomInputHandler.isFacingRight = false;
-                        }*/
-
             _mushroomModel.transform.eulerAngles = _golemModel.transform.eulerAngles;
         }
     }
@@ -97,15 +79,15 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = true;
-            _golemJump.enabled = true;
-            golemIsActive = true;
+            _golemJumpMovementModifier.enabled = true;
+            _golemCharacter.isActive = true;
         }
         else if (characterName == "mushroom")
         {
             _mushroomGameObject.transform.parent = _supposedParent;
             _mushroomInputHandler.enabled = true;
-            _mushroomJump.enabled = true;
-            mushroomIsActive = true;
+            _mushroomJumpMovementModifier.enabled = true;
+            _mushroomCharacter.isActive = true;
         }
     }
 
@@ -114,14 +96,14 @@ public class CharacterMovementController : MonoBehaviour
         if (characterName == "golem")
         {
             _golemInputHandler.enabled = false;
-            _golemJump.enabled = false;
-            golemIsActive = false;
+            _golemJumpMovementModifier.enabled = false;
+            _golemCharacter.isActive = false;
         }
         else if (characterName == "mushroom")
         {
             _mushroomInputHandler.enabled = false;
-            _mushroomJump.enabled = false;
-            mushroomIsActive = false;
+            _mushroomJumpMovementModifier.enabled = false;
+            _mushroomCharacter.isActive = false;
         }
     }
 
@@ -152,8 +134,8 @@ public class CharacterMovementController : MonoBehaviour
 
     private void SwitchCharacters()
     {
-        _golemMovementInputProcessor.SetMovementInput(new Vector2(0, 0));
-        _mushroomMovementInputProcessor.SetMovementInput(new Vector2(0, 0));
+        _golemSideWalkMovementModifier.SetDirection(Vector3.zero);
+        _mushroomSideWalkMovementModifier.SetDirection(Vector3.zero);
 
         if (_golemInputHandler.enabled == true)
         {
@@ -184,7 +166,7 @@ public class CharacterMovementController : MonoBehaviour
 
     private IEnumerator JumpOnOff()
     {
-        if (mushroomIsActive && _isJumpOffProcessed == false)
+        if (_mushroomCharacter.isActive && _isJumpOffProcessed == false)
         {
             _isJumpOffProcessed = true;
             SetCharactersCollisions(false);
@@ -195,31 +177,19 @@ public class CharacterMovementController : MonoBehaviour
 
     private void ProcessRiding()
     {
-        if (_mushroomCollisionProcessor.isOnTopOfGolem && !mushroomIsActive)
+        if (_mushroomCollisionProcessor.isOnTopOfGolem && !_mushroomCharacter.isActive)
         {
-            _mushroomGameObject.transform.parent = _golemGameObject.transform;
-            Destroy(_mushroomRigidbody);
-
+            SetCharactersCollisions(false);
+            _mushroomRigidbody.isKinematic = true;
             Vector3 currentPosition = _mushroomGameObject.transform.position;
             Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 4.4f, _golemGameObject.transform.position.z);
             Vector3 newPosition = Vector3.Lerp(currentPosition, targetPosition, 0.2f);
 
-            _mushroomGameObject.transform.position = newPosition;
+            _mushroomRigidbody.MovePosition(targetPosition);
         }
         else
         {
-            if (_mushroomRigidbody == null)
-            {
-                _mushroomRigidbody = _mushroomGameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
-                _mushroomRigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-                _mushroomRigidbody.interpolation = _savedInterpolation;
-                _mushroomRigidbody.collisionDetectionMode = _savedCollisionDetectionMode;
-                _mushroomRigidbody.useGravity = false;
-                _mushroomRigidbody.angularDrag = 0;
-                _mushroomMovementHandler.SetRigidbody(_mushroomRigidbody);
-                _mushroomCustomGravity.SetRigidbody(_mushroomRigidbody);
-                _mushroomJump.SetRigidbody(_mushroomRigidbody);
-            }
+            _mushroomRigidbody.isKinematic = false;
         }
     }
 }
