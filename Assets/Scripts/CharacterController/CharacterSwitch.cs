@@ -8,9 +8,14 @@ public class CharacterSwitch : MonoBehaviour
 
     private Character _golemCharacter;
     private Character _mushroomCharacter;
+    private Rigidbody _golemRigidbody;
+    private Rigidbody _mushroomRigidbody;
     private SideMovement _golemSideMovement;
     private SideMovement _mushroomSideMovement;
+    
     private bool _isJumpOffProcessed = false;
+    private bool _areCombined = false;
+    private CharacterJoint joint = null;
 
     private void OnEnable()
     {
@@ -18,17 +23,14 @@ public class CharacterSwitch : MonoBehaviour
         _mushroomCharacter = _mushroomGameObject.GetComponent<Character>();
         _golemSideMovement = _golemGameObject.GetComponent<SideMovement>();
         _mushroomSideMovement = _mushroomGameObject.GetComponent<SideMovement>();
+        _golemRigidbody = _golemGameObject.GetComponent<Rigidbody>();
+        _mushroomRigidbody = _mushroomGameObject.GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         ProcessInput();
         ProcessJumpOnTop();
-    }
-
-    private void FixedUpdate()
-    {
-        ProcessRiding();
     }
 
     public void SwitchCharacterControl()
@@ -53,14 +55,37 @@ public class CharacterSwitch : MonoBehaviour
 
     private void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            SwitchCharacterControl();
-        }
-
         if (Input.GetKeyDown(KeyCode.S))
         {
             StartCoroutine(JumpOffGolem());
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Vector3 dist = _golemGameObject.transform.position - _mushroomGameObject.transform.position;
+
+            Debug.Log(Mathf.Abs(dist.x) +" "+ Mathf.Abs(dist.y));
+
+            if (Mathf.Abs(dist.x) < 2f && Mathf.Abs(dist.y) < 5f)
+            {
+                if (!_areCombined)
+                {
+                    if (_mushroomCharacter.isActive)
+                    {
+                        SwitchCharacterControl();
+                    }
+                    Combine(true);
+                }
+                else
+                {
+                    SwitchCharacterControl();
+                    Combine(false);
+                }
+            }
+            else
+            {
+                SwitchCharacterControl();
+            }
         }
     }
 
@@ -73,7 +98,7 @@ public class CharacterSwitch : MonoBehaviour
     {
         if (!_isJumpOffProcessed)
         {
-            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 4.3f)
+            if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 3.9f)
             {
                 IgnoreCharactersCollisions(false);
             }
@@ -84,7 +109,7 @@ public class CharacterSwitch : MonoBehaviour
         }
     }
 
-    private void ProcessRiding()
+/*    private void ProcessRiding()
     {
         if (_mushroomCharacter.isOnTopOfGolem && !_mushroomCharacter.isActive)
         {
@@ -96,6 +121,33 @@ public class CharacterSwitch : MonoBehaviour
         else
         {
             _mushroomCharacter.rigidBody.isKinematic = false;
+        }
+    }*/
+
+    public void Combine(bool turnOn) 
+    {
+        if (turnOn)
+        {
+            if (joint == null)
+            {
+                joint = _golemGameObject.AddComponent<CharacterJoint>();
+                joint.connectedBody = _mushroomRigidbody;
+
+                joint.autoConfigureConnectedAnchor = false;
+                joint.anchor = new Vector3(0, 4f, 0);
+                joint.connectedAnchor = Vector3.zero;
+                joint.massScale = 0.001f;
+                joint.enableCollision = true;
+
+                _areCombined = true;
+            }
+        }
+        else 
+        {
+            Destroy(joint);
+            joint = null;
+
+            _areCombined = false;
         }
     }
 }
