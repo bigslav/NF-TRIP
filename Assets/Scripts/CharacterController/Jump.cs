@@ -3,35 +3,35 @@ using System.Collections;
 
 public class Jump : MonoBehaviour
 {
+    public float speed = 5f;
+    [HideInInspector]
+    public bool jumpAllowed = false;
+
+    private Rigidbody _rb;
+
     [Header("Playback Settings")]
+    public string[] MaterialTypes;
     [SerializeField] private float StepDistance = 2.0f;
     [SerializeField] private float RayDistance = 1.3f;
-    public string[] MaterialTypes;
-    [HideInInspector] public int DefulatMaterialValue;
+    [HideInInspector] 
+    public int DefulatMaterialValue;
     private string MaterialParameterName = "Terrain";
 
     //These variables are used when checking the Material type the player is on top of.
     private RaycastHit hit;
     private int F_MaterialValue;
 
-    public float jumpVelocity = 5f;
-
-    private Rigidbody _rb = null;
-    private CollisionProcessor _collisionProcessor = null;
-    private InputHandler _inputHandler = null;
-
     private void OnEnable()
     {
         _rb = GetComponent<Rigidbody>();
-        _collisionProcessor = GetComponent<CollisionProcessor>();
-        _inputHandler = GetComponent<InputHandler>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && (_collisionProcessor.isGrounded || _collisionProcessor.isOnTopOfGolem) && !_inputHandler.glueToMechanism && !_inputHandler.isPulling)
+        if (jumpAllowed)
         {
-            _rb.AddForce(Vector3.up * jumpVelocity, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
+
             if (gameObject.name == "Golem")
             {
                 MaterialCheck();
@@ -42,13 +42,11 @@ public class Jump : MonoBehaviour
                 MaterialCheck();
                 PlayJumpMushroom();
             }
+
+            jumpAllowed = false;
         }
     }
 
-    public void SetRigidbody(Rigidbody rb)
-    {
-        _rb = rb;
-    }
     void MaterialCheck()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance))

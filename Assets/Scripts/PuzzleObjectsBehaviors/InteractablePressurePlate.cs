@@ -23,7 +23,7 @@ public class InteractablePressurePlate : MonoBehaviour
         else
         {
             other.GetComponent<InputHandler>().preset = presetPoint;
-            other.GetComponent<InputHandler>().isUsingMechanism = true;
+            other.GetComponent<Character>().isUsingMechanism = true;
             other.GetComponent<InputHandler>().mechanismUnderControl = targetGameObject[0]; // Control the first platform in the list.
         }
     }
@@ -53,7 +53,7 @@ public class InteractablePressurePlate : MonoBehaviour
         else
         {
             other.GetComponent<InputHandler>().preset = -1;
-            other.GetComponent<InputHandler>().isUsingMechanism = false;
+            other.GetComponent<Character>().isUsingMechanism = false;
             other.GetComponent<InputHandler>().mechanismUnderControl = null;
         }
     }
