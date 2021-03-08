@@ -14,8 +14,7 @@ public class CharacterSwitch : MonoBehaviour
     private SideMovement _mushroomSideMovement;
     
     private bool _isJumpOffProcessed = false;
-    private bool _areCombined = false;
-    private CharacterJoint joint = null;
+    private FixedJoint joint = null;
 
     private void OnEnable()
     {
@@ -47,7 +46,7 @@ public class CharacterSwitch : MonoBehaviour
         if (_mushroomCharacter.isActive && _isJumpOffProcessed == false)
         {
             _isJumpOffProcessed = true;
-            IgnoreCharactersCollisions(true);
+            Physics.IgnoreLayerCollision(8, 9, true);
             yield return new WaitUntil(() => _mushroomCharacter.isGrounded == true);
             _isJumpOffProcessed = false;
         }
@@ -68,7 +67,7 @@ public class CharacterSwitch : MonoBehaviour
 
             if (Mathf.Abs(dist.x) < 2f && Mathf.Abs(dist.y) < 5f)
             {
-                if (!_areCombined)
+                if (!(_golemCharacter.isCombined && _mushroomCharacter.isCombined))
                 {
                     if (_mushroomCharacter.isActive)
                     {
@@ -89,40 +88,20 @@ public class CharacterSwitch : MonoBehaviour
         }
     }
 
-    private void IgnoreCharactersCollisions(bool ignore)
-    {
-        Physics.IgnoreLayerCollision(8, 9, ignore);
-    }
-
     private void ProcessJumpOnTop()
     {
         if (!_isJumpOffProcessed)
         {
             if ((_mushroomGameObject.transform.position.y - _golemGameObject.transform.position.y) > 3.9f)
             {
-                IgnoreCharactersCollisions(false);
+                Physics.IgnoreLayerCollision(8, 9, false);
             }
             else
             {
-                IgnoreCharactersCollisions(true);
+                Physics.IgnoreLayerCollision(8, 9, true);
             }
         }
     }
-
-/*    private void ProcessRiding()
-    {
-        if (_mushroomCharacter.isOnTopOfGolem && !_mushroomCharacter.isActive)
-        {
-            IgnoreCharactersCollisions(true);
-            _mushroomCharacter.rigidBody.isKinematic = true;
-            Vector3 targetPosition = new Vector3(_golemGameObject.transform.position.x, _golemGameObject.transform.position.y + 4.4f, _golemGameObject.transform.position.z);
-            _mushroomCharacter.rigidBody.MovePosition(targetPosition);
-        }
-        else
-        {
-            _mushroomCharacter.rigidBody.isKinematic = false;
-        }
-    }*/
 
     public void Combine(bool turnOn) 
     {
@@ -130,7 +109,8 @@ public class CharacterSwitch : MonoBehaviour
         {
             if (joint == null)
             {
-                joint = _golemGameObject.AddComponent<CharacterJoint>();
+                Physics.IgnoreLayerCollision(8, 10, true);
+                joint = _golemGameObject.AddComponent<FixedJoint>();
                 joint.connectedBody = _mushroomRigidbody;
 
                 joint.autoConfigureConnectedAnchor = false;
@@ -139,15 +119,23 @@ public class CharacterSwitch : MonoBehaviour
                 joint.massScale = 0.001f;
                 joint.enableCollision = true;
 
-                _areCombined = true;
+                _golemCharacter.isCombined = true;
+                _mushroomCharacter.isCombined = true;
             }
         }
         else 
         {
+            Physics.IgnoreLayerCollision(8, 10, false);
             Destroy(joint);
             joint = null;
 
-            _areCombined = false;
+            _golemCharacter.isCombined = false;
+            _mushroomCharacter.isCombined = false;
+
+            if (!_golemCharacter.isGrounded)
+            {
+                _mushroomRigidbody.AddForce(Vector3.up * 6f, ForceMode.Impulse);
+            }
         }
     }
 }
