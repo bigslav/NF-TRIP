@@ -13,7 +13,8 @@ public class Interactable : MonoBehaviour
     public float waitUntilTime; 
     public bool automatic;
 
-    public Vector3[] points;
+    //public Vector3[] points;
+	public Transform[] points;
     public int blockedPoint;
 
     private float _delayStart;
@@ -34,7 +35,7 @@ public class Interactable : MonoBehaviour
         pointNumber = 0;
         if (points.Length > 0)
         {
-            _currentTarget = points[0];
+            _currentTarget = points[0].position;
         }
 
         tolerance = movementSpeed * Time.deltaTime;
@@ -164,7 +165,7 @@ public class Interactable : MonoBehaviour
                 }
             }
 
-            _currentTarget = points[pointNumber];
+            _currentTarget = points[pointNumber].position;
         }
     }
 
