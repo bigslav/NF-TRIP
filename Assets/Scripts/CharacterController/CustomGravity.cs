@@ -3,10 +3,12 @@
 public class CustomGravity : MonoBehaviour
 {
     public static float globalGravity = -9.81f;
-    public float gravityScale = 1.0f;
+    
+    public float jumpMultiplier = 1.0f;
     public float fallMultiplier = 1.0f;
 
     private Rigidbody _rb;
+    private float _gravityMultiplier;
 
     private void OnEnable() 
     {
@@ -20,14 +22,14 @@ public class CustomGravity : MonoBehaviour
     {
         if (_rb.velocity.y < 0)
         {
-            gravityScale = fallMultiplier;
+            _gravityMultiplier = fallMultiplier;
         }
         else
         {
-            gravityScale = 1f;
+            _gravityMultiplier = jumpMultiplier;
         }
 
-        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+        Vector3 gravity = globalGravity * _gravityMultiplier * Vector3.up;
         _rb.AddForce(gravity, ForceMode.Acceleration);
     }
 }

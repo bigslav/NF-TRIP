@@ -6,8 +6,10 @@ public class Jump : MonoBehaviour
     public float speed = 5f;
     [HideInInspector]
     public bool jumpAllowed = false;
+    public bool dragOnJumpOnly = false;
 
     private Rigidbody _rb;
+    private float _drag;
 
     [Header("Playback Settings")]
     public string[] MaterialTypes;
@@ -24,10 +26,23 @@ public class Jump : MonoBehaviour
     private void OnEnable()
     {
         _rb = GetComponent<Rigidbody>();
+        _drag = _rb.drag;
     }
 
     private void FixedUpdate()
     {
+        if (dragOnJumpOnly)
+        {
+            if (_rb.velocity.y < 0)
+            {
+                _rb.drag = 0;
+            }
+            else
+            {
+                _rb.drag = _drag;
+            }
+        }
+
         if (jumpAllowed)
         {
             _rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
