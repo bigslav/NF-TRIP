@@ -6,6 +6,8 @@ public class CharacterSwitch : MonoBehaviour
     [SerializeField] private GameObject _golemGameObject;
     [SerializeField] private GameObject _mushroomGameObject;
 
+    public bool separationImpulseOn;
+
     private Character _golemCharacter;
     private Character _mushroomCharacter;
     private Rigidbody _golemRigidbody;
@@ -132,7 +134,7 @@ public class CharacterSwitch : MonoBehaviour
             _golemCharacter.isCombined = false;
             _mushroomCharacter.isCombined = false;
 
-            if (!_golemCharacter.isGrounded)
+            if (separationImpulseOn && !_golemCharacter.isGrounded)
             {
                 _mushroomRigidbody.AddForce(Vector3.up * 6f, ForceMode.Impulse);
             }
