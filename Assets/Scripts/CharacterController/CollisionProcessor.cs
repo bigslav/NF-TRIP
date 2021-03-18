@@ -26,15 +26,8 @@ public class CollisionProcessor : MonoBehaviour
         RaycastHit hit;
         Vector3 _raycastOrigin;
 
-        if (_character.type == Character.CharacterType.Golem)
-        {
-            _raycastOrigin = transform.position + new Vector3(0, _skinWidth, 0);
-        }
-        else 
-        {
-            _raycastOrigin = transform.position - (_colliderBounds.size / 2 - new Vector3(0, _skinWidth, 0));
-        }
-
+        _raycastOrigin = transform.position + new Vector3(0, _skinWidth, 0);
+        
         if (_character.isActive && (_character.type == Character.CharacterType.Golem ^
             _character.type == Character.CharacterType.Mushroom))
         {

@@ -8,6 +8,7 @@ public class Puller : MonoBehaviour
     private GameObject _pulledObject = null;
     private Rigidbody _pulledObjectRb = null;
     private float _pulledObjectRbMass;
+    private FixedJoint _joint = null;
 
     private void OnEnable()
     {
@@ -27,7 +28,8 @@ public class Puller : MonoBehaviour
                 _character.isPulling = false;
                 _pulledObjectRb.mass = _pulledObjectRbMass;
                 _pulledObjectRb = null;
-                Destroy(gameObject.GetComponent<FixedJoint>());
+                Destroy(_joint);
+                _joint = null;
                 _hasJoint = false;
             }
         }
@@ -43,8 +45,8 @@ public class Puller : MonoBehaviour
 
             if (_character.isPulling && !_hasJoint)
             {
-                gameObject.AddComponent<FixedJoint>();
-                gameObject.GetComponent<FixedJoint>().connectedBody = _pulledObjectRb;
+                _joint = gameObject.AddComponent<FixedJoint>();
+                _joint.connectedBody = _pulledObjectRb;
                 _pulledObjectRbMass = _pulledObjectRb.mass;
                 _pulledObjectRb.mass = 1;
                 _hasJoint = true;
