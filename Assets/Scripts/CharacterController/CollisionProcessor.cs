@@ -6,19 +6,13 @@ public class CollisionProcessor : MonoBehaviour
     [SerializeField] private LayerMask _golemLayer;
 
     private Character _character;
-    private BoxCollider _collider;
-    private Bounds _colliderBounds;
+    private CapsuleCollider _collider;
     private float _skinWidth = 0.015f;
 
     private void OnEnable()
     {
         _character = GetComponent<Character>();
-        _collider = GetComponent<BoxCollider>();
-    }
-
-    private void Start()
-    {
-        _colliderBounds = _collider.bounds;
+        _collider = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -26,23 +20,13 @@ public class CollisionProcessor : MonoBehaviour
         RaycastHit hit;
         Vector3 _raycastOrigin;
 
-        _raycastOrigin = transform.position + new Vector3(0, _skinWidth, 0);
+        _raycastOrigin = _collider.center;
         
-        if (_character.isActive && (_character.type == Character.CharacterType.Golem ^
-            _character.type == Character.CharacterType.Mushroom))
+        if (_character.isActive && _character.type == Character.CharacterType.Mushroom)
         {
-            if (Physics.Raycast(_raycastOrigin, transform.TransformDirection(Vector3.down), out hit, 0.03f))
+            if (Physics.Raycast(_raycastOrigin, transform.TransformDirection(Vector3.down), out hit, _collider.height/2 + _skinWidth))
             {
-                if (hit.collider.gameObject.layer == 10)
-                {
-                    _character.isGrounded = true;
-                }
-                else
-                {
-                    _character.isGrounded = false;
-                }
-
-                if (_character.type == Character.CharacterType.Mushroom && hit.collider.gameObject.layer == 9)
+                if (hit.collider.gameObject.layer == 9)
                 {
                     _character.isOnTopOfGolem = true;
                 }
@@ -53,9 +37,25 @@ public class CollisionProcessor : MonoBehaviour
             }
             else
             {
-                _character.isGrounded = false;
                 _character.isOnTopOfGolem = false;
             }
         } 
+    }
+
+    private void OnCollisionStay(Collision col)
+    {
+        foreach (ContactPoint p in col.contacts)
+        {
+            Vector3 bottom = _collider.bounds.center - (Vector3.up * _collider.bounds.extents.y);
+            Vector3 curve = bottom + (Vector3.up * _collider.radius);
+
+            Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
+            Vector3 dir = curve - p.point;
+
+            if (dir.y > 0f)
+            {
+                _character.isGrounded = true;
+            }
+        }
     }
 }
