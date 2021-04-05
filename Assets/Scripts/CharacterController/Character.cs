@@ -4,7 +4,7 @@ public class Character : MonoBehaviour
 {
     public CharacterType type;
     public bool isActive;
-    public bool isGrounded;
+    public bool isGrounded = false;
     public bool isCombined = false;
     public bool isOnTopOfGolem = false;
     public bool isPulling = false;
