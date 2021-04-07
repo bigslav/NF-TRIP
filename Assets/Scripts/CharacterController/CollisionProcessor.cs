@@ -52,12 +52,19 @@ public class CollisionProcessor : MonoBehaviour
             Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
             Vector3 dir = curve - p.point;
 
-            _character.isGrounded = false;
             if (dir.y > 0f)
             {
                 _character.isGrounded = true;
             }
-            
+
+        }
+    }
+
+    private void OnCollisionExit(Collision col)
+    {
+        if (col.gameObject.layer == 10) 
+        {
+            _character.isGrounded = false;
         }
     }
 }
