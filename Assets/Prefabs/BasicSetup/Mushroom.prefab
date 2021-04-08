@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &486180479
 Transform:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8550552406573238399}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  isActive: 0
+  isActive: 1
   isGrounded: 0
   isCombined: 0
   isOnTopOfGolem: 0
@@ -469,7 +469,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 101cf2a17b4e6f24cbd37173a3233618, type: 2}
+      objectReference: {fileID: 2100000, guid: 1af523f3ada4b7e49b37344a42ebb594, type: 2}
     - target: {fileID: 2464098630957027937, guid: a2d594dcb86c8ea4bb050bc795973888,
         type: 3}
       propertyPath: m_Layer
