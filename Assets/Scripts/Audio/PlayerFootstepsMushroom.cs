@@ -17,7 +17,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
     [SerializeField] private float StepDistance = 2.0f;
     [SerializeField] private float RayDistance = 1.3f;
     public string[] MaterialTypes;
-    [HideInInspector] public int DefulatMaterialValue;
+    [HideInInspector] public int DefulatMaterialValue = 3;
 
     //These variables are used when checking the Material type the player is on top of.
     private RaycastHit hit;
