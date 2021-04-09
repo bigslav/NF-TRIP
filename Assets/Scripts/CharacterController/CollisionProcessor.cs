@@ -52,7 +52,7 @@ public class CollisionProcessor : MonoBehaviour
             Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
             Vector3 dir = curve - p.point;
 
-            if (dir.y > 0f)
+            if (dir.y > 0f && (dir.magnitude <= _collider.radius + _skinWidth))
             {
                 _character.isGrounded = true;
             }
