@@ -21,7 +21,7 @@ public class MovementAnimations : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && Time.timeScale == 1)
         {
             twerkMode = !twerkMode;
         }
@@ -52,7 +52,7 @@ public class MovementAnimations : MonoBehaviour
         // Movement animations
         if (_animator != null)
         {
-            if (_rb.velocity.x != 0 && _character.isActive)
+            if (Mathf.Abs(_rb.velocity.x) > 0.1f && _character.isActive)
             {
                 _animator.SetBool("IsWalking_b", true);
                 _animator.SetBool("IsIdle_b", false);
@@ -82,7 +82,7 @@ public class MovementAnimations : MonoBehaviour
             }
         }
 
-        if (_rb.velocity.x != 0f) 
+        if (_rb.velocity.x != 0f && Mathf.Abs(_rb.velocity.x) > 0.1f) 
         {
             lastHorVelocity = _rb.velocity.x;
         }
