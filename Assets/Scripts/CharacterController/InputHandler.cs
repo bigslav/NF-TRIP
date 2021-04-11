@@ -50,12 +50,12 @@ public class InputHandler : MonoBehaviour
             _horizontalInput = Input.GetAxisRaw("Horizontal");
             _verticalInput = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKeyDown(KeyCode.Space) && (_character.isGrounded || _character.isOnTopOfGolem) && !_character.isGlueToMechanism && !_character.isPulling)
+            if (Input.GetKeyDown(KeyCode.Space) && (_character.isGrounded || _character.isOnTopOfGolem) && !_character.isGlueToMechanism && !_character.isPulling && Time.timeScale == 1)
             {
                 _jump.jumpAllowed = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && _character.isUsingMechanism)
+            if (Input.GetKeyDown(KeyCode.E) && _character.isUsingMechanism && Time.timeScale == 1)
                 _character.isGlueToMechanism = !_character.isGlueToMechanism;
 
             if (!_character.isGlueToMechanism)

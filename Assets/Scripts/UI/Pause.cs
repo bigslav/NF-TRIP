@@ -56,6 +56,7 @@ public class Pause : MonoBehaviour {
 
     public void BackToGame() {
         Time.timeScale = 1;
+        mainPanel.SetActive(true);
         PauseGameObject.SetActive(false);
         loadPanel.SetActive(false);
         optionsPanel.SetActive(false);

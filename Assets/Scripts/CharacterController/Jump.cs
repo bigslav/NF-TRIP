@@ -31,35 +31,40 @@ public class Jump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (dragOnJumpOnly)
+        if (Time.timeScale == 1)
         {
-            if (_rb.velocity.y < 0)
+            if (dragOnJumpOnly)
             {
-                _rb.drag = 0;
+                if (_rb.velocity.y < 0)
+                {
+                    _rb.drag = 0;
+                }
+                else
+                {
+                    _rb.drag = _drag;
+                }
             }
-            else
+
+            if (jumpAllowed)
             {
-                _rb.drag = _drag;
+                _rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
+
+                if (gameObject.name == "Golem")
+                {
+                    MaterialCheck();
+                    PlayJumpGolem();
+                }
+                if (gameObject.name == "Mushroom")
+                {
+                    MaterialCheck();
+                    PlayJumpMushroom();
+                }
+
+                jumpAllowed = false;
             }
+
         }
 
-        if (jumpAllowed)
-        {
-            _rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
-
-            if (gameObject.name == "Golem")
-            {
-                MaterialCheck();
-                PlayJumpGolem();
-            }
-            if (gameObject.name == "Mushroom")
-            {
-                MaterialCheck();
-                PlayJumpMushroom();
-            }
-
-            jumpAllowed = false;
-        }
     }
 
     void MaterialCheck()

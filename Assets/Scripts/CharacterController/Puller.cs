@@ -17,7 +17,8 @@ public class Puller : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable) {
+        if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable && Time.timeScale == 1)
+        {
             if (!_character.isPulling && _character.isGrounded)
             {
                 _character.isPulling = true;

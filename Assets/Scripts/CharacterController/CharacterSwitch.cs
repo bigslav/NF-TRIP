@@ -56,12 +56,12 @@ public class CharacterSwitch : MonoBehaviour
 
     private void ProcessInput()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && Time.timeScale == 1)
         {
             StartCoroutine(JumpOffGolem());
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.timeScale == 1)
         {
             Vector3 dist = _golemGameObject.transform.position - _mushroomGameObject.transform.position;
 

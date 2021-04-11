@@ -18,8 +18,11 @@ public class SideMovement : MonoBehaviour
 
     private void ApplyMovement()
     {
-        _rb.AddForce(_targetDirection, ForceMode.VelocityChange);
-        CancelHorizontalVelocity();
+        if (Time.timeScale == 1)
+        {
+            _rb.AddForce(_targetDirection, ForceMode.VelocityChange);
+            CancelHorizontalVelocity();
+        }
     }
 
     private void CancelHorizontalVelocity()

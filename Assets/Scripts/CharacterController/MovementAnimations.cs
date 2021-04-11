@@ -21,7 +21,7 @@ public class MovementAnimations : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && Time.timeScale == 1)
         {
             twerkMode = !twerkMode;
         }
