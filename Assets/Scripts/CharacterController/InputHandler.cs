@@ -16,6 +16,8 @@ public class InputHandler : MonoBehaviour
     private float _verticalInput;
     private float _liftControlInput;
 
+    public GameObject pause;
+
     private void OnEnable()
     {
         _character = GetComponent<Character>();
@@ -59,6 +61,12 @@ public class InputHandler : MonoBehaviour
             if (!_character.isGlueToMechanism)
             {
                 _sideMovement.SetDirection(new Vector3(_horizontalInput, 0f));
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Time.timeScale = 0;
+                pause.SetActive(true);
             }
         }
     }
