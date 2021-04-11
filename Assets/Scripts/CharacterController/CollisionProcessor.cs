@@ -48,11 +48,10 @@ public class CollisionProcessor : MonoBehaviour
         {
             Vector3 bottom = _collider.bounds.center - (Vector3.up * _collider.bounds.extents.y);
             Vector3 curve = bottom + (Vector3.up * _collider.radius);
-
             Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
             Vector3 dir = curve - p.point;
 
-            if (dir.y > 0f && (dir.magnitude <= _collider.radius + _skinWidth))
+            if (dir.magnitude <= _collider.radius + 0.05f && Mathf.Abs(dir.x) < 0.28f && col.gameObject.layer == 10)
             {
                 _character.isGrounded = true;
             }
@@ -62,7 +61,7 @@ public class CollisionProcessor : MonoBehaviour
 
     private void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.layer == 10) 
+        if (col.gameObject.layer == 10)
         {
             _character.isGrounded = false;
         }
