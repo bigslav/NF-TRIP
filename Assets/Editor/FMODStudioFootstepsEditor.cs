@@ -16,16 +16,16 @@ public class FMODStudioFootstepsEditor : Editor                                 
 }
 
 
-// This class will be used to read the Material Types we created for the 'FMODStudioFirstPersonFootsteps' script, and then add them as options to select within a dropdown menu as a default for whenever the player walks on top of a surface that doesn't have a 'MaterialSetter' script attached to it. It then read which type we selected and set a value to the 'DefulatMaterialValue' variable to represent that type.
-[CustomEditor(typeof(InputHandler))]
-public class FMODStudioFootstepsEditorTwo : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();                                                                                                       // This method will display all of the default inspector serialized variables and fields we created inside the 'FirstPersonFootsteps' script whilst still allowing us to overide the inspector and add new ones.
+//This class will be used to read the Material Types we created for the 'FMODStudioFirstPersonFootsteps' script, and then add them as options to select within a dropdown menu as a default for whenever the player walks on top of a surface that doesn't have a 'MaterialSetter' script attached to it. It then read which type we selected and set a value to the 'DefulatMaterialValue' variable to represent that type.
+//[CustomEditor(typeof(InputHandler))]
+//public class FMODStudioFootstepsEditorTwo : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        DrawDefaultInspector();                                                                                                       // This method will display all of the default inspector serialized variables and fields we created inside the 'FirstPersonFootsteps' script whilst still allowing us to overide the inspector and add new ones.
 
-        var FPF = target as PlayerFootstepsMushroom;                                                                           // We create a variable to store a reference to the script we want to edit. We can then use 'target' to find it.
+//        var FPF = target as PlayerFootstepsMushroom;                                                                           // We create a variable to store a reference to the script we want to edit. We can then use 'target' to find it.
 
-        FPF.DefulatMaterialValue = EditorGUILayout.Popup("Set Default Material As", FPF.DefulatMaterialValue, FPF.MaterialTypes);     // We then create another dropdown menu using 'EditorGUILayout.Popup'. This time we call it "Set Default Material As", we chose the 'DefaultMaterialValue' as the int we want to be see as selected and set the options to the same array of strings, 'MaterialTypes'. We then set the result of our dropdown menu to the 'DefaultMaterialValue' int for the 'FirstPersonFootsteps' script to use.
-    }
-}
+//        FPF.DefulatMaterialValue = EditorGUILayout.Popup("Set Default Material As", FPF.DefulatMaterialValue, FPF.MaterialTypes);     // We then create another dropdown menu using 'EditorGUILayout.Popup'. This time we call it "Set Default Material As", we chose the 'DefaultMaterialValue' as the int we want to be see as selected and set the options to the same array of strings, 'MaterialTypes'. We then set the result of our dropdown menu to the 'DefaultMaterialValue' int for the 'FirstPersonFootsteps' script to use.
+//    }
+//}
