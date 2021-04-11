@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001B6FF6D10B8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001B635EA71C8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -15,15 +15,568 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-012', format=5, channels=2, frequency=48000, lengthbytes=2528, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.026766.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_wood-014', format=5, channels=2, frequency=48000, lengthbytes=1248, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.065719.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-004', format=5, channels=2, frequency=48000, lengthbytes=6176, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.014724.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_leaves-007', format=5, channels=2, frequency=48000, lengthbytes=9024, lengthpcm=48000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.011856.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_dirt-008', format=5, channels=2, frequency=48000, lengthbytes=1952, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.006116.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-022', format=5, channels=2, frequency=48000, lengthbytes=2112, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.045166.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-020', format=5, channels=2, frequency=48000, lengthbytes=2144, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.040715.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-002', format=5, channels=2, frequency=48000, lengthbytes=6240, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.015646.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-005', format=5, channels=2, frequency=48000, lengthbytes=6272, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.028696.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_leaves-008', format=5, channels=2, frequency=48000, lengthbytes=1760, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.012960.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_dirt-005', format=5, channels=2, frequency=48000, lengthbytes=1952, lengthpcm=6221, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.013836.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-015', format=5, channels=2, frequency=48000, lengthbytes=2144, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.051550.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_wood-013', format=5, channels=2, frequency=48000, lengthbytes=1248, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.058320.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-021', format=5, channels=2, frequency=48000, lengthbytes=2464, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.095419.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-013', format=5, channels=2, frequency=48000, lengthbytes=2656, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.085778.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-019', format=5, channels=2, frequency=48000, lengthbytes=2464, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.073814.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-016', format=5, channels=2, frequency=48000, lengthbytes=2656, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.049679.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_wood-016', format=5, channels=2, frequency=48000, lengthbytes=1280, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.067208.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-003', format=5, channels=2, frequency=48000, lengthbytes=6144, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.015776.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_dirt-006', format=5, channels=2, frequency=48000, lengthbytes=1664, lengthpcm=5779, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.009709.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-001', format=5, channels=2, frequency=48000, lengthbytes=6112, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.029746.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-006', format=5, channels=2, frequency=48000, lengthbytes=6176, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.041433.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-018', format=5, channels=2, frequency=48000, lengthbytes=2240, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.025533.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_wood-015', format=5, channels=2, frequency=48000, lengthbytes=1248, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.046708.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-014', format=5, channels=2, frequency=48000, lengthbytes=2400, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.068596.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_dirt-007', format=5, channels=2, frequency=48000, lengthbytes=2176, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.012901.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_leaves-009', format=5, channels=2, frequency=48000, lengthbytes=1760, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.005563.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_grass-007', format=5, channels=2, frequency=48000, lengthbytes=6080, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.023598.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8DE8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_step_stone-017', format=5, channels=2, frequency=48000, lengthbytes=2272, lengthpcm=6000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.063851.
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 979520
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 25472
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000092A7B5F4F8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FF85B127E30
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FF85B127E00
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FF85B127F00
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FF85B127FC0
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001B60EBF8BD8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='char_mushroom_jump', format=5, channels=2, frequency=48000, lengthbytes=5568, lengthpcm=24000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.091301.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] SoundI::release                          : Night mushroom village theme 72 4-4-002 (000001B607CD9A38)
+[LOG] SoundI::release                          :     Night mushroom village theme 72 4-4-002 (000001B6365E82B8)
+[LOG] SoundI::release                          :     Night mushroom village theme 72 4-4-002 (000001B6A0344DF8)
+[LOG] SoundI::release                          : env_amb_01_mushroom_village_night-001 (000001B607CD9BE8)
+[LOG] SoundI::release                          :     env_amb_01_mushroom_village_night-001 (000001B6365E9978)
+[LOG] SoundI::release                          :     env_amb_01_mushroom_village_night-001 (000001B607CD9F48)
+[LOG] SoundI::release                          :  (000001B6A0D742D8)
+[LOG] SoundI::release                          :     char_mushroom_jump (000001B6365EEC58)
+[LOG] SoundI::release                          :  (000001B608DC2718)
+[LOG] SoundI::release                          :     char_mushroom_step_wood-013 (000001B6365EAE98)
+[LOG] SoundI::release                          :  (000001B608DC3F88)
+[LOG] SoundI::release                          :     char_mushroom_step_wood-014 (000001B6365EC898)
+[LOG] SoundI::release                          :  (000001B5C8DAF478)
+[LOG] SoundI::release                          :     char_mushroom_step_wood-015 (000001B6365E8FB8)
+[LOG] SoundI::release                          :  (000001B5C8DAF308)
+[LOG] SoundI::release                          :     char_mushroom_step_wood-016 (000001B6365EE298)
+[LOG] SoundI::release                          :  (000001B608DC29F8)
+[LOG] SoundI::release                          :     char_mushroom_step_leaves-007 (000001B6365E9158)
+[LOG] SoundI::release                          :  (000001B608DC1A28)
+[LOG] SoundI::release                          :     char_mushroom_step_leaves-008 (000001B6365ED8D8)
+[LOG] SoundI::release                          :  (000001B6A0D73BA8)
+[LOG] SoundI::release                          :     char_mushroom_step_leaves-009 (000001B6365EE5D8)
+[LOG] SoundI::release                          :  (000001B5C8DAEA68)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-001 (000001B6365E8AD8)
+[LOG] SoundI::release                          :  (000001B608DC4828)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-002 (000001B6365ECBD8)
+[LOG] SoundI::release                          :  (000001B5C8DAE788)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-003 (000001B6365E8118)
+[LOG] SoundI::release                          :  (000001B608DC4998)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-004 (000001B6365EB1D8)
+[LOG] SoundI::release                          :  (000001B608DC4B08)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-005 (000001B6365ECF18)
+[LOG] SoundI::release                          :  (000001B5C8DAF028)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-006 (000001B6365E9FF8)
+[LOG] SoundI::release                          :  (000001B6A0D72A68)
+[LOG] SoundI::release                          :     char_mushroom_step_grass-007 (000001B6365EE778)
+[LOG] SoundI::release                          :  (000001B608DC2438)
+[LOG] SoundI::release                          :     char_mushroom_step_dirt-005 (000001B6365E9CB8)
+[LOG] SoundI::release                          :  (000001B5C8DAE8F8)
+[LOG] SoundI::release                          :     char_mushroom_step_dirt-006 (000001B6365E8938)
+[LOG] SoundI::release                          :  (000001B6A0D74168)
+[LOG] SoundI::release                          :     char_mushroom_step_dirt-007 (000001B6365E9E58)
+[LOG] SoundI::release                          :  (000001B608DC46B8)
+[LOG] SoundI::release                          :     char_mushroom_step_dirt-008 (000001B6365E7F78)
+[LOG] SoundI::release                          :  (000001B608DC3B38)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-012 (000001B6365E92F8)
+[LOG] SoundI::release                          :  (000001B5C8DAEEB8)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-013 (000001B6365ED3F8)
+[LOG] SoundI::release                          :  (000001B5C8DAF758)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-014 (000001B6365E9498)
+[LOG] SoundI::release                          :  (000001B608DC25A8)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-015 (000001B6365EDC18)
+[LOG] SoundI::release                          :  (000001B5C8DAE4A8)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-016 (000001B6365EE0F8)
+[LOG] SoundI::release                          :  (000001B6A0D74898)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-017 (000001B6365EF478)
+[LOG] SoundI::release                          :  (000001B5C8DAF198)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-018 (000001B6365E8C78)
+[LOG] SoundI::release                          :  (000001B5C8DAFE88)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-019 (000001B6365EB038)
+[LOG] SoundI::release                          :  (000001B608DC1FE8)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-020 (000001B6365ECA38)
+[LOG] SoundI::release                          :  (000001B5C8DAF8C8)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-021 (000001B6365ED0B8)
+[LOG] SoundI::release                          :  (000001B608DC1748)
+[LOG] SoundI::release                          :     char_mushroom_step_stone-022 (000001B6365E85F8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] SystemI::close                           : Closed.
