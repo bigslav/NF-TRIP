@@ -56,7 +56,10 @@ public class InputHandler : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.E) && _character.isUsingMechanism && Time.timeScale == 1)
+            {
                 _character.isGlueToMechanism = !_character.isGlueToMechanism;
+                _sideMovement.SetDirection(new Vector3(0f, 0f));
+            }
 
             if (!_character.isGlueToMechanism)
             {
@@ -84,11 +87,11 @@ public class InputHandler : MonoBehaviour
 
         if (_character.isGlueToMechanism)
         {
-            if (_liftControlInput == -1)
+            if (_liftControlInput == -1 && _character.isActive)
                 mechanismUnderControl._currentTarget = mechanismUnderControl.points[0];
-            if (_liftControlInput == 1)
+            if (_liftControlInput == 1 && _character.isActive)
                 mechanismUnderControl._currentTarget = mechanismUnderControl.points[1];
-            if ((_liftControlInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position)
+            if ((_liftControlInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position && _character.isActive)
             {
                 mechanismUnderControl.MovePlatform();
             }
