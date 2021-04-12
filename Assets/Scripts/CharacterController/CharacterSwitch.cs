@@ -32,6 +32,11 @@ public class CharacterSwitch : MonoBehaviour
     {
         ProcessInput();
         ProcessJumpOnTop();
+
+        if (_mushroomCharacter.isCombined == true)
+        {
+            _mushroomCharacter.isGrounded = true;
+        }
     }
 
     public void SwitchCharacterControl()
@@ -116,7 +121,7 @@ public class CharacterSwitch : MonoBehaviour
                 joint.connectedBody = _mushroomRigidbody;
 
                 joint.autoConfigureConnectedAnchor = false;
-                joint.anchor = new Vector3(0, 4f, 0);
+                joint.anchor = new Vector3(0, 4.1f, 0);
                 joint.connectedAnchor = Vector3.zero;
                 joint.massScale = 0.001f;
                 joint.enableCollision = true;

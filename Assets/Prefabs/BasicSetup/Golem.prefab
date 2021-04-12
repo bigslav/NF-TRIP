@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 7286680145689225940}
   - component: {fileID: 2034647244}
   - component: {fileID: 1338869142}
+  - component: {fileID: 1793119172}
   m_Layer: 9
   m_Name: Golem
   m_TagString: Golem
@@ -152,8 +153,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4, z: 2}
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Size: {x: 2, y: 1, z: 2}
+  m_Center: {x: 0, y: 3.5, z: 0}
 --- !u!114 &2034647245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  isActive: 1
+  isActive: 0
   isGrounded: 0
   isCombined: 0
   isOnTopOfGolem: 0
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77e9fe1ea3c8c48adab3887378417d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
+  speed: 10
   jumpAllowed: 0
   dragOnJumpOnly: 0
   MaterialTypes: []
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74d01fed86c8d4eb6bd6d42b30b904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpMultiplier: 1
+  jumpMultiplier: 1.5
   fallMultiplier: 1.85
 --- !u!114 &2034647237
 MonoBehaviour:
@@ -270,6 +271,7 @@ MonoBehaviour:
   verticalLiftControl: 1
   preset: -1
   mechanismUnderControl: {fileID: 0}
+  pause: {fileID: 0}
 --- !u!114 &7286680145689225940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +322,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &1793119172
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919059683331726948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &2670570986369179212
 PrefabInstance:
   m_ObjectHideFlags: 0

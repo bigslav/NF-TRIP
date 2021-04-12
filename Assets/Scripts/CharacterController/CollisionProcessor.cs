@@ -51,7 +51,7 @@ public class CollisionProcessor : MonoBehaviour
             Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
             Vector3 dir = curve - p.point;
 
-            if (dir.magnitude <= _collider.radius + 0.05f && Mathf.Abs(dir.x) < 0.28f && col.gameObject.layer == 10)
+            if (dir.magnitude <= _collider.radius + 0.05f && Mathf.Abs(dir.x) < 0.28f && (col.gameObject.layer == 10 || (col.gameObject.layer == 9 && _character.type == Character.CharacterType.Mushroom)))
             {
                 _character.isGrounded = true;
             }
@@ -61,7 +61,7 @@ public class CollisionProcessor : MonoBehaviour
 
     private void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.layer == 10)
+        if (col.gameObject.layer == 10 || (col.gameObject.layer == 9 && _character.type == Character.CharacterType.Mushroom))
         {
             _character.isGrounded = false;
         }
