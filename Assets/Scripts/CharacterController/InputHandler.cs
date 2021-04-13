@@ -88,9 +88,9 @@ public class InputHandler : MonoBehaviour
         if (_character.isGlueToMechanism)
         {
             if (_liftControlInput == -1 && _character.isActive)
-                mechanismUnderControl._currentTarget = mechanismUnderControl.points[0];
+                mechanismUnderControl._currentTarget = mechanismUnderControl.points[0].position;
             if (_liftControlInput == 1 && _character.isActive)
-                mechanismUnderControl._currentTarget = mechanismUnderControl.points[1];
+                mechanismUnderControl._currentTarget = mechanismUnderControl.points[1].position;
             if ((_liftControlInput != 0) && mechanismUnderControl._currentTarget != mechanismUnderControl.transform.position && _character.isActive)
             {
                 mechanismUnderControl.MovePlatform();

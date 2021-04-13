@@ -51,7 +51,7 @@ public class MovingPlatform : ParentPlatform
         Debug.Log(collision.gameObject.transform);
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if(collision.gameObject.transform.parent == null);
+            if(collision.gameObject.transform.parent == null)
             {
                 collision.gameObject.transform.parent = transform;
             }
@@ -63,7 +63,7 @@ public class MovingPlatform : ParentPlatform
         Debug.Log("Exit");
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.transform.parent == transform) ;
+            if (collision.gameObject.transform.parent == transform)
             {
                 collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
                 collision.gameObject.transform.parent = null;
