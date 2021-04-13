@@ -28,10 +28,10 @@ public class PlayerFootstepsMushroom : MonoBehaviour
     {
         GroundedPlayed = false;
         anim = GetComponent<Animator>();
-        AddEvent(2, 0.05f, "Step", 0); // WalkG
+        AddEvent(2, 0.01f, "Step", 0); // WalkG
         //AddEvent(2, 0.10f, "Step", 0); // WalkG
-        AddEvent(2, 0.7f, "Step", 0); // WalkG
-        AddEvent(2, 0.12f, "Step", 0); // WalkG
+        AddEvent(2, 0.5f, "Step", 0); // WalkG
+        //AddEvent(2, 0.5f, "Step", 0); // WalkG
         //AddEvent(2, 0.25f, "Step", 0); // WalkG
         //AddEvent(2, 0.27f, "Step", 0);
         //AddEvent(1, 0.00f, "Jump", 0);

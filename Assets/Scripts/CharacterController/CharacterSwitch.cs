@@ -128,6 +128,8 @@ public class CharacterSwitch : MonoBehaviour
 
                 _golemCharacter.isCombined = true;
                 _mushroomCharacter.isCombined = true;
+                _golemCharacter.isGlueToMechanism = false;
+                _mushroomCharacter.isGlueToMechanism = false;
             }
         }
         else 
