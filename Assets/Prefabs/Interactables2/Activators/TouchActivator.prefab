@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7866865093085714899}
   - component: {fileID: 7866865093085714902}
   m_Layer: 0
-  m_Name: pressurePlate
+  m_Name: TouchActivator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbbe64357a01fe479ce3fa54e646ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetGameObject: []
+  targetGameObject:
+  - {fileID: 0}
   whoCanInteract:
     serializedVersion: 2
     m_Bits: 768
   stayOnToUse: 0
-  presetPoint: 0
