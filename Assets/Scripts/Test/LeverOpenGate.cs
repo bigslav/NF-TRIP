@@ -16,6 +16,8 @@ public class LeverOpenGate : MonoBehaviour
     private SpriteRenderer _tipRenderer;
     private bool _openGateTriggered = false;
 
+    private bool gateSoundTriggered = false;
+
     private void Start()
     {
         _tipRenderer = pressETip.GetComponent<SpriteRenderer>();
@@ -54,8 +56,20 @@ public class LeverOpenGate : MonoBehaviour
                 if (!_openGateTriggered) 
                 {
                     _openGateTriggered = true;
+                    if (!gateSoundTriggered)
+                    {
+                        PlayGateSound();
+                        gateSoundTriggered = true;
+                    }
                 }
             }
         }
+    }
+    void PlayGateSound()
+    {
+        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/objects/mushroon village/woodenGate");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
+        Footstep.start();
+        Footstep.release();
     }
 }

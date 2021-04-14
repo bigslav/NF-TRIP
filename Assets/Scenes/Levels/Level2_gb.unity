@@ -9101,6 +9101,26 @@ PrefabInstance:
       propertyPath: jumpMultiplier
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
+      propertyPath: MaterialTypes.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
+      propertyPath: MaterialTypes.Array.data[0]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
+      propertyPath: MaterialTypes.Array.data[3]
+      value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
+      propertyPath: MaterialTypes.Array.data[4]
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
+      propertyPath: MaterialTypes.Array.data[5]
+      value: Stones
+      objectReference: {fileID: 0}
     - target: {fileID: 1455904537, guid: f44c406c317a94d4085ffd49b9420b9a, type: 3}
       propertyPath: isActive
       value: 0
@@ -17605,6 +17625,26 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
+      propertyPath: MaterialTypes.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
+      propertyPath: MaterialTypes.Array.data[0]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
+      propertyPath: MaterialTypes.Array.data[3]
+      value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
+      propertyPath: MaterialTypes.Array.data[4]
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
+      propertyPath: MaterialTypes.Array.data[5]
+      value: Stones
+      objectReference: {fileID: 0}
     - target: {fileID: 2034647245, guid: 47fd39a16737d7a4b9a136e44ba1b7da, type: 3}
       propertyPath: isActive
       value: 1
@@ -19725,17 +19765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b85ab1e5257b914c8759016acc240e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeAtStart: 0
-  oneWay: 1
-  onlyOneInteraction: 1
-  rotationSpeed: 10
-  movementSpeed: 10
-  delayTime: 0
-  waitUntilTime: 0
-  points:
-  - {fileID: 1080145775}
-  blockedPoint: 0
-  _currentTarget: {x: 0, y: 0, z: 0}
 --- !u!65 &1073368944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22026,7 +22055,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193418964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 488.4774, y: 6.7535024, z: -25}
+  m_LocalPosition: {x: 489.43024, y: 6.7535024, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1797215963}
@@ -28274,7 +28303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1461244294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d419c0d97c87b674183b75e84249294a, type: 3}
   m_Name: 
@@ -30308,7 +30337,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574212115}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87c1f88531b7c8d48b87ca1644514257, type: 3}
   m_Name: 
@@ -34363,7 +34392,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746659478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87c1f88531b7c8d48b87ca1644514257, type: 3}
   m_Name: 
