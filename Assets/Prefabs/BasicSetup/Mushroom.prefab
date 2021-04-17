@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d77e9fe1ea3c8c48adab3887378417d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 18
   jumpAllowed: 0
   dragOnJumpOnly: 0
   MaterialTypes: []
@@ -226,8 +226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da74d01fed86c8d4eb6bd6d42b30b904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpMultiplier: 1
-  fallMultiplier: 1
+  jumpMultiplier: 3
+  fallMultiplier: 3
 --- !u!114 &1455904534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +270,7 @@ MonoBehaviour:
   verticalLiftControl: 1
   preset: -1
   mechanismUnderControl: {fileID: 0}
+  pause: {fileID: 0}
 --- !u!114 &1455904536
 MonoBehaviour:
   m_ObjectHideFlags: 0
