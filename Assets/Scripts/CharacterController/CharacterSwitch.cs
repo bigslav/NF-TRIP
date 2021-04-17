@@ -22,6 +22,9 @@ public class CharacterSwitch : MonoBehaviour
 
     private void OnEnable()
     {
+        Physics.IgnoreLayerCollision(8, 10, false);
+        Physics.IgnoreLayerCollision(8, 9, false);
+
         _golemCharacter = _golemGameObject.GetComponent<Character>();
         _mushroomCharacter = _mushroomGameObject.GetComponent<Character>();
         _golemSideMovement = _golemGameObject.GetComponent<SideMovement>();
