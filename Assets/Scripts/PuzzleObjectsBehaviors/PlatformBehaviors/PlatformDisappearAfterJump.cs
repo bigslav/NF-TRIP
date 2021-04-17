@@ -8,6 +8,9 @@ public class PlatformDisappearAfterJump : Platform
         {
             other.transform.parent = null;
             gameObject.SetActive(false);
+
+            Character ch = other.gameObject.GetComponent<Character>();
+            ch.isGrounded = false;
         }
     }
 }

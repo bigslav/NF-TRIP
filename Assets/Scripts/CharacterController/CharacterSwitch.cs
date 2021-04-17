@@ -6,6 +6,8 @@ public class CharacterSwitch : MonoBehaviour
     [SerializeField] private GameObject _golemGameObject;
     [SerializeField] private GameObject _mushroomGameObject;
 
+    public bool switchControlOn;
+    public bool combineOn;
     public bool separationImpulseOn;
 
     private Character _golemCharacter;
@@ -41,11 +43,14 @@ public class CharacterSwitch : MonoBehaviour
 
     public void SwitchCharacterControl()
     {
-        _golemSideMovement.SetDirection(Vector3.zero);
-        _mushroomSideMovement.SetDirection(Vector3.zero);
+        if (switchControlOn) 
+        {
+            _golemSideMovement.SetDirection(Vector3.zero);
+            _mushroomSideMovement.SetDirection(Vector3.zero);
 
-        _golemCharacter.isActive = !_golemCharacter.isActive;
-        _mushroomCharacter.isActive = !_mushroomCharacter.isActive;
+            _golemCharacter.isActive = !_golemCharacter.isActive;
+            _mushroomCharacter.isActive = !_mushroomCharacter.isActive;
+        }
     }
 
     public IEnumerator JumpOffGolem()
@@ -112,38 +117,41 @@ public class CharacterSwitch : MonoBehaviour
 
     public void Combine(bool turnOn) 
     {
-        if (turnOn)
+        if (combineOn) 
         {
-            if (joint == null)
+            if (turnOn)
             {
-                Physics.IgnoreLayerCollision(8, 10, true);
-                joint = _golemGameObject.AddComponent<FixedJoint>();
-                joint.connectedBody = _mushroomRigidbody;
+                if (joint == null)
+                {
+                    Physics.IgnoreLayerCollision(8, 10, true);
+                    joint = _golemGameObject.AddComponent<FixedJoint>();
+                    joint.connectedBody = _mushroomRigidbody;
 
-                joint.autoConfigureConnectedAnchor = false;
-                joint.anchor = new Vector3(0, 4.1f, 0);
-                joint.connectedAnchor = Vector3.zero;
-                joint.massScale = 0.001f;
-                joint.enableCollision = true;
+                    joint.autoConfigureConnectedAnchor = false;
+                    joint.anchor = new Vector3(0, 4.1f, 0);
+                    joint.connectedAnchor = Vector3.zero;
+                    joint.massScale = 0.001f;
+                    joint.enableCollision = true;
 
-                _golemCharacter.isCombined = true;
-                _mushroomCharacter.isCombined = true;
-                _golemCharacter.isGlueToMechanism = false;
-                _mushroomCharacter.isGlueToMechanism = false;
+                    _golemCharacter.isCombined = true;
+                    _mushroomCharacter.isCombined = true;
+                    _golemCharacter.isGlueToMechanism = false;
+                    _mushroomCharacter.isGlueToMechanism = false;
+                }
             }
-        }
-        else 
-        {
-            Physics.IgnoreLayerCollision(8, 10, false);
-            Destroy(joint);
-            joint = null;
-
-            _golemCharacter.isCombined = false;
-            _mushroomCharacter.isCombined = false;
-
-            if (separationImpulseOn && !_golemCharacter.isGrounded)
+            else
             {
-                _mushroomRigidbody.AddForce(Vector3.up * 6f, ForceMode.Impulse);
+                Physics.IgnoreLayerCollision(8, 10, false);
+                Destroy(joint);
+                joint = null;
+
+                _golemCharacter.isCombined = false;
+                _mushroomCharacter.isCombined = false;
+
+                if (separationImpulseOn && !_golemCharacter.isGrounded)
+                {
+                    _mushroomRigidbody.AddForce(Vector3.up * 6f, ForceMode.Impulse);
+                }
             }
         }
     }
