@@ -10,19 +10,24 @@ public class MovingPlatform : ParentPlatform
     public float waitUntilTime; 
 
     public Transform[] points;
-    public int blockedPoint;
 
     private float _delayStart;
     public Vector3 _currentTarget;
     private int pointNumber;
+    private bool previousOperationForward = true;
 
     private float tolerance;
+    private bool m_HitDetect;
+    public float m_MaxDistance = 0.5f;
 
+    private Collider m_Collider;
+    private RaycastHit m_Hit;
 
     void Start()
     {
         active = activeAtStart; 
         pointNumber = 0;
+        m_Collider = GetComponent<Collider>();
         if (points.Length > 0)
         {
             _currentTarget = points[0].position;
@@ -73,13 +78,34 @@ public class MovingPlatform : ParentPlatform
 
     public void MovePlatform()
     {
-        Vector3 heading = _currentTarget - transform.position;
-        transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;
-        if (heading.magnitude < tolerance)
+        if (Time.time > waitUntilTime)
         {
-            waitUntilTime = Time.time + delayTime;
-            transform.position = _currentTarget;
-            _delayStart = Time.time;
+            Vector3 heading = _currentTarget - transform.position;
+
+            m_HitDetect = Physics.BoxCast(m_Collider.bounds.center, transform.localScale, heading, out m_Hit, transform.rotation, m_MaxDistance);
+            if (m_HitDetect && m_Hit.transform.gameObject.layer == 10)
+            {
+                if (previousOperationForward)
+                {
+                    pointNumber = pointNumber == 0 ? points.Length - 1 : pointNumber - 1;
+                    previousOperationForward = false;
+                }
+                else
+                {
+                    pointNumber = pointNumber == points.Length ? 0 : pointNumber + 1;
+                    previousOperationForward = true;
+                }
+
+                _currentTarget = points[pointNumber].position;
+            }
+
+            transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;
+            if (heading.magnitude < tolerance)
+            {
+                waitUntilTime = Time.time + delayTime;
+                transform.position = _currentTarget;
+                _delayStart = Time.time;
+            }
         }
     }
 
@@ -94,33 +120,25 @@ public class MovingPlatform : ParentPlatform
             if (Time.time > waitUntilTime)
         {
             pointNumber++;
-            
-            if (pointNumber == blockedPoint)
-            {
-                pointNumber -= 2;
-            }
-
+           
             if (pointNumber >= points.Length)
             {
-                if (blockedPoint == -1)
+                if (oneWay)
                 {
-                    if (oneWay)
-                    {
-                            active = false;
-                            return;
-                    }
-                    else
-                    {
-                        pointNumber = 0;
-                    }
+                    active = false;
+                    return;
                 }
-                else 
+                else
                 {
-                    pointNumber = points.Length - 2;
+                    pointNumber = 0;
+                    previousOperationForward = false;
                 }
             }
 
-            _currentTarget = points[pointNumber].position;
-        }
+                previousOperationForward = true;
+                _currentTarget = points[pointNumber].position;
+                waitUntilTime = Time.time + delayTime;
+                _delayStart = Time.time;
+            }
     }
 }
