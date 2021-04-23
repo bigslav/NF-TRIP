@@ -6,7 +6,7 @@ public class CombineAndSwapTips : MonoBehaviour
 {
     [SerializeField] private GameObject _golemGameObject;
     [SerializeField] private GameObject _mushroomGameObject;
-    [SerializeField] private GameObject[] _tips;
+    [SerializeField] private GameObject[] _tipsCMG;
 
     private CharacterSwitch _characterSwitch;
     private Character _golemCharacter;
@@ -18,9 +18,9 @@ public class CombineAndSwapTips : MonoBehaviour
     private void Start()
     {
         _characterSwitch = gameObject.GetComponent<CharacterSwitch>();
-        _closeTipRenderer = _tips[0].GetComponent<Renderer>();
-        _mushroomTipRenderer = _tips[1].GetComponent<Renderer>();
-        _golemTipRenderer = _tips[2].GetComponent<Renderer>();
+        _closeTipRenderer = _tipsCMG[0].GetComponent<Renderer>();
+        _mushroomTipRenderer = _tipsCMG[1].GetComponent<Renderer>();
+        _golemTipRenderer = _tipsCMG[2].GetComponent<Renderer>();
         _golemCharacter = _golemGameObject.GetComponent<Character>();
         _mushroomCharacter = _mushroomGameObject.GetComponent<Character>();
     }
@@ -29,7 +29,7 @@ public class CombineAndSwapTips : MonoBehaviour
     {
         Vector3 dist = _golemGameObject.transform.position - _mushroomGameObject.transform.position;
 
-        _tips[0].transform.position = new Vector3(_golemGameObject.transform.position.x - dist.x / 2, _golemGameObject.transform.position.y - dist.y / 2 + 5f, 0f);
+        _tipsCMG[0].transform.position = new Vector3(_golemGameObject.transform.position.x - dist.x / 2, _golemGameObject.transform.position.y - dist.y / 2 + 5f, 0f);
 
         if (Mathf.Abs(dist.x) < 2f && Mathf.Abs(dist.y) < 5f && !(_mushroomCharacter.isCombined && _golemCharacter.isCombined) && _characterSwitch.combineOn)
         {
