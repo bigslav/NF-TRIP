@@ -7,10 +7,11 @@ public class TouchActivator : MonoBehaviour
     [SerializeField] private ParentPlatform[] targetGameObject;
     [SerializeField] private LayerMask whoCanInteract;
     [SerializeField] private bool stayOnToUse;
+    [SerializeField] private bool reverseBehavior = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!stayOnToUse)
+        if (!stayOnToUse && !reverseBehavior)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
                 for (int i = 0; i < targetGameObject.Length; ++i)
@@ -30,6 +31,13 @@ public class TouchActivator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (reverseBehavior)
+            if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+            {
+                for (int i = 0; i < targetGameObject.Length; ++i)
+                    targetGameObject[i].Switch();
+            }
+
         if (stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
