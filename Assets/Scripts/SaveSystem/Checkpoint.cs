@@ -10,7 +10,7 @@ public class Checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        saveSystem = gameObject.transform.parent.Find("SaveManager").GetComponent<SaveSystem>();
+        saveSystem = gameObject.transform.parent.transform.parent.Find("SaveManager").GetComponent<SaveSystem>();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -18,6 +18,7 @@ public class Checkpoint : MonoBehaviour
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             saveSystem.localCheckpontNum = id;
+            GlobalVariables.spawnToCheckointId = GlobalVariables.spawnToCheckointId<id? id : GlobalVariables.spawnToCheckointId;
             saveSystem.WriteCheckpoint();
         }
     }

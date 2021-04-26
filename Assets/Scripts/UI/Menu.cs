@@ -15,22 +15,24 @@ public class Menu : MonoBehaviour {
 
     public GameObject savePanel;
 
+    // Because we need someone to read our saves
+    public SaveSystem saveSystem;
 
-    public string firstLevel;
-    public string secondLevel;
-    public string thirdLevel;
+
+    public string[] levels;
 
     //Settings
     //public Slider volumeSlider;
 	//public Text volumeValueText;
 
 	// Start is called before the first frame update
-	void Start() {
-		//if (!PlayerPrefs.HasKey("volume")) {
-		//	PlayerPrefs.SetFloat("volume", 1);
-		//}
-		//SoundManager.instance.PlaySound(SoundManager.Sounds.MENU_THEME);
-	}
+	void Start()
+    {
+        //if (!PlayerPrefs.HasKey("volume")) {
+        //	PlayerPrefs.SetFloat("volume", 1);
+        //}
+        //SoundManager.instance.PlaySound(SoundManager.Sounds.MENU_THEME);
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -39,17 +41,20 @@ public class Menu : MonoBehaviour {
 
     public void StartLevelOne()
     {
-        SceneManager.LoadScene(firstLevel);
+        GlobalVariables.spawnToCheckointId = 0;
+        SceneManager.LoadScene(levels[0]);
     }
 
     public void StartLevelTwo()
     {
-        SceneManager.LoadScene(secondLevel);
+        GlobalVariables.spawnToCheckointId = 0;
+        SceneManager.LoadScene(levels[1]);
     }
 
     public void StartLevelThree()
     {
-        SceneManager.LoadScene(thirdLevel);
+        GlobalVariables.spawnToCheckointId = 0;
+        SceneManager.LoadScene(levels[2]);
     }
     
 	public void Exit() {
@@ -84,5 +89,11 @@ public class Menu : MonoBehaviour {
     {
         mainPanel.SetActive(false);
         savePanel.SetActive(true);
+    }
+
+    public void LoadLatestCheckpoint()
+    {
+        GlobalVariables.spawnToCheckointId = saveSystem.savedCheckpontNum;
+        SceneManager.LoadScene(levels[saveSystem.savedLevelNum]);
     }
 }
