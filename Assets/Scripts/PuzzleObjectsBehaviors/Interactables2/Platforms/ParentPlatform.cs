@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ParentPlatform : MonoBehaviour
 {
-    protected bool active = false;
+    public bool active = false;
     public bool activeAtStart = false;
     public bool oneWay = false;
+    public bool oneWaySwitch = false;
     public bool onlyOneInteraction = false;
+    public bool waitForNextInput = false;
+    public bool parentingDisabled = false;
     private bool onlyOneInteractionUsed = false;
 
     private void BringDown() { }

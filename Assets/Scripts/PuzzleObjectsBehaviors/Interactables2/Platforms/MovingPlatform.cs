@@ -13,8 +13,10 @@ public class MovingPlatform : ParentPlatform
 
     private float _delayStart;
     public Vector3 _currentTarget;
+
     private int pointNumber;
     private bool previousOperationForward = true;
+
 
     private float tolerance;
     private bool m_HitDetect;
@@ -56,10 +58,11 @@ public class MovingPlatform : ParentPlatform
         Debug.Log(collision.gameObject.transform);
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if(collision.gameObject.transform.parent == null)
-            {
-                collision.gameObject.transform.parent = transform;
-            }
+            if (!parentingDisabled)
+                if (collision.gameObject.transform.parent == null)
+                {
+                    collision.gameObject.transform.parent = transform;
+                }
         }
     }
 
@@ -68,11 +71,12 @@ public class MovingPlatform : ParentPlatform
         Debug.Log("Exit");
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.transform.parent == transform)
-            {
-                collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
-                collision.gameObject.transform.parent = null;
-            }
+            if(!parentingDisabled)
+                if (collision.gameObject.transform.parent == transform)
+                {
+                    collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+                    collision.gameObject.transform.parent = null;
+                }
         }
     }
 
@@ -111,6 +115,11 @@ public class MovingPlatform : ParentPlatform
 
     private void UpdateTarget()
     {
+        if (waitForNextInput)
+        {
+            active = false;
+        }
+      
         NextPlatform();
     }
 
@@ -120,13 +129,17 @@ public class MovingPlatform : ParentPlatform
             if (Time.time > waitUntilTime)
         {
             pointNumber++;
+
            
+
             if (pointNumber >= points.Length)
             {
                 if (oneWay)
                 {
+
                     active = false;
                     return;
+
                 }
                 else
                 {
