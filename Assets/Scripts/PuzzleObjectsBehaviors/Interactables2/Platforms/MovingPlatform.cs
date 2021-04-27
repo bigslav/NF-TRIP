@@ -22,6 +22,7 @@ public class MovingPlatform : ParentPlatform
     private bool m_HitDetect;
     public float m_MaxDistance = 0.5f;
 
+    [SerializeField]
     private Collider m_Collider;
     private RaycastHit m_Hit;
 
@@ -29,7 +30,6 @@ public class MovingPlatform : ParentPlatform
     {
         active = activeAtStart; 
         pointNumber = 0;
-        m_Collider = GetComponent<Collider>();
         if (points.Length > 0)
         {
             _currentTarget = points[0].position;
