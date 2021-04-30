@@ -106,6 +106,7 @@ public class MovingPlatform : ParentPlatform
             transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;
             if (heading.magnitude < tolerance)
             {
+                playSound();
                 waitUntilTime = Time.time + delayTime;
                 transform.position = _currentTarget;
                 _delayStart = Time.time;
@@ -153,5 +154,12 @@ public class MovingPlatform : ParentPlatform
                 waitUntilTime = Time.time + delayTime;
                 _delayStart = Time.time;
             }
+    }
+    private void playSound()
+    {
+        FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
+        button.start();
+        button.release();
     }
 }

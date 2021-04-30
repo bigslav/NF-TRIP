@@ -14,6 +14,7 @@ public class TouchActivator : MonoBehaviour
         if (!stayOnToUse && !reverseBehavior)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
+                playSound();
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Switch();
             }
@@ -44,5 +45,17 @@ public class TouchActivator : MonoBehaviour
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Deactivate();
             }
+    }
+
+    private void playSound()
+    {
+        FMOD.Studio.EventInstance platforms = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(platforms, transform, GetComponent<Rigidbody>());
+        platforms.start();
+        platforms.release(); 
+        FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/magic_button");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
+        button.start();
+        button.release();
     }
 }
