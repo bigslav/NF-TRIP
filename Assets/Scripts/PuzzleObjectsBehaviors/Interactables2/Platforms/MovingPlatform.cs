@@ -26,6 +26,8 @@ public class MovingPlatform : ParentPlatform
     private Collider m_Collider;
     private RaycastHit m_Hit;
 
+    private bool soundPlayed = false;
+
     void Start()
     {
         active = activeAtStart; 
@@ -55,6 +57,7 @@ public class MovingPlatform : ParentPlatform
 
     private void OnCollisionEnter(Collision collision)
     {
+        soundPlayed = false;
         Debug.Log(collision.gameObject.transform);
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
@@ -69,6 +72,11 @@ public class MovingPlatform : ParentPlatform
     private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Exit");
+        if (!soundPlayed)
+        {
+            playSound();
+            soundPlayed = true;
+        }
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             if(!parentingDisabled)
@@ -106,7 +114,6 @@ public class MovingPlatform : ParentPlatform
             transform.position += (heading / heading.magnitude) * movementSpeed * Time.deltaTime;
             if (heading.magnitude < tolerance)
             {
-                playSound();
                 waitUntilTime = Time.time + delayTime;
                 transform.position = _currentTarget;
                 _delayStart = Time.time;

@@ -9,6 +9,9 @@ public class TouchActivator : MonoBehaviour
     [SerializeField] private bool stayOnToUse;
     [SerializeField] private bool reverseBehavior = false;
 
+    private bool soundPlayed = false;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (!stayOnToUse && !reverseBehavior)
@@ -49,10 +52,6 @@ public class TouchActivator : MonoBehaviour
 
     private void playSound()
     {
-        FMOD.Studio.EventInstance platforms = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(platforms, transform, GetComponent<Rigidbody>());
-        platforms.start();
-        platforms.release(); 
         FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/magic_button");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
         button.start();

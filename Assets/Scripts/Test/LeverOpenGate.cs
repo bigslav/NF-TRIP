@@ -67,7 +67,7 @@ public class LeverOpenGate : MonoBehaviour
     }
     void PlayGateSound()
     {
-        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/objects/mushroon village/woodenGate");
+        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/objects/mushroon village/wooden_gate");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.start();
         Footstep.release();
