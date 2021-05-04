@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class ResetTrigger : MonoBehaviour
 {
-    public Vector3[] position;
-    public GameObject[] gameObject;
-
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        for (int i = 0; i < position.Length; ++i)
+        Debug.Log("A");
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if (other.gameObject == gameObject[i])
-            {
-                gameObject[i].transform.position = position[i];
-            }
+            collision.gameObject.GetComponent<InputHandler>().Spawn();
         }
     }
 }

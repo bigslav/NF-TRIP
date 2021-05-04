@@ -7,6 +7,7 @@ public class NextLevelTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        GlobalVariables.spawnToCheckointId = 0;
         SceneManager.LoadScene(Level);
     }
 }

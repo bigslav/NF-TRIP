@@ -18,6 +18,8 @@ public class InputHandler : MonoBehaviour
 
     public GameObject pause;
 
+    public GameObject[] listOfSpawnPoints;
+
     private void OnEnable()
     {
         _character = GetComponent<Character>();
@@ -27,6 +29,13 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
+        Spawn();
+    }
+
+    public void Spawn()
+    {
+        Debug.Log(GlobalVariables.spawnToCheckointId);
+        gameObject.transform.position = listOfSpawnPoints[GlobalVariables.spawnToCheckointId].transform.position;
         _character.isFacingRight = true;
         _character.isPulling = false;
         _character.isUsingMechanism = false;
