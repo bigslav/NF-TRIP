@@ -23,7 +23,7 @@ public class Bridge : ParentPlatform
         if (angles.Length > 0)
         {
             _currentTarget = angles[0];
-            float tmpAngle = transform.parent.eulerAngles.z > 180 ? transform.parent.eulerAngles.z - 360 : transform.parent.eulerAngles.z;
+            float tmpAngle = transform.eulerAngles.z > 180 ? transform.eulerAngles.z - 360 : transform.eulerAngles.z;
             sign = (tmpAngle - _currentTarget) < 0 ? 1 : -1;
         }
 
@@ -37,7 +37,7 @@ public class Bridge : ParentPlatform
         //Debug.Log(_currentTarget);
         if (active)
         {
-            if (Mathf.Abs(transform.parent.eulerAngles.z - _currentTarget) < 0.001 || Mathf.Abs(transform.parent.eulerAngles.z - 360 - _currentTarget) < 0.001)
+            if (Mathf.Abs(transform.eulerAngles.z - _currentTarget) < 0.001 || Mathf.Abs(transform.eulerAngles.z - 360 - _currentTarget) < 0.001)
             {
                 UpdateTarget();
             }
@@ -105,13 +105,13 @@ public class Bridge : ParentPlatform
     }
     private void RotateToAngle()
     {
-        transform.parent.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * sign);
+        transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime * sign);
 
-        float tmpAngle = transform.parent.eulerAngles.z > 180 ? transform.parent.eulerAngles.z - 360 : transform.parent.eulerAngles.z;
+        float tmpAngle = transform.eulerAngles.z > 180 ? transform.eulerAngles.z - 360 : transform.eulerAngles.z;
         if (Mathf.Abs(tmpAngle - _currentTarget) < tolerance)
         {
             waitUntilTime = Time.time + delayTime;
-            transform.parent.rotation.Set(0, 0, 0, _currentTarget);// Rotate(0, 0, sign*Mathf.Abs(transform.parent.eulerAngles.z - _currentTarget));
+            transform.rotation.Set(0, 0, 0, _currentTarget);// Rotate(0, 0, sign*Mathf.Abs(transform.parent.eulerAngles.z - _currentTarget));
             _delayStart = Time.time;
         }
     }
