@@ -423,6 +423,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1509184499985849619, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1509184500381700833, guid: 195b2b0edb59e704d81bd69d3d643a2e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -538,6 +543,26 @@ PrefabInstance:
       propertyPath: secondLevel
       value: Level2
       objectReference: {fileID: 0}
+    - target: {fileID: 1509184500381700861, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: levels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509184500381700861, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: levels.Array.data[0]
+      value: Level0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509184500381700861, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: levels.Array.data[1]
+      value: Logs
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509184500381700861, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: levels.Array.data[2]
+      value: Boat
+      objectReference: {fileID: 0}
     - target: {fileID: 1509184500381700862, guid: 195b2b0edb59e704d81bd69d3d643a2e,
         type: 3}
       propertyPath: m_Name
@@ -547,6 +572,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Interactable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509184501373291609, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: m_Text
+      value: Boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509184501631358923, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: m_Text
+      value: Logs
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 195b2b0edb59e704d81bd69d3d643a2e, type: 3}
