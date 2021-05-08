@@ -56,8 +56,14 @@ public class Menu : MonoBehaviour {
         GlobalVariables.spawnToCheckointId = 0;
         SceneManager.LoadScene(levels[2]);
     }
-    
-	public void Exit() {
+
+    public void StartLevelFour()
+    {
+        GlobalVariables.spawnToCheckointId = 0;
+        SceneManager.LoadScene(levels[3]);
+    }
+
+    public void Exit() {
 		Application.Quit();
 	}
 
