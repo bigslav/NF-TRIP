@@ -90,6 +90,7 @@ public class Jump : MonoBehaviour
         FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/char/golem/jump");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
+        Footstep.setParameterByName("Jump Or Land", 0);
         Footstep.start();
         Footstep.release();
     }
@@ -98,6 +99,7 @@ public class Jump : MonoBehaviour
         FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/char/mushroom/jump");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
+        Footstep.setParameterByName("Jump Or Land", 0);
         Footstep.start();
         Footstep.release();
     }

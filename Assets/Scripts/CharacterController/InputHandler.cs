@@ -20,6 +20,17 @@ public class InputHandler : MonoBehaviour
 
     public GameObject[] listOfSpawnPoints;
 
+    private bool landingSound = false;
+    private string MaterialParameterName = "Terrain";
+    public string[] MaterialTypes;
+    [HideInInspector] public int DefulatMaterialValue = 1;
+    private RaycastHit hit;
+    private int F_MaterialValue;
+    [SerializeField] private float StepDistance = 2.0f;
+    [SerializeField] private float RayDistance = 1.3f;
+    private float timeForLanding = 0.0f;
+
+
     private void OnEnable()
     {
         _character = GetComponent<Character>();
@@ -56,12 +67,15 @@ public class InputHandler : MonoBehaviour
     {
         if (_character.isActive)
         {
+            timeForLanding -= Time.deltaTime;
             _horizontalInput = Input.GetAxisRaw("Horizontal");
             _verticalInput = Input.GetAxisRaw("Vertical");
 
             if (Input.GetKeyDown(KeyCode.Space) && (_character.isGrounded || _character.isOnTopOfGolem) && !_character.isGlueToMechanism && !_character.isPulling && Time.timeScale == 1)
             {
                 _jump.jumpAllowed = true;
+                landingSound = true;
+                timeForLanding = 0.5f;
             }
 
             if (Input.GetKeyDown(KeyCode.E) && _character.isUsingMechanism && Time.timeScale == 1)
@@ -79,6 +93,13 @@ public class InputHandler : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pause.SetActive(true);
+            }
+
+            if (landingSound && _character.isGrounded && timeForLanding <= 0.0f)
+            {
+                MaterialCheck();
+                PlayLanding();
+                landingSound = false;
             }
         }
     }
@@ -105,5 +126,34 @@ public class InputHandler : MonoBehaviour
                 mechanismUnderControl.MovePlatform();
             }
         }
+    }
+
+    void MaterialCheck()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, RayDistance))
+        {
+            if (hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>())
+            {
+                F_MaterialValue = hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>().MaterialValue;
+            }
+            else
+            {
+                F_MaterialValue = DefulatMaterialValue;
+            }
+        }
+        else
+        {
+            F_MaterialValue = DefulatMaterialValue;
+        }
+    }
+
+    void PlayLanding()
+    {
+        FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/char/mushroom/jump");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
+        Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
+        Footstep.setParameterByName("Jump Or Land", 1);
+        Footstep.start();
+        Footstep.release();
     }
 }

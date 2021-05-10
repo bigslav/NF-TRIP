@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1112159087}
-  m_IndirectSpecularColor: {r: 0.45998108, g: 0.32897258, b: 0.32641658, a: 1}
+  m_IndirectSpecularColor: {r: 0.62742054, g: 0.47510713, b: 0.6445377, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17535,9 +17535,9 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 3
-  OverrideMaxDistance: 6
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &920204692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28273,6 +28273,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1484600762}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1485422821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8550552406573238399, guid: f07fbb8b47ad90d439d1db4aee3fb440,
+    type: 3}
+  m_PrefabInstance: {fileID: 188073931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485422833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485422821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &1485835223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36101,8 +36121,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 5
-  OverrideMaxDistance: 10
+  OverrideMinDistance: 8
+  OverrideMaxDistance: 12
 --- !u!4 &1937247510
 Transform:
   m_ObjectHideFlags: 0
