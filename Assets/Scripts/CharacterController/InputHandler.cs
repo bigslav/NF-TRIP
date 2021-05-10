@@ -68,7 +68,6 @@ public class InputHandler : MonoBehaviour
         if (_character.isActive)
         {
             timeForLanding -= Time.deltaTime;
-            Debug.Log("Status: " + _character.isGrounded);
             _horizontalInput = Input.GetAxisRaw("Horizontal");
             _verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -98,7 +97,6 @@ public class InputHandler : MonoBehaviour
 
             if (landingSound && _character.isGrounded && timeForLanding <= 0.0f)
             {
-                Debug.Log("IF checked" + _character.isGrounded);
                 MaterialCheck();
                 PlayLanding();
                 landingSound = false;
