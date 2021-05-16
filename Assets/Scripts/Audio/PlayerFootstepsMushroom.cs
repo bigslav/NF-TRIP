@@ -60,6 +60,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>())
             {
+                Debug.Log("IN");
                 F_MaterialValue = hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>().MaterialValue;
             }
             else
@@ -75,6 +76,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
 
     void PlayFootstep()
     {
+        Debug.Log("F_MaterialValue: " + F_MaterialValue);
         FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/char/mushroom/step");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);
