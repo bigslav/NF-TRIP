@@ -11,7 +11,7 @@ public class elevatorMovingAudio : MonoBehaviour
 
     void Start()
     {
-        PlatformLoop = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/elevator");
+        PlatformLoop = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/move_crate");
         pos = transform.position;
         oldpos = transform.position;
     }
@@ -23,16 +23,22 @@ public class elevatorMovingAudio : MonoBehaviour
 
         pos = transform.position;
 
-        //Debug.Log(Mathf.Abs(pos.y) - Mathf.Abs(oldpos.y));
 
-        if (Mathf.Abs(Mathf.Abs(pos.y) - Mathf.Abs(oldpos.y)) > 0.009)
+        if (Mathf.Abs(Mathf.Abs(pos.x) - Mathf.Abs(oldpos.x)) > 0.01)
         {
             if (PbState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+            {
                 PlatformLoop.start();
+                //Debug.Log("MOVING");
+            }
         }
-        else if (Mathf.Abs(Mathf.Abs(pos.y) - Mathf.Abs(oldpos.y)) < 0.009 && PbState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        else if (Mathf.Abs(Mathf.Abs(pos.x) - Mathf.Abs(oldpos.x)) < 0.01 && PbState == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
             PlatformLoop.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            //Debug.Log("NOPE MOVING");
+        }
 
+        //Debug.Log(transform.name + " - oldpos: " + oldpos + "; pos: " + pos + "; PbState: " + PbState);
         oldpos = pos;
     }
 
