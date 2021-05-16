@@ -40,7 +40,7 @@ BoxCollider:
   m_GameObject: {fileID: 4960587883807260220}
   m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 4.5, y: 0.5, z: 4.5}
   m_Center: {x: 0, y: -0.42, z: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5323638438700720100}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +118,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866026633662879204, guid: b601e5daef623814cb0b60db2d7b6e1b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5676773734867425172, guid: b601e5daef623814cb0b60db2d7b6e1b,
         type: 3}
@@ -249,6 +254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CylinderStraight
       objectReference: {fileID: 0}
+    - target: {fileID: 4549266755910672511, guid: 0fbbe19625e0c2942b2bde49fb3c207f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fbbe19625e0c2942b2bde49fb3c207f, type: 3}
 --- !u!4 &7829045746315415897 stripped
@@ -268,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.076
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034784755657241471, guid: 2688a98997020e248821bb7e29598824,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1064554055848421584, guid: 2688a98997020e248821bb7e29598824,
         type: 3}
@@ -348,6 +363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446308138207911190, guid: 2688a98997020e248821bb7e29598824,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4446308138207911190, guid: 2688a98997020e248821bb7e29598824,
         type: 3}
