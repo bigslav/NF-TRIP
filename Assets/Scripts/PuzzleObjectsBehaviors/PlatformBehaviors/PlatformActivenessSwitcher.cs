@@ -17,5 +17,14 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		SwitchActiveStatus();
+		PlayCageLanding();
+	}
+
+	void PlayCageLanding()
+	{
+		FMOD.Studio.EventInstance cageLanding = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/steel_cage");
+		FMODUnity.RuntimeManager.AttachInstanceToGameObject(cageLanding, transform, GetComponent<Rigidbody>());
+		cageLanding.start();
+		cageLanding.release();
 	}
 }

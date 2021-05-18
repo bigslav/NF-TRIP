@@ -20,7 +20,7 @@ public class ChangeLayerOnRotation : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(transform.eulerAngles + " | " + rotation);
+        //Debug.Log(transform.eulerAngles + " | " + rotation);
         if (Vector3.SqrMagnitude(transform.eulerAngles - rotation) < 0.0001f)
         {
             gameObject.layer = 10;

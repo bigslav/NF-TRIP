@@ -27,6 +27,7 @@ public class MovingPlatform : ParentPlatform
     private RaycastHit m_Hit;
 
     private bool soundPlayed = false;
+    public bool noSoundOnCollision = false;
 
     void Start()
     {
@@ -72,7 +73,7 @@ public class MovingPlatform : ParentPlatform
     private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Exit");
-        if (!soundPlayed)
+        if (!soundPlayed && !noSoundOnCollision)
         {
             playSound();
             soundPlayed = true;

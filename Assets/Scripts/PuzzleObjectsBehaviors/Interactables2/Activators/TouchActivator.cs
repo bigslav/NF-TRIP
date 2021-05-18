@@ -18,6 +18,7 @@ public class TouchActivator : MonoBehaviour
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
                 playSound();
+                playSoundPlatforms();
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Switch();
             }
@@ -56,5 +57,12 @@ public class TouchActivator : MonoBehaviour
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
         button.start();
         button.release();
+    }
+    private void playSoundPlatforms()
+    {
+        FMOD.Studio.EventInstance playSoundPlatforms = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(playSoundPlatforms, transform, GetComponent<Rigidbody>());
+        playSoundPlatforms.start();
+        playSoundPlatforms.release();
     }
 }
