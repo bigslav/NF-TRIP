@@ -17,7 +17,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
     [SerializeField] private float StepDistance = 2.0f;
     [SerializeField] private float RayDistance = 1.3f;
     public string[] MaterialTypes;
-    [HideInInspector] public int DefulatMaterialValue = 1;
+    [HideInInspector] public int DefulatMaterialValue = 0;
 
     //These variables are used when checking the Material type the player is on top of.
     private RaycastHit hit;
@@ -30,7 +30,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
         anim = GetComponent<Animator>();
         AddEvent(2, 0.01f, "Step", 0); // WalkG
         //AddEvent(2, 0.10f, "Step", 0); // WalkG
-        AddEvent(2, 0.5f, "Step", 0); // WalkG
+        //AddEvent(2, 0.5f, "Step", 0); // The second step of the animation
         //AddEvent(2, 0.5f, "Step", 0); // WalkG
         //AddEvent(2, 0.25f, "Step", 0); // WalkG
         //AddEvent(2, 0.27f, "Step", 0);
