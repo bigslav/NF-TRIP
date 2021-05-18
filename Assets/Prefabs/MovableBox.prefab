@@ -95,6 +95,8 @@ GameObject:
   - component: {fileID: 1155520466084677978}
   - component: {fileID: 1155520466084677979}
   - component: {fileID: 2006838069154986657}
+  - component: {fileID: 9086798909642198491}
+  - component: {fileID: 4677927813952511187}
   m_Layer: 10
   m_Name: MovableBox
   m_TagString: Movable
@@ -213,6 +215,31 @@ MonoBehaviour:
   pressETip: {fileID: 161899960481668150}
   pressERed: {fileID: 21300000, guid: d0f5bcf86b4055e4780be3e861d68c7a, type: 3}
   pressEGreen: {fileID: 21300000, guid: 4df8d72193153bb48aee8858bc069cbc, type: 3}
+--- !u!114 &9086798909642198491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155520466084677976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 2
+--- !u!114 &4677927813952511187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155520466084677976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87c1f88531b7c8d48b87ca1644514257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2907048298605995132
 GameObject:
   m_ObjectHideFlags: 0
