@@ -30,7 +30,7 @@ public class LeverOpenGate : MonoBehaviour
         {
             gateDoor.transform.Rotate(0f, -2f, 0f, Space.Self);
         }
-        Debug.Log(lever.transform.rotation.eulerAngles.z);
+        //Debug.Log(lever.transform.rotation.eulerAngles.z);
         if (_openGateTriggered && (lever.transform.rotation.eulerAngles.z <= 360f && lever.transform.rotation.eulerAngles.z >= 285f))
         {
             lever.transform.Rotate(0f, 0f, -1f, Space.Self);

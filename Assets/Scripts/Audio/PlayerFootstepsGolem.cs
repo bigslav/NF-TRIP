@@ -9,12 +9,12 @@ public class PlayerFootstepsGolem : MonoBehaviour
     //[SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
     //[SerializeField] [FMODUnity.EventRef] private string JumpAndLandPath;
     private string MaterialParameterName = "Terrain";
-    private string JumpOrLand = "Jump Or Land";
+    //private string JumpOrLand = "Jump Or Land";
     private bool Grounded;
-    private bool GroundedPlayed;
+    //private bool GroundedPlayed;
 
     [Header("Playback Settings")]
-    [SerializeField] private float StepDistance = 2.0f;
+    //[SerializeField] private float StepDistance = 2.0f;
     [SerializeField] private float RayDistance = 1.3f;
     public string[] MaterialTypes;
     [HideInInspector] public int DefulatMaterialValue = 0;
@@ -26,7 +26,7 @@ public class PlayerFootstepsGolem : MonoBehaviour
     Animator anim;
     void Start()
     {
-        GroundedPlayed = false;
+        //GroundedPlayed = false;
         anim = GetComponent<Animator>();
         AddEvent(1, 0.25f, "Step", 0); // WalkG
         AddEvent(1, 0.98f, "Step", 0);

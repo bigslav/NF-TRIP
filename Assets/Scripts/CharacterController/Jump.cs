@@ -13,7 +13,7 @@ public class Jump : MonoBehaviour
 
     [Header("Playback Settings")]
     public string[] MaterialTypes;
-    [SerializeField] private float StepDistance = 2.0f;
+    //[SerializeField] private float StepDistance = 2.0f;
     [SerializeField] private float RayDistance = 1.3f;
     [HideInInspector] 
     public int DefulatMaterialValue;

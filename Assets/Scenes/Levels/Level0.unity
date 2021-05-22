@@ -3585,6 +3585,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[0]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[1]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[2]
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[3]
+      value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[4]
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[5]
+      value: Stones
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[6]
+      value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[7]
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238378, guid: f07fbb8b47ad90d439d1db4aee3fb440,
         type: 3}
       propertyPath: m_RootOrder
@@ -17075,7 +17111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaterialValue: 1
+  MaterialValue: 6
 --- !u!65 &907104835
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class TouchActivator : MonoBehaviour
     [SerializeField] private bool stayOnToUse;
     [SerializeField] private bool reverseBehavior = false;
 
-    private bool soundPlayed = false;
+    //private bool soundPlayed = false;
 
 
     private void OnTriggerEnter(Collider other)
