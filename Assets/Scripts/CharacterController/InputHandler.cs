@@ -27,7 +27,7 @@ public class InputHandler : MonoBehaviour
     private RaycastHit hit;
     private int F_MaterialValue;
     //[SerializeField] private float StepDistance = 2.0f;
-    [SerializeField] private float RayDistance = 1.3f;
+    [SerializeField] private float RayDistance = 2.5f;
     private float timeForLanding = 0.0f;
 
 

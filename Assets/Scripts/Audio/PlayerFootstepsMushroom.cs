@@ -15,7 +15,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
 
     [Header("Playback Settings")]
     //[SerializeField] private float StepDistance = 2.0f;
-    [SerializeField] private float RayDistance = 1.3f;
+    private float RayDistance = 1.3f;
     public string[] MaterialTypes;
     [HideInInspector] public int DefulatMaterialValue = 0;
 

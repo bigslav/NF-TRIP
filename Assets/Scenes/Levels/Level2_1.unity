@@ -2074,6 +2074,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 917121017}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &160828505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160828492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1 &170534981 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
@@ -9292,6 +9306,24 @@ Transform:
   m_Father: {fileID: 233826673}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &785913602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5788267673212771214, guid: ae5a2aacdec1ed946a806eacfaba811b,
+    type: 3}
+  m_PrefabInstance: {fileID: 335849866}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &785913609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785913602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be96127a8e1ac7b488716588015b5ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &800972075
 GameObject:
   m_ObjectHideFlags: 0
@@ -9937,6 +9969,11 @@ PrefabInstance:
       propertyPath: turnEmissionOffPos
       value: 
       objectReference: {fileID: 852042244}
+    - target: {fileID: 5788267673212771213, guid: ae5a2aacdec1ed946a806eacfaba811b,
+        type: 3}
+      propertyPath: noSoundOnCollision
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5788267673212771213, guid: ae5a2aacdec1ed946a806eacfaba811b,
         type: 3}
       propertyPath: points.Array.data[0]
@@ -15850,6 +15887,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 358905433}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1322722226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322722211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
+  ListenerNumber: -1
 --- !u!1001 &1327643245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16474,7 +16525,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 335849866}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 785913602}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5feb721f103a57f46b7fd692da5289b6, type: 3}
@@ -19142,6 +19193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: bridgeSound
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
