@@ -7,7 +7,7 @@ public class Puller : MonoBehaviour
     private bool _hasJoint = false;
     private GameObject _pulledObject = null;
     private Rigidbody _pulledObjectRb = null;
-    private float _pulledObjectRbMass;
+    private float _pulledObjectRbMass = 500;
     private FixedJoint _joint = null;
 
     private void OnEnable()
@@ -17,7 +17,11 @@ public class Puller : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable && Time.timeScale == 1)
+        if (_character.isPulling && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StopPulling();
+        }
+        if (Input.GetKeyDown(KeyCode.E) && _isTouchingMovable && Time.timeScale == 1 && !_character.isOnTopOfMovable)
         {
             if (!_character.isPulling && _character.isGrounded)
             {
@@ -25,15 +29,19 @@ public class Puller : MonoBehaviour
             }
             else if (_character.isPulling)
             {
-                _character.isPulling = false;
-                _character.isPulling = false;
-                _pulledObjectRb.mass = _pulledObjectRbMass;
-                _pulledObjectRb = null;
-                Destroy(_joint);
-                _joint = null;
-                _hasJoint = false;
+                StopPulling();
             }
         }
+    }
+
+    private void StopPulling()
+    {
+        _character.isPulling = false;
+        _pulledObjectRb.mass = _pulledObjectRbMass;
+        _pulledObjectRb = null;
+        Destroy(_joint);
+        _joint = null;
+        _hasJoint = false;
     }
 
     private void OnCollisionStay(Collision collision)
