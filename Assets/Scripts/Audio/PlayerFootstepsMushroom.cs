@@ -9,13 +9,13 @@ public class PlayerFootstepsMushroom : MonoBehaviour
     //[SerializeField] [FMODUnity.EventRef] private string FootstepsEventPath;
     //[SerializeField] [FMODUnity.EventRef] private string JumpAndLandPath;
     private string MaterialParameterName = "Terrain";
-    private string JumpOrLand = "Jump Or Land";
+    //private string JumpOrLand = "Jump Or Land";
     private bool Grounded;
-    private bool GroundedPlayed;
+    //private bool GroundedPlayed;
 
     [Header("Playback Settings")]
-    [SerializeField] private float StepDistance = 2.0f;
-    [SerializeField] private float RayDistance = 1.3f;
+    //[SerializeField] private float StepDistance = 2.0f;
+    private float RayDistance = 1.3f;
     public string[] MaterialTypes;
     [HideInInspector] public int DefulatMaterialValue = 0;
 
@@ -26,7 +26,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
     Animator anim;
     void Start()
     {
-        GroundedPlayed = false;
+        //GroundedPlayed = false;
         anim = GetComponent<Animator>();
         AddEvent(2, 0.01f, "Step", 0); // WalkG
         //AddEvent(2, 0.10f, "Step", 0); // WalkG
@@ -60,7 +60,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>())
             {
-                Debug.Log("IN");
+                //Debug.Log("IN");
                 F_MaterialValue = hit.collider.gameObject.GetComponent<FMODStudioMaterialSetter>().MaterialValue;
             }
             else
@@ -76,7 +76,7 @@ public class PlayerFootstepsMushroom : MonoBehaviour
 
     void PlayFootstep()
     {
-        Debug.Log("F_MaterialValue: " + F_MaterialValue);
+        //Debug.Log("F_MaterialValue: " + F_MaterialValue);
         FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance("event:/char/mushroom/step");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(Footstep, transform, GetComponent<Rigidbody>());
         Footstep.setParameterByName(MaterialParameterName, F_MaterialValue);

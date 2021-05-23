@@ -58,7 +58,7 @@ public class Bridge : ParentPlatform
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if(collision.gameObject.transform.parent == null);
+            if (collision.gameObject.transform.parent == null)
             {
                 collision.gameObject.transform.parent = transform.parent;
             }
@@ -69,7 +69,7 @@ public class Bridge : ParentPlatform
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            if (collision.gameObject.transform.parent == transform.parent) ;
+            if (collision.gameObject.transform.parent == transform.parent)
             {
                 collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
                 collision.gameObject.transform.parent = null;

@@ -26,8 +26,8 @@ public class InputHandler : MonoBehaviour
     [HideInInspector] public int DefulatMaterialValue = 1;
     private RaycastHit hit;
     private int F_MaterialValue;
-    [SerializeField] private float StepDistance = 2.0f;
-    [SerializeField] private float RayDistance = 1.3f;
+    //[SerializeField] private float StepDistance = 2.0f;
+    [SerializeField] private float RayDistance = 2.5f;
     private float timeForLanding = 0.0f;
 
 
@@ -45,7 +45,7 @@ public class InputHandler : MonoBehaviour
 
     public void Spawn()
     {
-        Debug.Log(GlobalVariables.spawnToCheckointId);
+        //Debug.Log(GlobalVariables.spawnToCheckointId);
         gameObject.transform.position = listOfSpawnPoints[GlobalVariables.spawnToCheckointId].transform.position;
         _character.isFacingRight = true;
         _character.isPulling = false;

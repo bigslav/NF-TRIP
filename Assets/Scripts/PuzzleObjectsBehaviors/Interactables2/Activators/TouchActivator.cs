@@ -8,8 +8,9 @@ public class TouchActivator : MonoBehaviour
     [SerializeField] private LayerMask whoCanInteract;
     [SerializeField] private bool stayOnToUse;
     [SerializeField] private bool reverseBehavior = false;
+    [SerializeField] private bool bridgeSound = false;
 
-    private bool soundPlayed = false;
+    //private bool soundPlayed = false;
 
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +61,15 @@ public class TouchActivator : MonoBehaviour
     }
     private void playSoundPlatforms()
     {
-        FMOD.Studio.EventInstance playSoundPlatforms = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
+        FMOD.Studio.EventInstance playSoundPlatforms;
+        if (bridgeSound)
+        {
+            playSoundPlatforms = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/bridge");
+        }
+        else
+        {
+            playSoundPlatforms = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
+        }
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(playSoundPlatforms, transform, GetComponent<Rigidbody>());
         playSoundPlatforms.start();
         playSoundPlatforms.release();

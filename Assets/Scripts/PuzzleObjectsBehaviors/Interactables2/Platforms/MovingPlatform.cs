@@ -72,7 +72,7 @@ public class MovingPlatform : ParentPlatform
 
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log("Exit");
+        //Debug.Log("Exit");
         if (!soundPlayed && !noSoundOnCollision)
         {
             playSound();
