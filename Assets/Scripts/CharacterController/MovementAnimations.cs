@@ -85,11 +85,11 @@ public class MovementAnimations : MonoBehaviour
 
             if (_character.isGrounded || _character.isOnTopOfGolem)
             {
-                _animator.SetBool("IsJumping_b", false);
+                _animator.SetBool("IsGrounded_b", true);
             }
             else
             {
-                _animator.SetBool("IsJumping_b", true);
+                _animator.SetBool("IsGrounded_b", false);
             }
 
             if (twerkMode)
