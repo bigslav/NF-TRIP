@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8828999296826189675}
   - component: {fileID: 7116405408004879361}
-  m_Layer: 10
+  m_Layer: 19
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,12 +92,13 @@ GameObject:
   - component: {fileID: 1155520466084677975}
   - component: {fileID: 1155520466084677972}
   - component: {fileID: 1155520466084677973}
-  - component: {fileID: 1155520466084677978}
   - component: {fileID: 1155520466084677979}
   - component: {fileID: 2006838069154986657}
   - component: {fileID: 9086798909642198491}
   - component: {fileID: 4677927813952511187}
-  m_Layer: 10
+  - component: {fileID: 4314175645760609419}
+  - component: {fileID: 3740645240283284289}
+  m_Layer: 19
   m_Name: MovableBox
   m_TagString: Movable
   m_Icon: {fileID: 0}
@@ -168,19 +169,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1155520466084677978
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155520466084677976}
-  m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1155520466084677979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,6 +228,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c1f88531b7c8d48b87ca1644514257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4314175645760609419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155520466084677976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8cf217c2fdf914cb01f4a9bfb6c976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &3740645240283284289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155520466084677976}
+  m_Material: {fileID: 13400000, guid: f82387f5c3b002644923efd0fed2bb2b, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2907048298605995132
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7036449943135964627}
   - component: {fileID: 6884197513950650949}
-  m_Layer: 12
+  m_Layer: 19
   m_Name: Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,8 +295,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.05, y: 1.05, z: 1.05}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.05, y: 1.0864177, z: 1.05}
+  m_Center: {x: 0, y: 0.018208861, z: 0}
 --- !u!1 &3062544466557469271
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3862251263451778090}
-  m_Layer: 18
+  m_Layer: 19
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 5222571676726769646, guid: 90d29085736353e4ea4492f6f082748c,
         type: 3}
       propertyPath: m_Layer
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90d29085736353e4ea4492f6f082748c, type: 3}

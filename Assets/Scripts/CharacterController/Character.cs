@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     public bool isFacingRight = true;
     public bool isUsingMechanism = false;
     public bool isGlueToMechanism = false;
+    public bool isOnTopOfMovable = false;
+
     public GameObject model = null;
     public Rigidbody rigidBody;
 

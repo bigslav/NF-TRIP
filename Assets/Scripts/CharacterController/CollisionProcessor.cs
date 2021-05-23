@@ -51,19 +51,23 @@ public class CollisionProcessor : MonoBehaviour
             Debug.DrawLine(curve, p.point, Color.blue, 0.5f);
             Vector3 dir = curve - p.point;
 
-            if (dir.magnitude <= _collider.radius + 0.05f && Mathf.Abs(dir.x) < 0.28f && (col.gameObject.layer == 10 || (col.gameObject.layer == 9 && _character.type == Character.CharacterType.Mushroom)))
+            if (dir.magnitude <= _collider.radius + 0.05f && Mathf.Abs(dir.x) < 0.28f && (col.gameObject.layer == 10 || col.gameObject.layer == 19 || (col.gameObject.layer == 9 && _character.type == Character.CharacterType.Mushroom)))
             {
                 _character.isGrounded = true;
-            }
+                if (col.gameObject.layer == 19)
+                    _character.isOnTopOfMovable = true;
 
+            }
         }
     }
 
     private void OnCollisionExit(Collision col)
     {
-        if (col.gameObject.layer == 10 || (col.gameObject.layer == 9 && _character.type == Character.CharacterType.Mushroom))
+        if (col.gameObject.layer == 10 || col.gameObject.layer == 19 || (col.gameObject.layer == 9 && _character.type == Character.CharacterType.Mushroom))
         {
             _character.isGrounded = false;
+            if (col.gameObject.layer == 19)
+                _character.isOnTopOfMovable = false;
         }
     }
 }
