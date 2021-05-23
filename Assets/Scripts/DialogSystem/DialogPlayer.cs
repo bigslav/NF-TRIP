@@ -8,10 +8,9 @@ public class DialogPlayer : MonoBehaviour
 	public static DialogPlayer instance;
 
 	[SerializeField] private Text textArea;
-	[SerializeField] private float letterDelay;
-	[SerializeField] private float phraseDelay;
-	[SerializeField] private Image GolemPhraseWindow;
-	[SerializeField] private Image MushroomPhraseWindow;
+	[SerializeField] private float defaultLetterDelay;
+	[SerializeField] private Image mushroomPhraseWindow;
+	[SerializeField] private Image golemPhraseWindow;
 
 	private Queue<Phrase> phrases = new Queue<Phrase>();
 
@@ -31,13 +30,23 @@ public class DialogPlayer : MonoBehaviour
 	{
 		ShowAuthorsDialogWindow(phrase);
 
+		float letterDelay;
+		if (phrase.phraseDuration > 0 && phrase.text.Length > 0)
+		{
+			letterDelay = phrase.phraseDuration / phrase.text.Length;
+		} else
+		{
+			letterDelay = defaultLetterDelay;
+		}
+
+
 		foreach (char letter in phrase.text.ToCharArray())
 		{
 			textArea.text += letter;
 			yield return new WaitForSeconds(letterDelay);
 		}
 		
-		yield return new WaitForSeconds(phraseDelay);
+		yield return new WaitForSeconds(phrase.delayAfterPhrase);
 		textArea.text = "";
 		if (phrases.Count > 0)
 		{
@@ -54,20 +63,20 @@ public class DialogPlayer : MonoBehaviour
 		switch (phrase.author)
 		{
 			case Phrase.Author.GOLEM:
-				MushroomPhraseWindow.gameObject.SetActive(false);
-				GolemPhraseWindow.gameObject.SetActive(true);
+				mushroomPhraseWindow.gameObject.SetActive(false);
+				golemPhraseWindow.gameObject.SetActive(true);
 				break;
 			case Phrase.Author.MUSHROOM:
-				MushroomPhraseWindow.gameObject.SetActive(true);
-				GolemPhraseWindow.gameObject.SetActive(false);
+				mushroomPhraseWindow.gameObject.SetActive(true);
+				golemPhraseWindow.gameObject.SetActive(false);
 				break;
 		}
 	}
 
 	void EndDialog()
 	{
-		MushroomPhraseWindow.gameObject.SetActive(false);
-		GolemPhraseWindow.gameObject.SetActive(false);
+		mushroomPhraseWindow.gameObject.SetActive(false);
+		golemPhraseWindow.gameObject.SetActive(false);
 	}
 	
 	void Start()

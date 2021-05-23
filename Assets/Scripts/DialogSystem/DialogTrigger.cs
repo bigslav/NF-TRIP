@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class DialogTrigger : MonoBehaviour
 {
-	[SerializeField] private Dialog dialog;
+	private Dialog dialog;
 	private bool isMushroomInside = false;
 	private bool isGolemInside = false;
 	private bool isDialogPlayed = false;
+
+	private void Start()
+	{
+		dialog = GetComponent<Dialog>();
+	}
 
 	private void PlayDialog()
 	{
@@ -24,7 +29,7 @@ public class DialogTrigger : MonoBehaviour
 			isGolemInside = true;
 		}
 
-		if (isGolemInside && isMushroomInside)
+		if (isGolemInside && isMushroomInside && !isDialogPlayed)
 		{
 			isDialogPlayed = true;
 			PlayDialog();
