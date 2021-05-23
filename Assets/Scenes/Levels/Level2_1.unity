@@ -4622,6 +4622,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1793119172, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: m_Center.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
       propertyPath: MaterialTypes.Array.size
       value: 8
@@ -4759,7 +4763,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golem
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
 --- !u!4 &359680561 stripped
 Transform:
@@ -9306,24 +9311,6 @@ Transform:
   m_Father: {fileID: 233826673}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &785913602 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5788267673212771214, guid: ae5a2aacdec1ed946a806eacfaba811b,
-    type: 3}
-  m_PrefabInstance: {fileID: 335849866}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &785913609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785913602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be96127a8e1ac7b488716588015b5ac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &800972075
 GameObject:
   m_ObjectHideFlags: 0
@@ -10921,6 +10908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8550552406573238399, guid: f07fbb8b47ad90d439d1db4aee3fb440,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
@@ -15887,6 +15879,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 358905433}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1322722215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322722211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f25cda3a515ef54b905bd0d86559238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialTypes:
+  - Empty
+  - Empty
+  - Wood
+  - Dirt
+  - Leaves
+  - Stones
+  - Grass
+  - Metal
 --- !u!114 &1322722226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16525,7 +16538,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 335849866}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785913602}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5feb721f103a57f46b7fd692da5289b6, type: 3}
