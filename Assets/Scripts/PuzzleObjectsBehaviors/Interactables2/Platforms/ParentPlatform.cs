@@ -11,7 +11,7 @@ public class ParentPlatform : MonoBehaviour
     public bool onlyOneInteraction = false;
     public bool waitForNextInput = false;
     public bool parentingDisabled = false;
-    private bool onlyOneInteractionUsed = false;
+    public bool onlyOneInteractionUsed = false;
 
     private void BringDown() { }
 

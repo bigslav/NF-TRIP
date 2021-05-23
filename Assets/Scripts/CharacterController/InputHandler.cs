@@ -40,7 +40,8 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        Spawn();
+        if (!LoaderWatchDog.wasLoaded)
+            Spawn();
     }
 
     public void Spawn()

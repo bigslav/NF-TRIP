@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using UnityEngine.UI;
+using System.IO;
 
 public class Pause : MonoBehaviour {
     public GameObject PauseGameObject;
@@ -16,6 +19,8 @@ public class Pause : MonoBehaviour {
     public GameObject savePanel;
 
     public string MainMenu;
+
+    public SaveSystem saveManager;
     //Settings
     //public Slider volumeSlider;
     //public Text volumeValueText;
@@ -26,10 +31,9 @@ public class Pause : MonoBehaviour {
 		//	PlayerPrefs.SetFloat("volume", 1);
 		//}
 		//SoundManager.instance.PlaySound(SoundManager.Sounds.MENU_THEME);
-	}
-
-	// Update is called once per frame
-	void Update() {
+    }
+    // Update is called once per frame
+    void Update() {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             BackToGame();
@@ -78,5 +82,33 @@ public class Pause : MonoBehaviour {
     {
         mainPanel.SetActive(false);
         savePanel.SetActive(true);
+    }
+
+    public void InitSaveGame(int num)
+    {
+        saveManager.SaveGame(num);
+    }
+
+    public void LoadGame(int num)
+    {
+        // 1
+        if (File.Exists(num + ".save"))
+        {
+            // 2
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(num + ".save", FileMode.Open);
+            SaveData save = (SaveData)bf.Deserialize(file);
+            file.Close();
+
+            // 3
+            LoaderWatchDog.wasLoaded = true;
+            LoaderWatchDog.saveNum = num;
+            SceneManager.LoadScene(save.sceneName);
+            BackToGame();
+        }
+        else
+        {
+            Debug.Log("No game saved!");
+        }
     }
 }

@@ -14,12 +14,12 @@ public class MovingPlatform : ParentPlatform
     private float _delayStart;
     public Vector3 _currentTarget;
 
-    private int pointNumber;
-    private bool previousOperationForward = true;
+    public int pointNumber;
+    public bool previousOperationForward = true;
 
 
-    private float tolerance;
-    private bool m_HitDetect;
+    public float tolerance;
+    public bool m_HitDetect;
     public float m_MaxDistance = 0.5f;
 
     [SerializeField]

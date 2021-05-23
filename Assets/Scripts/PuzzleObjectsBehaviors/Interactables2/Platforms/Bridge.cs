@@ -5,16 +5,16 @@ using UnityEngine;
 public class Bridge : ParentPlatform
 {
     public int[] angles;
-    private int pointNumber;
+    public int pointNumber;
     public float rotationSpeed = 10f;
     public float delayTime;
     public float waitUntilTime;
-    private int sign;
+    public int sign;
 
     private float _delayStart;
     public int _currentTarget;
 
-    private float tolerance;
+    public float tolerance;
 
     void Start()
     {

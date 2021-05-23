@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using UnityEngine.UI;
+using System.IO;
 
 public class Menu : MonoBehaviour {
 	public GameObject mainPanel;
@@ -114,7 +117,27 @@ public class Menu : MonoBehaviour {
         GlobalVariables.spawnToCheckointId = saveSystem.savedCheckpontNum;
         SceneManager.LoadScene(levels[saveSystem.savedLevelNum]);
     }
+    public void LoadGame(int num)
+    {
+        // 1
+        if (File.Exists(num + ".save"))
+        {
+            // 2
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(num + ".save", FileMode.Open);
+            SaveData save = (SaveData)bf.Deserialize(file);
+            file.Close();
 
+            // 3
+            LoaderWatchDog.wasLoaded = true;
+            LoaderWatchDog.saveNum = num;
+            SceneManager.LoadScene(save.sceneName);
+        }
+        else
+        {
+            Debug.Log("No game saved!");
+        }
+    }
     void PlaySound(string buttonName)
     {
         FMOD.Studio.EventInstance Footstep = FMODUnity.RuntimeManager.CreateInstance(buttonName);
