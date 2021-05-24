@@ -18,9 +18,12 @@ public class DialogPlayer : MonoBehaviour
 	{
 		phrases.Clear();
 
+		Debug.Log("PlayDialog");
+
 		foreach (Phrase phrase in dialog.phrases)
 		{
 			phrases.Enqueue(phrase);
+			Debug.Log("phrase: " + phrase);
 		}
 
 		StartCoroutine(TypeNextPhrase(phrases.Dequeue()));
