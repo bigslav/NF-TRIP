@@ -47,7 +47,7 @@ public class Bridge : ParentPlatform
                 if (!bridgeSoundPlayed)
                 {
                     bridgeSoundPlayed = true;
-                    PlayBridgeSound();
+                    //PlayBridgeSound();
                 }
                 RotateToAngle();
             }
@@ -121,11 +121,11 @@ public class Bridge : ParentPlatform
             _delayStart = Time.time;
         }
     }
-    void PlayBridgeSound()
-    {
-        FMOD.Studio.EventInstance bridgeSound = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/bridge");
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(bridgeSound, transform, GetComponent<Rigidbody>());
-        bridgeSound.start();
-        bridgeSound.release();
-    }
+    //void PlayBridgeSound()
+    //{
+    //    FMOD.Studio.EventInstance bridgeSound = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/bridge");
+    //    FMODUnity.RuntimeManager.AttachInstanceToGameObject(bridgeSound, transform, GetComponent<Rigidbody>());
+    //    bridgeSound.start();
+    //    bridgeSound.release();
+    //}
 }
