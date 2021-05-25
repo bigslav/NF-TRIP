@@ -2193,12 +2193,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 917121017}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &160828493 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8550552406573238378, guid: f07fbb8b47ad90d439d1db4aee3fb440,
-    type: 3}
-  m_PrefabInstance: {fileID: 917121017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &160828505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17552,50 +17546,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8292635717896350715, guid: c4aa63c0de2a733439262d98bdbcb3a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c4aa63c0de2a733439262d98bdbcb3a3, type: 3}
---- !u!1 &1352591671
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1352591672}
-  - component: {fileID: 1352591673}
-  m_Layer: 8
-  m_Name: GameObject
-  m_TagString: Golem
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1352591672
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352591671}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 160828493}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1352591673
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352591671}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: -0.07, z: 0.46}
-  m_Center: {x: 0, y: 0.59, z: 0}
 --- !u!1 &1373205992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2287020841724795935, guid: 96c48124c31a7414fa73174d0a11d3e7,
@@ -24794,11 +24744,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 8238725839357117480, guid: 002b9527f4ac629418ca0a17e851013c,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8612973764864205289, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
       propertyPath: m_Layer
@@ -25207,6 +25152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788267673212771213, guid: ae5a2aacdec1ed946a806eacfaba811b,
+        type: 3}
+      propertyPath: m_MaxDistance
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5788267673212771213, guid: ae5a2aacdec1ed946a806eacfaba811b,
         type: 3}
