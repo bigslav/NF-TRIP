@@ -54,22 +54,42 @@ public class MovementAnimations : MonoBehaviour
         {
             if (Mathf.Abs(_rb.velocity.x) > 0.1f && _character.isActive)
             {
-                _animator.SetBool("IsWalking_b", true);
-                _animator.SetBool("IsIdle_b", false);
+                if (_character.isPulling)
+                {   
+                    _animator.SetBool("IsWalkingPulling_b", true);
+                    _animator.SetBool("IsIdlePulling_b", false);
+                }
+                else
+                {
+                    _animator.SetBool("IsWalking_b", true);
+                    _animator.SetBool("IsIdle_b", false);
+                    _animator.SetBool("IsWalkingPulling_b", false);
+                    _animator.SetBool("IsIdlePulling_b", false);
+                }
             }
             else
             {
-                _animator.SetBool("IsWalking_b", false);
-                _animator.SetBool("IsIdle_b", true);
+                if (_character.isPulling)
+                {
+                    _animator.SetBool("IsWalkingPulling_b", false);
+                    _animator.SetBool("IsIdlePulling_b", true);
+                }
+                else
+                {
+                    _animator.SetBool("IsWalking_b", false);
+                    _animator.SetBool("IsIdle_b", true);
+                    _animator.SetBool("IsWalkingPulling_b", false);
+                    _animator.SetBool("IsIdlePulling_b", false);
+                }
             }
 
             if (_character.isGrounded || _character.isOnTopOfGolem)
             {
-                _animator.SetBool("IsJumping_b", false);
+                _animator.SetBool("IsGrounded_b", true);
             }
             else
             {
-                _animator.SetBool("IsJumping_b", true);
+                _animator.SetBool("IsGrounded_b", false);
             }
 
             if (twerkMode)
