@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: e7fa54082ceee4c429ffd6648e4e0c0c,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -16816,7 +16816,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 835508944}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 835508947}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9d498e4ecf55644a45d94fb055096b, type: 3}
@@ -16825,6 +16825,12 @@ MonoBehaviour:
 --- !u!4 &835508946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6895560791075295220, guid: cf2a781dd4ef93a4cad80d0bb790d4ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 835508944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &835508947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6895560791075295221, guid: cf2a781dd4ef93a4cad80d0bb790d4ee,
     type: 3}
   m_PrefabInstance: {fileID: 835508944}
   m_PrefabAsset: {fileID: 0}
@@ -25345,6 +25351,11 @@ PrefabInstance:
       propertyPath: MainMenu
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6318981448407432616, guid: e2d1271e9161e6342ac0b685512e77f3,
+        type: 3}
+      propertyPath: saveManager
+      value: 
+      objectReference: {fileID: 1811968748}
     - target: {fileID: 6318981448407432616, guid: e2d1271e9161e6342ac0b685512e77f3,
         type: 3}
       propertyPath: PauseGameObject
@@ -37235,12 +37246,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e319003f4a50a49aca4b145de62e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localLevelNum: 2
+  localLevelNum: 3
   saveFile: Checkpoint.txt
-  platforms: []
-  bridges: []
-  golemObject: {fileID: 0}
-  mushroomObject: {fileID: 0}
+  platforms:
+  - {fileID: 1817000538}
+  - {fileID: 2065915804}
+  - {fileID: 569090371}
+  - {fileID: 955639600}
+  - {fileID: 1956161087}
+  - {fileID: 1644882058}
+  - {fileID: 1107568023}
+  - {fileID: 2135080498}
+  - {fileID: 298869694}
+  - {fileID: 913637589}
+  - {fileID: 426799121}
+  - {fileID: 1423962898}
+  - {fileID: 792999866}
+  - {fileID: 1730156472}
+  - {fileID: 1183839622}
+  - {fileID: 2010914198}
+  - {fileID: 264648829}
+  - {fileID: 1087419784}
+  - {fileID: 256433659}
+  - {fileID: 716946091}
+  - {fileID: 986920915}
+  bridges:
+  - {fileID: 835508947}
+  - {fileID: 1859355360}
+  - {fileID: 1179244978}
+  - {fileID: 86128676}
+  golemObject: {fileID: 1674263311}
+  mushroomObject: {fileID: 816298718}
   localCheckpontNum: 4
   savedLevelNum: -1
   savedCheckpontNum: -1
@@ -38109,12 +38145,18 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1859355357}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1859355360}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb9d498e4ecf55644a45d94fb055096b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1859355360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6895560791075295221, guid: cf2a781dd4ef93a4cad80d0bb790d4ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1859355357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881644998
 GameObject:
   m_ObjectHideFlags: 0
