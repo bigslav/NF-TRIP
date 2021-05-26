@@ -6,6 +6,8 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 {
 	[SerializeField] private GameObject[] platforms;
 	public bool steelCageSound = false;
+	public bool oneInteraction = false;
+	private bool oneInteractionUsed = false;
 
 	private void SwitchActiveStatus()
 	{
@@ -17,14 +19,34 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		SwitchActiveStatus();
-		if (steelCageSound)
-        {
-			PlayCageLanding();
+		if (oneInteraction)
+		{
+			if (!oneInteractionUsed)
+			{
+				oneInteractionUsed = true;
+
+				SwitchActiveStatus();
+				if (steelCageSound)
+				{
+					PlayCageLanding();
+				}
+				else
+				{
+					PlayStoneButtonSound();
+				}
+			}
 		}
-		else
-        {
-			PlayStoneButtonSound();
+		else 
+		{
+			SwitchActiveStatus();
+			if (steelCageSound)
+			{
+				PlayCageLanding();
+			}
+			else
+			{
+				PlayStoneButtonSound();
+			}
 		}
 	}
 
