@@ -41,11 +41,11 @@ public class MovementAnimations : MonoBehaviour
             }
             else if (_rb.velocity.x == 0f && lastHorVelocity < 0)
             {
-                _character.model.transform.rotation = Quaternion.Lerp(_character.model.transform.rotation, Quaternion.Euler(0, -135, 0), intoIdleRotationSpeed * Time.deltaTime);
+                _character.model.transform.rotation = Quaternion.Lerp(_character.model.transform.rotation, Quaternion.Euler(0, -90, 0), intoIdleRotationSpeed * Time.deltaTime);
             }
             else if (_rb.velocity.x == 0f && lastHorVelocity > 0)
             {
-                _character.model.transform.rotation = Quaternion.Lerp(_character.model.transform.rotation, Quaternion.Euler(0, 135, 0), intoIdleRotationSpeed * Time.deltaTime);
+                _character.model.transform.rotation = Quaternion.Lerp(_character.model.transform.rotation, Quaternion.Euler(0, 90, 0), intoIdleRotationSpeed * Time.deltaTime);
             }
         }
 
