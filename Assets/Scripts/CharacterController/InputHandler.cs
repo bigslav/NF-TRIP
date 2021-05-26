@@ -157,4 +157,23 @@ public class InputHandler : MonoBehaviour
         Footstep.start();
         Footstep.release();
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 8 && gameObject.layer == 9)
+            if (collision.gameObject.transform.parent == null)
+            {
+                collision.gameObject.transform.parent = transform;
+            }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 8 && gameObject.layer == 9)
+            if (collision.gameObject.transform.parent == transform)
+            {
+                collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+                collision.gameObject.transform.parent = null;
+            }
+    }
 }

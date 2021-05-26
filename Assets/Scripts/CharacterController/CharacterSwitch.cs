@@ -19,6 +19,7 @@ public class CharacterSwitch : MonoBehaviour
     
     private bool _isJumpOffProcessed = false;
     private FixedJoint joint = null;
+    private FixedJoint _joint = null;
 
     private void OnEnable()
     {

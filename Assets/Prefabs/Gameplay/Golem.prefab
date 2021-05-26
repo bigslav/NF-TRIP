@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 2034647244}
   - component: {fileID: 1338869142}
   - component: {fileID: 1793119172}
+  - component: {fileID: 3448318257723535741}
   m_Layer: 9
   m_Name: Golem
   m_TagString: Golem
@@ -177,6 +178,7 @@ MonoBehaviour:
   isFacingRight: 1
   isUsingMechanism: 0
   isGlueToMechanism: 0
+  isOnTopOfMovable: 0
   model: {fileID: 141764908067697202}
   rigidBody: {fileID: 6919059683331726954}
 --- !u!114 &1813269906
@@ -213,7 +215,6 @@ MonoBehaviour:
   jumpAllowed: 0
   dragOnJumpOnly: 0
   MaterialTypes: []
-  StepDistance: 2
   RayDistance: 1.3
   DefulatMaterialValue: 0
 --- !u!114 &5368945027034925337
@@ -276,7 +277,6 @@ MonoBehaviour:
   listOfSpawnPoints: []
   MaterialTypes: []
   DefulatMaterialValue: 1
-  StepDistance: 2
   RayDistance: 1.3
 --- !u!114 &7286680145689225940
 MonoBehaviour:
@@ -302,13 +302,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f25cda3a515ef54b905bd0d86559238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StepDistance: 2
-  RayDistance: 1.3
   MaterialTypes:
   - Stone
   - Grass
   - Wood
-  DefulatMaterialValue: 0
 --- !u!95 &1338869142
 Animator:
   serializedVersion: 3
@@ -342,6 +339,19 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!65 &3448318257723535741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919059683331726948}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.11, z: 1}
+  m_Center: {x: 0, y: 4, z: 0}
 --- !u!1001 &952176791268659043
 PrefabInstance:
   m_ObjectHideFlags: 0
