@@ -362,8 +362,8 @@ RectTransform:
   - {fileID: 942048758}
   - {fileID: 1863059456}
   - {fileID: 1045623085}
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 2086250339}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6398,7 +6398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508469567}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.5, y: -11.8, z: 0.7578125}
+  m_LocalPosition: {x: 21.42, y: -12.76, z: 0.7578125}
   m_LocalScale: {x: 0.56, y: 0.39674723, z: 1}
   m_Children:
   - {fileID: 1109405696}
@@ -6425,6 +6425,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerStateEvent: event:/dialogue/cave/MG2
   InSnapshot: snapshot:/Dialogue
+  onlyMushroom: 1
+  onlyGolem: 0
 --- !u!114 &508469570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10748,14 +10750,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895532441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.042948, y: 15.4254875, z: -0.7578125}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 145.88603, y: 3.7809715, z: 6.5588655}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 508469568}
   - {fileID: 1082869984}
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 2086250339}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &901394566
 PrefabInstance:
@@ -10918,7 +10920,7 @@ Transform:
   m_GameObject: {fileID: 907249633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.3, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 2037533603}
   - {fileID: 1251959984}
@@ -13707,7 +13709,7 @@ Transform:
   - {fileID: 6439721565022852437}
   - {fileID: 1591158711}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1080417003
 GameObject:
@@ -13920,7 +13922,6 @@ GameObject:
   - component: {fileID: 1082869989}
   - component: {fileID: 1082869988}
   - component: {fileID: 1082869987}
-  - component: {fileID: 1082869986}
   - component: {fileID: 1082869985}
   m_Layer: 0
   m_Name: Dialog2
@@ -13937,7 +13938,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082869983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.1, y: -11.8, z: 0.7578125}
+  m_LocalPosition: {x: 23.59, y: -12.83, z: 0.7578125}
   m_LocalScale: {x: 0.56, y: 0.39674723, z: 1}
   m_Children:
   - {fileID: 1220357509}
@@ -13965,18 +13966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43d173f18fbe624799aef104d861698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1082869986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082869983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4914f1bc3a50e2442a846ee6a4656f41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1082869987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13991,6 +13980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerStateEvent: event:/dialogue/cave/MG3
   InSnapshot: snapshot:/Dialogue
+  onlyMushroom: 0
+  onlyGolem: 1
 --- !u!114 &1082869988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14025,7 +14016,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 20}
+  m_Size: {x: 20, y: 13.85, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1087132966
 PrefabInstance:
@@ -15366,7 +15357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1197268339
 Transform:
   m_ObjectHideFlags: 0
@@ -15975,36 +15966,6 @@ Transform:
   - {fileID: 110925166}
   m_Father: {fileID: 907249634}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1275514284
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1275514285}
-  m_Layer: 0
-  m_Name: Dialogue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1275514285
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275514284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2086250339}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1275873332
 GameObject:
@@ -18064,7 +18025,7 @@ Transform:
   - {fileID: 305781843}
   - {fileID: 1592875633}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1456635266
 GameObject:
@@ -23545,7 +23506,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1787461260
 GameObject:
@@ -24475,7 +24436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1855809000
 Transform:
   m_ObjectHideFlags: 0
@@ -26005,7 +25966,7 @@ Transform:
   - {fileID: 829319956}
   - {fileID: 1480833320}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1963921448
 PrefabInstance:
@@ -27501,7 +27462,8 @@ Transform:
   m_Children:
   - {fileID: 1197268339}
   - {fileID: 1855809000}
-  - {fileID: 1275514285}
+  - {fileID: 28087776}
+  - {fileID: 895532443}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -9,8 +9,11 @@ public class DialogueSnapshot : MonoBehaviour
     [FMODUnity.EventRef]
     public string InSnapshot = "";
 
-    private bool dialogueTriggered = false;
-    private bool dialogueDone = false;
+    public bool dialogueTriggered = false;
+    public bool dialogueDone = false;
+
+    public bool onlyMushroom = false;
+    public bool onlyGolem = false;
 
     FMOD.Studio.EventInstance InSnapshotEvent;
     FMOD.Studio.EventInstance DialogueEvent;
@@ -40,15 +43,29 @@ public class DialogueSnapshot : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
+    {
+        if (!dialogueTriggered)
         {
-            if (!dialogueTriggered)
+            if (onlyMushroom || onlyGolem)
             {
-                //Debug.Log("F_MaterialValue: " + F_MaterialValue);
-                FMODUnity.RuntimeManager.AttachInstanceToGameObject(DialogueEvent, transform, GetComponent<Rigidbody>());
-                DialogueEvent.start();
-                InSnapshotEvent.start();
-                DialogueEvent.release();
-                dialogueTriggered = true;
-            }
+                if (other.CompareTag("Mushroom") && onlyMushroom)
+                {
+                    playDialogue();
+                }
+                if (other.CompareTag("Golem") && onlyGolem)
+                {
+                    playDialogue();
+                }
         }
     }
+
+    void playDialogue()
+    {
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(DialogueEvent, transform, GetComponent<Rigidbody>());
+        DialogueEvent.start();
+        InSnapshotEvent.start();
+        DialogueEvent.release();
+        dialogueTriggered = true;
+    }
+    }
+}
