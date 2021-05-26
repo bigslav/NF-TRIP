@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: e7fa54082ceee4c429ffd6648e4e0c0c,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1155,6 +1155,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 79550499}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &80312504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501725418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &80312505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80312504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &83771917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1921,6 +1940,7 @@ GameObject:
   - component: {fileID: 123215547}
   - component: {fileID: 123215546}
   - component: {fileID: 123215545}
+  - component: {fileID: 123215550}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2015,6 +2035,19 @@ Transform:
   m_Father: {fileID: 890617571}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123215550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123215544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &139623301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2344,6 +2377,7 @@ GameObject:
   - component: {fileID: 156308745}
   - component: {fileID: 156308744}
   - component: {fileID: 156308743}
+  - component: {fileID: 156308746}
   m_Layer: 10
   m_Name: Cube (12)
   m_TagString: Untagged
@@ -2425,6 +2459,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156308741}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &156308746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156308741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &158783754
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2491,6 +2538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: bridgeSound
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
@@ -2802,7 +2854,13 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -136.84308, y: 11.644516, z: -7.316678}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1905699347}
+  - {fileID: 1899537154}
+  - {fileID: 808485939}
+  - {fileID: 1788117828}
+  - {fileID: 835418404}
+  - {fileID: 1689570275}
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3847,6 +3905,7 @@ GameObject:
   - component: {fileID: 256433663}
   - component: {fileID: 256433662}
   - component: {fileID: 256433661}
+  - component: {fileID: 256433668}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -3889,6 +3948,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &256433662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3924,6 +3985,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 256433664}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &256433663
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4013,6 +4076,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256433659}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &256433668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256433659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &256669606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4400,6 +4476,7 @@ GameObject:
   - component: {fileID: 264648833}
   - component: {fileID: 264648832}
   - component: {fileID: 264648831}
+  - component: {fileID: 264648838}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -4442,6 +4519,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &264648832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4477,6 +4556,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 264648834}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &264648833
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4566,6 +4647,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264648829}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &264648838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264648829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &265502794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5178,6 +5272,7 @@ GameObject:
   - component: {fileID: 298869698}
   - component: {fileID: 298869697}
   - component: {fileID: 298869696}
+  - component: {fileID: 298869703}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -5220,6 +5315,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &298869697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5255,6 +5352,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 298869699}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &298869698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5344,6 +5443,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298869694}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &298869703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298869694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &306983626
 GameObject:
   m_ObjectHideFlags: 0
@@ -5674,6 +5786,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalReset: 0
+--- !u!114 &317198600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317198597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/objects/cave/magma_fall
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 6.4
+  OverrideMaxDistance: 12.6
 --- !u!1001 &324275551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6138,6 +6273,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalReset: 0
+--- !u!114 &328036118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328036115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/objects/cave/magma_fall
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 6.4
+  OverrideMaxDistance: 12.6
 --- !u!1001 &329107688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6995,6 +7153,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 358474589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &367940478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3625242483402183221, guid: 9a77c7e748b0d1e478f90347d27b5c9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 370003863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &367940479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367940478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &368393490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8473,6 +8650,7 @@ GameObject:
   - component: {fileID: 426799125}
   - component: {fileID: 426799124}
   - component: {fileID: 426799123}
+  - component: {fileID: 426799130}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -8515,6 +8693,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &426799124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8550,6 +8730,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 426799126}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &426799125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8639,6 +8821,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426799121}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &426799130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426799121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &430271302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8888,6 +9083,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
+      propertyPath: bridgeSound
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
       propertyPath: targetGameObject.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8929,6 +9129,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 431594542}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &434621417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1445848448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &434621418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434621417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &436679824
 GameObject:
   m_ObjectHideFlags: 0
@@ -8981,6 +9200,7 @@ GameObject:
   - component: {fileID: 451750620}
   - component: {fileID: 451750619}
   - component: {fileID: 451750618}
+  - component: {fileID: 451750623}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -9075,6 +9295,19 @@ Transform:
   m_Father: {fileID: 890617571}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451750623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451750617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!114 &453279555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5375582013032974078, guid: eb8ae788cf1be8c478b39a079f74b336,
@@ -9956,7 +10189,7 @@ MonoBehaviour:
   author: 0
   delayAfterPhrase: 1
   phraseDuration: 1
-  text: "\u0411\u0435\u0434\u043D\u044F\u0433\u0430!"
+  text: "\u0411\u0435\u0434\u043D\u044F\u0433\u0430..."
 --- !u!1 &526121687
 GameObject:
   m_ObjectHideFlags: 0
@@ -10192,6 +10425,7 @@ GameObject:
   - component: {fileID: 538802447}
   - component: {fileID: 538802446}
   - component: {fileID: 538802445}
+  - component: {fileID: 538802448}
   m_Layer: 10
   m_Name: Cube (14)
   m_TagString: Untagged
@@ -10273,6 +10507,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538802443}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &538802448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538802443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &547265584
 GameObject:
   m_ObjectHideFlags: 0
@@ -10285,6 +10532,7 @@ GameObject:
   - component: {fileID: 547265588}
   - component: {fileID: 547265587}
   - component: {fileID: 547265586}
+  - component: {fileID: 547265589}
   m_Layer: 10
   m_Name: Cube (17)
   m_TagString: Untagged
@@ -10366,6 +10614,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547265584}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &547265589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547265584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &553460934
 GameObject:
   m_ObjectHideFlags: 0
@@ -10396,6 +10657,25 @@ Transform:
   m_Father: {fileID: 389312035}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &554614133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 258078780}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &554614134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554614133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &557395889
 GameObject:
   m_ObjectHideFlags: 0
@@ -10760,6 +11040,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 1179244981}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 0
 --- !u!1 &572382805
 GameObject:
   m_ObjectHideFlags: 0
@@ -13008,6 +13290,7 @@ GameObject:
   - component: {fileID: 716946095}
   - component: {fileID: 716946094}
   - component: {fileID: 716946093}
+  - component: {fileID: 716946100}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -13050,6 +13333,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &716946094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13085,6 +13370,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 716946096}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &716946095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13174,6 +13461,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716946091}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &716946100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716946091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &717966596
 GameObject:
   m_ObjectHideFlags: 0
@@ -14944,6 +15244,7 @@ GameObject:
   - component: {fileID: 792999870}
   - component: {fileID: 792999869}
   - component: {fileID: 792999868}
+  - component: {fileID: 792999875}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -14986,6 +15287,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &792999869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15021,6 +15324,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 792999871}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &792999870
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15110,6 +15415,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792999866}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &792999875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792999866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &794211890
 GameObject:
   m_ObjectHideFlags: 0
@@ -15214,6 +15532,7 @@ GameObject:
   - component: {fileID: 796954495}
   - component: {fileID: 796954494}
   - component: {fileID: 796954493}
+  - component: {fileID: 796954496}
   m_Layer: 10
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -15295,6 +15614,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796954491}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &796954496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796954491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &798280653
 GameObject:
   m_ObjectHideFlags: 0
@@ -15509,6 +15841,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   saveSystem: {fileID: 0}
+--- !u!1 &808485938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808485939}
+  - component: {fileID: 808485941}
+  - component: {fileID: 808485940}
+  m_Layer: 0
+  m_Name: Ambience (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &808485939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808485938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 665.2, y: 31.4, z: 0}
+  m_LocalScale: {x: 2.881097, y: 4.9081, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808485940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808485938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/env/amb/02_cave/02_magma
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &808485941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808485938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.2, y: 36.36, z: 17.79}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &811583771
 GameObject:
   m_ObjectHideFlags: 0
@@ -16227,6 +16627,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7
   saveSystem: {fileID: 0}
+--- !u!1 &835418403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835418404}
+  - component: {fileID: 835418406}
+  - component: {fileID: 835418405}
+  m_Layer: 0
+  m_Name: Ambience-Cave (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835418404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 877.6, y: 31.4, z: 0}
+  m_LocalScale: {x: 1.4282782, y: 4.9081, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835418405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/env/amb/02_cave/02_cave
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &835418406
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835418403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.2, y: 36.36, z: 17.79}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &835508944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17408,6 +17876,7 @@ GameObject:
   - component: {fileID: 892474166}
   - component: {fileID: 892474165}
   - component: {fileID: 892474164}
+  - component: {fileID: 892474167}
   m_Layer: 10
   m_Name: Cube (18)
   m_TagString: Untagged
@@ -17489,6 +17958,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892474162}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &892474167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892474162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!4 &895598084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3660438925325136401, guid: bc076c22c7753524a9eb01815d4cf962,
@@ -17677,7 +18159,7 @@ MonoBehaviour:
   delayAfterPhrase: 1
   phraseDuration: 1
   text: "\u041A\u043E\u043D\u0435\u0447\u043D\u043E! \u0423 \u043D\u0430\u0441 \u0438\u0445
-    \u043F\u043E\u043B\u043D\u043E!"
+    \u043F\u043E\u043B\u043D\u043E."
 --- !u!1001 &905655638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18051,6 +18533,7 @@ GameObject:
   - component: {fileID: 913637593}
   - component: {fileID: 913637592}
   - component: {fileID: 913637591}
+  - component: {fileID: 913637598}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -18093,6 +18576,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &913637592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18128,6 +18613,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 913637594}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &913637593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18217,6 +18704,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913637589}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &913637598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913637589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &914240335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18445,6 +18945,7 @@ GameObject:
   - component: {fileID: 920011524}
   - component: {fileID: 920011523}
   - component: {fileID: 920011522}
+  - component: {fileID: 920011527}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -18539,6 +19040,19 @@ Transform:
   m_Father: {fileID: 890617571}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920011527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920011521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &923518911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18907,6 +19421,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 86128679}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 0
 --- !u!1 &959550834
 GameObject:
   m_ObjectHideFlags: 0
@@ -19364,6 +19880,7 @@ GameObject:
   - component: {fileID: 986920919}
   - component: {fileID: 986920918}
   - component: {fileID: 986920917}
+  - component: {fileID: 986920924}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -19406,6 +19923,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &986920918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19441,6 +19960,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 986920920}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &986920919
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19530,6 +20051,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986920915}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &986920924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986920915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &987697206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19750,6 +20284,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 097fb4de22b2b95499c9d7a4091e9db5, type: 3}
+--- !u!1 &992202761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3625242483402183221, guid: 9a77c7e748b0d1e478f90347d27b5c9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1763261281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &992202762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992202761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 0
 --- !u!1 &992692345
 GameObject:
   m_ObjectHideFlags: 0
@@ -19916,6 +20469,42 @@ PrefabInstance:
     - target: {fileID: 486180477, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[0]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[1]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[2]
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[3]
+      value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[4]
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[5]
+      value: Stones
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[6]
+      value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 1455904536, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: MaterialTypes.Array.data[7]
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 5162330434519888723, guid: f07fbb8b47ad90d439d1db4aee3fb440,
         type: 3}
@@ -21407,6 +21996,7 @@ GameObject:
   - component: {fileID: 1087419788}
   - component: {fileID: 1087419787}
   - component: {fileID: 1087419786}
+  - component: {fileID: 1087419793}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -21449,6 +22039,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1087419787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21484,6 +22076,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1087419789}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1087419788
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21573,6 +22167,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087419784}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1087419793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087419784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1088078973
 GameObject:
   m_ObjectHideFlags: 0
@@ -21988,6 +22595,7 @@ GameObject:
   - component: {fileID: 1107568027}
   - component: {fileID: 1107568026}
   - component: {fileID: 1107568025}
+  - component: {fileID: 1107568032}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -22030,6 +22638,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1107568026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22065,6 +22675,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1107568028}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1107568027
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22154,6 +22766,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107568023}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1107568032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107568023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1110419030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22576,6 +23201,7 @@ GameObject:
   - component: {fileID: 1120713248}
   - component: {fileID: 1120713247}
   - component: {fileID: 1120713246}
+  - component: {fileID: 1120713251}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -22670,6 +23296,19 @@ Transform:
   m_Father: {fileID: 890617571}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120713251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120713245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1125245803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22944,6 +23583,7 @@ GameObject:
   - component: {fileID: 1141930959}
   - component: {fileID: 1141930958}
   - component: {fileID: 1141930957}
+  - component: {fileID: 1141930962}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -23014,6 +23654,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 1141930960}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 0
 --- !u!54 &1141930959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23051,6 +23693,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141930955}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1141930962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141930955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/objects/cave/magma_fall
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 18.1
+  OverrideMaxDistance: 27.18
 --- !u!1 &1146187890
 GameObject:
   m_ObjectHideFlags: 0
@@ -24092,6 +24757,7 @@ GameObject:
   - component: {fileID: 1183839626}
   - component: {fileID: 1183839625}
   - component: {fileID: 1183839624}
+  - component: {fileID: 1183839631}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -24134,6 +24800,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1183839625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24169,6 +24837,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1183839627}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1183839626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24258,6 +24928,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183839622}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1183839631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183839622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1192903576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25445,6 +26128,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6003436092958175408, guid: 1e5d8569205aaac4db259b575c773ee0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e5d8569205aaac4db259b575c773ee0, type: 3}
 --- !u!4 &1239518733 stripped
@@ -25472,6 +26160,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalReset: 0
+--- !u!114 &1239518737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239518734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/objects/cave/magma_fall
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 8.48
+  OverrideMaxDistance: 15.21
 --- !u!1001 &1243552062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26141,6 +26852,7 @@ GameObject:
   - component: {fileID: 1271497082}
   - component: {fileID: 1271497081}
   - component: {fileID: 1271497080}
+  - component: {fileID: 1271497083}
   m_Layer: 10
   m_Name: Cube (13)
   m_TagString: Untagged
@@ -26222,6 +26934,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271497078}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1271497083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271497078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1275925703
 GameObject:
   m_ObjectHideFlags: 0
@@ -26933,6 +27658,7 @@ GameObject:
   - component: {fileID: 1304112722}
   - component: {fileID: 1304112721}
   - component: {fileID: 1304112720}
+  - component: {fileID: 1304112725}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -27027,6 +27753,19 @@ Transform:
   m_Father: {fileID: 890617571}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304112725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304112719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1305069504
 GameObject:
   m_ObjectHideFlags: 0
@@ -27542,6 +28281,38 @@ PrefabInstance:
     - target: {fileID: 168869522, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[0]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[1]
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[3]
+      value: Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[4]
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[5]
+      value: Stones
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[6]
+      value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034647244, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: MaterialTypes.Array.data[7]
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 5594992948068825823, guid: 068a82c7548b1ba45ac9afc2cce042e9,
         type: 3}
@@ -28889,6 +29660,7 @@ GameObject:
   - component: {fileID: 1423962902}
   - component: {fileID: 1423962901}
   - component: {fileID: 1423962900}
+  - component: {fileID: 1423962907}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -28931,6 +29703,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1423962901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28966,6 +29740,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1423962903}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1423962902
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29055,6 +29831,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423962898}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1423962907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423962898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1425362581
 GameObject:
   m_ObjectHideFlags: 0
@@ -29359,6 +30148,7 @@ GameObject:
   - component: {fileID: 1434325348}
   - component: {fileID: 1434325347}
   - component: {fileID: 1434325346}
+  - component: {fileID: 1434325349}
   m_Layer: 10
   m_Name: Cube (11)
   m_TagString: Untagged
@@ -29440,6 +30230,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434325344}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1434325349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434325344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1441644450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30923,6 +31726,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1498821857}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1498956045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1012086760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1498956046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498956045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1501725418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31081,6 +31903,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1921104670}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1534337235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 987697206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1534337236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534337235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1542847672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31690,6 +32531,7 @@ GameObject:
   - component: {fileID: 1574060232}
   - component: {fileID: 1574060231}
   - component: {fileID: 1574060230}
+  - component: {fileID: 1574060235}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -31760,6 +32602,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 1574060233}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 0
 --- !u!54 &1574060232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31797,6 +32641,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574060228}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1574060235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574060228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/objects/cave/magma_fall
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 18.1
+  OverrideMaxDistance: 27.18
 --- !u!1001 &1574655184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32936,6 +33803,7 @@ GameObject:
   - component: {fileID: 1644882062}
   - component: {fileID: 1644882061}
   - component: {fileID: 1644882060}
+  - component: {fileID: 1644882067}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -32978,6 +33846,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1644882061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33013,6 +33883,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1644882063}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1644882062
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -33102,6 +33974,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644882058}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1644882067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644882058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1646503962
 GameObject:
   m_ObjectHideFlags: 0
@@ -33777,6 +34662,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1682301641}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1689570274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1689570275}
+  - component: {fileID: 1689570277}
+  - component: {fileID: 1689570276}
+  m_Layer: 0
+  m_Name: Ambience-Cave (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1689570275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689570274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1182.6, y: 31.4, z: 0}
+  m_LocalScale: {x: 1.4282782, y: 4.9081, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1689570276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689570274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/env/amb/02_cave/02_cave
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &1689570277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689570274}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.2, y: 36.36, z: 17.79}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1690060731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
@@ -34287,6 +35240,7 @@ GameObject:
   - component: {fileID: 1730156476}
   - component: {fileID: 1730156475}
   - component: {fileID: 1730156474}
+  - component: {fileID: 1730156481}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -34329,6 +35283,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1730156475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34364,6 +35320,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1730156477}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1730156476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34453,6 +35411,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730156472}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1730156481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730156472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1731302312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36067,6 +37038,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1785134228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1788117827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1788117828}
+  - component: {fileID: 1788117830}
+  - component: {fileID: 1788117829}
+  m_Layer: 0
+  m_Name: Ambience-Cave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1788117828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788117827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 468.8, y: 31.4, z: 0}
+  m_LocalScale: {x: 1.4282782, y: 4.9081, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1788117829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788117827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/env/amb/02_cave/02_cave
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &1788117830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788117827}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.2, y: 36.36, z: 17.79}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1788671186
 GameObject:
   m_ObjectHideFlags: 0
@@ -36376,6 +37415,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 0
+  boatSound: 1
 --- !u!114 &1817000542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36397,7 +37438,7 @@ MonoBehaviour:
   parentingDisabled: 0
   onlyOneInteractionUsed: 0
   rotationSpeed: 10
-  movementSpeed: 3
+  movementSpeed: 1.5
   delayTime: 2
   waitUntilTime: 0
   points:
@@ -36411,6 +37452,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 1817000540}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 1
 --- !u!54 &1817000543
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -37319,6 +38362,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0799c6b5d94b948841c79cb6246f75, type: 3}
+--- !u!1 &1899537153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1899537154}
+  - component: {fileID: 1899537156}
+  - component: {fileID: 1899537155}
+  m_Layer: 0
+  m_Name: Ambience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1899537154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899537153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1022.6, y: -42, z: 0}
+  m_LocalScale: {x: 1.781708, y: 4.9081, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1899537155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899537153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/env/amb/02_cave/02_magma
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &1899537156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899537153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.2, y: 36.36, z: 17.79}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1900351332
 GameObject:
   m_ObjectHideFlags: 0
@@ -37349,6 +38460,74 @@ Transform:
   m_Father: {fileID: 2033772038}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1905699346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1905699347}
+  - component: {fileID: 1905699349}
+  - component: {fileID: 1905699348}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1905699347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905699346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 746.5, y: 0, z: 0}
+  m_LocalScale: {x: 0.90276474, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1905699348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905699346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Golem
+  Event: event:/music/cave/main
+  PlayEvent: 3
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &1905699349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905699346}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.2, y: 36.36, z: 17.79}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1906235903
 GameObject:
   m_ObjectHideFlags: 0
@@ -38115,6 +39294,7 @@ GameObject:
   - component: {fileID: 1952239579}
   - component: {fileID: 1952239578}
   - component: {fileID: 1952239577}
+  - component: {fileID: 1952239580}
   m_Layer: 10
   m_Name: Cube (15)
   m_TagString: Untagged
@@ -38196,6 +39376,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952239575}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1952239580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952239575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!4 &1952563585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 756631887084027921, guid: c4aa63c0de2a733439262d98bdbcb3a3,
@@ -38218,6 +39411,7 @@ GameObject:
   - component: {fileID: 1956161091}
   - component: {fileID: 1956161090}
   - component: {fileID: 1956161089}
+  - component: {fileID: 1956161096}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -38260,6 +39454,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &1956161090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38295,6 +39491,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 1956161092}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &1956161091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38384,6 +39582,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956161087}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1956161096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956161087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1956482311
 GameObject:
   m_ObjectHideFlags: 0
@@ -39307,6 +40518,7 @@ GameObject:
   - component: {fileID: 2010914202}
   - component: {fileID: 2010914201}
   - component: {fileID: 2010914200}
+  - component: {fileID: 2010914207}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -39349,6 +40561,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &2010914201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39384,6 +40598,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 2010914203}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &2010914202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -39473,6 +40689,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010914198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2010914207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010914198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &2011232032
 GameObject:
   m_ObjectHideFlags: 0
@@ -39608,8 +40837,8 @@ MonoBehaviour:
   author: 1
   delayAfterPhrase: 1.5
   phraseDuration: 2
-  text: "\u041E\u0433\u043E!. \u041A\u0430\u0436\u0435\u0442\u0441\u044F \u0442\u0443\u0442
-    \u043D\u0430\u043C \u0441\u0442\u043E\u0438\u0442 \u0438\u0434\u0442\u0438 \u0432\u043C\u0435\u0441\u0442\u0435!"
+  text: "\u041E\u0433\u043E! \u041A\u0430\u0436\u0435\u0442\u0441\u044F, \u0442\u0443\u0442
+    \u043D\u0430\u043C \u0441\u0442\u043E\u0438\u0442 \u0438\u0434\u0442\u0438 \u0432\u043C\u0435\u0441\u0442\u0435..."
 --- !u!1 &2020017593
 GameObject:
   m_ObjectHideFlags: 0
@@ -40120,6 +41349,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 0
+  boatSound: 1
 --- !u!114 &2065915808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40155,6 +41386,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 2065915806}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 1
 --- !u!54 &2065915809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40447,6 +41680,7 @@ GameObject:
   - component: {fileID: 2073918749}
   - component: {fileID: 2073918748}
   - component: {fileID: 2073918747}
+  - component: {fileID: 2073918750}
   m_Layer: 10
   m_Name: Cube (16)
   m_TagString: Untagged
@@ -40528,6 +41762,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073918745}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2073918750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073918745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &2083039359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40594,6 +41841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: bridgeSound
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
@@ -41538,6 +42790,7 @@ GameObject:
   - component: {fileID: 2135080502}
   - component: {fileID: 2135080501}
   - component: {fileID: 2135080500}
+  - component: {fileID: 2135080507}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -41580,6 +42833,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!114 &2135080501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41615,6 +42870,8 @@ MonoBehaviour:
   m_MaxDistance: 0.5
   m_Collider: {fileID: 2135080503}
   noSoundOnCollision: 0
+  sinkStoneSound: 1
+  boatSound: 0
 --- !u!54 &2135080502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -41704,6 +42961,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135080498}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2135080507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135080498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &2137920827
 GameObject:
   m_ObjectHideFlags: 0
@@ -41902,6 +43172,7 @@ GameObject:
   - component: {fileID: 2142828400}
   - component: {fileID: 2142828397}
   - component: {fileID: 2142828399}
+  - component: {fileID: 2142828403}
   m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -41944,6 +43215,8 @@ MonoBehaviour:
   m_MaxDistance: 0
   m_Collider: {fileID: 2142828398}
   noSoundOnCollision: 0
+  sinkStoneSound: 0
+  boatSound: 0
 --- !u!65 &2142828398
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42009,6 +43282,29 @@ Transform:
   m_Father: {fileID: 715109827}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142828403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142828396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/objects/cave/magma_fall
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 18.1
+  OverrideMaxDistance: 27.18
 --- !u!1001 &2144702077
 PrefabInstance:
   m_ObjectHideFlags: 0

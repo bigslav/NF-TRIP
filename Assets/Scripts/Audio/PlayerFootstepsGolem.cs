@@ -28,8 +28,8 @@ public class PlayerFootstepsGolem : MonoBehaviour
     {
         //GroundedPlayed = false;
         anim = GetComponent<Animator>();
-        AddEvent(1, 0.25f, "Step", 0); // WalkG
-        AddEvent(1, 0.98f, "Step", 0);
+        AddEvent(1, 0.01f, "Step", 0); // WalkG
+        AddEvent(1, 0.85f, "Step", 0);
         //AddEvent(2, 0.05f, "Jump", 0);
     }
 

@@ -10,6 +10,9 @@ public class TouchActivator : MonoBehaviour
     [SerializeField] private bool reverseBehavior = false;
     [SerializeField] private bool bridgeSound = false;
 
+    public bool sinkStoneSound = false;
+    public bool boatSound = false;
+
     //private bool soundPlayed = false;
 
 
@@ -18,8 +21,15 @@ public class TouchActivator : MonoBehaviour
         if (!stayOnToUse && !reverseBehavior)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
-                playSound();
-                playSoundPlatforms();
+                if (sinkStoneSound || boatSound)
+                {
+                    
+                }
+                else
+                {
+                    playSound();
+                    playSoundPlatforms();
+                }
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Switch();
             }

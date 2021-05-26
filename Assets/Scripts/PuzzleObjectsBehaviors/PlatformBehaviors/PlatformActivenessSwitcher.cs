@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlatformActivenessSwitcher : MonoBehaviour
 {
 	[SerializeField] private GameObject[] platforms;
+	public bool steelCageSound = false;
 
 	private void SwitchActiveStatus()
 	{
@@ -17,7 +18,14 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		SwitchActiveStatus();
-		PlayCageLanding();
+		if (steelCageSound)
+        {
+			PlayCageLanding();
+		}
+		else
+        {
+			PlayStoneButtonSound();
+		}
 	}
 
 	void PlayCageLanding()
@@ -26,5 +34,13 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 		FMODUnity.RuntimeManager.AttachInstanceToGameObject(cageLanding, transform, GetComponent<Rigidbody>());
 		cageLanding.start();
 		cageLanding.release();
+	}
+
+	void PlayStoneButtonSound()
+	{
+		FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/magic_button");
+		FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
+		button.start();
+		button.release();
 	}
 }

@@ -28,6 +28,8 @@ public class MovingPlatform : ParentPlatform
 
     private bool soundPlayed = false;
     public bool noSoundOnCollision = false;
+    public bool sinkStoneSound = false;
+    public bool boatSound = false;
 
     void Start()
     {
@@ -75,7 +77,18 @@ public class MovingPlatform : ParentPlatform
         //Debug.Log("Exit");
         if (!soundPlayed && !noSoundOnCollision)
         {
-            playSound();
+            if (sinkStoneSound)
+            {
+                playSinkStoneSound();
+            }
+            else if (boatSound)
+            {
+                playBoatSound();
+            }
+            else
+            {
+                playPlatformSound();
+            }
             soundPlayed = true;
         }
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
@@ -163,9 +176,24 @@ public class MovingPlatform : ParentPlatform
                 _delayStart = Time.time;
             }
     }
-    private void playSound()
+    private void playPlatformSound()
     {
         FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/in_out_platforms");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
+        button.start();
+        button.release();
+    }
+
+    private void playSinkStoneSound()
+    {
+        FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/sink_stones");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
+        button.start();
+        button.release();
+    }
+    private void playBoatSound()
+    {
+        FMOD.Studio.EventInstance button = FMODUnity.RuntimeManager.CreateInstance("event:/objects/cave/boat");
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(button, transform, GetComponent<Rigidbody>());
         button.start();
         button.release();
