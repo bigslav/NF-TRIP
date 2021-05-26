@@ -18,6 +18,8 @@ public class Pause : MonoBehaviour {
 
     public GameObject savePanel;
 
+    public GameObject howToPanel;
+
     public string MainMenu;
 
     public SaveSystem saveManager;
@@ -51,6 +53,8 @@ public class Pause : MonoBehaviour {
         loadPanel.SetActive(false);
         optionsPanel.SetActive(false);
         savePanel.SetActive(false);
+        howToPanel.SetActive(false);
+
     }
 
     public void BackToMainMenu()
@@ -83,7 +87,11 @@ public class Pause : MonoBehaviour {
         mainPanel.SetActive(false);
         savePanel.SetActive(true);
     }
-
+    public void OpenHowToPlay()
+    {
+        mainPanel.SetActive(false);
+        howToPanel.SetActive(true);
+    }
     public void InitSaveGame(int num)
     {
         saveManager.SaveGame(num);
