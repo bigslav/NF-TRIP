@@ -81,6 +81,8 @@ public class CharacterSwitch : MonoBehaviour
 
             Debug.Log(Mathf.Abs(dist.x) +" "+ Mathf.Abs(dist.y));
 
+            
+
             if (Mathf.Abs(dist.x) < 2f && Mathf.Abs(dist.y) < 5f)
             {
 
@@ -91,7 +93,6 @@ public class CharacterSwitch : MonoBehaviour
                         SwitchCharacterControl();
                     }
                     Combine(true);
-                    SwitchSound();
                 }
                 else
                 {
@@ -103,6 +104,10 @@ public class CharacterSwitch : MonoBehaviour
             else
             {
                 SwitchCharacterControl();
+            }
+
+            if (switchControlOn || combineOn)
+            {
                 SwitchSound();
             }
         }
