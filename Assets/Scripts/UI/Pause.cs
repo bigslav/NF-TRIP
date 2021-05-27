@@ -23,6 +23,8 @@ public class Pause : MonoBehaviour {
     public string MainMenu;
 
     public SaveSystem saveManager;
+
+    public Black black;
     //Settings
     //public Slider volumeSlider;
     //public Text volumeValueText;
@@ -111,6 +113,7 @@ public class Pause : MonoBehaviour {
             // 3
             LoaderWatchDog.wasLoaded = true;
             LoaderWatchDog.saveNum = num;
+            black.FadeIn();
             SceneManager.LoadScene(save.sceneName);
             BackToGame();
         }
