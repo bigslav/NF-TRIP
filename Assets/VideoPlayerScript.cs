@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class VideoPlayerScript : MonoBehaviour
 {
     UnityEngine.Video.VideoPlayer videoPlayer;
+    private bool triggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +20,12 @@ public class VideoPlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        videoPlayer.Play();
-        videoPlayer.loopPointReached += CheckOver;
+        if (!triggered)
+        {
+            videoPlayer.Play();
+            videoPlayer.loopPointReached += CheckOver;
+            triggered = true;
+        }
     }
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
