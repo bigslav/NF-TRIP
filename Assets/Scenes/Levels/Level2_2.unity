@@ -662,6 +662,98 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1768197070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &45557745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 45557746}
+  - component: {fileID: 45557750}
+  - component: {fileID: 45557749}
+  - component: {fileID: 45557748}
+  - component: {fileID: 45557747}
+  m_Layer: 0
+  m_Name: Dialog7 - Wow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &45557746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45557745}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 797.7, y: -38.7, z: 0.7578125}
+  m_LocalScale: {x: 0.56, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2018050346}
+  m_Father: {fileID: 1828599470}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &45557747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45557745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b713c89ac77f894fb2bbaaa7d65dd8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStateEvent: event:/dialogue/cave/MG11
+  InSnapshot: snapshot:/Dialogue
+  dialogueTriggered: 0
+  dialogueDone: 0
+  onlyMushroom: 0
+  onlyGolem: 1
+--- !u!114 &45557748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45557745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b66bc25a337b504c8808f2182a230e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phrases:
+  - {fileID: 2018050347}
+--- !u!114 &45557749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45557745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60f736035f02e7f48b787250fa03a7e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &45557750
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45557745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.357393, y: 20, z: 20}
+  m_Center: {x: 37.704514, y: 0, z: 0}
 --- !u!1 &47286397
 GameObject:
   m_ObjectHideFlags: 0
@@ -25935,7 +26027,6 @@ Transform:
   - {fileID: 307909507}
   - {fileID: 560202205}
   - {fileID: 696362505}
-  - {fileID: 2018050346}
   m_Father: {fileID: 1828599470}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25983,7 +26074,6 @@ MonoBehaviour:
   - {fileID: 307909508}
   - {fileID: 560202206}
   - {fileID: 696362506}
-  - {fileID: 2018050347}
 --- !u!114 &1229343354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37965,6 +38055,7 @@ Transform:
   - {fileID: 1229343351}
   - {fileID: 689023713}
   - {fileID: 751759076}
+  - {fileID: 45557746}
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41111,11 +41202,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018050345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1048.9287, y: 29.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1229343351}
-  m_RootOrder: 13
+  m_Father: {fileID: 45557746}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2018050347
 MonoBehaviour:
