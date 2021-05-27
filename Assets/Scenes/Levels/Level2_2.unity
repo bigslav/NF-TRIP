@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5042819, g: 0.5651896, b: 0.6202106, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: e7fa54082ceee4c429ffd6648e4e0c0c,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2541,6 +2541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
+      propertyPath: playOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
       propertyPath: bridgeSound
       value: 1
       objectReference: {fileID: 0}
@@ -3950,6 +3955,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &256433662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4521,6 +4527,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &264648832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,6 +5324,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &298869697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8695,6 +8703,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &426799124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9080,6 +9089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: playOnce
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
@@ -13468,6 +13482,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &716946094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15344,6 +15359,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &792999869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18644,6 +18660,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &913637592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19991,6 +20008,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &986920918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20368,7 +20386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaterialValue: 0
+  MaterialValue: 5
 --- !u!1 &992692345
 GameObject:
   m_ObjectHideFlags: 0
@@ -21118,6 +21136,25 @@ Transform:
   m_Father: {fileID: 849717413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024871361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2065053781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1024871362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024871361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1025977010
 GameObject:
   m_ObjectHideFlags: 0
@@ -22101,6 +22138,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1087419787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22700,6 +22738,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1107568026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22950,6 +22989,7 @@ GameObject:
   - component: {fileID: 1110898314}
   - component: {fileID: 1110898313}
   - component: {fileID: 1110898312}
+  - component: {fileID: 1110898315}
   m_Layer: 10
   m_Name: Cube (18)
   m_TagString: Untagged
@@ -23031,6 +23071,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110898310}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1110898315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110898310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1119559647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24861,6 +24914,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1183839625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29876,6 +29930,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1423962901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30131,6 +30186,7 @@ GameObject:
   - component: {fileID: 1427771003}
   - component: {fileID: 1427771002}
   - component: {fileID: 1427771001}
+  - component: {fileID: 1427771004}
   m_Layer: 10
   m_Name: Cube (24)
   m_TagString: Untagged
@@ -30212,6 +30268,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427770999}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1427771004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427770999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1001 &1433760987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34019,6 +34088,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1644882061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34191,6 +34261,25 @@ Transform:
   m_Father: {fileID: 657851945}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1664410881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 756631887084029932, guid: c4aa63c0de2a733439262d98bdbcb3a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1592320863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1664410882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664410881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 5
 --- !u!1 &1668103312
 GameObject:
   m_ObjectHideFlags: 0
@@ -35456,6 +35545,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1730156475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37613,6 +37703,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 0
   boatSound: 1
+  playOnce: 0
 --- !u!114 &1817000542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39658,6 +39749,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1956161090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40765,6 +40857,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &2010914201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41553,6 +41646,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 0
   boatSound: 1
+  playOnce: 0
 --- !u!114 &2065915808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42043,6 +42137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: playOnce
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
@@ -43037,6 +43136,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &2135080501
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 				SwitchActiveStatus();
 				if (steelCageSound)
 				{
-					PlayCageLanding();
+					//PlayCageLanding();
 				}
 				else
 				{
@@ -36,12 +36,12 @@ public class PlatformActivenessSwitcher : MonoBehaviour
 				}
 			}
 		}
-		else 
+		else if (!oneInteraction)
 		{
 			SwitchActiveStatus();
 			if (steelCageSound)
 			{
-				PlayCageLanding();
+				//PlayCageLanding();
 			}
 			else
 			{

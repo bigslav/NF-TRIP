@@ -12,6 +12,8 @@ public class TouchActivator : MonoBehaviour
 
     public bool sinkStoneSound = false;
     public bool boatSound = false;
+    public bool playOnce = false;
+    private bool soundPlayedOnce = false;
 
     //private bool soundPlayed = false;
 
@@ -27,8 +29,15 @@ public class TouchActivator : MonoBehaviour
                 }
                 else
                 {
-                    playSound();
-                    playSoundPlatforms();
+                    if (!soundPlayedOnce)
+                    {
+                        playSound();
+                        playSoundPlatforms();
+                        if (playOnce)
+                        {
+                            soundPlayedOnce = true;
+                        }
+                    }
                 }
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Switch();

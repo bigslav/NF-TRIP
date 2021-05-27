@@ -11,6 +11,7 @@ public class DialogueSnapshot : MonoBehaviour
 
     public bool dialogueTriggered = false;
     public bool dialogueDone = false;
+    private bool dialogueTriggeredReverse = false;
 
     public bool onlyMushroom = false;
     public bool onlyGolem = false;
@@ -18,6 +19,9 @@ public class DialogueSnapshot : MonoBehaviour
     FMOD.Studio.EventInstance InSnapshotEvent;
     FMOD.Studio.EventInstance DialogueEvent;
     FMOD.Studio.PLAYBACK_STATE state;
+
+    private bool sceneReloaded = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,20 @@ public class DialogueSnapshot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (!sceneReloaded)
+        //{
+        //    DialogueEvent.release();
+        //}
+
+        if (Time.timeScale != 1)
+        {
+            DialogueEvent.setPaused(true);
+        }
+        else if (Time.timeScale == 1)
+        {
+            DialogueEvent.setPaused(false);
+        }
+
         if (!dialogueDone && dialogueTriggered)
         {
             DialogueEvent.getPlaybackState(out state);
@@ -56,9 +74,9 @@ public class DialogueSnapshot : MonoBehaviour
                 {
                     playDialogue();
                 }
+            }
         }
     }
-
     void playDialogue()
     {
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(DialogueEvent, transform, GetComponent<Rigidbody>());
@@ -67,5 +85,10 @@ public class DialogueSnapshot : MonoBehaviour
         DialogueEvent.release();
         dialogueTriggered = true;
     }
+
+    public void StopDialogue()
+    {
+        Debug.Log("stopdialogue");
+        DialogueEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }

@@ -13,7 +13,7 @@ public class CombineAndSwapTrigger : MonoBehaviour
     {
         characterSwitch.combineOn = combineOn;
         characterSwitch.switchControlOn = swapControlOn;
-        PlayCageLanding();
+        //PlayCageLanding();
     }
 
     void PlayCageLanding()
