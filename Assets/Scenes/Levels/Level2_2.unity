@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.5042819, g: 0.5651896, b: 0.6202106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3087,9 +3087,8 @@ GameObject:
   - component: {fileID: 207245503}
   - component: {fileID: 207245502}
   - component: {fileID: 207245501}
-  - component: {fileID: 207245500}
   - component: {fileID: 207245499}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3109,19 +3108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaterialValue: 5
---- !u!114 &207245500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207245498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf998b3d5f9ba8441a3d9d6d83bbc063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalReset: 0
 --- !u!65 &207245501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3129,8 +3115,8 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207245498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4577,6 +4563,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &256433662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5149,6 +5137,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &264648832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6020,6 +6010,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &298869697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6294,6 +6286,116 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &311321445
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890617571}
+    m_Modifications:
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1026.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -30.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.90092456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.09360916
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.4097821
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.10793937
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 14.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681937616, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681937616, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681937618, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_Name
+      value: RockSwamp02 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681937618, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5593516985681937618, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 097fb4de22b2b95499c9d7a4091e9db5, type: 3}
+--- !u!4 &311321446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5593516985681451250, guid: 097fb4de22b2b95499c9d7a4091e9db5,
+    type: 3}
+  m_PrefabInstance: {fileID: 311321445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &315510499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9767,6 +9869,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &426799124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14408,6 +14512,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &716946094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16182,9 +16288,8 @@ GameObject:
   - component: {fileID: 786099308}
   - component: {fileID: 786099307}
   - component: {fileID: 786099306}
-  - component: {fileID: 786099305}
   - component: {fileID: 786099304}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16204,19 +16309,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaterialValue: 5
---- !u!114 &786099305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786099303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf998b3d5f9ba8441a3d9d6d83bbc063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalReset: 0
 --- !u!65 &786099306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16224,8 +16316,8 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786099303}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -16478,6 +16570,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &792999869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18620,6 +18714,7 @@ GameObject:
   - component: {fileID: 857755343}
   - component: {fileID: 857755344}
   - component: {fileID: 857755345}
+  - component: {fileID: 857755346}
   m_Layer: 0
   m_Name: VideoTrigger
   m_TagString: Untagged
@@ -18666,6 +18761,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeec72c54f13c2140afda0bd47d2e1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &857755346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857755342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab438ab15109ae41ac98cbc3a7ce6f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platforms:
+  - {fileID: 266052707}
+  - {fileID: 1236516006}
+  steelCageSound: 0
+  oneInteraction: 1
 --- !u!1 &859679818
 GameObject:
   m_ObjectHideFlags: 0
@@ -19134,6 +19246,8 @@ Transform:
   - {fileID: 308067792}
   - {fileID: 823935445}
   - {fileID: 280501069}
+  - {fileID: 1064995359}
+  - {fileID: 311321446}
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19882,6 +19996,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &913637592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21314,6 +21430,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &986920918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22855,6 +22973,131 @@ MonoBehaviour:
   delayAfterPhrase: 1.2
   phraseDuration: 1.5
   text: "\u0422\u0430\u043A \u0438 \u043A\u0443\u0434\u0430 \u0442\u044B \u0438\u0434\u0435\u0448\u044C?"
+--- !u!1001 &1064995358
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 890617571}
+    m_Modifications:
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1041.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5724561
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.021541337
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.81907266
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.030821439
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -4.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -249.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483335, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483335, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632483335, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632779301, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_Name
+      value: RockFloating03 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632779301, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632779301, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632779303, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447335184632779303, guid: be0799c6b5d94b948841c79cb6246f75,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be0799c6b5d94b948841c79cb6246f75, type: 3}
+--- !u!4 &1064995359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5447335184632483333, guid: be0799c6b5d94b948841c79cb6246f75,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064995358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1065838833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23439,6 +23682,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1087419787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24039,6 +24284,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1107568026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24269,12 +24516,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _tipsCMG.Array.data[1]
       value: 
-      objectReference: {fileID: 1373699727}
+      objectReference: {fileID: 0}
     - target: {fileID: 7418179166001359239, guid: 5fb9c2fa1ddaed446be1dce2aa1c6cc7,
         type: 3}
       propertyPath: _tipsCMG.Array.data[2]
       value: 
-      objectReference: {fileID: 1387792649}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb9c2fa1ddaed446be1dce2aa1c6cc7, type: 3}
 --- !u!1 &1110898310
@@ -26128,6 +26375,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1183839625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27121,7 +27370,7 @@ PrefabInstance:
     - target: {fileID: 5552657966503949411, guid: eb8ae788cf1be8c478b39a079f74b336,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 522.3
+      value: 428.7
       objectReference: {fileID: 0}
     - target: {fileID: 5552657966503949411, guid: eb8ae788cf1be8c478b39a079f74b336,
         type: 3}
@@ -30634,12 +30883,6 @@ Transform:
   m_Father: {fileID: 657851945}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1373699727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 486180477, guid: f07fbb8b47ad90d439d1db4aee3fb440,
-    type: 3}
-  m_PrefabInstance: {fileID: 1000887358}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1376824645
 GameObject:
   m_ObjectHideFlags: 0
@@ -30778,12 +31021,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 8
   saveSystem: {fileID: 0}
---- !u!1 &1387792649 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 168869522, guid: 068a82c7548b1ba45ac9afc2cce042e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1342617859}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1389822602
 GameObject:
   m_ObjectHideFlags: 0
@@ -31810,6 +32047,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1423962901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36280,6 +36519,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1644882061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36638,6 +36879,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1342617859}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1674263323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2034647245, guid: 068a82c7548b1ba45ac9afc2cce042e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1342617859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674263311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c04d106278bd6c48af4a3ed7818a565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1674263326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37753,6 +38006,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1730156475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39868,8 +40123,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817000538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 244.3, y: -11.700001, z: 26.875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 150.7, y: -11.700001, z: 26.875}
+  m_LocalScale: {x: 0.5, y: 1, z: 1}
   m_Children:
   - {fileID: 370003864}
   m_Father: {fileID: 526121688}
@@ -39911,6 +40166,8 @@ MonoBehaviour:
   sinkStoneSound: 0
   boatSound: 1
   playOnce: 0
+  needCombinedCharacters: 1
+  character: {fileID: 1674263323}
 --- !u!114 &1817000542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39933,7 +40190,7 @@ MonoBehaviour:
   onlyOneInteractionUsed: 0
   rotationSpeed: 10
   movementSpeed: 1.5
-  delayTime: 2
+  delayTime: 0
   waitUntilTime: 0
   points:
   - {fileID: 2049510898}
@@ -42133,6 +42390,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &1956161090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43114,9 +43373,8 @@ GameObject:
   - component: {fileID: 1997230128}
   - component: {fileID: 1997230127}
   - component: {fileID: 1997230126}
-  - component: {fileID: 1997230125}
   - component: {fileID: 1997230124}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43136,19 +43394,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaterialValue: 5
---- !u!114 &1997230125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997230123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf998b3d5f9ba8441a3d9d6d83bbc063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalReset: 0
 --- !u!65 &1997230126
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43156,8 +43401,8 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997230123}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_Material: {fileID: 13400000, guid: f60c31f472194534d83d08ab99cf128a, type: 2}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -43362,6 +43607,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &2010914201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44327,6 +44574,8 @@ MonoBehaviour:
   sinkStoneSound: 0
   boatSound: 1
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &2065915808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45812,6 +46061,8 @@ MonoBehaviour:
   sinkStoneSound: 1
   boatSound: 0
   playOnce: 0
+  needCombinedCharacters: 0
+  character: {fileID: 0}
 --- !u!114 &2135080501
 MonoBehaviour:
   m_ObjectHideFlags: 0

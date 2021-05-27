@@ -14,7 +14,9 @@ public class TouchActivator : MonoBehaviour
     public bool boatSound = false;
     public bool playOnce = false;
     private bool soundPlayedOnce = false;
-
+    public bool needBothCharacters = false;
+    public Character character;
+    private int charactersCount;
     //private bool soundPlayed = false;
 
 
@@ -23,24 +25,52 @@ public class TouchActivator : MonoBehaviour
         if (!stayOnToUse && !reverseBehavior)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
-                if (sinkStoneSound || boatSound)
+                charactersCount++;
+                if (needBothCharacters)
                 {
-                    
+                    if (character.isCombined || charactersCount == 2) 
+                    {
+                        if (sinkStoneSound || boatSound)
+                        {
+
+                        }
+                        else
+                        {
+                            if (!soundPlayedOnce)
+                            {
+                                playSound();
+                                playSoundPlatforms();
+                                if (playOnce)
+                                {
+                                    soundPlayedOnce = true;
+                                }
+                            }
+                        }
+                        for (int i = 0; i < targetGameObject.Length; ++i)
+                            targetGameObject[i].Switch();
+                    }
                 }
                 else
                 {
-                    if (!soundPlayedOnce)
+                    if (sinkStoneSound || boatSound)
                     {
-                        playSound();
-                        playSoundPlatforms();
-                        if (playOnce)
+
+                    }
+                    else
+                    {
+                        if (!soundPlayedOnce)
                         {
-                            soundPlayedOnce = true;
+                            playSound();
+                            playSoundPlatforms();
+                            if (playOnce)
+                            {
+                                soundPlayedOnce = true;
+                            }
                         }
                     }
+                    for (int i = 0; i < targetGameObject.Length; ++i)
+                        targetGameObject[i].Switch();
                 }
-                for (int i = 0; i < targetGameObject.Length; ++i)
-                    targetGameObject[i].Switch();
             }
     }
 
@@ -59,6 +89,7 @@ public class TouchActivator : MonoBehaviour
         if (reverseBehavior)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
+                charactersCount--;
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Switch();
             }
@@ -66,9 +97,15 @@ public class TouchActivator : MonoBehaviour
         if (stayOnToUse)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
+                charactersCount--;
                 for (int i = 0; i < targetGameObject.Length; ++i)
                     targetGameObject[i].Deactivate();
             }
+
+        if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
+        {
+            charactersCount--;
+        }
     }
 
     private void playSound()
