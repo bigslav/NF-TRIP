@@ -111,7 +111,7 @@ public class Pause : MonoBehaviour {
             file.Close();
 
             // 3
-            LoaderWatchDog.wasLoaded = true;
+            LoaderWatchDog.wasLoaded = 2;
             LoaderWatchDog.saveNum = num;
             black.FadeIn();
             SceneManager.LoadScene(save.sceneName);

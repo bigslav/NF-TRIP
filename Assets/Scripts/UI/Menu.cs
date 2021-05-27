@@ -154,7 +154,7 @@ public class Menu : MonoBehaviour {
             file.Close();
 
             // 3
-            LoaderWatchDog.wasLoaded = true;
+            LoaderWatchDog.wasLoaded = 2;
             LoaderWatchDog.saveNum = num;
             SceneManager.LoadScene(save.sceneName);
         }

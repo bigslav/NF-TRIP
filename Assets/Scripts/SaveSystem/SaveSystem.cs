@@ -13,8 +13,10 @@ public class SaveSystem : MonoBehaviour
     public string saveFile = "Checkpoint.txt";
     public GameObject[] platforms;
     public GameObject[] bridges;
+    public GameObject[] boxes;
     public GameObject golemObject;
     public GameObject mushroomObject;
+    private CharacterSwitch characterSwitch;
 
     private Character golem;
     private Character mushroom;
@@ -29,12 +31,12 @@ public class SaveSystem : MonoBehaviour
     public int savedCheckpontNum = -1;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        if (LoaderWatchDog.wasLoaded)
+        characterSwitch = FindObjectsOfType<CharacterSwitch>()[0];
+        if (LoaderWatchDog.wasLoaded > 0)
         {
             LoadGame(LoaderWatchDog.saveNum);
-            LoaderWatchDog.wasLoaded = false;
         }
         else
             ReadCheckpoint();
@@ -101,6 +103,17 @@ public class SaveSystem : MonoBehaviour
             j++;
         }
 
+        int k = 0;
+        foreach (GameObject targetGameObject in boxes)
+        {
+            MovableBox target = targetGameObject.GetComponent<MovableBox>();
+            save.boxMass.Add(target.GetComponent<Rigidbody>().mass);
+            save.boxPositionX.Add(target.transform.position.x);
+            save.boxPositionY.Add(target.transform.position.y);
+            save.boxPositionZ.Add(target.transform.position.z);
+            k++;
+        }
+
         if (golemObject != null)
         {
             Character golem = golemObject.GetComponent<Character>();
@@ -108,9 +121,11 @@ public class SaveSystem : MonoBehaviour
             save.golemPositionX = golem.transform.position.x;
             save.golemPositionY = golem.transform.position.y;
             save.golemPositionZ = golem.transform.position.z;
-            save.golemRotationX = golem.transform.GetChild(0).transform.rotation.x;
-            save.golemRotationY = golem.transform.GetChild(0).transform.rotation.y;
-            save.golemRotationZ = golem.transform.GetChild(0).transform.rotation.z;
+            save.golemRotationX = golem.transform.GetChild(0).transform.eulerAngles.x;
+            save.golemRotationY = golem.transform.GetChild(0).transform.eulerAngles.y;
+            save.golemRotationZ = golem.transform.GetChild(0).transform.eulerAngles.z;
+            Debug.Log(golem.transform.GetChild(0).transform.eulerAngles);
+
             save.golemRotationW = golem.transform.GetChild(0).transform.rotation.w;
             save.golemBools.Add(golem.isActive);
             save.golemBools.Add(golem.isGrounded);
@@ -128,9 +143,9 @@ public class SaveSystem : MonoBehaviour
         save.mushroomPositionX = mushroom.transform.position.x;
         save.mushroomPositionY = mushroom.transform.position.y;
         save.mushroomPositionZ = mushroom.transform.position.z;
-        save.mushroomRotationX = mushroom.transform.GetChild(0).transform.rotation.x;
-        save.mushroomRotationY = mushroom.transform.GetChild(0).transform.rotation.y;
-        save.mushroomRotationZ = mushroom.transform.GetChild(0).transform.rotation.z;
+        save.mushroomRotationX = mushroom.transform.GetChild(0).transform.eulerAngles.x;
+        save.mushroomRotationY = mushroom.transform.GetChild(0).transform.eulerAngles.y;
+        save.mushroomRotationZ = mushroom.transform.GetChild(0).transform.eulerAngles.z;
         save.mushroomRotationW = mushroom.transform.GetChild(0).transform.rotation.w;
         save.mushroomBools.Add(mushroom.isActive);
         save.mushroomBools.Add(mushroom.isGrounded);
@@ -149,6 +164,8 @@ public class SaveSystem : MonoBehaviour
 
         save.sceneName = SceneManager.GetActiveScene().name;
 
+        save.charSwitchControl = characterSwitch.switchControlOn;
+        save.charSwitchCombine = characterSwitch.combineOn;
         return save;
     }
 
@@ -208,17 +225,30 @@ public class SaveSystem : MonoBehaviour
                 j++;
             }
 
+
+            int k = 0;
+            foreach (GameObject targetGameObject in boxes)
+            {
+                MovableBox target = targetGameObject.GetComponent<MovableBox>();
+                target.transform.position = new Vector3(save.boxPositionX[k], save.boxPositionY[k], save.boxPositionZ[k]);
+                target.GetComponent<Rigidbody>().mass = save.boxMass[k];
+                k++;
+            }
+
+
+            Character golem = null;
             if (golemObject != null)
             {
-                Character golem = golemObject.GetComponent<Character>();
+                golem = golemObject.GetComponent<Character>();
 
                 golem.transform.position = new Vector3(save.golemPositionX, save.golemPositionY, save.golemPositionZ);
-                golem.transform.rotation = new Quaternion(save.golemRotationX, save.golemRotationY, save.golemRotationZ, save.golemRotationW);
+                golem.transform.GetChild(0).transform.eulerAngles = new Vector3(save.golemRotationX, save.golemRotationY, save.golemRotationZ);
+                Debug.Log(golem.transform.GetChild(0).transform.eulerAngles);
                 golem.isActive = save.golemBools[0];
                 golem.isGrounded = save.golemBools[1];
                 golem.isCombined = save.golemBools[2];
                 golem.isOnTopOfGolem = save.golemBools[3];
-                golem.isPulling = save.golemBools[4];
+                //golem.isPulling = save.golemBools[4];
                 golem.isFacingRight = save.golemBools[5];
                 golem.isUsingMechanism = save.golemBools[6];
                 golem.isGlueToMechanism = save.golemBools[7];
@@ -227,16 +257,26 @@ public class SaveSystem : MonoBehaviour
 
             Character mushroom = mushroomObject.GetComponent<Character>();
             mushroom.transform.position = new Vector3(save.mushroomPositionX, save.mushroomPositionY, save.mushroomPositionZ);
-            mushroom.transform.rotation = new Quaternion(save.mushroomRotationX, save.mushroomRotationY, save.mushroomRotationZ, save.mushroomRotationW);
+            mushroom.transform.GetChild(0).transform.eulerAngles = new Vector3(save.mushroomRotationX, save.mushroomRotationY, save.mushroomRotationZ);
             mushroom.isActive = save.mushroomBools[0];
             mushroom.isGrounded = save.mushroomBools[1];
             mushroom.isCombined = save.mushroomBools[2];
             mushroom.isOnTopOfGolem = save.mushroomBools[3];
-            mushroom.isPulling = save.mushroomBools[4];
+            //mushroom.isPulling = save.mushroomBools[4];
             mushroom.isFacingRight = save.mushroomBools[5];
             mushroom.isUsingMechanism = save.mushroomBools[6];
             mushroom.isGlueToMechanism = save.mushroomBools[7];
             mushroom.isOnTopOfMovable = save.mushroomBools[8];
+
+            localLevelNum = save.localLevelNum;
+            localCheckpontNum = save.localCheckpontNum;
+            savedLevelNum = save.savedLevelNum;
+            savedCheckpontNum = save.savedCheckpontNum;
+
+            GlobalVariables.spawnToCheckointId = localCheckpontNum;
+
+            characterSwitch.switchControlOn = save.charSwitchControl;
+            characterSwitch.combineOn = save.charSwitchCombine;
             Debug.Log("Game Loaded");
         }
         else
