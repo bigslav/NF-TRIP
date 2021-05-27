@@ -30,6 +30,11 @@ public class SaveData
     public List<float> bridgesTolerance = new List<float>();
     public List<float> bridgesRotation = new List<float>();
 
+    public List<float> boxPositionX = new List<float>();
+    public List<float> boxPositionY = new List<float>();
+    public List<float> boxPositionZ = new List<float>();
+    public List<float> boxMass = new List<float>();
+
     public float golemPositionX;
     public float golemPositionY;
     public float golemPositionZ;
@@ -49,4 +54,7 @@ public class SaveData
     public List<bool> mushroomBools = new List<bool>();
 
     public string sceneName;
+
+    public bool charSwitchControl;
+    public bool charSwitchCombine;
 }
