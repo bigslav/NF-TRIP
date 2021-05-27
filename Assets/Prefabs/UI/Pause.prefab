@@ -336,7 +336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.000061035156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6376138942925732453
@@ -1113,7 +1113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -0.000061035156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7562773073268543137
@@ -3950,8 +3950,9 @@ MonoBehaviour:
   optionsPanel: {fileID: 1823217149975064869}
   savePanel: {fileID: 6318981448367788145}
   howToPanel: {fileID: 4074272908946066318}
-  MainMenu: Menu
+  MainMenu: MainMenu
   saveManager: {fileID: 0}
+  black: {fileID: 0}
 --- !u!1 &6318981448529791634
 GameObject:
   m_ObjectHideFlags: 0
