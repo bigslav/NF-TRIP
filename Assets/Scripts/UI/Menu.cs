@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using System.IO;
 
 public class Menu : MonoBehaviour {
@@ -24,15 +25,24 @@ public class Menu : MonoBehaviour {
 
     public string[] levels;
 
-    private string buttonName;
+    private string buttonName; 
+    
+    UnityEngine.Video.VideoPlayer videoPlayer;
+
 
     //Settings
     //public Slider volumeSlider;
-	//public Text volumeValueText;
+    //public Text volumeValueText;
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
     {
+        GameObject camera = GameObject.Find("Main Camera");
+        videoPlayer = camera.AddComponent<VideoPlayer>();
+        videoPlayer.playOnAwake = false;
+        videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
+        videoPlayer.url = "Assets/Introduction.mp4";
+        videoPlayer.Prepare();
         //if (!PlayerPrefs.HasKey("volume")) {
         //	PlayerPrefs.SetFloat("volume", 1);
         //}
@@ -46,9 +56,24 @@ public class Menu : MonoBehaviour {
 
     public void StartLevelOne()
     {
+        GameObject.Find("Menu").SetActive(false);
+        videoPlayer.Play();
+        videoPlayer.loopPointReached += CheckOver;
         PlaySound("event:/ui/menu/level");
+        DestroyGameObject(GameObject.Find("Music"));
+        //GlobalVariables.spawnToCheckointId = 0;
+        //SceneManager.LoadScene(levels[0]);
+    }
+
+    void DestroyGameObject(UnityEngine.GameObject gameObject)
+    {
+        Destroy(gameObject);
+    }
+
+    void CheckOver(UnityEngine.Video.VideoPlayer vp)
+    {
         GlobalVariables.spawnToCheckointId = 0;
-        SceneManager.LoadScene(levels[0]);
+        SceneManager.LoadScene(levels[0]);//the scene that you want to load after the video has ended.
     }
 
     public void StartLevelTwo()

@@ -155,7 +155,7 @@ MonoBehaviour:
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1
-  TriggerOnce: 0
+  TriggerOnce: 1
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -494,6 +494,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509184500381700834, guid: 195b2b0edb59e704d81bd69d3d643a2e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1509184500381700862, guid: 195b2b0edb59e704d81bd69d3d643a2e,
         type: 3}

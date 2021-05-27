@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VideoPlayerScript : MonoBehaviour
 {
@@ -12,12 +13,18 @@ public class VideoPlayerScript : MonoBehaviour
         videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
         videoPlayer.playOnAwake = false;
         videoPlayer.renderMode = UnityEngine.Video.VideoRenderMode.CameraNearPlane;
-        videoPlayer.url = "Assets/TestVideo1920-2.m4v";
+        videoPlayer.url = "Assets/Outroduction.mp4";
         videoPlayer.Prepare();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         videoPlayer.Play();
+        videoPlayer.loopPointReached += CheckOver;
+    }
+    void CheckOver(UnityEngine.Video.VideoPlayer vp)
+    {
+        GlobalVariables.spawnToCheckointId = 0;
+        SceneManager.LoadScene("MainMenu"); //the scene that you want to load after the video has ended.
     }
 }
