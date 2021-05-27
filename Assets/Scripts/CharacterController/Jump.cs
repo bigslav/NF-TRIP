@@ -28,7 +28,7 @@ public class Jump : MonoBehaviour
         _drag = _rb.drag;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Time.timeScale == 1)
         {
