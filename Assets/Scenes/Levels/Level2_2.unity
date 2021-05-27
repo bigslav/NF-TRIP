@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: e7fa54082ceee4c429ffd6648e4e0c0c,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4039,6 +4039,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &256433662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4610,6 +4611,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &264648832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5406,6 +5408,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &298869697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8784,6 +8787,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &426799124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13424,6 +13428,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &716946094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15378,6 +15383,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &792999869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18679,6 +18685,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &913637592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20026,6 +20033,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &986920918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20607,6 +20615,10 @@ PrefabInstance:
       propertyPath: MaterialTypes.Array.data[7]
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 1455904537, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: 1152234723}
     - target: {fileID: 5162330434519888723, guid: f07fbb8b47ad90d439d1db4aee3fb440,
         type: 3}
       propertyPath: pause
@@ -22142,6 +22154,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1087419787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22741,6 +22754,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1107568026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24904,6 +24918,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1183839625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28426,6 +28441,10 @@ PrefabInstance:
       propertyPath: MaterialTypes.Array.data[7]
       value: Metal
       objectReference: {fileID: 0}
+    - target: {fileID: 2034647245, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: 806559692}
     - target: {fileID: 5594992948068825823, guid: 068a82c7548b1ba45ac9afc2cce042e9,
         type: 3}
       propertyPath: pause
@@ -29817,6 +29836,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1423962901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33960,6 +33980,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1644882061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35397,6 +35418,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1730156475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37554,6 +37576,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 0
   boatSound: 1
+  playOnce: 0
 --- !u!114 &1817000542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39599,6 +39622,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &1956161090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40706,6 +40730,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &2010914201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41494,6 +41519,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 0
   boatSound: 1
+  playOnce: 0
 --- !u!114 &2065915808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42978,6 +43004,7 @@ MonoBehaviour:
   bridgeSound: 0
   sinkStoneSound: 1
   boatSound: 0
+  playOnce: 0
 --- !u!114 &2135080501
 MonoBehaviour:
   m_ObjectHideFlags: 0

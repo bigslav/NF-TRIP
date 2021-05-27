@@ -26,7 +26,6 @@ public class Black : MonoBehaviour
         {
             if (fading)
                 break;
-            Debug.Log("a");
             FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, fadeSpeed * Time.deltaTime);
             yield return null;
         }
@@ -38,7 +37,6 @@ public class Black : MonoBehaviour
         {
             if (!fading)
                 fading = true;
-            Debug.Log(FadeImg.color.a);
             FadeImg.color = Color.Lerp(FadeImg.color, Color.black, fadeSpeed * Time.deltaTime);
             yield return null;
         }
