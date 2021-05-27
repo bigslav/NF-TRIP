@@ -83,6 +83,7 @@ public class CharacterSwitch : MonoBehaviour
 
             if (Mathf.Abs(dist.x) < 2f && Mathf.Abs(dist.y) < 5f)
             {
+
                 if (!(_golemCharacter.isCombined && _mushroomCharacter.isCombined))
                 {
                     if (_mushroomCharacter.isActive)
@@ -90,18 +91,29 @@ public class CharacterSwitch : MonoBehaviour
                         SwitchCharacterControl();
                     }
                     Combine(true);
+                    SwitchSound();
                 }
                 else
                 {
                     SwitchCharacterControl();
                     Combine(false);
+                    SwitchSound();
                 }
             }
             else
             {
                 SwitchCharacterControl();
+                SwitchSound();
             }
         }
+    }
+
+    void SwitchSound()
+    {
+        FMOD.Studio.EventInstance switchEvent = FMODUnity.RuntimeManager.CreateInstance("event:/ui/gameplay/switch");
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(switchEvent, transform, GetComponent<Rigidbody>());
+        switchEvent.start();
+        switchEvent.release();
     }
 
     private void ProcessJumpOnTop()
