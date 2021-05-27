@@ -21,6 +21,12 @@ public class DialogueSnapshot : MonoBehaviour
     FMOD.Studio.PLAYBACK_STATE state;
 
     private bool sceneReloaded = false;
+    public bool firstVideo = false;
+    public bool secondVideo = false;
+
+    private float timerFirstVideo = 17f;
+    private float timerSecondVideo = 17f;
+
 
 
     // Start is called before the first frame update
@@ -37,6 +43,10 @@ public class DialogueSnapshot : MonoBehaviour
         //{
         //    DialogueEvent.release();
         //}
+        if (timerSecondVideo > 0)
+        {
+            timerSecondVideo -= Time.deltaTime;
+        }
 
         if (Time.timeScale != 1)
         {
@@ -49,6 +59,27 @@ public class DialogueSnapshot : MonoBehaviour
 
         if (!dialogueDone && dialogueTriggered)
         {
+            if (firstVideo == true)
+            {
+                if (timerFirstVideo <= 0)
+                {
+                    if (GameObject.Find("Video-1").GetComponent<UnityEngine.Video.VideoPlayer>() != null)
+                    {
+                        GameObject.Find("Video-1").GetComponent<UnityEngine.Video.VideoPlayer>().Play();
+                    }
+                }
+            }
+            if (secondVideo == true)
+            {
+                if (timerSecondVideo <= 0)
+                {
+                    if (GameObject.Find("Video-2").GetComponent<UnityEngine.Video.VideoPlayer>() != null)
+                    {
+                        GameObject.Find("Video-2").GetComponent<UnityEngine.Video.VideoPlayer>().Play();
+                    }
+                }
+            }
+
             DialogueEvent.getPlaybackState(out state);
             //Debug.Log("state: " + state);
             if (state.ToString() == "STOPPED")
