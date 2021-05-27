@@ -18,7 +18,6 @@ public class Jump : MonoBehaviour
     [HideInInspector] 
     public int DefulatMaterialValue;
     private string MaterialParameterName = "Terrain";
-
     //These variables are used when checking the Material type the player is on top of.
     private RaycastHit hit;
     private int F_MaterialValue;
@@ -29,7 +28,7 @@ public class Jump : MonoBehaviour
         _drag = _rb.drag;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (Time.timeScale == 1)
         {
@@ -45,7 +44,7 @@ public class Jump : MonoBehaviour
                 }
             }
 
-            if (jumpAllowed)
+            if (jumpAllowed && gameObject.GetComponent<Character>().isGrounded)
             {
                 _rb.AddForce(Vector3.up * speed, ForceMode.Impulse);
 
