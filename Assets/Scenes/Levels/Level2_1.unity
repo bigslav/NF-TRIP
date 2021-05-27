@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 160d379d43bcf2d4bb82d28ff59ee94b,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1129,6 +1129,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da76716f1fb33b49af51d21e3dae109, type: 3}
+--- !u!1 &76255268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1155520466084677976, guid: 8da76716f1fb33b49af51d21e3dae109,
+    type: 3}
+  m_PrefabInstance: {fileID: 76255267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &97793495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3345,6 +3351,9 @@ MonoBehaviour:
   - {fileID: 1192570713}
   bridges:
   - {fileID: 768582931}
+  boxes:
+  - {fileID: 76255268}
+  - {fileID: 2136051485}
   golemObject: {fileID: 1322722211}
   mushroomObject: {fileID: 160828492}
   localCheckpontNum: 4
@@ -11744,12 +11753,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _tipsCMG.Array.data[1]
       value: 
-      objectReference: {fileID: 1859086407}
+      objectReference: {fileID: 0}
     - target: {fileID: 7418179166001359239, guid: 5fb9c2fa1ddaed446be1dce2aa1c6cc7,
         type: 3}
       propertyPath: _tipsCMG.Array.data[2]
       value: 
-      objectReference: {fileID: 1417755325}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb9c2fa1ddaed446be1dce2aa1c6cc7, type: 3}
 --- !u!4 &918808300 stripped
@@ -17667,12 +17676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feb721f103a57f46b7fd692da5289b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1417755325 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 168869522, guid: 068a82c7548b1ba45ac9afc2cce042e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 358905433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1418830040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24861,12 +24864,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5a2aacdec1ed946a806eacfaba811b, type: 3}
---- !u!1 &1859086407 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 486180477, guid: f07fbb8b47ad90d439d1db4aee3fb440,
-    type: 3}
-  m_PrefabInstance: {fileID: 917121017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1862822881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28422,6 +28419,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da76716f1fb33b49af51d21e3dae109, type: 3}
+--- !u!1 &2136051485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1155520466084677976, guid: 8da76716f1fb33b49af51d21e3dae109,
+    type: 3}
+  m_PrefabInstance: {fileID: 2136051484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2139335273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5788267673212771214, guid: ae5a2aacdec1ed946a806eacfaba811b,
