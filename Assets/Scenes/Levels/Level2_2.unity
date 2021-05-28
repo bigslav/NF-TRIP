@@ -22163,6 +22163,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f07fbb8b47ad90d439d1db4aee3fb440, type: 3}
+--- !u!1 &1000887359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6501412806922148324, guid: f07fbb8b47ad90d439d1db4aee3fb440,
+    type: 3}
+  m_PrefabInstance: {fileID: 1000887358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1005406263
 GameObject:
   m_ObjectHideFlags: 0
@@ -24516,12 +24522,12 @@ PrefabInstance:
         type: 3}
       propertyPath: _tipsCMG.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1000887359}
     - target: {fileID: 7418179166001359239, guid: 5fb9c2fa1ddaed446be1dce2aa1c6cc7,
         type: 3}
       propertyPath: _tipsCMG.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1342617860}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb9c2fa1ddaed446be1dce2aa1c6cc7, type: 3}
 --- !u!1 &1110898310
@@ -30633,6 +30639,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 068a82c7548b1ba45ac9afc2cce042e9, type: 3}
+--- !u!1 &1342617860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7668208789465719202, guid: 068a82c7548b1ba45ac9afc2cce042e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1342617859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1357421577
 GameObject:
   m_ObjectHideFlags: 0
@@ -40125,7 +40137,7 @@ Transform:
   m_GameObject: {fileID: 1817000538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 150.7, y: -11.700001, z: 26.875}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 370003864}
   m_Father: {fileID: 526121688}
@@ -40167,7 +40179,7 @@ MonoBehaviour:
   sinkStoneSound: 0
   boatSound: 1
   playOnce: 0
-  needBothCharacters: 0
+  needBothCharacters: 1
   character: {fileID: 1674263323}
 --- !u!114 &1817000542
 MonoBehaviour:
