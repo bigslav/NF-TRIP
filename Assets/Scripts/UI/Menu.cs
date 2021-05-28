@@ -37,12 +37,14 @@ public class Menu : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        /*
         GameObject camera = GameObject.Find("Main Camera");
         videoPlayer = camera.AddComponent<VideoPlayer>();
         videoPlayer.playOnAwake = false;
         videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
         videoPlayer.url = "Assets/Introduction.mp4";
         videoPlayer.Prepare();
+        */
         //if (!PlayerPrefs.HasKey("volume")) {
         //	PlayerPrefs.SetFloat("volume", 1);
         //}
@@ -56,11 +58,14 @@ public class Menu : MonoBehaviour {
 
     public void StartLevelOne()
     {
+        /*
         GameObject.Find("Menu").SetActive(false);
         videoPlayer.Play();
         videoPlayer.loopPointReached += CheckOver;
+        */
         PlaySound("event:/ui/menu/level");
         DestroyGameObject(GameObject.Find("Music"));
+        SceneManager.LoadScene(levels[0]);
         //GlobalVariables.spawnToCheckointId = 0;
         //SceneManager.LoadScene(levels[0]);
     }

@@ -3813,6 +3813,11 @@ PrefabInstance:
       propertyPath: listOfSpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1575218787180403682}
+    - target: {fileID: 6501412806922148324, guid: f07fbb8b47ad90d439d1db4aee3fb440,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8550552406573238378, guid: f07fbb8b47ad90d439d1db4aee3fb440,
         type: 3}
       propertyPath: m_RootOrder
@@ -26763,7 +26768,7 @@ Transform:
   m_GameObject: {fileID: 1350494050}
   m_LocalRotation: {x: -0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8048821776520710819}
   m_RootOrder: 2
@@ -26807,7 +26812,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d0f5bcf86b4055e4780be3e861d68c7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e8e7b33609925fe45a4cb9a0d769939c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -29038,50 +29043,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1437023037
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1437023038}
-  - component: {fileID: 1437023039}
-  m_Layer: 8
-  m_Name: GameObject
-  m_TagString: Golem
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1437023038
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437023037}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 188073932}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1437023039
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437023037}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.08, y: -0.26, z: 0.07}
-  m_Center: {x: 0, y: 0.92, z: 0}
 --- !u!1001 &1441750799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43432,7 +43393,7 @@ PrefabInstance:
     - target: {fileID: 4782880538143506931, guid: 1c527a090b91cbe4c8a36893fc4e56cb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4782880538143506931, guid: 1c527a090b91cbe4c8a36893fc4e56cb,
         type: 3}
@@ -43447,12 +43408,12 @@ PrefabInstance:
     - target: {fileID: 4782880538143506931, guid: 1c527a090b91cbe4c8a36893fc4e56cb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.58
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 4782880538143506931, guid: 1c527a090b91cbe4c8a36893fc4e56cb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4782880538143506931, guid: 1c527a090b91cbe4c8a36893fc4e56cb,
         type: 3}
@@ -43632,6 +43593,7 @@ MonoBehaviour:
   saveFile: Checkpoint.txt
   platforms: []
   bridges: []
+  boxes: []
   golemObject: {fileID: 0}
   mushroomObject: {fileID: 1485422821}
   localCheckpontNum: 1
@@ -44697,8 +44659,8 @@ MonoBehaviour:
   gateDoor: {fileID: 2013165971}
   lever: {fileID: 1961770421}
   pressETip: {fileID: 1350494050}
-  pressERed: {fileID: 21300000, guid: d0f5bcf86b4055e4780be3e861d68c7a, type: 3}
-  pressEGreen: {fileID: 21300000, guid: 4df8d72193153bb48aee8858bc069cbc, type: 3}
+  pressERed: {fileID: 21300000, guid: e8e7b33609925fe45a4cb9a0d769939c, type: 3}
+  pressEGreen: {fileID: 21300000, guid: 1f272305e34f8d34dbceb5d848709c3e, type: 3}
 --- !u!4 &8048821776520710819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6532644871051498040, guid: f9c36d5bade44da429182572c19b0cfd,
