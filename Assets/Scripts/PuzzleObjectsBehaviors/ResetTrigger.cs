@@ -18,6 +18,7 @@ public class ResetTrigger : MonoBehaviour
                 {
                     GameObject.Find("Dialog4 - Boat").GetComponent<DialogueSnapshot>().StopDialogue();
                 }
+                GameObject.Find("Ambience").GetComponent<MagmaScript>().StopMagma();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else

@@ -30,6 +30,7 @@ public class MovingPlatform : ParentPlatform
     public bool noSoundOnCollision = false;
     public bool sinkStoneSound = false;
     public bool boatSound = false;
+    public bool noSound = false;
 
     void Start()
     {
@@ -60,45 +61,52 @@ public class MovingPlatform : ParentPlatform
 
     private void OnCollisionEnter(Collision collision)
     {
-        soundPlayed = false;
-        Debug.Log(collision.gameObject.transform);
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+        if (!noSound)
         {
-            if (!parentingDisabled)
-                if (collision.gameObject.transform.parent == null)
-                {
-                    collision.gameObject.transform.parent = transform;
-                }
+            soundPlayed = false;
+            Debug.Log(collision.gameObject.transform);
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+            {
+                if (!parentingDisabled)
+                    if (collision.gameObject.transform.parent == null)
+                    {
+                        collision.gameObject.transform.parent = transform;
+                    }
+            }
         }
+        
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        //Debug.Log("Exit");
-        if (!soundPlayed && !noSoundOnCollision)
+        if (!noSound)
         {
-            if (sinkStoneSound)
+            //Debug.Log("Exit");
+            if (!soundPlayed && !noSoundOnCollision)
             {
-                playSinkStoneSound();
-            }
-            else if (boatSound)
-            {
-                playBoatSound();
-            }
-            else
-            {
-                playPlatformSound();
-            }
-            soundPlayed = true;
-        }
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
-        {
-            if(!parentingDisabled)
-                if (collision.gameObject.transform.parent == transform)
+                if (sinkStoneSound)
                 {
-                    collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
-                    collision.gameObject.transform.parent = null;
+                    playSinkStoneSound();
                 }
+                else if (boatSound)
+                {
+                    playBoatSound();
+                }
+                else
+                {
+                    playPlatformSound();
+                }
+                soundPlayed = true;
+            }
+            if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
+            {
+                if (!parentingDisabled)
+                    if (collision.gameObject.transform.parent == transform)
+                    {
+                        collision.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, collision.gameObject.GetComponent<Rigidbody>().velocity.y, 0);
+                        collision.gameObject.transform.parent = null;
+                    }
+            }
         }
     }
 

@@ -37,14 +37,12 @@ public class Menu : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        /*
         GameObject camera = GameObject.Find("Main Camera");
         videoPlayer = camera.AddComponent<VideoPlayer>();
         videoPlayer.playOnAwake = false;
         videoPlayer.renderMode = VideoRenderMode.CameraNearPlane;
         videoPlayer.url = "Assets/Introduction.mp4";
         videoPlayer.Prepare();
-        */
         //if (!PlayerPrefs.HasKey("volume")) {
         //	PlayerPrefs.SetFloat("volume", 1);
         //}
@@ -56,16 +54,45 @@ public class Menu : MonoBehaviour {
 
 	}
 
+    //public void PlayStreamingClip(string videoFile, bool looping = true)
+    //{
+    //    videoPlayer.source = VideoSource.Url;
+    //    videoPlayer.url = Application.streamingAssetsPath + "/" + videoFile;
+    //    videoPlayer.isLooping = looping;
+    //    StartCoroutine(PlayVideo());
+    //}
+
+
+
+    //private IEnumerator PlayVideo()
+    //{
+    //    // We must set the audio before calling Prepare, otherwise it won't play the audio
+    //    var audioSource = videoPlayer.GetComponent<AudioSource>();
+    //    videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
+    //    videoPlayer.controlledAudioTrackCount = 1;
+    //    videoPlayer.EnableAudioTrack(0, true);
+    //    videoPlayer.SetTargetAudioSource(0, audioSource);
+    //    // Wait until ready
+    //    videoPlayer.Prepare();
+    //    while (!videoPlayer.isPrepared)
+    //        yield return null;
+
+    //    videoPlayer.Play();
+    //    videoImage.texture = videoPlayer.texture;
+    //    while (videoPlayer.isPlaying)
+    //        yield return null;
+    //    onVideoFinished.Invoke(this);
+    //}
+
+
     public void StartLevelOne()
     {
-        /*
-        GameObject.Find("Menu").SetActive(false);
         videoPlayer.Play();
+        GameObject.Find("Menu").SetActive(false);
         videoPlayer.loopPointReached += CheckOver;
-        */
         PlaySound("event:/ui/menu/level");
         DestroyGameObject(GameObject.Find("Music"));
-        SceneManager.LoadScene(levels[0]);
+        //SceneManager.LoadScene(levels[0]);
         //GlobalVariables.spawnToCheckointId = 0;
         //SceneManager.LoadScene(levels[0]);
     }

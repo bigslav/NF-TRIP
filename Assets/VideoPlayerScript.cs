@@ -7,6 +7,7 @@ public class VideoPlayerScript : MonoBehaviour
 {
     UnityEngine.Video.VideoPlayer videoPlayer;
     private bool triggered = false;
+
     // Start is called before the first frame update
     void Start()
     {

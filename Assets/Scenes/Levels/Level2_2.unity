@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5042819, g: 0.5651896, b: 0.6202106, a: 1}
+  m_IndirectSpecularColor: {r: 0.5046694, g: 0.5654252, b: 0.6205929, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,9 +98,9 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: e7fa54082ceee4c429ffd6648e4e0c0c,
+  m_LightingDataAsset: {fileID: 112000000, guid: 4fff80b236feea24d902bd54983c0108,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -332,7 +332,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -727,7 +727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45557745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 797.7, y: -38.7, z: 0.7578125}
+  m_LocalPosition: {x: 787.1, y: -38.7, z: 0.7578125}
   m_LocalScale: {x: 0.56, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1828599470}
@@ -879,7 +879,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -1082,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -2641,7 +2641,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156308741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 119.61997, y: -12.89, z: 26.875}
+  m_LocalPosition: {x: 119.61997, y: -12.67, z: 26.875}
   m_LocalScale: {x: 2.25, y: 4, z: 3}
   m_Children: []
   m_Father: {fileID: 526121688}
@@ -3180,7 +3180,7 @@ Transform:
   m_LocalScale: {x: 20.83, y: 8.4, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 54
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &213650333
 PrefabInstance:
@@ -3389,6 +3389,7 @@ Transform:
   - {fileID: 1788117828}
   - {fileID: 835418404}
   - {fileID: 857755343}
+  - {fileID: 2129660834}
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4031,7 +4032,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -4603,6 +4604,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &256433663
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5177,6 +5179,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &264648833
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5746,6 +5749,7 @@ GameObject:
   - component: {fileID: 292460064}
   - component: {fileID: 292460063}
   - component: {fileID: 292460062}
+  - component: {fileID: 292460065}
   m_Layer: 10
   m_Name: Cube (22)
   m_TagString: Untagged
@@ -5827,6 +5831,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292460060}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &292460065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292460060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 2
 --- !u!1 &292501563
 GameObject:
   m_ObjectHideFlags: 0
@@ -6050,6 +6067,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &298869698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6272,7 +6290,7 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: f83d2903c863b374b937d4b9f3937f03, type: 2}
+  sharedProfile: {fileID: 0}
 --- !u!4 &308448519
 Transform:
   m_ObjectHideFlags: 0
@@ -6755,7 +6773,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e4e92856c74f01240b59774c7da6edcf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1065.5
+      value: 1058.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4e92856c74f01240b59774c7da6edcf,
         type: 3}
@@ -6765,7 +6783,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e4e92856c74f01240b59774c7da6edcf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.44
+      value: -6.4399996
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4e92856c74f01240b59774c7da6edcf,
         type: 3}
@@ -6804,7 +6822,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: e4e92856c74f01240b59774c7da6edcf,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: e4e92856c74f01240b59774c7da6edcf,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b84f233c0affa6c48bf0bd8f964b960d, type: 2}
+    - target: {fileID: -7635826562936255635, guid: e4e92856c74f01240b59774c7da6edcf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: b84f233c0affa6c48bf0bd8f964b960d, type: 2}
     - target: {fileID: 919132149155446097, guid: e4e92856c74f01240b59774c7da6edcf,
@@ -7957,7 +7985,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -8252,7 +8280,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -9909,6 +9937,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &426799125
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10203,6 +10232,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TouchActivatorPlatformCave (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727986, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727987, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
       propertyPath: m_RootOrder
@@ -10261,6 +10295,11 @@ PrefabInstance:
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
         type: 3}
       propertyPath: bridgeSound
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
+        type: 3}
+      propertyPath: sinkStoneSound
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6576823551907727988, guid: 002b9527f4ac629418ca0a17e851013c,
@@ -11115,7 +11154,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -12303,6 +12342,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 0
+  noSound: 0
 --- !u!1 &572382805
 GameObject:
   m_ObjectHideFlags: 0
@@ -13828,6 +13868,7 @@ GameObject:
   - component: {fileID: 678304217}
   - component: {fileID: 678304216}
   - component: {fileID: 678304215}
+  - component: {fileID: 678304218}
   m_Layer: 10
   m_Name: Cube (20)
   m_TagString: Untagged
@@ -13909,6 +13950,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 678304213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &678304218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678304213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 2
 --- !u!1001 &681851339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14552,6 +14606,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &716946095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14814,7 +14869,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -15314,7 +15369,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -16382,7 +16437,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786147198
 GameObject:
@@ -16610,6 +16665,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &792999870
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17100,7 +17156,7 @@ MonoBehaviour:
   PlayEvent: 3
   StopEvent: 4
   AllowFadeout: 1
-  TriggerOnce: 0
+  TriggerOnce: 1
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -17844,7 +17900,7 @@ MonoBehaviour:
   PlayEvent: 3
   StopEvent: 4
   AllowFadeout: 1
-  TriggerOnce: 0
+  TriggerOnce: 1
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -18131,7 +18187,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -18448,7 +18504,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 52
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -18731,7 +18787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857755342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1166, y: -34.11, z: 7.41}
+  m_LocalPosition: {x: 1159.9, y: -34.11, z: 6.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 220565018}
@@ -20036,6 +20092,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &913637593
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20609,7 +20666,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -20875,7 +20932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &955639601
 Transform:
   m_ObjectHideFlags: 0
@@ -20928,6 +20985,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 0
+  noSound: 0
 --- !u!1 &959550834
 GameObject:
   m_ObjectHideFlags: 0
@@ -21238,7 +21296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &976053841
 Transform:
   m_ObjectHideFlags: 0
@@ -21470,6 +21528,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &986920919
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23729,6 +23788,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1087419788
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24331,6 +24391,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1107568027
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24559,7 +24620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110898310}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -126.5, y: -2.1705353, z: -95.24209}
+  m_LocalPosition: {x: -126.5, y: -1.74, z: -95.24209}
   m_LocalScale: {x: 31, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 1749602420}
@@ -25310,6 +25371,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 0
+  noSound: 0
 --- !u!54 &1141930959
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26239,6 +26301,7 @@ RectTransform:
   - {fileID: 1838552007}
   - {fileID: 490183195}
   - {fileID: 182414665}
+  - {fileID: 1828599470}
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26422,6 +26485,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1183839626
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26534,7 +26598,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -26772,7 +26836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1195926502
 Transform:
   m_ObjectHideFlags: 0
@@ -27578,7 +27642,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -28160,6 +28224,7 @@ GameObject:
   - component: {fileID: 1259063838}
   - component: {fileID: 1259063837}
   - component: {fileID: 1259063836}
+  - component: {fileID: 1259063839}
   m_Layer: 10
   m_Name: Cube (21)
   m_TagString: Untagged
@@ -28241,6 +28306,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259063834}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1259063839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259063834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9998927708b44d827e1c0906e0e2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaterialValue: 2
 --- !u!1001 &1260542149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28251,7 +28329,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 53
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -28629,7 +28707,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -28871,7 +28949,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1271497078}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 136.37, y: -10.6, z: 26.875}
+  m_LocalPosition: {x: 136.37, y: -10.5, z: 26.875}
   m_LocalScale: {x: 20, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 526121688}
@@ -29069,7 +29147,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -30249,7 +30327,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -31125,7 +31203,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1392208556
 GameObject:
@@ -31540,7 +31618,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -32100,6 +32178,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1423962902
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32423,7 +32502,7 @@ PrefabInstance:
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 51
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4598555019393812581, guid: 1fcfb4e8cc4e0494e8f485b05601ba37,
         type: 3}
@@ -33534,7 +33613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468472209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.080017, y: -4.47, z: -95.24209}
+  m_LocalPosition: {x: -49.080017, y: -9.9, z: -95.24209}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1749602420}
@@ -34833,7 +34912,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 69da2eae5ababe54eb45520c291a52ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1040.8
+      value: 1024.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69da2eae5ababe54eb45520c291a52ca,
         type: 3}
@@ -34843,7 +34922,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 69da2eae5ababe54eb45520c291a52ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1
+      value: -3.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69da2eae5ababe54eb45520c291a52ca,
         type: 3}
@@ -35144,7 +35223,7 @@ Transform:
   m_LocalScale: {x: 20.83, y: 8.4, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 57
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1573894739
 GameObject:
@@ -35311,6 +35390,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 0
+  noSound: 0
 --- !u!54 &1574060232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36219,7 +36299,7 @@ Transform:
   m_LocalScale: {x: 20.83, y: 20, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 56
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1622160571
 PrefabInstance:
@@ -36231,7 +36311,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -36786,6 +36866,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1644882062
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38273,6 +38354,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1730156476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40038,7 +40120,7 @@ MonoBehaviour:
   PlayEvent: 3
   StopEvent: 4
   AllowFadeout: 1
-  TriggerOnce: 0
+  TriggerOnce: 1
   Preload: 0
   Params: []
   OverrideAttenuation: 0
@@ -40392,8 +40474,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
-  sinkStoneSound: 0
-  boatSound: 1
+  sinkStoneSound: 1
+  boatSound: 0
   playOnce: 0
   needBothCharacters: 1
   character: {fileID: 1674263323}
@@ -40434,6 +40516,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 1
+  noSound: 0
 --- !u!54 &1817000543
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -40650,16 +40733,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828599468}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.042948, y: 15.4254875, z: -0.7578125}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -950.95703, y: -524.5745, z: -0.7578125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1425362582}
   - {fileID: 1229343351}
   - {fileID: 689023713}
   - {fileID: 45557746}
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_Father: {fileID: 1180256431}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831673467
 GameObject:
@@ -41478,7 +41561,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -41569,7 +41652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1899537154
 Transform:
   m_ObjectHideFlags: 0
@@ -41578,7 +41661,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899537153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1022.6, y: -42, z: 0}
+  m_LocalPosition: {x: 1009, y: -42, z: 0}
   m_LocalScale: {x: 1.781708, y: 4.9081, z: 1}
   m_Children: []
   m_Father: {fileID: 220565018}
@@ -41593,20 +41676,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1899537153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 44868d1e250564d4f9a6fb34d0fc95c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: Golem
-  Event: event:/env/amb/02_cave/02_magma
-  PlayEvent: 3
-  StopEvent: 4
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!65 &1899537156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41667,7 +41739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1905699347
 Transform:
   m_ObjectHideFlags: 0
@@ -41676,8 +41748,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905699346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 746.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.90276474, y: 1, z: 1}
+  m_LocalPosition: {x: 1018.3, y: -17.5, z: 0}
+  m_LocalScale: {x: 1.1684724, y: 4.2043, z: 1}
   m_Children: []
   m_Father: {fileID: 220565018}
   m_RootOrder: 0
@@ -41697,14 +41769,14 @@ MonoBehaviour:
   CollisionTag: Golem
   Event: event:/music/cave/main
   PlayEvent: 3
-  StopEvent: 2
+  StopEvent: 4
   AllowFadeout: 1
-  TriggerOnce: 0
+  TriggerOnce: 1
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!65 &1905699349
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42030,7 +42102,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1914830966
 PrefabInstance:
@@ -42778,6 +42850,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &1956161091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -43815,7 +43888,7 @@ Transform:
   m_LocalScale: {x: 20.83, y: 8.4, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 55
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001983365
 GameObject:
@@ -43995,6 +44068,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &2010914202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44217,7 +44291,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014927227
 GameObject:
@@ -44617,7 +44691,7 @@ PrefabInstance:
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 50
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 3502194506625576369, guid: cf48fe1eceb256b40b966e88430d9c3c,
         type: 3}
@@ -45038,8 +45112,8 @@ MonoBehaviour:
   stayOnToUse: 0
   reverseBehavior: 0
   bridgeSound: 0
-  sinkStoneSound: 0
-  boatSound: 1
+  sinkStoneSound: 1
+  boatSound: 0
   playOnce: 0
   needBothCharacters: 0
   character: {fileID: 0}
@@ -45080,6 +45154,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 1
+  noSound: 0
 --- !u!54 &2065915809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46143,6 +46218,76 @@ Transform:
   m_Father: {fileID: 395571245}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2129660833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129660834}
+  - component: {fileID: 2129660836}
+  - component: {fileID: 2129660835}
+  - component: {fileID: 2129660837}
+  m_Layer: 0
+  m_Name: VideoTriggerKiller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2129660834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129660833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1141.4, y: -34.11, z: 6.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 220565018}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2129660835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129660833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b00195201700e41b6c516a285d8fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2129660836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129660833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 24.67, y: 26.27, z: 24.97}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2129660837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129660833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c82697ac940b0048b335d4682c5188e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2131605989
 GameObject:
   m_ObjectHideFlags: 0
@@ -46567,6 +46712,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 1
   boatSound: 0
+  noSound: 0
 --- !u!54 &2135080502
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -46912,6 +47058,7 @@ MonoBehaviour:
   noSoundOnCollision: 0
   sinkStoneSound: 0
   boatSound: 0
+  noSound: 0
 --- !u!65 &2142828398
 BoxCollider:
   m_ObjectHideFlags: 0
