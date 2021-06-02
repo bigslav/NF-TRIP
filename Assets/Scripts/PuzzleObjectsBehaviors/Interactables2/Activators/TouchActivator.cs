@@ -19,7 +19,43 @@ public class TouchActivator : MonoBehaviour
     private int charactersCount;
     //private bool soundPlayed = false;
 
+    private string PlayerStateEvent = "event:/dialogue/cave/MG8";
+    private string InSnapshot = "snapshot:/Dialogue";
+    public bool dialogueTriggered = false;
+    public bool dialogueDone = false;
+    FMOD.Studio.EventInstance InSnapshotEvent;
+    FMOD.Studio.EventInstance DialogueEvent;
+    FMOD.Studio.PLAYBACK_STATE state;
+    public bool longDialogue = false;
 
+    private void Start()
+    {
+        InSnapshotEvent = FMODUnity.RuntimeManager.CreateInstance(InSnapshot);
+        DialogueEvent = FMODUnity.RuntimeManager.CreateInstance(PlayerStateEvent);
+    }
+
+    private void Update()
+    {
+        if (Time.timeScale != 1)
+        {
+            DialogueEvent.setPaused(true);
+        }
+        else if (Time.timeScale == 1)
+        {
+            DialogueEvent.setPaused(false);
+        }
+        if (!dialogueDone && dialogueTriggered)
+        {
+            DialogueEvent.getPlaybackState(out state);
+            //Debug.Log("state: " + state);
+            if (state.ToString() == "STOPPED")
+            {
+                InSnapshotEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                InSnapshotEvent.release();
+                dialogueDone = true;
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!stayOnToUse && !reverseBehavior)
@@ -32,7 +68,10 @@ public class TouchActivator : MonoBehaviour
                     {
                         if (sinkStoneSound || boatSound)
                         {
-
+                            if (!dialogueTriggered && longDialogue)
+                            {
+                                playDialogue();
+                            }
                         }
                         else
                         {
@@ -86,6 +125,12 @@ public class TouchActivator : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        //if (longDialogue && dialogueTriggered && other.CompareTag("Golem"))
+        //{
+        //    StopDialogue();
+        //    longDialogue = false;
+        //}
+
         if (reverseBehavior)
             if (whoCanInteract == (whoCanInteract | (1 << other.gameObject.layer)))
             {
@@ -129,5 +174,19 @@ public class TouchActivator : MonoBehaviour
         FMODUnity.RuntimeManager.AttachInstanceToGameObject(playSoundPlatforms, transform, GetComponent<Rigidbody>());
         playSoundPlatforms.start();
         playSoundPlatforms.release();
+    }
+    void playDialogue()
+    {
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(DialogueEvent, transform, GetComponent<Rigidbody>());
+        DialogueEvent.start();
+        InSnapshotEvent.start();
+        dialogueTriggered = true;
+    }
+
+    public void StopDialogue()
+    {
+        Debug.Log("stopdialogue");
+        DialogueEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        DialogueEvent.release();
     }
 }

@@ -7,18 +7,37 @@ using UnityEngine.SceneManagement;
 public class ResetTrigger : MonoBehaviour
 {
     public bool totalReset = false;
+    private MagmaScript magma;
+    private MagmaScript magmaLogs;
+    private TouchActivator dialogue;
 
+    private void Start()
+    {
+        dialogue = GameObject.Find("Boat1").GetComponent<TouchActivator>();
+        magma = GameObject.Find("MagmaBridges").GetComponent<MagmaScript>();
+        magmaLogs = GameObject.Find("MagmaLogs").GetComponent<MagmaScript>();
+    }
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             if (totalReset)
             {
-                if (GameObject.Find("Dialog4 - Boat").GetComponent<DialogueSnapshot>() != null)
+                if (dialogue != null)
                 {
-                    GameObject.Find("Dialog4 - Boat").GetComponent<DialogueSnapshot>().StopDialogue();
+                    Debug.Log("stopdialogue");
+                    dialogue.StopDialogue();
                 }
-                GameObject.Find("Ambience").GetComponent<MagmaScript>().StopMagma();
+                if (magma != null)
+                {
+                    Debug.Log("stopmagma");
+                    magma.StopMagma();
+                }
+                if (magmaLogs != null)
+                {
+                    Debug.Log("stopmagma2");
+                    magmaLogs.StopMagma();
+                }
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else

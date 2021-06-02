@@ -40,10 +40,10 @@ public class InputHandler : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(LoaderWatchDog.wasLoaded);
+        //Debug.Log(LoaderWatchDog.wasLoaded);
         if (LoaderWatchDog.wasLoaded == 0)
         {
-            Debug.Log("SPAWN");
+            //Debug.Log("SPAWN");
             Spawn();
         }
         else
@@ -60,7 +60,7 @@ public class InputHandler : MonoBehaviour
     public void Spawn()
     {
         string str = UnityEngine.StackTraceUtility.ExtractStackTrace();
-        Debug.Log(str);
+        //Debug.Log(str);
         gameObject.transform.position = listOfSpawnPoints[GlobalVariables.spawnToCheckointId].transform.position;
         _character.isFacingRight = true;
         _character.isPulling = false;

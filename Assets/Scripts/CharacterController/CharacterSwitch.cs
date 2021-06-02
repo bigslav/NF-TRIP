@@ -79,7 +79,7 @@ public class CharacterSwitch : MonoBehaviour
         {
             Vector3 dist = _golemGameObject.transform.position - _mushroomGameObject.transform.position;
 
-            Debug.Log(Mathf.Abs(dist.x) +" "+ Mathf.Abs(dist.y));
+            //Debug.Log(Mathf.Abs(dist.x) +" "+ Mathf.Abs(dist.y));
 
             
 

@@ -7,10 +7,14 @@ public class VideoPlayerScript : MonoBehaviour
 {
     UnityEngine.Video.VideoPlayer videoPlayer;
     private bool triggered = false;
+    private GameObject golem;
+    private GameObject mushroom;
 
     // Start is called before the first frame update
     void Start()
     {
+        golem = GameObject.Find("Golem");
+        mushroom = GameObject.Find("Mushroom");
         GameObject camera = GameObject.Find("Camera");
         videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
         videoPlayer.playOnAwake = false;
@@ -23,6 +27,14 @@ public class VideoPlayerScript : MonoBehaviour
     {
         if (!triggered)
         {
+            if (golem != null)
+            {
+                golem.SetActive(false);
+            }
+            if (mushroom != null)
+            {
+                mushroom.SetActive(false);
+            }
             videoPlayer.Play();
             videoPlayer.loopPointReached += CheckOver;
             triggered = true;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MagmaScript : MonoBehaviour
 {
     FMOD.Studio.EventInstance magma;
+    private bool magmaOneSound = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +20,29 @@ public class MagmaScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        FMODUnity.RuntimeManager.AttachInstanceToGameObject(magma, transform, GetComponent<Rigidbody>());
-        magma.start();
-        magma.release();
+        if (other.CompareTag("Golem") && !magmaOneSound)
+        {
+            Debug.Log("Start magma: " + other.name);
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(magma, transform, GetComponent<Rigidbody>());
+            magma.start();
+            magmaOneSound = false;
+        }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Golem"))
+        {
+            Debug.Log("Exit Magma Collider");
+            magma.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            magma.release();
+        }
+    }
+
     public void StopMagma()
     {
-        Debug.Log("stopdialogue");
         magma.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        magma.release();
+        magmaOneSound = true;
     }
 }
