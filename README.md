@@ -1,4 +1,6 @@
-2.5d platformer game prototype made with Unity and C#.
+# Trip to Wanderland
+2.5d platformer game prototype made with Unity and C#
+
 ![Alt text](readme-files/Logo.png?raw=true "Logo")
 
 The project was developed by a team of aspiring developers during https://lestagamesacademy.ru/ (formerly Wargaming Academy)
