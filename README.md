@@ -4,17 +4,24 @@
 ![Alt text](readme-files/Logo.png?raw=true "Logo")
 
 The project was developed by a team of aspiring developers during https://lestagamesacademy.ru/ (formerly Wargaming Academy)
+
 The development took 6 month
 
-First demo - first milestone, developed within 10 days after formalizing the idea
+## First demo
+First milestone, developed within 10 days after formalizing the idea
+
 You can play it here: https://bigslav.itch.io/trip
 ![Alt text](readme-files/Demo.png?raw=true "Demo")
 
-Vertical Slice - second milestone, developed within 3 month
+## Vertical Slice 
+Second milestone, developed within 3 month
+
 You can play it here: https://bigslav.itch.io/trip-srez
 ![Alt text](readme-files/VerticalSlice.png?raw=true "Vertical Slice")
 
-Final Prototype - final product, developed within 6 month
+## Final Prototype 
+Final product, developed within 6 month
+
 You can download it here: https://bigslav.itch.io/trip-srez
 ![Alt text](readme-files/FinalPrototype1.png?raw=true "Final Prototype 1")
 ![Alt text](readme-files/FinalPrototype2.png?raw=true "Final Prototype 2")
